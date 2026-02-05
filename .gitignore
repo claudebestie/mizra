@@ -1,0 +1,23 @@
+# Ignore everything by default
+*
+*/
+
+# But track these files
+!.gitignore
+!index.html
+!robots.txt
+!sitemap.xml
+!manifest.json
+!.htaccess
+!SEO-OPTIMIZATIONS.md
+!README.md
+
+# Allow images folder (when created)
+!images/
+!images/**
+
+# Allow css/js folders (when created)
+!css/
+!css/**
+!js/
+!js/**

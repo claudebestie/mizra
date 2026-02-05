@@ -1,0 +1,27 @@
+# robots.txt for MIZRA - Restaurant Website Builder
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow access to admin or private directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_private/
+
+# Allow Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap location
+Sitemap: https://mizra.co.il/sitemap.xml
+
+# Crawl-delay for all bots (helps prevent server overload)
+Crawl-delay: 1
+
+# Additional rules for specific bots
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Slurp
+Crawl-delay: 1

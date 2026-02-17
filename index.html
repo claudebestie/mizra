@@ -186,13 +186,6 @@
             border-bottom: 2px solid rgba(14, 165, 233, 0.1);
         }
 
-        .nav-lang-content {
-            display: none;
-        }
-
-        .nav-lang-content.active {
-            display: contents;
-        }
 
         .nav-container {
             max-width: 1400px;
@@ -1156,20 +1149,10 @@
 
             <div class="nav-center">
                 <ul class="nav-links">
-                    <!-- Hebrew Links -->
-                    <div class="nav-lang-content active" data-lang="he">
-                        <li><a href="#pricing">מחירים</a></li>
-                        <li><a href="#cases">תיק עבודות</a></li>
-                        <li><a href="#process">תהליך</a></li>
-                        <li><a href="#contact">צור קשר</a></li>
-                    </div>
-                    <!-- English Links -->
-                    <div class="nav-lang-content" data-lang="en">
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#cases">Portfolio</a></li>
-                        <li><a href="#process">Process</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </div>
+                    <li><a href="#pricing" data-he="מחירים" data-en="Pricing">מחירים</a></li>
+                    <li><a href="#cases" data-he="תיק עבודות" data-en="Portfolio">תיק עבודות</a></li>
+                    <li><a href="#process" data-he="תהליך" data-en="Process">תהליך</a></li>
+                    <li><a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></li>
                 </ul>
             </div>
 
@@ -1800,23 +1783,41 @@
     <script>
         // Language switcher
         const langBtns = document.querySelectorAll('.lang-btn');
-        const langContents = document.querySelectorAll('.lang-content, .nav-lang-content');
+        const langContents = document.querySelectorAll('.lang-content');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function switchLanguage(targetLang) {
+            // Update buttons
+            langBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-lang="${targetLang}"]`).classList.add('active');
+
+            // Update content sections
+            langContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.dataset.lang === targetLang) {
+                    content.classList.add('active');
+                }
+            });
+
+            // Update navigation links text
+            navLinks.forEach(link => {
+                const text = link.getAttribute(`data-${targetLang}`);
+                if (text) link.textContent = text;
+            });
+
+            // Update document attributes
+            document.documentElement.setAttribute('lang', targetLang);
+            document.documentElement.setAttribute('dir', targetLang === 'he' ? 'rtl' : 'ltr');
+        }
 
         langBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const targetLang = btn.dataset.lang;
-                langBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                langContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.dataset.lang === targetLang) {
-                        content.classList.add('active');
-                    }
-                });
-                document.documentElement.setAttribute('lang', targetLang);
-                document.documentElement.setAttribute('dir', targetLang === 'he' ? 'rtl' : 'ltr');
+                switchLanguage(btn.dataset.lang);
             });
         });
+
+        // Initialize with Hebrew
+        switchLanguage('he');
 
         // ROI Calculator - Hebrew
         function calculateROI() {

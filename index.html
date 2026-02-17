@@ -170,6 +170,8 @@
             background: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
         /* Navigation */
@@ -182,6 +184,14 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(14, 165, 233, 0.1);
             border-bottom: 2px solid rgba(14, 165, 233, 0.1);
+        }
+
+        nav.lang-content {
+            display: none;
+        }
+
+        nav.lang-content.active {
+            display: block;
         }
 
         .nav-container {

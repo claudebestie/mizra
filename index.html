@@ -224,10 +224,6 @@
             align-items: center;
         }
 
-        .cta-nav {
-            margin-left: auto;
-        }
-
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
@@ -1033,8 +1029,8 @@
         <button class="lang-btn" data-lang="en">English</button>
     </div>
 
-    <!-- Navigation -->
-    <nav role="navigation" aria-label="Main Navigation">
+    <!-- Navigation Hebrew -->
+    <nav class="lang-content active" data-lang="he" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="logo" role="banner">MIZRA</div>
             <ul class="nav-links">
@@ -1047,8 +1043,22 @@
         </div>
     </nav>
 
+    <!-- Navigation English -->
+    <nav class="lang-content" data-lang="en" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="logo" role="banner">MIZRA</div>
+            <ul class="nav-links">
+                <li><a href="#pricing" title="View our packages">Pricing</a></li>
+                <li><a href="#cases" title="See examples from happy clients">Case Studies</a></li>
+                <li><a href="#process" title="Learn about our process">Process</a></li>
+                <li><a href="#contact" title="Contact us">Contact</a></li>
+            </ul>
+            <a href="mailto:contact@getmizra.com?subject=Restaurant Website Inquiry" class="cta-nav" title="Send email for quote">📧 contact@getmizra.com</a>
+        </div>
+    </nav>
+
     <!-- HEBREW CONTENT -->
-    <div class="lang-content active" data-lang="he" lang="he">
+    <main class="lang-content active" data-lang="he" lang="he">
         <!-- Hero -->
         <section class="hero" role="banner" aria-label="כותרת ראשית">
             <div class="hero-container">
@@ -1342,10 +1352,10 @@
                 </form>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- ENGLISH CONTENT -->
-    <div class="lang-content" data-lang="en">
+    <main class="lang-content" data-lang="en">
         <!-- Hero -->
         <section class="hero">
             <div class="hero-container">
@@ -1632,7 +1642,7 @@
                 </form>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>

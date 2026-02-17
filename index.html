@@ -186,12 +186,12 @@
             border-bottom: 2px solid rgba(14, 165, 233, 0.1);
         }
 
-        nav.lang-content {
+        .nav-lang-content {
             display: none;
         }
 
-        nav.lang-content.active {
-            display: block;
+        .nav-lang-content.active {
+            display: contents;
         }
 
         .nav-container {
@@ -1143,8 +1143,8 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Hebrew -->
-    <nav class="lang-content active" data-lang="he" role="navigation" aria-label="Main Navigation">
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="logo" role="banner">MIZRA</div>
 
@@ -1156,10 +1156,20 @@
 
             <div class="nav-center">
                 <ul class="nav-links">
-                    <li><a href="#pricing">מחירים</a></li>
-                    <li><a href="#cases">תיק עבודות</a></li>
-                    <li><a href="#process">תהליך</a></li>
-                    <li><a href="#contact">צור קשר</a></li>
+                    <!-- Hebrew Links -->
+                    <div class="nav-lang-content active" data-lang="he">
+                        <li><a href="#pricing">מחירים</a></li>
+                        <li><a href="#cases">תיק עבודות</a></li>
+                        <li><a href="#process">תהליך</a></li>
+                        <li><a href="#contact">צור קשר</a></li>
+                    </div>
+                    <!-- English Links -->
+                    <div class="nav-lang-content" data-lang="en">
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#cases">Portfolio</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </div>
                 </ul>
             </div>
 
@@ -1167,36 +1177,6 @@
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="he">עב</button>
                     <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-                <a href="https://wa.me/9720559927367" class="cta-nav">💬 WhatsApp</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navigation English -->
-    <nav class="lang-content" data-lang="en" role="navigation" aria-label="Main Navigation">
-        <div class="nav-container">
-            <div class="logo" role="banner">MIZRA</div>
-
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#cases">Portfolio</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-right">
-                <div class="lang-switch">
-                    <button class="lang-btn" data-lang="he">עב</button>
-                    <button class="lang-btn active" data-lang="en">EN</button>
                 </div>
                 <a href="https://wa.me/9720559927367" class="cta-nav">💬 WhatsApp</a>
             </div>
@@ -1820,8 +1800,8 @@
     <script>
         // Language switcher
         const langBtns = document.querySelectorAll('.lang-btn');
-        const langContents = document.querySelectorAll('.lang-content');
-        
+        const langContents = document.querySelectorAll('.lang-content, .nav-lang-content');
+
         langBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetLang = btn.dataset.lang;

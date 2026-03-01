@@ -1,23 +1,14 @@
-# Ignore everything by default
-*
-*/
+# Dependencies
+node_modules/
 
-# But track these files
-!.gitignore
-!index.html
-!robots.txt
-!sitemap.xml
-!manifest.json
-!.htaccess
-!SEO-OPTIMIZATIONS.md
-!README.md
+# OS files
+.DS_Store
+Thumbs.db
 
-# Allow images folder (when created)
-!images/
-!images/**
+# IDE
+.vscode/
+.idea/
 
-# Allow css/js folders (when created)
-!css/
-!css/**
-!js/
-!js/**
+# Environment
+.env
+.env.local

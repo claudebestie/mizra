@@ -1,57 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-    <!-- Homepage Hebrew -->
-    <url>
-        <loc>https://mizra.co.il</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mizra.co.il/en"/>
-        <xhtml:link rel="alternate" hreflang="he" href="https://mizra.co.il"/>
-    </url>
-
-    <!-- Homepage English -->
-    <url>
-        <loc>https://mizra.co.il/en</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="he" href="https://mizra.co.il"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://mizra.co.il/en"/>
-    </url>
-
-    <!-- Pricing Page -->
-    <url>
-        <loc>https://mizra.co.il#pricing</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <!-- Case Studies -->
-    <url>
-        <loc>https://mizra.co.il#cases</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Process -->
-    <url>
-        <loc>https://mizra.co.il#process</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Contact -->
-    <url>
-        <loc>https://mizra.co.il#contact</loc>
-        <lastmod>2025-02-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://getmizra.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://getmizra.com/pricing/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/free-audit/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/restaurants/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/cafes/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/beauty-salons/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/barbershops/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/clinics/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/lawyers/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/services/contractors/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/portfolio/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/kama-ole-livnot-atar/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/lama-kol-esek-tsarikh-atar/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/wix-vs-atar-mutaam/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/tauyot-be-atar-iski/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/blog/ai-biniyat-atarim/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/about/</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://getmizra.com/en/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>

@@ -1,0 +1,65 @@
+[build]
+  publish = "."
+
+# Trailing slash enforcement for service pages
+[[redirects]]
+  from = "/services/restaurants"
+  to = "/services/restaurants/"
+  status = 301
+
+[[redirects]]
+  from = "/services/cafes"
+  to = "/services/cafes/"
+  status = 301
+
+[[redirects]]
+  from = "/services/beauty-salons"
+  to = "/services/beauty-salons/"
+  status = 301
+
+[[redirects]]
+  from = "/services/barbershops"
+  to = "/services/barbershops/"
+  status = 301
+
+[[redirects]]
+  from = "/services/clinics"
+  to = "/services/clinics/"
+  status = 301
+
+[[redirects]]
+  from = "/services/lawyers"
+  to = "/services/lawyers/"
+  status = 301
+
+[[redirects]]
+  from = "/services/contractors"
+  to = "/services/contractors/"
+  status = 301
+
+# Old single-page hash redirects
+[[redirects]]
+  from = "/#audit"
+  to = "/free-audit/"
+  status = 301
+
+[[redirects]]
+  from = "/#pricing"
+  to = "/pricing/"
+  status = 301
+
+# Cache headers
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/shared.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

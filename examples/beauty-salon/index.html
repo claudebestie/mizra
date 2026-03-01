@@ -7,24 +7,27 @@
 <meta name="description" content="סטודיו לילך - סטודיו יופי בוטיק ברחוב בזל, תל אביב. שיער, ציפורניים, טיפוחי עור, איפור. חוויית יופי מפנקת ומקצועית.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Nunito+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-/* --- VARIABLES --- */
+/* ========================================
+   VARIABLES
+   ======================================== */
 :root {
   --blush: #F2DED5;
-  --rose: #C9A6A0;
   --plum: #4A2040;
+  --lilac: #D8C8E6;
   --champagne: #D4AF7F;
   --offwhite: #FAF7F4;
-  --lilac: #D8C8E6;
-  --lilac-soft: rgba(216,200,230,.3);
+  --rose: #C9A6A0;
+  --lilac-soft: rgba(216,200,230,.35);
   --plum-light: rgba(74,32,64,.06);
-  --rose-soft: rgba(201,166,160,.2);
   --sf: 'Tenor Sans', Georgia, serif;
   --sn: 'Nunito Sans', system-ui, sans-serif;
 }
 
-/* --- RESET --- */
+/* ========================================
+   RESET
+   ======================================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -40,105 +43,125 @@ body {
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
-/* --- LANGUAGE --- */
+/* ========================================
+   LANGUAGE TOGGLE PATTERN
+   ======================================== */
 .he { display: none; }
-body.lh .en { display: none; }
-body.lh .he { display: block; }
-body.lh { direction: rtl; }
+body.lang-he .en { display: none !important; }
+body.lang-he .he { display: block !important; }
+body.lang-he span.he { display: inline !important; }
+body.lang-he span.en { display: none !important; }
+body.lang-he { direction: rtl; }
+body:not(.lang-he) { direction: ltr; }
+span.en { display: inline; }
+span.he { display: none; }
 
-/* --- MIZRA BANNER --- */
+/* ========================================
+   MIZRA DEMO BANNER
+   ======================================== */
 .mizra-banner {
   background: var(--blush);
   color: var(--plum);
   text-align: center;
   padding: 10px 20px;
   font-size: .76rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .3px;
   position: relative;
-  z-index: 110;
+  z-index: 200;
 }
 .mizra-banner a {
-  color: var(--rose);
+  color: var(--plum);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
   margin-inline-start: 6px;
   transition: color .3s;
 }
-.mizra-banner a:hover { color: var(--plum); }
+.mizra-banner a:hover { color: var(--champagne); }
 
-/* --- NAV --- */
+/* ========================================
+   NAVIGATION
+   ======================================== */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
   padding: 0 48px;
-  height: 68px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(250,247,244,.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(74,32,64,.06);
+  background: rgba(250,247,244,.88);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  border-bottom: 1px solid rgba(74,32,64,.05);
+  transition: background .3s, box-shadow .3s;
+}
+.nav.scrolled {
+  background: rgba(250,247,244,.96);
+  box-shadow: 0 2px 24px rgba(74,32,64,.06);
 }
 .nav-logo {
   font-family: var(--sf);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--plum);
-  font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: .5px;
+  white-space: nowrap;
 }
-.nav-logo span {
-  display: block;
-  font-size: .65rem;
+.nav-logo small {
+  font-family: var(--sn);
+  font-size: .6rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--rose);
+  display: block;
   margin-top: -2px;
+  font-weight: 600;
 }
-.nav-links {
+.nav-center {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
 }
-.nav-links a {
+.nav-center a {
   color: var(--plum);
   font-size: .82rem;
-  font-weight: 500;
-  transition: color .3s;
-  opacity: .7;
+  font-weight: 600;
+  opacity: .65;
+  transition: opacity .3s, color .3s;
+  letter-spacing: .2px;
 }
-.nav-links a:hover { opacity: 1; }
+.nav-center a:hover { opacity: 1; color: var(--champagne); }
 .nav-right {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* Language switcher */
-.ls {
+/* Language Switcher */
+.lang-switch {
   display: flex;
   gap: 2px;
   background: rgba(74,32,64,.05);
   border-radius: 20px;
-  padding: 2px;
+  padding: 3px;
 }
-.ls button {
-  padding: 4px 12px;
+.lang-switch button {
+  padding: 4px 13px;
   border: none;
   background: transparent;
   color: var(--plum);
-  font-size: .7rem;
+  font-size: .68rem;
   font-weight: 700;
   cursor: pointer;
   border-radius: 18px;
   transition: all .3s;
   font-family: var(--sn);
-  opacity: .5;
+  opacity: .45;
+  letter-spacing: .5px;
 }
-.ls button.on {
+.lang-switch button.active {
   background: var(--rose);
   color: #fff;
   opacity: 1;
@@ -150,15 +173,16 @@ body.lh { direction: rtl; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 28px;
+  padding: 13px 30px;
   border-radius: 50px;
   font-size: .85rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
   font-family: var(--sn);
-  transition: all .35s ease;
+  transition: all .4s cubic-bezier(.25,.8,.25,1);
   text-decoration: none;
+  letter-spacing: .3px;
 }
 .btn-rose {
   background: var(--rose);
@@ -168,46 +192,57 @@ body.lh { direction: rtl; }
 .btn-rose:hover {
   background: #b8918b;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(201,166,160,.45);
+  box-shadow: 0 10px 36px rgba(201,166,160,.45);
 }
 .btn-plum {
   background: var(--plum);
   color: #fff;
-  box-shadow: 0 4px 20px rgba(74,32,64,.3);
+  box-shadow: 0 4px 20px rgba(74,32,64,.25);
 }
 .btn-plum:hover {
   background: #5e2a54;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(74,32,64,.4);
+  box-shadow: 0 10px 36px rgba(74,32,64,.35);
 }
 .btn-outline {
   background: transparent;
-  color: var(--plum);
-  border: 1.5px solid rgba(74,32,64,.2);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.5);
 }
 .btn-outline:hover {
-  border-color: var(--rose);
-  color: var(--rose);
+  background: rgba(255,255,255,.15);
+  border-color: #fff;
 }
 .btn-white {
   background: #fff;
   color: var(--plum);
-  box-shadow: 0 4px 20px rgba(74,32,64,.15);
+  box-shadow: 0 4px 24px rgba(74,32,64,.12);
 }
 .btn-white:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(74,32,64,.2);
+  box-shadow: 0 10px 36px rgba(74,32,64,.18);
+}
+.btn-champagne {
+  background: var(--champagne);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(212,175,127,.35);
+}
+.btn-champagne:hover {
+  background: #c9a06e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(212,175,127,.45);
 }
 .btn-sm { padding: 10px 22px; font-size: .8rem; }
 
-/* Mobile hamburger */
+/* Mobile Hamburger */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 6px;
-  z-index: 110;
+  z-index: 120;
+  position: relative;
 }
 .menu-toggle span {
   display: block;
@@ -215,98 +250,107 @@ body.lh { direction: rtl; }
   height: 1.5px;
   background: var(--plum);
   margin: 5px 0;
-  transition: .3s;
+  transition: .35s cubic-bezier(.25,.8,.25,1);
   border-radius: 2px;
 }
 .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* --- HERO --- */
+/* ========================================
+   HERO
+   ======================================== */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(180deg, var(--blush) 0%, var(--offwhite) 100%);
   overflow: hidden;
-  padding: 80px 24px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(74,32,64,.52) 0%,
+    rgba(74,32,64,.38) 40%,
+    rgba(201,166,160,.35) 100%
+  );
+  z-index: 1;
 }
 .hero-deco {
   position: absolute;
   border-radius: 50%;
-  opacity: .25;
   pointer-events: none;
+  z-index: 2;
+  opacity: .12;
 }
 .hero-deco-1 {
-  width: 320px;
-  height: 320px;
+  width: 380px; height: 380px;
   background: var(--lilac);
-  top: 8%;
-  right: -60px;
-  animation: floatSlow 12s ease-in-out infinite;
+  top: 5%; right: -80px;
+  animation: heroFloat 14s ease-in-out infinite;
 }
 .hero-deco-2 {
-  width: 200px;
-  height: 200px;
-  background: var(--rose);
-  bottom: 12%;
-  left: -40px;
-  animation: floatSlow 10s ease-in-out infinite reverse;
+  width: 220px; height: 220px;
+  background: var(--champagne);
+  bottom: 10%; left: -50px;
+  animation: heroFloat 11s ease-in-out infinite reverse;
 }
 .hero-deco-3 {
-  width: 140px;
-  height: 140px;
-  background: var(--champagne);
-  top: 20%;
-  left: 10%;
-  animation: floatSlow 14s ease-in-out infinite;
+  width: 150px; height: 150px;
+  background: var(--blush);
+  top: 25%; left: 8%;
+  animation: heroFloat 16s ease-in-out infinite 2s;
 }
-.hero-deco-4 {
-  width: 100px;
-  height: 100px;
-  background: var(--lilac);
-  bottom: 25%;
-  right: 12%;
-  animation: floatSlow 9s ease-in-out infinite reverse;
-}
-@keyframes floatSlow {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(15px, -20px); }
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(18px, -24px) scale(1.04); }
 }
 .hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 700px;
+  z-index: 3;
+  max-width: 720px;
+  padding: 0 24px;
 }
 .hero-pre {
   font-family: var(--sn);
-  font-size: .8rem;
-  letter-spacing: 4px;
+  font-size: .78rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 20px;
+  color: var(--champagne);
+  margin-bottom: 24px;
   font-weight: 600;
 }
 .hero h1 {
   font-family: var(--sf);
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: 400;
-  color: var(--plum);
-  line-height: 1.1;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+  color: #fff;
+  line-height: 1.08;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
 }
 .hero-tagline {
-  font-family: var(--sf);
-  font-size: 1.25rem;
-  color: var(--rose);
-  margin-bottom: 40px;
+  font-family: var(--sn);
+  font-size: 1.15rem;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 44px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 .hero-buttons {
   display: flex;
@@ -314,452 +358,747 @@ body.lh { direction: rtl; }
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,.5);
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: .5; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}
 
-/* --- SECTION COMMON --- */
+/* ========================================
+   SECTION COMMON
+   ======================================== */
 .section {
-  padding: 100px 24px;
+  padding: 110px 24px;
+  position: relative;
 }
 .section-inner {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 .section-label {
   font-family: var(--sn);
-  font-size: .75rem;
-  letter-spacing: 4px;
+  font-size: .72rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 12px;
+  color: var(--champagne);
+  margin-bottom: 14px;
   font-weight: 600;
   text-align: center;
 }
 .section-title {
   font-family: var(--sf);
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   color: var(--plum);
   text-align: center;
   margin-bottom: 16px;
   font-weight: 400;
   letter-spacing: .5px;
+  line-height: 1.2;
 }
 .section-sub {
   text-align: center;
   color: var(--rose);
   font-size: .95rem;
-  max-width: 540px;
-  margin: 0 auto 56px;
-  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 60px;
+  line-height: 1.8;
 }
-.bg-blush { background: var(--blush); }
-.bg-white { background: var(--offwhite); }
-.bg-lilac { background: var(--lilac); }
-.bg-plum { background: var(--plum); }
 
-/* --- SERVICES --- */
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s cubic-bezier(.25,.8,.25,1), transform .8s cubic-bezier(.25,.8,.25,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* ========================================
+   SERVICES
+   ======================================== */
+.services-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 56px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.services-img {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 280px;
+}
+.services-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.25,.8,.25,1);
+}
+.services-img:hover img {
+  transform: scale(1.04);
+}
+.services-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(74,32,64,.3) 0%, transparent 50%);
+  border-radius: 20px;
+}
 .services-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(74,32,64,.06);
 }
-.service-band {
+.service-row {
   display: flex;
   align-items: center;
-  padding: 36px 48px;
-  border-bottom: 1px solid rgba(74,32,64,.06);
-  transition: all .35s ease;
-  gap: 24px;
+  padding: 28px 40px;
+  gap: 20px;
+  transition: all .35s cubic-bezier(.25,.8,.25,1);
+  border-bottom: 1px solid rgba(74,32,64,.05);
+  background: #fff;
 }
-.service-band:last-child { border-bottom: none; }
-.service-band:nth-child(odd) { background: var(--offwhite); }
-.service-band:nth-child(even) { background: var(--blush); }
-.service-band:hover {
-  background: rgba(216,200,230,.2);
-  transform: scale(1.005);
+.service-row:last-child { border-bottom: none; }
+.service-row:nth-child(even) { background: rgba(242,222,213,.25); }
+.service-row:hover {
+  background: rgba(216,200,230,.18);
+  padding-inline-start: 48px;
 }
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--lilac-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.service-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--plum);
+  fill: none;
+  stroke-width: 1.5;
+  opacity: .6;
+}
+.service-info { flex: 1; }
 .service-name {
   font-family: var(--sf);
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--plum);
-  flex: 0 0 240px;
-  font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: .3px;
+  margin-bottom: 2px;
 }
 .service-desc {
-  flex: 1;
-  font-size: .88rem;
+  font-size: .82rem;
   color: var(--rose);
-  line-height: 1.6;
-  padding: 0 24px;
+  line-height: 1.5;
 }
 .service-price {
   font-family: var(--sf);
-  font-size: 1.3rem;
-  color: var(--plum);
-  flex: 0 0 auto;
+  font-size: 1.1rem;
+  color: var(--champagne);
   white-space: nowrap;
   letter-spacing: .5px;
+  flex-shrink: 0;
 }
 
-/* --- PARALLAX SECTION --- */
-.parallax-section {
-  position: relative;
-  min-height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* ========================================
+   ABOUT / ATMOSPHERE
+   ======================================== */
+.about {
+  background: var(--blush);
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(74,32,64,.85) 0%, rgba(201,166,160,.7) 100%);
-  background-attachment: fixed;
-  padding: 80px 24px;
 }
-.parallax-content {
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-image {
   position: relative;
-  z-index: 2;
-  max-width: 600px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 56px rgba(74,32,64,.12);
 }
-.parallax-content .quote {
+.about-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+.about-image-deco {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--lilac);
+  opacity: .3;
+  bottom: -30px;
+  right: -30px;
+  z-index: -1;
+}
+.about-text .section-label { text-align: start; }
+.about-text .section-title { text-align: start; font-size: 2.4rem; }
+.about-text p {
+  font-size: .95rem;
+  color: var(--plum);
+  line-height: 1.9;
+  margin-bottom: 20px;
+  opacity: .85;
+}
+.about-features {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+.about-feature {
+  text-align: center;
+}
+.about-feature-num {
   font-family: var(--sf);
-  font-size: 1.8rem;
-  color: #fff;
-  line-height: 1.5;
-  font-weight: 400;
-  font-style: italic;
+  font-size: 2.2rem;
+  color: var(--champagne);
+  line-height: 1;
+  margin-bottom: 4px;
 }
-.parallax-content .quote-attr {
-  color: rgba(255,255,255,.7);
-  font-size: .85rem;
-  margin-top: 20px;
+.about-feature-label {
+  font-size: .72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose);
+  font-weight: 600;
 }
 
-/* --- TEAM --- */
+/* ========================================
+   TEAM
+   ======================================== */
 .team-grid {
   display: flex;
   justify-content: center;
-  gap: 56px;
+  gap: 48px;
   flex-wrap: wrap;
 }
-.team-member {
+.team-card {
   text-align: center;
-  max-width: 240px;
+  max-width: 260px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 32px 36px;
+  box-shadow: 0 8px 40px rgba(74,32,64,.06);
+  transition: transform .4s cubic-bezier(.25,.8,.25,1), box-shadow .4s;
 }
-.team-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin: 0 auto 24px;
-  background: linear-gradient(135deg, var(--lilac), var(--blush), var(--rose));
-  padding: 4px;
-  box-shadow: 0 8px 32px rgba(74,32,64,.1);
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 56px rgba(74,32,64,.12);
 }
-.team-photo-inner {
-  width: 100%;
-  height: 100%;
+.team-avatar {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: var(--offwhite);
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--lilac), var(--blush));
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-.team-photo-inner svg {
-  width: 60px;
-  height: 60px;
-  opacity: .2;
+  font-family: var(--sf);
+  font-size: 1.6rem;
+  color: var(--plum);
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(216,200,230,.4);
 }
 .team-name {
   font-family: var(--sf);
   font-size: 1.15rem;
   color: var(--plum);
   margin-bottom: 4px;
-  font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: .3px;
 }
 .team-role {
-  font-size: .72rem;
+  font-size: .7rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--rose);
   font-weight: 600;
+  margin-bottom: 14px;
+}
+.team-bio {
+  font-size: .83rem;
+  color: var(--plum);
+  opacity: .7;
+  line-height: 1.6;
 }
 
-/* --- TESTIMONIALS --- */
-.testimonials-section {
-  background: var(--lilac);
-  padding: 100px 24px;
-  text-align: center;
+/* ========================================
+   GALLERY
+   ======================================== */
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 260px 200px;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.testimonial-item {
+.gallery-item {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(74,32,64,.08);
+  transition: transform .5s cubic-bezier(.25,.8,.25,1), box-shadow .5s;
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 44px rgba(74,32,64,.15);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.25,.8,.25,1);
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+.gallery-item:nth-child(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.gallery-item:nth-child(2) {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+.gallery-item:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+.gallery-item:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(74,32,64,.25) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials {
+  background: linear-gradient(135deg, var(--lilac) 0%, rgba(216,200,230,.6) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials .section-label { color: var(--plum); opacity: .5; }
+.testimonials .section-title { color: var(--plum); }
+.testimonials-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .15;
+}
+.testimonials-deco-1 {
+  width: 240px; height: 240px;
+  background: var(--blush);
+  top: -60px; left: -60px;
+}
+.testimonials-deco-2 {
+  width: 180px; height: 180px;
+  background: var(--champagne);
+  bottom: -40px; right: -40px;
+}
+.testimonial-carousel {
+  position: relative;
   max-width: 640px;
   margin: 0 auto;
-  display: none;
+  min-height: 220px;
 }
-.testimonial-item.active { display: block; }
-.testimonial-quote {
+.testimonial-slide {
+  display: none;
+  animation: fadeSlide .6s ease;
+}
+.testimonial-slide.active { display: block; }
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.testimonial-quote-mark {
   font-family: var(--sf);
-  font-size: 1.5rem;
+  font-size: 4rem;
+  color: var(--plum);
+  opacity: .18;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.testimonial-text {
+  font-family: var(--sf);
+  font-size: 1.4rem;
   font-style: italic;
   color: var(--plum);
   line-height: 1.7;
   margin-bottom: 28px;
   font-weight: 400;
 }
-.testimonial-quote::before {
-  content: '\201C';
-  font-size: 3rem;
-  display: block;
-  color: var(--plum);
-  opacity: .3;
-  line-height: 1;
-  margin-bottom: 8px;
-}
 .testimonial-author {
   font-size: .85rem;
   font-weight: 600;
   color: var(--plum);
-  opacity: .7;
+  opacity: .6;
+  letter-spacing: .3px;
 }
 .testimonial-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 36px;
+  margin-top: 40px;
 }
 .testimonial-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: rgba(74,32,64,.2);
+  background: rgba(74,32,64,.18);
   cursor: pointer;
   transition: all .3s;
   padding: 0;
 }
 .testimonial-dot.active {
   background: var(--plum);
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
-/* --- GALLERY --- */
-.gallery-mosaic {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 120px);
-  gap: 12px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.gallery-tile {
-  border-radius: 12px;
-  transition: all .4s ease;
-  box-shadow: 0 4px 16px rgba(74,32,64,.06);
-}
-.gallery-tile:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 28px rgba(74,32,64,.12);
-}
-.gallery-tile:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; background: var(--rose); }
-.gallery-tile:nth-child(2) { grid-column: 3; grid-row: 1; background: var(--lilac); }
-.gallery-tile:nth-child(3) { grid-column: 4; grid-row: 1 / 3; background: var(--champagne); }
-.gallery-tile:nth-child(4) { grid-column: 3; grid-row: 2; background: var(--blush); }
-.gallery-tile:nth-child(5) { grid-column: 1; grid-row: 3; background: var(--lilac); opacity: .7; }
-.gallery-tile:nth-child(6) { grid-column: 2 / 4; grid-row: 3; background: var(--rose); opacity: .6; }
-.gallery-tile:nth-child(7) { grid-column: 4; grid-row: 3; background: var(--blush); }
-
-/* --- CTA SECTION --- */
-.cta-section {
-  background: var(--plum);
-  padding: 100px 24px;
+/* ========================================
+   BOOKING CTA
+   ======================================== */
+.booking-cta {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  overflow: hidden;
 }
-.cta-section .section-label { color: var(--champagne); }
-.cta-section .section-title { color: #fff; }
-.cta-section .section-sub { color: rgba(255,255,255,.6); }
+.booking-cta-bg {
+  position: absolute;
+  inset: 0;
+}
+.booking-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.booking-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(74,32,64,.88) 0%, rgba(74,32,64,.72) 100%);
+}
+.booking-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  padding: 60px 24px;
+}
+.booking-cta .section-label { color: var(--champagne); }
+.booking-cta .section-title { color: #fff; font-size: 3rem; }
+.booking-cta .section-sub { color: rgba(255,255,255,.65); margin-bottom: 36px; }
+.booking-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-/* --- HOURS & CONTACT --- */
-.info-grid {
+/* ========================================
+   HOURS & FOOTER
+   ======================================== */
+.hours-section {
+  background: var(--blush);
+}
+.hours-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  max-width: 800px;
+  gap: 64px;
+  max-width: 860px;
   margin: 0 auto;
 }
-.info-block h3 {
+.hours-block h3 {
   font-family: var(--sf);
   font-size: 1.3rem;
   color: var(--plum);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   font-weight: 400;
   letter-spacing: .5px;
 }
-.info-row {
+.hours-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(74,32,64,.08);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(74,32,64,.07);
   font-size: .88rem;
 }
-.info-row:last-child { border-bottom: none; }
-.info-day { color: var(--plum); font-weight: 500; }
-.info-time { color: var(--rose); }
-.info-contact-item {
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--plum); font-weight: 600; }
+.hours-time { color: var(--rose); }
+.contact-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
+  gap: 14px;
+  padding: 14px 0;
   font-size: .9rem;
   color: var(--plum);
 }
-.info-contact-item svg {
+.contact-item svg {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  opacity: .5;
+  stroke: var(--champagne);
+  fill: none;
+  stroke-width: 1.5;
 }
-.info-contact-item a {
+.contact-item a {
   color: var(--rose);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color .3s;
 }
-.info-contact-item a:hover { color: var(--plum); }
+.contact-item a:hover { color: var(--plum); }
 
-/* --- FOOTER --- */
+/* Footer */
 .footer {
-  background: var(--offwhite);
-  border-top: 1px solid rgba(74,32,64,.06);
-  padding: 40px 24px;
+  background: var(--plum);
+  padding: 48px 24px 40px;
   text-align: center;
 }
 .footer-logo {
   font-family: var(--sf);
-  font-size: 1.2rem;
-  color: var(--plum);
-  margin-bottom: 8px;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+.footer-tagline {
+  font-size: .78rem;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 24px;
+  letter-spacing: .3px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.footer-links a {
+  color: rgba(255,255,255,.5);
+  font-size: .8rem;
+  transition: color .3s;
+}
+.footer-links a:hover { color: var(--champagne); }
+.footer-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255,255,255,.12);
+  margin: 0 auto 20px;
 }
 .footer-copy {
-  font-size: .78rem;
-  color: var(--rose);
-  opacity: .7;
+  font-size: .72rem;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .3px;
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 900px) {
-  .nav { padding: 0 24px; }
-  .nav-links { display: none; }
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-center { display: none; }
   .menu-toggle { display: block; }
-  .nav-links.show {
+  .nav-center.show {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(250,247,244,.98);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     justify-content: center;
     align-items: center;
-    gap: 28px;
-    z-index: 105;
-    padding: 100px 24px;
+    gap: 32px;
+    z-index: 110;
+    padding: 80px 24px;
   }
-  .nav-links.show a {
-    font-size: 1.2rem;
+  .nav-center.show a {
+    font-size: 1.3rem;
     opacity: 1;
   }
-  .hero h1 { font-size: 2.8rem; }
+  .hero h1 { font-size: 3rem; }
   .hero-tagline { font-size: 1rem; }
-  .hero-deco-1 { width: 180px; height: 180px; }
-  .hero-deco-2 { width: 120px; height: 120px; }
-  .hero-deco-3 { width: 80px; height: 80px; }
-  .hero-deco-4 { display: none; }
-  .section { padding: 64px 20px; }
-  .section-title { font-size: 2rem; }
-  .service-band {
+  .hero-deco-1 { width: 200px; height: 200px; }
+  .hero-deco-2 { width: 140px; height: 140px; }
+  .hero-deco-3 { display: none; }
+  .section { padding: 72px 20px; }
+  .section-title { font-size: 2.1rem; }
+  .section-sub { margin-bottom: 40px; }
+  .services-top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .services-img { min-height: 200px; }
+  .service-row {
     flex-direction: column;
     text-align: center;
-    padding: 28px 24px;
-    gap: 8px;
+    padding: 24px 20px;
+    gap: 10px;
   }
-  .service-name { flex: none; font-size: 1.15rem; }
-  .service-desc { padding: 0; }
-  .service-price { font-size: 1.1rem; }
-  .team-grid { gap: 32px; }
-  .team-photo { width: 160px; height: 160px; }
-  .gallery-mosaic {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 100px);
-  }
-  .gallery-tile:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; }
-  .gallery-tile:nth-child(2) { grid-column: 1; grid-row: 2; }
-  .gallery-tile:nth-child(3) { grid-column: 2; grid-row: 2 / 4; }
-  .gallery-tile:nth-child(4) { grid-column: 1; grid-row: 3; }
-  .gallery-tile:nth-child(5) { grid-column: 1; grid-row: 4; }
-  .gallery-tile:nth-child(6) { grid-column: 2; grid-row: 4; }
-  .gallery-tile:nth-child(7) { display: none; }
-  .info-grid {
+  .service-row:hover { padding-inline-start: 20px; }
+  .service-icon { margin: 0 auto; }
+  .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .parallax-section { min-height: 300px; }
-  .parallax-content .quote { font-size: 1.3rem; }
-  .testimonial-quote { font-size: 1.2rem; }
+  .about-image img { height: 340px; }
+  .about-text .section-label,
+  .about-text .section-title { text-align: center; }
+  .about-text p { text-align: center; }
+  .about-features { justify-content: center; }
+  .team-grid { gap: 24px; }
+  .team-card { padding: 32px 24px 28px; }
+  .gallery-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 180px;
+  }
+  .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+  .gallery-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .gallery-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .gallery-item:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
+  .hours-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .booking-cta .section-title { font-size: 2.2rem; }
+  .footer-links { gap: 16px; flex-wrap: wrap; }
 }
 
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
 @media (max-width: 480px) {
-  .hero h1 { font-size: 2.2rem; }
-  .hero { min-height: 80vh; padding: 60px 16px; }
-  .service-band { padding: 24px 16px; }
-  .section { padding: 48px 16px; }
-  .section-title { font-size: 1.7rem; }
+  .hero { min-height: 100svh; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-pre { font-size: .7rem; letter-spacing: 3px; }
   .hero-buttons { flex-direction: column; align-items: center; }
+  .hero-scroll { display: none; }
+  .section { padding: 56px 16px; }
+  .section-title { font-size: 1.8rem; }
+  .service-row { padding: 20px 16px; }
+  .team-grid { gap: 20px; }
+  .team-card { max-width: 100%; }
+  .about-features { flex-direction: column; gap: 20px; }
+  .testimonial-text { font-size: 1.15rem; }
+  .booking-cta { min-height: 400px; }
+  .booking-cta .section-title { font-size: 1.9rem; }
+  .booking-cta-buttons { flex-direction: column; align-items: center; }
+  .gallery-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 200px);
+  }
+  .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .gallery-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .gallery-item:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .gallery-item:nth-child(4) { grid-column: 1; grid-row: 4; }
 }
 </style>
 </head>
 
-<body class="lh">
+<body class="lang-he">
 
-<!-- ============ MIZRA DEMO BANNER ============ -->
+<!-- ============================================================
+     1. MIZRA DEMO BANNER
+     ============================================================ -->
 <div class="mizra-banner">
-  <div class="he">
-    זו דוגמה לאתר שנבנה עם Mizra.
-    <a href="/free-audit/">בדקו את האתר שלכם בחינם</a>
-  </div>
-  <div class="en">
-    This is an example site built with Mizra.
-    <a href="/free-audit/">Get your free site audit</a>
-  </div>
+  <span class="he">זו דוגמה לאתר שנבנה עם Mizra.<a href="/free-audit/">בדקו את האתר שלכם בחינם</a></span>
+  <span class="en">This is an example site built with Mizra.<a href="/free-audit/">Get your free site audit</a></span>
 </div>
 
-<!-- ============ NAVIGATION ============ -->
-<nav class="nav">
+<!-- ============================================================
+     2. NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="mainNav">
   <a href="#" class="nav-logo">
-    <div class="he">סטודיו לילך<span>תל אביב</span></div>
-    <div class="en">Studio Lilac<span>Tel Aviv</span></div>
+    <span class="he">סטודיו לילך<small>תל אביב</small></span>
+    <span class="en">Studio Lilac<small>Tel Aviv</small></span>
   </a>
 
-  <div class="nav-links" id="navLinks">
-    <div class="he">
-      <a href="#services">שירותים</a>
-      <a href="#team">הצוות</a>
-      <a href="#testimonials">המלצות</a>
-      <a href="#gallery">גלריה</a>
-      <a href="#contact">צרו קשר</a>
-    </div>
-    <div class="en">
-      <a href="#services">Services</a>
-      <a href="#team">Team</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <div class="nav-center" id="navMenu">
+    <a href="#services">
+      <span class="he">שירותים</span>
+      <span class="en">Services</span>
+    </a>
+    <a href="#about">
+      <span class="he">אודות</span>
+      <span class="en">About</span>
+    </a>
+    <a href="#team">
+      <span class="he">הצוות</span>
+      <span class="en">Team</span>
+    </a>
+    <a href="#gallery">
+      <span class="he">גלריה</span>
+      <span class="en">Gallery</span>
+    </a>
+    <a href="#testimonials">
+      <span class="he">המלצות</span>
+      <span class="en">Testimonials</span>
+    </a>
+    <a href="#contact">
+      <span class="he">צרו קשר</span>
+      <span class="en">Contact</span>
+    </a>
   </div>
 
   <div class="nav-right">
-    <div class="ls">
-      <button class="on" onclick="setL('he')">HE</button>
-      <button onclick="setL('en')">EN</button>
+    <div class="lang-switch">
+      <button class="active" data-lang="he">HE</button>
+      <button data-lang="en">EN</button>
     </div>
-    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <a href="#booking" class="btn btn-rose btn-sm">
@@ -769,309 +1108,445 @@ body.lh { direction: rtl; }
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- ============================================================
+     3. HERO
+     ============================================================ -->
 <section class="hero">
+  <div class="hero-bg">
+    <img src="img/beautysalon1.jpg" alt="Studio Lilac luxury interior with warm lighting and premium skincare products on minimalist shelving" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-deco hero-deco-1"></div>
   <div class="hero-deco hero-deco-2"></div>
   <div class="hero-deco hero-deco-3"></div>
-  <div class="hero-deco hero-deco-4"></div>
+
   <div class="hero-content">
     <div class="he">
-      <div class="hero-pre">יופי / טיפוח / סטייל</div>
+      <div class="hero-pre">יופי / טיפוח / אמנות</div>
       <h1>סטודיו לילך</h1>
-      <p class="hero-tagline">חוויית יופי מפנקת ומקצועית בלב תל אביב.<br>שיער, ציפורניים, טיפוחי עור ואיפור.</p>
+      <p class="hero-tagline">חוויית יופי בוטיק בלב תל אביב.<br>שיער, ציפורניים, טיפוחי עור ואיפור מקצועי.</p>
       <div class="hero-buttons">
-        <a href="#booking" class="btn btn-rose">הזמינו תור</a>
-        <a href="#services" class="btn btn-outline">השירותים שלנו</a>
+        <a href="#booking" class="btn btn-champagne">הזמינו תור</a>
+        <a href="#services" class="btn btn-outline">גלו את השירותים</a>
       </div>
     </div>
     <div class="en">
-      <div class="hero-pre">Beauty / Care / Style</div>
+      <div class="hero-pre">Beauty / Care / Artistry</div>
       <h1>Studio Lilac</h1>
-      <p class="hero-tagline">A luxurious beauty experience in the heart of Tel Aviv.<br>Hair, nails, skincare, and makeup.</p>
+      <p class="hero-tagline">A boutique beauty experience in the heart of Tel Aviv.<br>Hair, nails, skincare, and professional makeup.</p>
       <div class="hero-buttons">
-        <a href="#booking" class="btn btn-rose">Book Appointment</a>
-        <a href="#services" class="btn btn-outline">Our Services</a>
+        <a href="#booking" class="btn btn-champagne">Book Appointment</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
       </div>
     </div>
   </div>
+
+  <div class="hero-scroll">
+    <span class="he">גללו למטה</span>
+    <span class="en">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
-<section class="section bg-white" id="services">
+<!-- ============================================================
+     4. SERVICES
+     ============================================================ -->
+<section class="section" id="services" style="background:#fff">
   <div class="section-inner">
-    <div class="he">
-      <div class="section-label">השירותים שלנו</div>
-      <h2 class="section-title">שירותי הסטודיו</h2>
-      <p class="section-sub">כל שירות מותאם אישית, כי כל לקוחה ייחודית. אנחנו מאמינות ביופי שמשלב מקצועיות עם אכפתיות.</p>
-    </div>
-    <div class="en">
-      <div class="section-label">Our Services</div>
-      <h2 class="section-title">Studio Services</h2>
-      <p class="section-sub">Each service is tailored to you, because every client is unique. We believe beauty combines expertise with care.</p>
+    <div class="reveal">
+      <div class="he">
+        <div class="section-label">השירותים שלנו</div>
+        <h2 class="section-title">שירותי הסטודיו</h2>
+        <p class="section-sub">כל שירות מותאם אישית, כי כל לקוחה ייחודית. אנחנו מאמינות שיופי אמיתי מחבר בין מקצועיות לאכפתיות.</p>
+      </div>
+      <div class="en">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">Studio Services</h2>
+        <p class="section-sub">Every service is personally tailored, because every client is unique. We believe true beauty connects expertise with genuine care.</p>
+      </div>
     </div>
 
-    <div class="services-list">
-      <!-- Service 1 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">תספורת ועיצוב</div>
-          <div class="en">Haircut &amp; Styling</div>
+    <div class="services-top reveal">
+      <div class="services-img">
+        <img src="img/beautysalon2.jpg" alt="Woman enjoying a luxurious hair wash treatment at salon basin with warm tones" loading="lazy">
+        <div class="services-img-overlay"></div>
+      </div>
+      <div class="services-img">
+        <img src="img/beautysalon4.jpg" alt="Detailed close-up of professional manicure nail work on clean white towel" loading="lazy">
+        <div class="services-img-overlay"></div>
+      </div>
+    </div>
+
+    <div class="services-list reveal">
+      <!-- Service 1: Haircut -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 21c1.5 0 3-1.5 3-3s-1.5-3-3-3-3 1.5-3 3 1.5 3 3 3zm12 0c1.5 0 3-1.5 3-3s-1.5-3-3-3-3 1.5-3 3 1.5 3 3 3z"/><path d="M12 2l-3 9h6l-3-9z"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">ייעוץ אישי, גזירה מדויקת ועיצוב שמתאים בדיוק לך. כולל שטיפה וטיפול.</div>
-          <div class="en">Personal consultation, precision cut, and styling tailored just for you. Includes wash and treatment.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">תספורת ועיצוב</span>
+            <span class="en">Haircut &amp; Styling</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">ייעוץ אישי, גזירה מדויקת ועיצוב מותאם. כולל שטיפה וטיפול.</span>
+            <span class="en">Personal consultation, precision cut and tailored styling. Includes wash and treatment.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">180 - 350 &#8362;</div>
-          <div class="en">180 - 350 ILS</div>
+          <span class="he">180 - 350 &#8362;</span>
+          <span class="en">180 - 350 ILS</span>
         </div>
       </div>
-      <!-- Service 2 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">צבע ושינוי גוון</div>
-          <div class="en">Color &amp; Highlights</div>
+
+      <!-- Service 2: Color -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">מגוון טכניקות צביעה מקצועיות כולל בלונד, אומברה, בליאז' וצבע מלא.</div>
-          <div class="en">Professional color techniques including blonde, ombre, balayage, and full color.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">צבע והבהרות</span>
+            <span class="en">Color &amp; Highlights</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">טכניקות צביעה מתקדמות: בלונד, אומברה, בליאז' וצבע מלא.</span>
+            <span class="en">Advanced color techniques: blonde, ombre, balayage, and full color.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">280 - 650 &#8362;</div>
-          <div class="en">280 - 650 ILS</div>
+          <span class="he">280 - 650 &#8362;</span>
+          <span class="en">280 - 650 ILS</span>
         </div>
       </div>
-      <!-- Service 3 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">ציפורניים</div>
-          <div class="en">Nail Art &amp; Manicure</div>
+
+      <!-- Service 3: Nails -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">מניקור ופדיקור מקצועי, ג'ל, אקריל ואמנות ציפורניים. סטריליזציה מלאה.</div>
-          <div class="en">Professional manicure and pedicure, gel, acrylic, and nail art. Full sterilization.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">אמנות ציפורניים</span>
+            <span class="en">Nail Art</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">מניקור, פדיקור, ג'ל, אקריל ועיצובים ייחודיים. סטריליזציה מלאה.</span>
+            <span class="en">Manicure, pedicure, gel, acrylic and unique designs. Full sterilization.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">120 - 280 &#8362;</div>
-          <div class="en">120 - 280 ILS</div>
+          <span class="he">120 - 280 &#8362;</span>
+          <span class="en">120 - 280 ILS</span>
         </div>
       </div>
-      <!-- Service 4 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">טיפולי פנים</div>
-          <div class="en">Facial Treatments</div>
+
+      <!-- Service 4: Facials -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8 9h.01M16 9h.01M9 15c.83.67 1.83 1 3 1s2.17-.33 3-1"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">טיפולי עור מתקדמים, ניקוי עמוק, הזנה ולחות. מותאם לסוג העור שלך.</div>
-          <div class="en">Advanced skincare treatments, deep cleansing, nourishing and hydrating. Customized to your skin type.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">טיפולי פנים</span>
+            <span class="en">Facials</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">טיפולי עור מתקדמים, ניקוי עמוק, הזנה ולחות מותאמים לסוג העור.</span>
+            <span class="en">Advanced skincare, deep cleansing, nourishing and hydration tailored to your skin.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">220 - 480 &#8362;</div>
-          <div class="en">220 - 480 ILS</div>
+          <span class="he">220 - 480 &#8362;</span>
+          <span class="en">220 - 480 ILS</span>
         </div>
       </div>
-      <!-- Service 5 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">איפור מקצועי</div>
-          <div class="en">Professional Makeup</div>
+
+      <!-- Service 5: Makeup -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">איפור ערב, אירועים וכלות. מוצרי פרימיום ומראה שנשמר לאורך כל הלילה.</div>
-          <div class="en">Evening, event, and bridal makeup. Premium products and a look that lasts all night.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">איפור מקצועי</span>
+            <span class="en">Makeup</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">איפור ערב, אירועים וצילומים. מוצרי פרימיום ומראה שנשמר.</span>
+            <span class="en">Evening, event and editorial makeup. Premium products and lasting results.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">300 - 550 &#8362;</div>
-          <div class="en">300 - 550 ILS</div>
+          <span class="he">300 - 550 &#8362;</span>
+          <span class="en">300 - 550 ILS</span>
         </div>
       </div>
-      <!-- Service 6 -->
-      <div class="service-band">
-        <div class="service-name">
-          <div class="he">חבילת כלות</div>
-          <div class="en">Bridal Package</div>
+
+      <!-- Service 6: Bridal -->
+      <div class="service-row">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <div class="service-desc">
-          <div class="he">חבילה מלאה ליום המיוחד: שיער, איפור, ציפורניים וטיפול פנים. כולל ניסיון מקדים.</div>
-          <div class="en">Complete package for your special day: hair, makeup, nails, and facial. Includes trial session.</div>
+        <div class="service-info">
+          <div class="service-name">
+            <span class="he">חבילת כלות</span>
+            <span class="en">Bridal Package</span>
+          </div>
+          <div class="service-desc">
+            <span class="he">חבילה מלאה ליום המיוחד: שיער, איפור, ציפורניים וטיפול פנים. כולל ניסיון.</span>
+            <span class="en">Complete package for your day: hair, makeup, nails and facial. Includes trial session.</span>
+          </div>
         </div>
         <div class="service-price">
-          <div class="he">1,200 - 2,000 &#8362;</div>
-          <div class="en">1,200 - 2,000 ILS</div>
+          <span class="he">1,200 - 2,000 &#8362;</span>
+          <span class="en">1,200 - 2,000 ILS</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PARALLAX QUOTE ============ -->
-<section class="parallax-section">
-  <div class="parallax-content">
-    <div class="he">
-      <div class="quote">היופי האמיתי מתחיל ברגע שאת מחליטה להיות עצמך</div>
-      <div class="quote-attr">-- קוקו שאנל</div>
-    </div>
-    <div class="en">
-      <div class="quote">Beauty begins the moment you decide to be yourself</div>
-      <div class="quote-attr">-- Coco Chanel</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TEAM ============ -->
-<section class="section bg-white" id="team">
+<!-- ============================================================
+     5. ABOUT / ATMOSPHERE
+     ============================================================ -->
+<section class="section about" id="about">
   <div class="section-inner">
-    <div class="he">
-      <div class="section-label">הצוות שלנו</div>
-      <h2 class="section-title">מומחיות ביופי</h2>
-      <p class="section-sub">הצוות שלנו מורכב ממומחיות מנוסות עם תשוקה אמיתית ליופי ולמצוינות.</p>
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="img/beautysalon5.jpg" alt="Elegant nail station with sage green walls, marble countertop, modern chairs and warm lamp lighting" loading="lazy">
+        <div class="about-image-deco"></div>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <div class="he">
+          <div class="section-label">הסיפור שלנו</div>
+          <h2 class="section-title">מקום שבו יופי פוגש שלווה</h2>
+          <p>סטודיו לילך נולד מתוך אהבה עמוקה ליופי ומתוך אמונה שכל אישה ראויה לרגעים של פינוק אמיתי. הסטודיו שלנו ברחוב בזל מציע חלל מעוצב בקפידה, שמשלב אסתטיקה מודרנית עם אווירה חמה ואינטימית.</p>
+          <p>אנחנו מאמינות שהטיפול מתחיל מהרגע שנכנסים מהדלת. כל פרט תוכנן כדי שתרגישו שאתן במקום הנכון, מהריח העדין ועד למגע המקצועי.</p>
+        </div>
+        <div class="en">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">Where Beauty Meets Serenity</h2>
+          <p>Studio Lilac was born from a deep love for beauty and a belief that every woman deserves moments of genuine indulgence. Our Basel Street studio offers a meticulously designed space that blends modern aesthetics with a warm, intimate atmosphere.</p>
+          <p>We believe the experience begins the moment you walk through the door. Every detail has been considered so you feel at home, from the delicate scent to the expert touch.</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-num">8+</div>
+            <div class="about-feature-label">
+              <span class="he">שנות ניסיון</span>
+              <span class="en">Years Experience</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-num">3K+</div>
+            <div class="about-feature-label">
+              <span class="he">לקוחות מרוצות</span>
+              <span class="en">Happy Clients</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-num">100%</div>
+            <div class="about-feature-label">
+              <span class="he">מוצרי פרימיום</span>
+              <span class="en">Premium Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="en">
-      <div class="section-label">Our Team</div>
-      <h2 class="section-title">Beauty Experts</h2>
-      <p class="section-sub">Our team is composed of experienced specialists with a genuine passion for beauty and excellence.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. TEAM
+     ============================================================ -->
+<section class="section" id="team" style="background:var(--offwhite)">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="he">
+        <div class="section-label">הצוות שלנו</div>
+        <h2 class="section-title">מומחיות ביופי</h2>
+        <p class="section-sub">הצוות שלנו מורכב ממומחיות מנוסות עם תשוקה אמיתית ליופי, למצוינות ולשירות אישי.</p>
+      </div>
+      <div class="en">
+        <div class="section-label">Our Team</div>
+        <h2 class="section-title">Beauty Experts</h2>
+        <p class="section-sub">Our team comprises experienced specialists with a genuine passion for beauty, excellence, and personal service.</p>
+      </div>
     </div>
 
     <div class="team-grid">
-      <!-- Team member 1 -->
-      <div class="team-member">
-        <div class="team-photo">
-          <div class="team-photo-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
-          </div>
+      <!-- Team 1 -->
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">
+          <span class="he">ל.כ</span>
+          <span class="en">L.C</span>
         </div>
         <div class="he">
           <div class="team-name">לילך כהן</div>
           <div class="team-role">מנהלת ומעצבת שיער בכירה</div>
+          <div class="team-bio">מובילה את הסטודיו מזה 8 שנים. מתמחה בצביעות בוטיק ותספורות מודרניות.</div>
         </div>
         <div class="en">
           <div class="team-name">Lilach Cohen</div>
           <div class="team-role">Director &amp; Senior Hair Stylist</div>
+          <div class="team-bio">Leading the studio for 8 years. Specializes in boutique coloring and modern cuts.</div>
         </div>
       </div>
-      <!-- Team member 2 -->
-      <div class="team-member">
-        <div class="team-photo">
-          <div class="team-photo-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
-          </div>
+
+      <!-- Team 2 -->
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">
+          <span class="he">נ.מ</span>
+          <span class="en">N.M</span>
         </div>
         <div class="he">
           <div class="team-name">נועה מזרחי</div>
-          <div class="team-role">מומחית טיפוחי עור ואיפור</div>
+          <div class="team-role">מומחית טיפוח ואיפור</div>
+          <div class="team-bio">בוגרת בית ספר לאיפור בפריז. מומחית בטיפולי פנים מתקדמים ואיפור אירועים.</div>
         </div>
         <div class="en">
           <div class="team-name">Noa Mizrachi</div>
-          <div class="team-role">Skincare &amp; Makeup Specialist</div>
+          <div class="team-role">Skincare &amp; Makeup Expert</div>
+          <div class="team-bio">Paris-trained makeup artist. Expert in advanced facials and event makeup.</div>
         </div>
       </div>
-      <!-- Team member 3 -->
-      <div class="team-member">
-        <div class="team-photo">
-          <div class="team-photo-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
-          </div>
+
+      <!-- Team 3 -->
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar">
+          <span class="he">ש.ל</span>
+          <span class="en">S.L</span>
         </div>
         <div class="he">
           <div class="team-name">שירה לוי</div>
           <div class="team-role">אמנית ציפורניים</div>
+          <div class="team-bio">יצירתית ומדויקת. מתמחה בעיצובים ייחודיים, ג'ל ואקריל ברמה הגבוהה ביותר.</div>
         </div>
         <div class="en">
           <div class="team-name">Shira Levi</div>
           <div class="team-role">Nail Artist</div>
+          <div class="team-bio">Creative and precise. Specializes in unique designs, gel and acrylic at the highest level.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section class="testimonials-section" id="testimonials">
+<!-- ============================================================
+     7. GALLERY
+     ============================================================ -->
+<section class="section" id="gallery" style="background:#fff">
   <div class="section-inner">
-    <div class="he">
-      <div class="section-label" style="color:var(--plum);opacity:.5">המלצות</div>
-      <h2 class="section-title">מה הלקוחות אומרות</h2>
-    </div>
-    <div class="en">
-      <div class="section-label" style="color:var(--plum);opacity:.5">Testimonials</div>
-      <h2 class="section-title">What Our Clients Say</h2>
+    <div class="reveal">
+      <div class="he">
+        <div class="section-label">גלריה</div>
+        <h2 class="section-title">מהסטודיו שלנו</h2>
+        <p class="section-sub">הצצה לאווירה, לעבודות ולחוויה שתמצאו בסטודיו לילך.</p>
+      </div>
+      <div class="en">
+        <div class="section-label">Gallery</div>
+        <h2 class="section-title">From Our Studio</h2>
+        <p class="section-sub">A glimpse into the atmosphere, the artistry, and the experience at Studio Lilac.</p>
+      </div>
     </div>
 
-    <div id="testimonials-container">
+    <div class="gallery-mosaic reveal">
+      <div class="gallery-item">
+        <img src="img/beautysalon3.jpg" alt="Bright pink salon interior with multiple styling stations, mirrors and stylists at work" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/beautysalon1.jpg" alt="Luxe product shelves with warm sand walls, minimalist shelving and premium skincare products" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/beautysalon5.jpg" alt="Elegant nail station with sage green walls and marble countertop in warm lighting" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/beautysalon4.jpg" alt="Close-up of professional manicure work with precision tools" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. TESTIMONIALS
+     ============================================================ -->
+<section class="section testimonials" id="testimonials">
+  <div class="testimonials-deco testimonials-deco-1"></div>
+  <div class="testimonials-deco testimonials-deco-2"></div>
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="he">
+        <div class="section-label">המלצות</div>
+        <h2 class="section-title">מה הלקוחות אומרות</h2>
+      </div>
+      <div class="en">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+    </div>
+
+    <div class="testimonial-carousel reveal" id="testimonialCarousel">
       <!-- Testimonial 1 -->
-      <div class="testimonial-item active" data-index="0">
+      <div class="testimonial-slide active" data-index="0">
+        <div class="testimonial-quote-mark">"</div>
         <div class="he">
-          <div class="testimonial-quote">הגעתי בפעם הראשונה וכבר מהרגע הראשון הרגשתי מטופלת. לילך הבינה בדיוק מה אני רוצה וצבע השיער יצא מושלם. המקום הזה זה הבית החדש שלי.</div>
+          <div class="testimonial-text">הגעתי בפעם הראשונה וכבר מהרגע הראשון הרגשתי מטופלת. לילך הבינה בדיוק מה אני רוצה וצבע השיער יצא מושלם. המקום הזה זה הבית החדש שלי.</div>
           <div class="testimonial-author">-- רוני ד., תל אביב</div>
         </div>
         <div class="en">
-          <div class="testimonial-quote">From the very first moment I walked in, I felt cared for. Lilach understood exactly what I wanted and the hair color turned out perfect. This is my new home.</div>
+          <div class="testimonial-text">From the very first moment I walked in, I felt cared for. Lilach understood exactly what I wanted and the hair color turned out perfect. This place is my new home.</div>
           <div class="testimonial-author">-- Roni D., Tel Aviv</div>
         </div>
       </div>
       <!-- Testimonial 2 -->
-      <div class="testimonial-item" data-index="1">
+      <div class="testimonial-slide" data-index="1">
+        <div class="testimonial-quote-mark">"</div>
         <div class="he">
-          <div class="testimonial-quote">עשיתי חבילת כלות ולא יכולתי להיות יותר מרוצה. כל פרט היה מדויק, מהאיפור ועד השיער. הצוות כולו מקסים ומקצועי.</div>
+          <div class="testimonial-text">עשיתי חבילת כלות ולא יכולתי להיות יותר מרוצה. כל פרט היה מדויק, מהאיפור ועד השיער. הצוות כולו מקסים ומקצועי ברמה הגבוהה ביותר.</div>
           <div class="testimonial-author">-- מיכל א., רמת גן</div>
         </div>
         <div class="en">
-          <div class="testimonial-quote">I did the bridal package and could not have been happier. Every detail was perfect, from makeup to hair. The entire team is wonderful and professional.</div>
+          <div class="testimonial-text">I did the bridal package and could not have been happier. Every detail was flawless, from makeup to hair. The entire team is wonderful and professional at the highest level.</div>
           <div class="testimonial-author">-- Michal A., Ramat Gan</div>
         </div>
       </div>
       <!-- Testimonial 3 -->
-      <div class="testimonial-item" data-index="2">
+      <div class="testimonial-slide" data-index="2">
+        <div class="testimonial-quote-mark">"</div>
         <div class="he">
-          <div class="testimonial-quote">טיפול הפנים הכי טוב שעברתי. נועה ממש מבינה עור ויודעת בדיוק מה הוא צריך. יצאתי זוהרת. ממליצה בחום.</div>
+          <div class="testimonial-text">טיפול הפנים הכי טוב שעברתי. נועה ממש מבינה עור ויודעת בדיוק מה הוא צריך. יצאתי זוהרת ומרגישה מדהים. ממליצה בחום לכל אחת.</div>
           <div class="testimonial-author">-- דנה ש., הרצליה</div>
         </div>
         <div class="en">
-          <div class="testimonial-quote">The best facial treatment I have ever had. Noa truly understands skin and knows exactly what it needs. I left glowing. Highly recommend.</div>
+          <div class="testimonial-text">The best facial treatment I have ever experienced. Noa truly understands skin and knows exactly what it needs. I left glowing and feeling incredible. Highly recommend to everyone.</div>
           <div class="testimonial-author">-- Dana S., Herzliya</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-dots" id="testimonialDots">
-      <button class="testimonial-dot active" onclick="showTestimonial(0)"></button>
-      <button class="testimonial-dot" onclick="showTestimonial(1)"></button>
-      <button class="testimonial-dot" onclick="showTestimonial(2)"></button>
+      <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
+      <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
+      <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
     </div>
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
-<section class="section bg-white" id="gallery">
-  <div class="section-inner">
-    <div class="he">
-      <div class="section-label">גלריה</div>
-      <h2 class="section-title">מהסטודיו שלנו</h2>
-      <p class="section-sub">הצצה לאווירה, לעבודות ולחוויה שתמצאו בסטודיו לילך.</p>
-    </div>
-    <div class="en">
-      <div class="section-label">Gallery</div>
-      <h2 class="section-title">From Our Studio</h2>
-      <p class="section-sub">A glimpse into the atmosphere, the work, and the experience at Studio Lilac.</p>
-    </div>
-
-    <div class="gallery-mosaic">
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-      <div class="gallery-tile"></div>
-    </div>
+<!-- ============================================================
+     9. BOOKING CTA
+     ============================================================ -->
+<section class="booking-cta" id="booking">
+  <div class="booking-cta-bg">
+    <img src="img/beautysalon2.jpg" alt="Intimate hair washing experience at the salon with warm tones" loading="lazy">
   </div>
-</section>
-
-<!-- ============ BOOKING CTA ============ -->
-<section class="cta-section" id="booking">
-  <div class="section-inner">
+  <div class="booking-cta-overlay"></div>
+  <div class="booking-cta-content reveal">
     <div class="he">
       <div class="section-label">הזמנת תור</div>
       <h2 class="section-title">מוכנות לחוויה?</h2>
@@ -1080,80 +1555,91 @@ body.lh { direction: rtl; }
     <div class="en">
       <div class="section-label">Book Now</div>
       <h2 class="section-title">Ready for the Experience?</h2>
-      <p class="section-sub">Book your appointment today and let us pamper you. The studio is waiting.</p>
+      <p class="section-sub">Book your appointment today and let us pamper you. The studio awaits.</p>
     </div>
-    <a href="tel:+97235551234" class="btn btn-white" style="margin-top:8px">
-      <span class="he">התקשרו עכשיו: 03-555-1234</span>
-      <span class="en">Call Now: 03-555-1234</span>
-    </a>
+    <div class="booking-cta-buttons">
+      <a href="tel:+97235551234" class="btn btn-white">
+        <span class="he">התקשרו: 03-555-1234</span>
+        <span class="en">Call: 03-555-1234</span>
+      </a>
+      <a href="https://wa.me/97235551234" class="btn btn-champagne" target="_blank" rel="noopener">
+        <span class="he">WhatsApp</span>
+        <span class="en">WhatsApp</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ============ HOURS & CONTACT ============ -->
-<section class="section bg-blush" id="contact">
+<!-- ============================================================
+     10. HOURS & FOOTER
+     ============================================================ -->
+<section class="section hours-section" id="contact">
   <div class="section-inner">
-    <div class="he">
-      <div class="section-label">בואו לבקר</div>
-      <h2 class="section-title">שעות פעילות וצרו קשר</h2>
-    </div>
-    <div class="en">
-      <div class="section-label">Visit Us</div>
-      <h2 class="section-title">Hours &amp; Contact</h2>
+    <div class="reveal">
+      <div class="he">
+        <div class="section-label">בואו לבקר</div>
+        <h2 class="section-title">שעות פעילות ויצירת קשר</h2>
+      </div>
+      <div class="en">
+        <div class="section-label">Visit Us</div>
+        <h2 class="section-title">Hours &amp; Contact</h2>
+      </div>
     </div>
 
-    <div class="info-grid" style="margin-top:48px">
+    <div class="hours-grid reveal" style="margin-top:48px">
       <!-- Hours -->
-      <div class="info-block">
+      <div class="hours-block">
         <div class="he">
           <h3>שעות פתיחה</h3>
-          <div class="info-row"><span class="info-day">ראשון - חמישי</span><span class="info-time">09:00 - 20:00</span></div>
-          <div class="info-row"><span class="info-day">שישי</span><span class="info-time">09:00 - 15:00</span></div>
-          <div class="info-row"><span class="info-day">שבת</span><span class="info-time">סגור</span></div>
+          <div class="hours-row"><span class="hours-day">ראשון - חמישי</span><span class="hours-time">09:00 - 20:00</span></div>
+          <div class="hours-row"><span class="hours-day">שישי</span><span class="hours-time">09:00 - 15:00</span></div>
+          <div class="hours-row"><span class="hours-day">שבת</span><span class="hours-time">סגור</span></div>
         </div>
         <div class="en">
           <h3>Opening Hours</h3>
-          <div class="info-row"><span class="info-day">Sunday - Thursday</span><span class="info-time">09:00 - 20:00</span></div>
-          <div class="info-row"><span class="info-day">Friday</span><span class="info-time">09:00 - 15:00</span></div>
-          <div class="info-row"><span class="info-day">Saturday</span><span class="info-time">Closed</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday - Thursday</span><span class="hours-time">09:00 - 20:00</span></div>
+          <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">09:00 - 15:00</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">Closed</span></div>
         </div>
       </div>
+
       <!-- Contact -->
-      <div class="info-block">
+      <div class="hours-block">
         <div class="he">
           <h3>פרטי קשר</h3>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
             <span>רחוב בזל 42, תל אביב</span>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 11.5A16 16 0 0 0 12.5 15.91l2.33-2.33a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 11.5A16 16 0 0012.5 15.91l2.33-2.33a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
             <a href="tel:+97235551234">03-555-1234</a>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <a href="mailto:hello@studiolilac.co.il">hello@studiolilac.co.il</a>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <a href="#">@studiolilac</a>
           </div>
         </div>
         <div class="en">
           <h3>Contact Details</h3>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
             <span>42 Basel Street, Tel Aviv</span>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 11.5A16 16 0 0 0 12.5 15.91l2.33-2.33a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 11.5A16 16 0 0012.5 15.91l2.33-2.33a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
             <a href="tel:+97235551234">03-555-1234</a>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <a href="mailto:hello@studiolilac.co.il">hello@studiolilac.co.il</a>
           </div>
-          <div class="info-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <a href="#">@studiolilac</a>
           </div>
         </div>
@@ -1162,90 +1648,129 @@ body.lh { direction: rtl; }
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-logo">
-    <div class="he">סטודיו לילך</div>
-    <div class="en">Studio Lilac</div>
+    <span class="he">סטודיו לילך</span>
+    <span class="en">Studio Lilac</span>
   </div>
+  <div class="footer-tagline">
+    <span class="he">יופי / טיפוח / אמנות -- תל אביב</span>
+    <span class="en">Beauty / Care / Artistry -- Tel Aviv</span>
+  </div>
+  <div class="footer-links">
+    <a href="#services"><span class="he">שירותים</span><span class="en">Services</span></a>
+    <a href="#about"><span class="he">אודות</span><span class="en">About</span></a>
+    <a href="#team"><span class="he">הצוות</span><span class="en">Team</span></a>
+    <a href="#gallery"><span class="he">גלריה</span><span class="en">Gallery</span></a>
+    <a href="#contact"><span class="he">צרו קשר</span><span class="en">Contact</span></a>
+  </div>
+  <div class="footer-divider"></div>
   <div class="footer-copy">
-    <div class="he">כל הזכויות שמורות 2025 סטודיו לילך. רחוב בזל, תל אביב.</div>
-    <div class="en">2025 Studio Lilac. All rights reserved. Basel Street, Tel Aviv.</div>
+    <span class="he">כל הזכויות שמורות 2025 סטודיו לילך. רחוב בזל 42, תל אביב.</span>
+    <span class="en">2025 Studio Lilac. All rights reserved. 42 Basel Street, Tel Aviv.</span>
   </div>
 </footer>
 
-<!-- ============ SCRIPTS ============ -->
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
 <script>
-// Language toggle
-function setL(l) {
-  document.body.classList.toggle('lh', l === 'he');
-  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
-  document.documentElement.lang = l === 'he' ? 'he' : 'en';
-  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
-  if (event && event.target) event.target.classList.add('on');
-  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
-}
+(function() {
+  /* ---- Language Toggle ---- */
+  var langBtns = document.querySelectorAll('.lang-switch button');
 
-// Restore saved language
-try {
-  var saved = localStorage.getItem('mizra_lang');
-  if (saved === 'en') {
-    document.body.classList.remove('lh');
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    setTimeout(function() {
-      document.querySelectorAll('.ls button').forEach(function(b) {
-        b.classList.toggle('on', b.textContent.trim() === 'EN');
-      });
-    }, 50);
+  function setLang(lang) {
+    var isHe = lang === 'he';
+    document.body.classList.toggle('lang-he', isHe);
+    document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+    langBtns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('mizra_lang', lang); } catch(e) {}
   }
-} catch(e) {}
 
-// Mobile menu toggle
-function toggleMenu() {
-  var toggle = document.getElementById('menuToggle');
-  var links = document.getElementById('navLinks');
-  toggle.classList.toggle('open');
-  links.classList.toggle('show');
-}
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('menuToggle').classList.remove('open');
-    document.getElementById('navLinks').classList.remove('show');
+  langBtns.forEach(function(b) {
+    b.addEventListener('click', function() {
+      setLang(this.getAttribute('data-lang'));
+    });
   });
-});
 
-// Testimonials rotation
-var currentTestimonial = 0;
-var totalTestimonials = 3;
-var autoRotateInterval;
+  /* Restore saved language */
+  try {
+    var saved = localStorage.getItem('mizra_lang');
+    if (saved === 'en') { setLang('en'); }
+  } catch(e) {}
 
-function showTestimonial(index) {
-  currentTestimonial = index;
-  document.querySelectorAll('.testimonial-item').forEach(function(item) {
-    item.classList.remove('active');
+  /* ---- Mobile Menu ---- */
+  var menuToggle = document.getElementById('menuToggle');
+  var navMenu = document.getElementById('navMenu');
+
+  menuToggle.addEventListener('click', function() {
+    this.classList.toggle('open');
+    navMenu.classList.toggle('show');
   });
-  document.querySelectorAll('.testimonial-dot').forEach(function(dot) {
-    dot.classList.remove('active');
+
+  navMenu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menuToggle.classList.remove('open');
+      navMenu.classList.remove('show');
+    });
   });
-  document.querySelectorAll('.testimonial-item')[index].classList.add('active');
-  document.querySelectorAll('.testimonial-dot')[index].classList.add('active');
 
-  // Reset auto-rotation timer
-  clearInterval(autoRotateInterval);
-  startAutoRotate();
-}
+  /* ---- Sticky Nav Shadow ---- */
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
 
-function startAutoRotate() {
-  autoRotateInterval = setInterval(function() {
-    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-    showTestimonial(currentTestimonial);
-  }, 6000);
-}
+  /* ---- Testimonials Carousel ---- */
+  var slides = document.querySelectorAll('.testimonial-slide');
+  var dots = document.querySelectorAll('.testimonial-dot');
+  var current = 0;
+  var total = slides.length;
+  var autoTimer;
 
-startAutoRotate();
+  function showSlide(idx) {
+    current = idx;
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    dots.forEach(function(d) { d.classList.remove('active'); });
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+
+  function nextSlide() {
+    showSlide((current + 1) % total);
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 5500);
+  }
+
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() {
+      showSlide(parseInt(this.getAttribute('data-index')));
+      startAuto();
+    });
+  });
+
+  startAuto();
+
+  /* ---- Scroll Reveal ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
 </script>
 
 </body>

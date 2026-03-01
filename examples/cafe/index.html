@@ -3,431 +3,916 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cafe Nechama | Tel Aviv</title>
-<meta name="description" content="Specialty coffee and pastries on Dizengoff Street, Tel Aviv.">
+<title>Cafe Nechama | Dizengoff, Tel Aviv</title>
+<meta name="description" content="Specialty coffee, fresh bakes, and Israeli breakfast on Dizengoff Street, Tel Aviv. A neighborhood cafe since 1998.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* === VARIABLES === */
+/* ==============================
+   CSS VARIABLES
+   ============================== */
 :root {
   --sand: #E8DDD3;
   --espresso: #3C2415;
-  --oat: #F5F0EB;
-  --terra: #C47B5A;
   --sage: #8B9E84;
-  --sage-light: rgba(139,158,132,.12);
+  --cream: #FAF7F2;
   --white: #FFFFFF;
+  --sage-dark: #6B7E64;
+  --espresso-light: rgba(60, 36, 21, 0.7);
+  --border: rgba(60, 36, 21, 0.1);
+  --border-md: rgba(60, 36, 21, 0.15);
+  --shadow-sm: 0 2px 12px rgba(60, 36, 21, 0.06);
+  --shadow-md: 0 8px 32px rgba(60, 36, 21, 0.1);
+  --shadow-lg: 0 16px 48px rgba(60, 36, 21, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --heading: 'Space Grotesk', system-ui, sans-serif;
   --body: 'Inter', system-ui, sans-serif;
-  --border: rgba(60,36,21,.1);
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* === RESET === */
+/* ==============================
+   RESET & BASE
+   ============================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--body);
-  background: var(--oat);
+  background: var(--cream);
   color: var(--espresso);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-weight: 400;
   font-size: 15px;
 }
-::selection { background: var(--terra); color: var(--white); }
+::selection { background: var(--sage); color: var(--white); }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-/* === LANGUAGE === */
+/* ==============================
+   LANGUAGE SWITCHING
+   ============================== */
 .he { display: none; }
 body.lh .en { display: none; }
 body.lh .he { display: block; }
-body.lh span.en, body.lh a.en { display: none; }
-body.lh span.he, body.lh a.he { display: inline; }
-body.lh { direction: rtl; }
-body:not(.lh) { direction: ltr; }
+body.lh span.en, body.lh a.en, body.lh button.en { display: none; }
+body.lh span.he, body.lh a.he, body.lh button.he { display: inline; }
+body.lh li.en { display: none; }
+body.lh li.he { display: list-item; }
 body:not(.lh) .he { display: none; }
 body:not(.lh) .en { display: block; }
-body:not(.lh) span.en, body:not(.lh) a.en { display: inline; }
+body:not(.lh) span.en, body:not(.lh) a.en, body:not(.lh) button.en { display: inline; }
+body:not(.lh) li.en { display: list-item; }
+body:not(.lh) li.he { display: none; }
+body.lh { direction: rtl; }
+body:not(.lh) { direction: ltr; }
 
-/* === MIZRA BANNER === */
+/* ==============================
+   SCROLL REVEAL
+   ============================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ==============================
+   1. MIZRA DEMO BANNER
+   ============================== */
 .mizra-banner {
   background: var(--sand);
   border-bottom: 1px solid var(--border);
   text-align: center;
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-family: var(--body);
   font-size: 12px;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   color: var(--espresso);
-  opacity: .7;
+  opacity: 0.75;
 }
 .mizra-banner a {
   color: var(--espresso);
-  border-bottom: 1px solid var(--terra);
+  font-weight: 500;
+  border-bottom: 1px solid var(--sage);
   padding-bottom: 1px;
-  transition: opacity .2s;
+  transition: opacity var(--transition);
 }
-.mizra-banner a:hover { opacity: .6; }
+.mizra-banner a:hover { opacity: 0.6; }
 
-/* === NAV === */
+/* ==============================
+   2. NAVIGATION
+   ============================== */
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: var(--oat);
-  padding: 20px 48px;
+  z-index: 1000;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0 48px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: rgba(250, 247, 242, 0.97);
+  box-shadow: var(--shadow-sm);
 }
 .nav-logo {
   font-family: var(--heading);
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -.02em;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--espresso);
-}
-.nav-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 10px;
 }
-.nav-links {
+.nav-logo svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.nav-center {
   display: flex;
-  gap: 28px;
   align-items: center;
+  gap: 36px;
 }
-.nav-links a {
+.nav-center a {
   font-family: var(--body);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: .04em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--espresso);
-  opacity: .6;
-  transition: opacity .2s;
+  opacity: 0.55;
+  transition: opacity var(--transition);
+  position: relative;
 }
-.nav-links a:hover { opacity: 1; }
+.nav-center a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--sage);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+.nav-center a:hover { opacity: 1; }
+.nav-center a:hover::after { transform: scaleX(1); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 .lang-toggle {
   font-family: var(--body);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: .05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  cursor: pointer;
   color: var(--espresso);
-  opacity: .5;
+  opacity: 0.5;
   background: none;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-md);
   padding: 6px 14px;
-  transition: all .2s;
+  border-radius: 100px;
+  transition: all var(--transition);
 }
 .lang-toggle:hover { opacity: 1; border-color: var(--espresso); }
-
-/* === HERO === */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 85vh;
-  padding: 0 48px;
-}
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 60px 80px 0;
-}
-body:not(.lh) .hero-text { padding: 80px 0 80px 60px; }
-.hero-name {
-  font-family: var(--heading);
-  font-size: clamp(42px, 5.5vw, 80px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -.03em;
-  color: var(--espresso);
-  margin-bottom: 28px;
-}
-.hero-tagline {
+.order-btn {
   font-family: var(--body);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--espresso);
-  opacity: .55;
-  max-width: 380px;
-  letter-spacing: .01em;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: var(--sage);
+  padding: 10px 24px;
+  border-radius: 100px;
+  transition: all var(--transition);
 }
-.hero-visual {
+.order-btn:hover { background: var(--sage-dark); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--espresso);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250, 247, 242, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-family: var(--heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--espresso);
+  letter-spacing: -0.01em;
+  transition: color var(--transition);
+}
+.mobile-menu a:hover { color: var(--sage); }
+.mobile-menu .order-btn {
+  font-size: 16px;
+  padding: 14px 36px;
+  margin-top: 12px;
+}
+
+/* ==============================
+   3. HERO
+   ============================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 1100px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding: 48px;
 }
-.hero-placeholder {
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
   width: 100%;
-  aspect-ratio: 3/4;
-  max-height: 70vh;
-  background: var(--espresso);
-  border-radius: 16px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(60, 36, 21, 0.25) 0%,
+    rgba(60, 36, 21, 0.40) 50%,
+    rgba(60, 36, 21, 0.55) 100%
+  );
+  z-index: 1;
+}
+.hero-content {
   position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 0 24px;
+  max-width: 800px;
+}
+.hero-title {
+  font-family: var(--heading);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.15);
+}
+.hero-subtitle {
+  font-family: var(--body);
+  font-size: clamp(15px, 2vw, 19px);
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.88;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.1);
+}
+.hero-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--sage);
+  margin: 28px auto;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  opacity: 0.6;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: float 3s ease-in-out infinite;
+}
+.hero-scroll svg { width: 16px; height: 16px; }
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ==============================
+   4. ABOUT
+   ============================== */
+.about {
+  padding: 120px 48px;
+  background: var(--cream);
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/5;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.about-image:hover img { transform: scale(1.03); }
+.about-text-wrap {
+  max-width: 480px;
+}
+body.lh .about-text-wrap { margin-right: 0; margin-left: auto; }
+body:not(.lh) .about-text-wrap { margin-left: 0; margin-right: auto; }
+.about-label {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 20px;
+}
+.about-heading {
+  font-family: var(--heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+  margin-bottom: 24px;
+}
+.about-body {
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--espresso-light);
+  margin-bottom: 16px;
+}
+.about-signature {
+  font-family: var(--heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-top: 32px;
+}
+
+/* ==============================
+   5. MENU HIGHLIGHTS
+   ============================== */
+.menu-divider {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 320px;
   overflow: hidden;
 }
-.hero-placeholder::after {
-  content: '';
+.menu-divider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.menu-divider-overlay {
   position: absolute;
-  bottom: -40px;
-  right: -40px;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: var(--sage);
-  opacity: .25;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(60,36,21,0.1), rgba(60,36,21,0.35));
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* === DECORATIVE SHAPES === */
-.deco-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--sage);
-  opacity: .08;
-  pointer-events: none;
-}
-.deco-arc {
-  position: absolute;
-  border: 3px solid var(--sage);
-  border-radius: 50%;
-  opacity: .1;
-  pointer-events: none;
-}
-
-/* === SECTION SHARED === */
-.section-pad {
-  padding: 100px 48px;
-}
-
-/* === ABOUT === */
-.about {
-  background: var(--oat);
-  padding: 120px 48px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.about-text {
+.menu-divider-text {
   font-family: var(--heading);
-  font-size: clamp(24px, 3vw, 38px);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -.01em;
-  color: var(--espresso);
-}
-.about-bold {
+  font-size: clamp(32px, 5vw, 56px);
   font-weight: 700;
-  color: var(--terra);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.2);
 }
-.about-deco {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--sage);
-  opacity: .12;
-  margin: 0 auto 40px;
-}
-
-/* === MENU === */
 .menu {
   background: var(--sand);
   padding: 100px 48px;
   position: relative;
   overflow: hidden;
 }
-.menu::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  left: 10%;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: var(--sage);
-  opacity: .06;
-}
-.menu-heading {
-  font-family: var(--heading);
-  font-size: clamp(28px, 3.5vw, 48px);
-  font-weight: 700;
-  letter-spacing: -.03em;
-  color: var(--espresso);
-  margin-bottom: 60px;
-  text-align: center;
-}
-.menu-categories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+.menu-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
+.menu-heading {
+  font-family: var(--heading);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--espresso);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.menu-subheading {
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--espresso-light);
+  text-align: center;
+  margin-bottom: 64px;
+  opacity: 0.6;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.menu-col {
+  padding: 0;
+}
 .menu-category-title {
   font-family: var(--heading);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--terra);
-  margin-bottom: 28px;
+  color: var(--sage-dark);
+  margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--terra);
+  border-bottom: 2px solid var(--sage);
 }
 .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
 }
 .menu-item:last-child { border-bottom: none; }
 .menu-item-name {
   font-family: var(--body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--espresso);
 }
 .menu-item-price {
   font-family: var(--heading);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--espresso);
-  opacity: .5;
+  opacity: 0.45;
   white-space: nowrap;
   margin-inline-start: 16px;
 }
-
-/* === SPACE (QUOTE BAND) === */
-.space-band {
-  background: var(--espresso);
-  color: var(--oat);
-  padding: 100px 48px;
+.menu-note {
   text-align: center;
-  position: relative;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--espresso-light);
+  opacity: 0.5;
+}
+
+/* ==============================
+   6. COFFEE SECTION
+   ============================== */
+.coffee {
+  padding: 120px 48px;
+  background: var(--cream);
   overflow: hidden;
 }
-.space-band::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  border: 1px solid rgba(139,158,132,.15);
-}
-.space-quote {
-  font-family: var(--heading);
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 700px;
+.coffee-inner {
+  max-width: 1200px;
   margin: 0 auto;
-  letter-spacing: -.01em;
-  position: relative;
-  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
-.space-quote::before {
-  content: '\2014';
-  display: block;
-  font-size: 24px;
-  opacity: .3;
+.coffee-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 5/4;
+}
+.coffee-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.coffee-image:hover img { transform: scale(1.03); }
+.coffee-text {
+  max-width: 480px;
+}
+body.lh .coffee-text { margin-right: auto; margin-left: 0; }
+body:not(.lh) .coffee-text { margin-left: auto; margin-right: 0; }
+.coffee-label {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
   margin-bottom: 20px;
 }
-
-/* === HOURS === */
-.hours {
-  padding: 100px 48px;
-  text-align: center;
-  background: var(--oat);
-}
-.hours-label {
+.coffee-heading {
   font-family: var(--heading);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--terra);
-  margin-bottom: 32px;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+  margin-bottom: 24px;
 }
-.hours-line {
+.coffee-body {
   font-family: var(--body);
   font-size: 15px;
   font-weight: 400;
+  line-height: 1.85;
+  color: var(--espresso-light);
+  margin-bottom: 16px;
+}
+.coffee-origins {
+  display: flex;
+  gap: 24px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.coffee-origin-tag {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--espresso);
-  opacity: .7;
-  margin-bottom: 8px;
-  letter-spacing: .01em;
+  background: var(--sand);
+  padding: 8px 18px;
+  border-radius: 100px;
 }
-.hours-line:last-child { margin-bottom: 0; }
 
-/* === INSTAGRAM === */
-.insta {
-  padding: 60px 48px;
-  background: var(--oat);
+/* ==============================
+   7. GALLERY
+   ============================== */
+.gallery {
+  padding: 100px 48px;
+  background: var(--white);
 }
-.insta-heading {
+.gallery-label {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.gallery-heading {
+  font-family: var(--heading);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+  text-align: center;
+  margin-bottom: 56px;
+}
+.gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 36, 21, 0);
+  transition: background 0.4s;
+}
+.gallery-item:hover::after { background: rgba(60, 36, 21, 0.08); }
+.gallery-item-1 { grid-row: 1 / 3; }
+.gallery-item-2 { }
+.gallery-item-3 { }
+.gallery-item-4 { grid-column: 2 / 4; }
+
+/* ==============================
+   8. TESTIMONIALS
+   ============================== */
+.testimonials {
+  padding: 100px 48px;
+  background: var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--sage);
+  opacity: 0.06;
+  pointer-events: none;
+}
+.testimonials-label {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.testimonials-heading {
+  font-family: var(--heading);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+  text-align: center;
+  margin-bottom: 64px;
+}
+.testimonials-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.testimonial-stars {
+  color: var(--sage);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.testimonial-text {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--espresso-light);
+  margin-bottom: 24px;
+}
+.testimonial-author {
   font-family: var(--heading);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
   color: var(--espresso);
-  opacity: .4;
-  text-align: center;
-  margin-bottom: 28px;
 }
-.insta-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 900px;
-  margin: 0 auto;
+.testimonial-role {
+  font-family: var(--body);
+  font-size: 12px;
+  color: var(--espresso);
+  opacity: 0.45;
+  margin-top: 2px;
 }
-.insta-item {
-  aspect-ratio: 1;
-  border-radius: 12px;
-}
-.insta-1 { background: var(--sand); }
-.insta-2 { background: var(--terra); opacity: .7; }
-.insta-3 { background: var(--sage); opacity: .5; }
-.insta-4 { background: var(--espresso); opacity: .6; }
 
-/* === FOOTER === */
-.footer {
-  padding: 60px 48px 40px;
+/* ==============================
+   9. VISIT US CTA
+   ============================== */
+.visit {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--border);
-  background: var(--oat);
+  justify-content: center;
 }
-.footer-logo {
+.visit-bg {
+  position: absolute;
+  inset: 0;
+}
+.visit-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.visit-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(60, 36, 21, 0.45),
+    rgba(60, 36, 21, 0.65)
+  );
+}
+.visit-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 80px 24px;
+  max-width: 640px;
+}
+.visit-heading {
   font-family: var(--heading);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -.02em;
-  color: var(--espresso);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.15);
 }
-.footer-address {
+.visit-address {
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0.88;
+  margin-bottom: 8px;
+}
+.visit-hours {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  opacity: 0.7;
+  margin-bottom: 36px;
+}
+.visit-btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--espresso);
+  background: var(--white);
+  padding: 14px 36px;
+  border-radius: 100px;
+  transition: all var(--transition);
+}
+.visit-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* ==============================
+   10. FOOTER
+   ============================== */
+.footer {
+  background: var(--espresso);
+  color: var(--cream);
+  padding: 64px 48px 40px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(232, 221, 211, 0.12);
+  margin-bottom: 32px;
+}
+.footer-brand-name {
+  font-family: var(--heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.footer-brand-tagline {
   font-family: var(--body);
   font-size: 13px;
-  color: var(--espresso);
-  opacity: .45;
-  text-align: center;
+  color: var(--cream);
+  opacity: 0.45;
+}
+.footer-links {
+  display: flex;
+  gap: 48px;
+}
+.footer-col-title {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--cream);
+  opacity: 0.5;
+  transition: opacity var(--transition);
+}
+.footer-col a:hover { opacity: 1; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-family: var(--body);
+  font-size: 12px;
+  color: var(--cream);
+  opacity: 0.3;
 }
 .footer-socials {
   display: flex;
@@ -437,286 +922,618 @@ body:not(.lh) .hero-text { padding: 80px 0 80px 60px; }
   font-family: var(--body);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--espresso);
-  opacity: .4;
-  transition: opacity .2s;
+  color: var(--cream);
+  opacity: 0.4;
+  transition: opacity var(--transition);
 }
 .footer-socials a:hover { opacity: 1; }
 
-/* === MOBILE === */
-@media (max-width: 900px) {
-  .nav { padding: 16px 24px; }
-  .nav-right { gap: 20px; }
-  .nav-links { gap: 18px; }
+/* ==============================
+   RESPONSIVE -- TABLET (768px)
+   ============================== */
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; height: 64px; }
+  .nav-center { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
 
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 0 24px;
-  }
-  .hero-text {
-    padding: 60px 0 40px;
-    order: 1;
-  }
-  body:not(.lh) .hero-text { padding: 60px 0 40px; }
-  .hero-visual {
-    order: 2;
-    padding: 0 0 48px;
-  }
-  .hero-placeholder { aspect-ratio: 4/3; max-height: none; }
+  .hero { min-height: 500px; max-height: 800px; }
+  .hero-title { font-size: clamp(40px, 10vw, 60px); }
 
   .about { padding: 80px 24px; }
-  .menu { padding: 80px 24px; }
-
-  .menu-categories {
+  .about-inner {
     grid-template-columns: 1fr;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    display: flex;
-    padding-bottom: 20px;
+    gap: 48px;
+    max-width: 600px;
   }
-  .menu-col {
-    min-width: 280px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    padding-inline-end: 32px;
-  }
-  .menu-col:last-child { padding-inline-end: 0; }
+  .about-image { aspect-ratio: 16/10; }
+  .about-text-wrap { max-width: 100%; }
+  body.lh .about-text-wrap, body:not(.lh) .about-text-wrap { margin: 0; }
 
-  .space-band { padding: 80px 24px; }
-  .hours { padding: 80px 24px; }
-  .insta { padding: 48px 24px; }
-  .insta-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .footer {
-    padding: 40px 24px 32px;
-    flex-direction: column;
+  .menu-divider { height: 35vh; min-height: 240px; }
+  .menu { padding: 80px 24px; }
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .coffee { padding: 80px 24px; }
+  .coffee-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 600px;
+  }
+  .coffee-image { aspect-ratio: 16/10; order: -1; }
+  .coffee-text { max-width: 100%; }
+  body.lh .coffee-text, body:not(.lh) .coffee-text { margin: 0; }
+
+  .gallery { padding: 80px 24px; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px 220px;
+  }
+  .gallery-item-1 { grid-row: 1 / 2; grid-column: 1 / 3; }
+  .gallery-item-4 { grid-column: 1 / 3; }
+
+  .testimonials { padding: 80px 24px; }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
+    max-width: 500px;
+  }
+
+  .visit { min-height: 440px; }
+  .visit-content { padding: 60px 24px; }
+
+  .footer { padding: 48px 24px 32px; }
+  .footer-top {
+    flex-direction: column;
+    gap: 36px;
+  }
+  .footer-links { gap: 36px; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
     text-align: center;
   }
-  .section-pad { padding: 80px 24px; }
 }
 
+/* ==============================
+   RESPONSIVE -- PHONE (480px)
+   ============================== */
 @media (max-width: 480px) {
-  .nav-links a { font-size: 12px; }
-  .nav-logo { font-size: 17px; }
-  .hero-name { margin-bottom: 20px; }
-  .hero-tagline { font-size: 14px; }
-  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav { padding: 0 16px; height: 56px; }
+  .nav-logo { font-size: 18px; }
+  .nav-right .lang-toggle { padding: 5px 10px; font-size: 10px; }
+  .nav-right .order-btn { display: none; }
+
+  .hero { min-height: 440px; }
+  .hero-title { font-size: clamp(36px, 12vw, 48px); }
+  .hero-subtitle { font-size: 14px; }
+  .hero-scroll { display: none; }
+
+  .about { padding: 64px 16px; }
+  .about-inner { gap: 36px; }
+  .about-heading { font-size: 26px; }
+
+  .menu-divider { height: 28vh; min-height: 200px; }
+  .menu { padding: 64px 16px; }
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .menu-heading { font-size: 28px; }
+
+  .coffee { padding: 64px 16px; }
+  .coffee-inner { gap: 36px; }
+  .coffee-heading { font-size: 26px; }
+  .coffee-origins { gap: 12px; }
+  .coffee-origin-tag { font-size: 11px; padding: 6px 14px; }
+
+  .gallery { padding: 64px 16px; }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px 200px 200px 200px;
+  }
+  .gallery-item-1 { grid-column: 1; }
+  .gallery-item-4 { grid-column: 1; }
+
+  .testimonials { padding: 64px 16px; }
+  .testimonials-heading { font-size: 28px; margin-bottom: 40px; }
+
+  .visit { min-height: 380px; }
+  .visit-heading { font-size: 28px; }
+  .visit-content { padding: 48px 16px; }
+
+  .footer { padding: 40px 16px 28px; }
+  .footer-links {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 </style>
 </head>
 <body class="lh">
 
-<!-- MIZRA BANNER -->
+<!-- ============================
+     1. MIZRA DEMO BANNER
+     ============================ -->
 <div class="mizra-banner">
   <span class="he">
-    <span>האתר הזה נוצר עם</span>
+    <span>האתר הזה נוצר עם </span>
     <a href="/free-audit/">mizra</a>
     <span> -- בניית אתרים לעסקים קטנים</span>
   </span>
   <span class="en" style="display:none">
-    <span>This site was made with</span>
+    <span>This site was made with </span>
     <a href="/free-audit/">mizra</a>
     <span> -- websites for small businesses</span>
   </span>
 </div>
 
-<!-- NAV -->
-<nav class="nav">
+<!-- ============================
+     2. NAVIGATION
+     ============================ -->
+<nav class="nav" id="nav">
   <a href="#" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3.5 5 7 5 7s5-3.5 5-7z"/>
+      <path d="M9 14c-2.33.33-4 1.33-4 2.5C5 18 8.13 19 12 19s7-1 7-2.5c0-1.17-1.67-2.17-4-2.5"/>
+      <line x1="12" y1="21" x2="12" y2="19"/>
+    </svg>
     <span class="he">קפה נחמה</span>
     <span class="en">Cafe Nechama</span>
   </a>
+  <div class="nav-center">
+    <a href="#menu">
+      <span class="he">תפריט</span>
+      <span class="en">Menu</span>
+    </a>
+    <a href="#visit">
+      <span class="he">ביקור</span>
+      <span class="en">Visit</span>
+    </a>
+    <a href="#about">
+      <span class="he">אודות</span>
+      <span class="en">About</span>
+    </a>
+  </div>
   <div class="nav-right">
-    <div class="nav-links">
-      <a href="#menu">
-        <span class="he">תפריט</span>
-        <span class="en">Menu</span>
-      </a>
-      <a href="#visit">
-        <span class="he">ביקור</span>
-        <span class="en">Visit</span>
-      </a>
-    </div>
-    <button class="lang-toggle" onclick="toggleLang()">
+    <button class="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">
       <span class="he">EN</span>
       <span class="en">HE</span>
     </button>
+    <a href="#menu" class="order-btn">
+      <span class="he">הזמנה</span>
+      <span class="en">Order</span>
+    </a>
+    <div class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" onclick="closeMobile()">
+    <span class="he">תפריט</span>
+    <span class="en">Menu</span>
+  </a>
+  <a href="#visit" onclick="closeMobile()">
+    <span class="he">ביקור</span>
+    <span class="en">Visit</span>
+  </a>
+  <a href="#about" onclick="closeMobile()">
+    <span class="he">אודות</span>
+    <span class="en">About</span>
+  </a>
+  <a href="#menu" class="order-btn" onclick="closeMobile()">
+    <span class="he">הזמנה</span>
+    <span class="en">Order</span>
+  </a>
+</div>
+
+<!-- ============================
+     3. HERO
+     ============================ -->
 <section class="hero">
-  <div class="hero-text">
+  <div class="hero-bg">
+    <img src="img/cafe3.jpg" alt="Cafe Nechama blue storefront with striped awning on Dizengoff Street" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
     <div class="he">
-      <h1 class="hero-name">קפה נחמה</h1>
-      <p class="hero-tagline">קפה מיוחד ומאפים טריים ברחוב דיזנגוף, תל אביב. מקום שקט לבוקר טוב.</p>
+      <h1 class="hero-title">קפה נחמה</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">קפה מיוחד ומאפים טריים  /  דיזנגוף, תל אביב</p>
     </div>
     <div class="en">
-      <h1 class="hero-name">Cafe Nechama</h1>
-      <p class="hero-tagline">Specialty coffee and fresh pastries on Dizengoff Street, Tel Aviv. A quiet place for a good morning.</p>
+      <h1 class="hero-title">Cafe Nechama</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Specialty Coffee & Fresh Bakes  /  Dizengoff, Tel Aviv</p>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-placeholder"></div>
+  <div class="hero-scroll">
+    <span class="he">גללו למטה</span>
+    <span class="en">Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <div class="about-deco"></div>
-  <div class="he">
-    <p class="about-text">אנחנו מאמינים שכוס קפה טובה יכולה לשנות את היום. <span class="about-bold">כל גרגר נבחר בקפידה, כל מאפה נאפה היום.</span> פשטות, איכות, שקט.</p>
-  </div>
-  <div class="en">
-    <p class="about-text">We believe a good cup of coffee can change your day. <span class="about-bold">Every bean is carefully chosen, every pastry baked today.</span> Simplicity, quality, calm.</p>
+<!-- ============================
+     4. ABOUT
+     ============================ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image reveal">
+      <img src="img/cafe4.jpg" alt="Parisian cafe table with croissant, coffees, and newspaper in warm morning light" loading="lazy">
+    </div>
+    <div class="about-text-wrap">
+      <div class="he">
+        <div class="about-label reveal">הסיפור שלנו</div>
+        <h2 class="about-heading reveal reveal-delay-1">פינה שקטה בלב דיזנגוף</h2>
+        <p class="about-body reveal reveal-delay-2">קפה נחמה נולד מתוך אהבה פשוטה -- לקפה טוב, ללחם טרי, ולשיחה ארוכה בין חברים. מאז 1998 אנחנו מפעילים את הפינה השקטה הזו ברחוב דיזנגוף, שם כל בוקר מתחיל עם ריח של קפה טחון טרי ומאפים שיצאו מהתנור.</p>
+        <p class="about-body reveal reveal-delay-3">אנחנו עובדים עם חקלאים מקומיים, קולים את הפולים שלנו בעצמנו, ואופים הכל כאן -- כל יום מחדש. כי כוס קפה טובה היא לא רק משקה. היא רגע של שקט.</p>
+        <div class="about-signature reveal reveal-delay-4">-- משפחת נחמה</div>
+      </div>
+      <div class="en">
+        <div class="about-label reveal">Our Story</div>
+        <h2 class="about-heading reveal reveal-delay-1">A Quiet Corner on Dizengoff</h2>
+        <p class="about-body reveal reveal-delay-2">Cafe Nechama was born from a simple love -- for good coffee, fresh bread, and long conversations between friends. Since 1998, we have run this quiet corner on Dizengoff Street, where every morning begins with the scent of freshly ground beans and pastries straight from the oven.</p>
+        <p class="about-body reveal reveal-delay-3">We work with local farmers, roast our own beans, and bake everything right here -- fresh every day. Because a good cup of coffee is not just a drink. It is a moment of calm.</p>
+        <div class="about-signature reveal reveal-delay-4">-- The Nechama Family</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- MENU -->
+<!-- ============================
+     5. MENU HIGHLIGHTS
+     ============================ -->
+<div class="menu-divider">
+  <img src="img/cafe5.jpg" alt="Israeli breakfast spread with shakshuka, dips, bread rolls, and iced coffee from above" loading="lazy">
+  <div class="menu-divider-overlay">
+    <div class="he"><span class="menu-divider-text">מה מגישים?</span></div>
+    <div class="en"><span class="menu-divider-text">What We Serve</span></div>
+  </div>
+</div>
+
 <section class="menu" id="menu">
-  <div class="he">
-    <h2 class="menu-heading">התפריט</h2>
-  </div>
-  <div class="en">
-    <h2 class="menu-heading">The Menu</h2>
-  </div>
-  <div class="menu-categories">
+  <div class="menu-inner">
+    <div class="he">
+      <h2 class="menu-heading reveal">התפריט</h2>
+      <p class="menu-subheading reveal reveal-delay-1">מחירים בשקלים חדשים</p>
+    </div>
+    <div class="en">
+      <h2 class="menu-heading reveal">The Menu</h2>
+      <p class="menu-subheading reveal reveal-delay-1">Prices in New Israeli Shekels</p>
+    </div>
+    <div class="menu-grid">
 
-    <!-- Coffee -->
-    <div class="menu-col">
+      <!-- Coffee -->
+      <div class="menu-col reveal reveal-delay-1">
+        <div class="he">
+          <div class="menu-category-title">קפה</div>
+          <div class="menu-item"><span class="menu-item-name">אספרסו</span><span class="menu-item-price">12</span></div>
+          <div class="menu-item"><span class="menu-item-name">קפה שחור</span><span class="menu-item-price">14</span></div>
+          <div class="menu-item"><span class="menu-item-name">קפוצ'ינו</span><span class="menu-item-price">16</span></div>
+          <div class="menu-item"><span class="menu-item-name">פלט וויט</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">לאטה</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">קולד ברו</span><span class="menu-item-price">22</span></div>
+          <div class="menu-item"><span class="menu-item-name">מאצ'ה לאטה</span><span class="menu-item-price">24</span></div>
+        </div>
+        <div class="en">
+          <div class="menu-category-title">Coffee</div>
+          <div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price">12</span></div>
+          <div class="menu-item"><span class="menu-item-name">Black Coffee</span><span class="menu-item-price">14</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">16</span></div>
+          <div class="menu-item"><span class="menu-item-name">Flat White</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cold Brew</span><span class="menu-item-price">22</span></div>
+          <div class="menu-item"><span class="menu-item-name">Matcha Latte</span><span class="menu-item-price">24</span></div>
+        </div>
+      </div>
+
+      <!-- Pastries -->
+      <div class="menu-col reveal reveal-delay-2">
+        <div class="he">
+          <div class="menu-category-title">מאפים</div>
+          <div class="menu-item"><span class="menu-item-name">קרואסון חמאה</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">קרואסון שקדים</span><span class="menu-item-price">22</span></div>
+          <div class="menu-item"><span class="menu-item-name">עוגת שוקולד</span><span class="menu-item-price">28</span></div>
+          <div class="menu-item"><span class="menu-item-name">עוגת גזר</span><span class="menu-item-price">28</span></div>
+          <div class="menu-item"><span class="menu-item-name">קוקי מלוח</span><span class="menu-item-price">16</span></div>
+          <div class="menu-item"><span class="menu-item-name">בבקה תמרים</span><span class="menu-item-price">20</span></div>
+        </div>
+        <div class="en">
+          <div class="menu-category-title">Pastries</div>
+          <div class="menu-item"><span class="menu-item-name">Butter Croissant</span><span class="menu-item-price">18</span></div>
+          <div class="menu-item"><span class="menu-item-name">Almond Croissant</span><span class="menu-item-price">22</span></div>
+          <div class="menu-item"><span class="menu-item-name">Chocolate Cake</span><span class="menu-item-price">28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Carrot Cake</span><span class="menu-item-price">28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Salted Cookie</span><span class="menu-item-price">16</span></div>
+          <div class="menu-item"><span class="menu-item-name">Date Babka</span><span class="menu-item-price">20</span></div>
+        </div>
+      </div>
+
+      <!-- Breakfast -->
+      <div class="menu-col reveal reveal-delay-3">
+        <div class="he">
+          <div class="menu-category-title">ארוחת בוקר</div>
+          <div class="menu-item"><span class="menu-item-name">שקשוקה</span><span class="menu-item-price">48</span></div>
+          <div class="menu-item"><span class="menu-item-name">ביצים בנדיקט</span><span class="menu-item-price">52</span></div>
+          <div class="menu-item"><span class="menu-item-name">גרנולה ויוגורט</span><span class="menu-item-price">38</span></div>
+          <div class="menu-item"><span class="menu-item-name">טוסט אבוקדו</span><span class="menu-item-price">44</span></div>
+          <div class="menu-item"><span class="menu-item-name">בוקר ישראלי</span><span class="menu-item-price">62</span></div>
+        </div>
+        <div class="en">
+          <div class="menu-category-title">Breakfast</div>
+          <div class="menu-item"><span class="menu-item-name">Shakshuka</span><span class="menu-item-price">48</span></div>
+          <div class="menu-item"><span class="menu-item-name">Eggs Benedict</span><span class="menu-item-price">52</span></div>
+          <div class="menu-item"><span class="menu-item-name">Granola & Yogurt</span><span class="menu-item-price">38</span></div>
+          <div class="menu-item"><span class="menu-item-name">Avocado Toast</span><span class="menu-item-price">44</span></div>
+          <div class="menu-item"><span class="menu-item-name">Israeli Breakfast</span><span class="menu-item-price">62</span></div>
+        </div>
+      </div>
+
+      <!-- Lunch -->
+      <div class="menu-col reveal reveal-delay-4">
+        <div class="he">
+          <div class="menu-category-title">צהריים</div>
+          <div class="menu-item"><span class="menu-item-name">סלט ירוק</span><span class="menu-item-price">44</span></div>
+          <div class="menu-item"><span class="menu-item-name">טוסט גבינות</span><span class="menu-item-price">42</span></div>
+          <div class="menu-item"><span class="menu-item-name">מרק עונתי</span><span class="menu-item-price">36</span></div>
+          <div class="menu-item"><span class="menu-item-name">לחם מחמצת</span><span class="menu-item-price">24</span></div>
+          <div class="menu-item"><span class="menu-item-name">סנדוויץ' טונה</span><span class="menu-item-price">46</span></div>
+        </div>
+        <div class="en">
+          <div class="menu-category-title">Lunch</div>
+          <div class="menu-item"><span class="menu-item-name">Green Salad</span><span class="menu-item-price">44</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cheese Toast</span><span class="menu-item-price">42</span></div>
+          <div class="menu-item"><span class="menu-item-name">Seasonal Soup</span><span class="menu-item-price">36</span></div>
+          <div class="menu-item"><span class="menu-item-name">Sourdough Bread</span><span class="menu-item-price">24</span></div>
+          <div class="menu-item"><span class="menu-item-name">Tuna Sandwich</span><span class="menu-item-price">46</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="he"><p class="menu-note reveal">המחירים כוללים מע"מ  /  התפריט משתנה עם העונות</p></div>
+    <div class="en"><p class="menu-note reveal">Prices include VAT  /  Menu changes with the seasons</p></div>
+  </div>
+</section>
+
+<!-- ============================
+     6. COFFEE SECTION
+     ============================ -->
+<section class="coffee">
+  <div class="coffee-inner">
+    <div class="coffee-text">
       <div class="he">
-        <div class="menu-category-title">קפה</div>
-        <div class="menu-item"><span class="menu-item-name">אספרסו</span><span class="menu-item-price">12</span></div>
-        <div class="menu-item"><span class="menu-item-name">קפה שחור</span><span class="menu-item-price">14</span></div>
-        <div class="menu-item"><span class="menu-item-name">קפוצ'ינו</span><span class="menu-item-price">16</span></div>
-        <div class="menu-item"><span class="menu-item-name">פלט וויט</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">לאטה</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">קולד ברו</span><span class="menu-item-price">22</span></div>
-        <div class="menu-item"><span class="menu-item-name">מאצ'ה לאטה</span><span class="menu-item-price">24</span></div>
+        <div class="coffee-label reveal">הקפה שלנו</div>
+        <h2 class="coffee-heading reveal reveal-delay-1">מהחווה לפנג'ן</h2>
+        <p class="coffee-body reveal reveal-delay-2">אנחנו לא סתם מכינים קפה -- אנחנו חיים אותו. הפולים שלנו מגיעים ישירות מחוות קפה באתיופיה, קולומביה וגואטמלה. אנחנו קולים אותם בקלייה קטנה בדרום תל אביב, בכמויות קטנות, כדי לשמור על הטעם המדויק שאנחנו מחפשים.</p>
+        <p class="coffee-body reveal reveal-delay-3">כל כוס מוכנה בקפידה. מהאספרסו העשיר שלנו ועד לקולד ברו שמתמצה 18 שעות -- אנחנו מאמינים שהפרטים הקטנים עושים את ההבדל.</p>
+        <div class="coffee-origins reveal reveal-delay-4">
+          <span class="coffee-origin-tag">אתיופיה ירגצ'פה</span>
+          <span class="coffee-origin-tag">קולומביה ווילה</span>
+          <span class="coffee-origin-tag">גואטמלה אנטיגואה</span>
+        </div>
       </div>
       <div class="en">
-        <div class="menu-category-title">Coffee</div>
-        <div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price">12</span></div>
-        <div class="menu-item"><span class="menu-item-name">Black Coffee</span><span class="menu-item-price">14</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">16</span></div>
-        <div class="menu-item"><span class="menu-item-name">Flat White</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">Latte</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cold Brew</span><span class="menu-item-price">22</span></div>
-        <div class="menu-item"><span class="menu-item-name">Matcha Latte</span><span class="menu-item-price">24</span></div>
+        <div class="coffee-label reveal">Our Coffee</div>
+        <h2 class="coffee-heading reveal reveal-delay-1">From Farm to Cup</h2>
+        <p class="coffee-body reveal reveal-delay-2">We don't just make coffee -- we live it. Our beans arrive directly from coffee farms in Ethiopia, Colombia, and Guatemala. We roast them at a small roastery in south Tel Aviv, in small batches, to preserve the exact flavor profile we seek.</p>
+        <p class="coffee-body reveal reveal-delay-3">Every cup is crafted with care. From our rich espresso to our cold brew steeped for 18 hours -- we believe the small details make all the difference.</p>
+        <div class="coffee-origins reveal reveal-delay-4">
+          <span class="coffee-origin-tag">Ethiopia Yirgacheffe</span>
+          <span class="coffee-origin-tag">Colombia Huila</span>
+          <span class="coffee-origin-tag">Guatemala Antigua</span>
+        </div>
+      </div>
+    </div>
+    <div class="coffee-image reveal">
+      <img src="img/cafe2.jpg" alt="Collection of artisanal coffee cups with various ceramic mugs on marble surface" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     7. GALLERY
+     ============================ -->
+<section class="gallery">
+  <div class="he">
+    <div class="gallery-label reveal">רגעים</div>
+    <h2 class="gallery-heading reveal reveal-delay-1">מהיומיום שלנו</h2>
+  </div>
+  <div class="en">
+    <div class="gallery-label reveal">Moments</div>
+    <h2 class="gallery-heading reveal reveal-delay-1">From Our Days</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item gallery-item-1 reveal">
+      <img src="img/cafe1.jpg" alt="Golden pastries on blue plates with espresso and iced drinks in warm morning light" loading="lazy">
+    </div>
+    <div class="gallery-item gallery-item-2 reveal reveal-delay-1">
+      <img src="img/cafe4.jpg" alt="Croissant, coffees, and newspaper on a cafe table" loading="lazy">
+    </div>
+    <div class="gallery-item gallery-item-3 reveal reveal-delay-2">
+      <img src="img/cafe5.jpg" alt="Israeli breakfast spread seen from above" loading="lazy">
+    </div>
+    <div class="gallery-item gallery-item-4 reveal reveal-delay-3">
+      <img src="img/cafe2.jpg" alt="Artisanal coffee cups collection on marble" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     8. TESTIMONIALS
+     ============================ -->
+<section class="testimonials">
+  <div class="he">
+    <div class="testimonials-label reveal">מה אומרים עלינו</div>
+    <h2 class="testimonials-heading reveal reveal-delay-1">דברים טובים</h2>
+  </div>
+  <div class="en">
+    <div class="testimonials-label reveal">What People Say</div>
+    <h2 class="testimonials-heading reveal reveal-delay-1">Kind Words</h2>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">* * * * *</div>
+      <div class="he">
+        <p class="testimonial-text">המקום האהוב עליי בתל אביב. הקפה מושלם, האווירה שקטה ונעימה, והקרואסון -- פשוט אין כמוהו. אני באה לפה כל בוקר כבר שלוש שנים.</p>
+        <div class="testimonial-author">נועה לוין</div>
+        <div class="testimonial-role">תושבת השכונה</div>
+      </div>
+      <div class="en">
+        <p class="testimonial-text">My favorite place in Tel Aviv. The coffee is perfect, the atmosphere is calm and pleasant, and the croissant -- there is simply nothing like it. I have been coming here every morning for three years.</p>
+        <div class="testimonial-author">Noa Levin</div>
+        <div class="testimonial-role">Neighborhood local</div>
       </div>
     </div>
 
-    <!-- Pastries -->
-    <div class="menu-col">
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">* * * * *</div>
       <div class="he">
-        <div class="menu-category-title">מאפים</div>
-        <div class="menu-item"><span class="menu-item-name">קרואסון חמאה</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">קרואסון שקדים</span><span class="menu-item-price">22</span></div>
-        <div class="menu-item"><span class="menu-item-name">עוגת שוקולד</span><span class="menu-item-price">28</span></div>
-        <div class="menu-item"><span class="menu-item-name">עוגת גזר</span><span class="menu-item-price">28</span></div>
-        <div class="menu-item"><span class="menu-item-name">קוקי מלוח</span><span class="menu-item-price">16</span></div>
-        <div class="menu-item"><span class="menu-item-name">בבקה תמרים</span><span class="menu-item-price">20</span></div>
+        <p class="testimonial-text">אני מטייל בכל העולם ושותה קפה בכל עיר. הקפה של נחמה עומד בשורה הראשונה. האספרסו חד, עשיר, ומדויק. והשקשוקה של הבוקר היא חוויה.</p>
+        <div class="testimonial-author">דניאל אשכנזי</div>
+        <div class="testimonial-role">בלוגר אוכל</div>
       </div>
       <div class="en">
-        <div class="menu-category-title">Pastries</div>
-        <div class="menu-item"><span class="menu-item-name">Butter Croissant</span><span class="menu-item-price">18</span></div>
-        <div class="menu-item"><span class="menu-item-name">Almond Croissant</span><span class="menu-item-price">22</span></div>
-        <div class="menu-item"><span class="menu-item-name">Chocolate Cake</span><span class="menu-item-price">28</span></div>
-        <div class="menu-item"><span class="menu-item-name">Carrot Cake</span><span class="menu-item-price">28</span></div>
-        <div class="menu-item"><span class="menu-item-name">Salted Cookie</span><span class="menu-item-price">16</span></div>
-        <div class="menu-item"><span class="menu-item-name">Date Babka</span><span class="menu-item-price">20</span></div>
+        <p class="testimonial-text">I travel the world and drink coffee in every city. Nechama's coffee stands in the front row. The espresso is sharp, rich, and precise. And the morning shakshuka is an experience.</p>
+        <div class="testimonial-author">Daniel Ashkenazi</div>
+        <div class="testimonial-role">Food blogger</div>
       </div>
     </div>
 
-    <!-- Kitchen -->
-    <div class="menu-col">
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-stars">* * * * *</div>
       <div class="he">
-        <div class="menu-category-title">מטבח</div>
-        <div class="menu-item"><span class="menu-item-name">שקשוקה</span><span class="menu-item-price">48</span></div>
-        <div class="menu-item"><span class="menu-item-name">טוסט גבינות</span><span class="menu-item-price">42</span></div>
-        <div class="menu-item"><span class="menu-item-name">סלט ירוק</span><span class="menu-item-price">44</span></div>
-        <div class="menu-item"><span class="menu-item-name">ביצים בנדיקט</span><span class="menu-item-price">52</span></div>
-        <div class="menu-item"><span class="menu-item-name">גרנולה ויוגורט</span><span class="menu-item-price">38</span></div>
-        <div class="menu-item"><span class="menu-item-name">לחם מחמצת</span><span class="menu-item-price">24</span></div>
+        <p class="testimonial-text">הפכתי את נחמה למשרד הבית שלי. הווייפיי מעולה, הצוות חביב, והם לא מסתכלים עליך מוזר אם אתה יושב שלוש שעות עם לפטופ. מקום אמיתי.</p>
+        <div class="testimonial-author">מיכל ברנר</div>
+        <div class="testimonial-role">מעצבת גרפית</div>
       </div>
       <div class="en">
-        <div class="menu-category-title">Kitchen</div>
-        <div class="menu-item"><span class="menu-item-name">Shakshuka</span><span class="menu-item-price">48</span></div>
-        <div class="menu-item"><span class="menu-item-name">Cheese Toast</span><span class="menu-item-price">42</span></div>
-        <div class="menu-item"><span class="menu-item-name">Green Salad</span><span class="menu-item-price">44</span></div>
-        <div class="menu-item"><span class="menu-item-name">Eggs Benedict</span><span class="menu-item-price">52</span></div>
-        <div class="menu-item"><span class="menu-item-name">Granola & Yogurt</span><span class="menu-item-price">38</span></div>
-        <div class="menu-item"><span class="menu-item-name">Sourdough Bread</span><span class="menu-item-price">24</span></div>
+        <p class="testimonial-text">I turned Nechama into my home office. The WiFi is excellent, the staff is kind, and they don't look at you funny if you sit for three hours with a laptop. A real place.</p>
+        <div class="testimonial-author">Michal Brenner</div>
+        <div class="testimonial-role">Graphic designer</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- SPACE / QUOTE BAND -->
-<section class="space-band">
-  <div class="he">
-    <p class="space-quote">המקום שבו הזמן זז לאט יותר. בין ריח הקפה לאור הבוקר, יש רגע של שקט שאי אפשר למצוא בשום מקום אחר בעיר.</p>
+<!-- ============================
+     9. VISIT US CTA
+     ============================ -->
+<section class="visit" id="visit">
+  <div class="visit-bg">
+    <img src="img/cafe1.jpg" alt="Cafe table with golden pastries and coffee in warm morning light" loading="lazy">
   </div>
-  <div class="en">
-    <p class="space-quote">A place where time moves slower. Between the scent of coffee and the morning light, there is a moment of quiet you cannot find anywhere else in the city.</p>
-  </div>
-</section>
-
-<!-- HOURS -->
-<section class="hours" id="visit">
-  <div class="he">
-    <div class="hours-label">שעות פתיחה</div>
-    <p class="hours-line">ראשון - חמישי: 07:00 - 18:00</p>
-    <p class="hours-line">שישי: 07:00 - 15:00</p>
-    <p class="hours-line">שבת: סגור</p>
-  </div>
-  <div class="en">
-    <div class="hours-label">Opening Hours</div>
-    <p class="hours-line">Sunday - Thursday: 07:00 - 18:00</p>
-    <p class="hours-line">Friday: 07:00 - 15:00</p>
-    <p class="hours-line">Saturday: Closed</p>
-  </div>
-</section>
-
-<!-- INSTAGRAM -->
-<section class="insta">
-  <div class="he">
-    <div class="insta-heading">עקבו אחרינו</div>
-  </div>
-  <div class="en">
-    <div class="insta-heading">Follow Along</div>
-  </div>
-  <div class="insta-grid">
-    <div class="insta-item insta-1"></div>
-    <div class="insta-item insta-2"></div>
-    <div class="insta-item insta-3"></div>
-    <div class="insta-item insta-4"></div>
+  <div class="visit-overlay"></div>
+  <div class="visit-content">
+    <div class="he">
+      <h2 class="visit-heading reveal">בואו לבקר</h2>
+      <p class="visit-address reveal reveal-delay-1">רחוב דיזנגוף 78, תל אביב</p>
+      <div class="visit-hours reveal reveal-delay-2">
+        <p>ראשון - חמישי: 07:00 - 18:00</p>
+        <p>שישי: 07:00 - 15:00</p>
+        <p>שבת: סגור</p>
+      </div>
+      <a href="https://maps.google.com" class="visit-btn reveal reveal-delay-3">נווטו אלינו</a>
+    </div>
+    <div class="en">
+      <h2 class="visit-heading reveal">Come Visit Us</h2>
+      <p class="visit-address reveal reveal-delay-1">78 Dizengoff Street, Tel Aviv</p>
+      <div class="visit-hours reveal reveal-delay-2">
+        <p>Sunday - Thursday: 07:00 - 18:00</p>
+        <p>Friday: 07:00 - 15:00</p>
+        <p>Saturday: Closed</p>
+      </div>
+      <a href="https://maps.google.com" class="visit-btn reveal reveal-delay-3">Get Directions</a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================
+     10. FOOTER
+     ============================ -->
 <footer class="footer">
-  <div class="footer-logo">
-    <span class="he">קפה נחמה</span>
-    <span class="en">Cafe Nechama</span>
-  </div>
-  <div class="footer-address">
-    <span class="he">רחוב דיזנגוף 78, תל אביב</span>
-    <span class="en">78 Dizengoff St, Tel Aviv</span>
-  </div>
-  <div class="footer-socials">
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="he">
+          <div class="footer-brand-name">קפה נחמה</div>
+          <div class="footer-brand-tagline">קפה מיוחד ומאפים טריים מ-1998</div>
+        </div>
+        <div class="en">
+          <div class="footer-brand-name">Cafe Nechama</div>
+          <div class="footer-brand-tagline">Specialty coffee & fresh bakes since 1998</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="he">
+            <div class="footer-col-title">ניווט</div>
+            <ul>
+              <li class="he"><a href="#menu">תפריט</a></li>
+              <li class="he"><a href="#about">אודות</a></li>
+              <li class="he"><a href="#visit">ביקור</a></li>
+            </ul>
+          </div>
+          <div class="en">
+            <div class="footer-col-title">Navigate</div>
+            <ul>
+              <li class="en"><a href="#menu">Menu</a></li>
+              <li class="en"><a href="#about">About</a></li>
+              <li class="en"><a href="#visit">Visit</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="he">
+            <div class="footer-col-title">צרו קשר</div>
+            <ul>
+              <li class="he"><a href="tel:+97231234567">03-123-4567</a></li>
+              <li class="he"><a href="mailto:hello@cafenechama.co.il">hello@cafenechama.co.il</a></li>
+            </ul>
+          </div>
+          <div class="en">
+            <div class="footer-col-title">Contact</div>
+            <ul>
+              <li class="en"><a href="tel:+97231234567">03-123-4567</a></li>
+              <li class="en"><a href="mailto:hello@cafenechama.co.il">hello@cafenechama.co.il</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="he">
+        <div class="footer-copy">קפה נחמה 2026. כל הזכויות שמורות.</div>
+      </div>
+      <div class="en">
+        <div class="footer-copy">Cafe Nechama 2026. All rights reserved.</div>
+      </div>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
   </div>
 </footer>
 
+<!-- ============================
+     SCRIPTS
+     ============================ -->
 <script>
+/* Language toggle */
 function toggleLang() {
   var b = document.body;
   var h = document.documentElement;
@@ -730,6 +1547,58 @@ function toggleLang() {
     h.setAttribute('lang', 'he');
   }
 }
+
+/* Mobile menu */
+function toggleMobile() {
+  var ham = document.querySelector('.hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.toggle('active');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobile() {
+  var ham = document.querySelector('.hamburger');
+  var menu = document.getElementById('mobileMenu');
+  ham.classList.remove('active');
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Sticky nav shadow on scroll */
+(function() {
+  var nav = document.getElementById('nav');
+  var scrolled = false;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 20 && !scrolled) {
+      nav.classList.add('scrolled');
+      scrolled = true;
+    } else if (window.scrollY <= 20 && scrolled) {
+      nav.classList.remove('scrolled');
+      scrolled = false;
+    }
+  }, { passive: true });
+})();
+
+/* Scroll reveal with IntersectionObserver */
+(function() {
+  var revealEls = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  revealEls.forEach(function(el) { observer.observe(el); });
+})();
 </script>
 
 </body>

@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Levi, Shapira & Partners | Commercial & Real Estate Law</title>
-<meta name="description" content="Levi, Shapira & Partners - Commercial and Real Estate Law. Tel Aviv, Rothschild Tower. Over 20 years of legal excellence.">
+<title>Levi, Shapira & Partners | Attorneys at Law</title>
+<meta name="description" content="Levi, Shapira & Partners - Leading law firm in Tel Aviv. Commercial Law, Real Estate, Litigation. Over 20 years of legal excellence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-/* --- VARIABLES --- */
+/* ============================================
+   VARIABLES
+   ============================================ */
 :root {
   --forest: #1B3A2D;
   --forest-deep: #142E23;
@@ -28,7 +30,9 @@
   --sans: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
 }
 
-/* --- RESET --- */
+/* ============================================
+   RESET & BASE
+   ============================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -43,1421 +47,1552 @@ body {
 ::selection { background: var(--gold); color: var(--forest-deep); }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-/* --- TEXTURE / GRAIN OVERLAY --- */
+/* ============================================
+   GRAIN TEXTURE OVERLAY
+   ============================================ */
 body::after {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 256px 256px;
+  background-size: 200px 200px;
 }
 
-/* --- LANGUAGE TOGGLE --- */
-.he { display: none; }
-body.lh .en { display: none; }
-body.lh .he { display: block; }
-body.lh { direction: rtl; }
+/* ============================================
+   SCROLL-REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+.reveal-delay-5 { transition-delay: 0.60s; }
 
-/* --- GOLD DECORATIVE LINE --- */
+/* ============================================
+   GOLD HORIZONTAL RULE
+   ============================================ */
 .gold-rule {
-  width: 80px;
-  height: 1px;
+  width: 72px;
+  height: 2px;
+  background: var(--gold);
+  border: none;
+  margin: 20px auto;
+}
+.gold-rule-long {
+  width: 120px;
+  height: 1.5px;
   background: var(--gold);
   border: none;
   margin: 24px auto;
 }
-.gold-rule-left {
-  margin: 24px 0;
-}
 
-/* --- DIAMOND BULLET --- */
-.diamond {
-  color: var(--gold);
-  margin-inline-end: 12px;
-  font-size: 0.6em;
-  vertical-align: middle;
-}
+/* ============================================
+   BILINGUAL TOGGLE PATTERN
+   ============================================ */
+html[lang="he"] .en { display: none !important; }
+html[lang="en"] .he { display: none !important; }
+html[lang="en"] { direction: ltr; }
+html[lang="he"] { direction: rtl; }
 
-/* ========================================
-   MIZRA DEMO BANNER
-   ======================================== */
-.demo-banner {
-  background: var(--forest-deep);
+/* ============================================
+   1. MIZRA DEMO BANNER
+   ============================================ */
+.mizra-banner {
+  background: var(--forest);
   color: var(--gold);
   text-align: center;
-  padding: 11px 24px;
-  font-size: 0.82rem;
-  font-weight: 500;
+  padding: 10px 20px;
   font-family: var(--sans);
-  letter-spacing: 0.3px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   position: relative;
-  z-index: 200;
-  border-bottom: 1px solid rgba(184, 150, 78, 0.15);
+  z-index: 1001;
 }
-.demo-banner a {
+.mizra-banner a {
   color: var(--gold-light);
-  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
-  margin-inline-start: 6px;
-  transition: opacity 0.3s;
 }
-.demo-banner a:hover { opacity: 0.75; }
+.mizra-banner a:hover { color: var(--white); }
 
-/* ========================================
-   NAVIGATION
-   ======================================== */
-.nav {
+/* ============================================
+   2. NAVIGATION
+   ============================================ */
+.main-nav {
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 0 56px;
-  height: 72px;
+  z-index: 1000;
+  background: var(--forest-deep);
+  border-bottom: 1px solid rgba(184, 150, 78, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.main-nav.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--forest-deep);
-  border-bottom: 1px solid rgba(184, 150, 78, 0.1);
+  height: 76px;
 }
-.nav-logo {
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+html[lang="en"] .nav-brand { align-items: flex-start; }
+.nav-brand-name {
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 22px;
+  font-weight: 600;
   color: var(--ivory);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
-.nav-logo .logo-divider {
-  width: 1px;
-  height: 28px;
+.nav-brand-divider {
+  width: 40px;
+  height: 1px;
   background: var(--gold);
-  opacity: 0.4;
+  margin: 4px 0 3px;
 }
-.nav-logo .logo-sub {
+.nav-brand-sub {
   font-family: var(--sans);
-  font-size: 0.6rem;
-  color: rgba(248, 245, 238, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-}
-.nm {
-  display: flex;
-  gap: 32px;
-}
-.nm > .en, .nm > .he {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-.nm > .he { display: none; }
-body.lh .nm > .en { display: none; }
-body.lh .nm > .he { display: flex; gap: 32px; align-items: center; }
-.nm a {
-  color: rgba(248, 245, 238, 0.6);
-  font-size: 0.82rem;
+  font-size: 11px;
   font-weight: 400;
-  font-family: var(--sans);
-  letter-spacing: 0.4px;
-  transition: color 0.3s;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
-.nm a:hover { color: var(--gold); }
-.nr {
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--parchment);
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+html[lang="en"] .nav-links a::after {
+  right: auto;
+  left: 0;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-.ls {
-  display: flex;
-  gap: 2px;
-  background: rgba(248, 245, 238, 0.06);
-  padding: 2px;
-}
-.ls button {
-  padding: 5px 12px;
-  border: none;
-  background: transparent;
-  color: rgba(248, 245, 238, 0.4);
-  font-size: 0.7rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
+.lang-toggle {
   font-family: var(--sans);
-  letter-spacing: 1px;
-}
-.ls button.on {
-  background: var(--gold);
-  color: var(--forest-deep);
-}
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 24px;
-  background: var(--gold);
-  color: var(--forest-deep);
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 600;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid rgba(184, 150, 78, 0.3);
+  padding: 5px 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.lang-toggle:hover {
+  background: rgba(184, 150, 78, 0.1);
+  border-color: var(--gold);
+}
+.nav-cta {
+  display: inline-block;
   font-family: var(--sans);
-  letter-spacing: 0.3px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn-cta:hover {
-  background: var(--gold-light);
-  transform: translateY(-1px);
-}
-
-/* Mobile burger */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  z-index: 110;
-}
-.menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 1.5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forest-deep);
   background: var(--gold);
-  margin: 5px 0;
-  transition: 0.3s;
+  padding: 10px 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
-.menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.menu-toggle.open span:nth-child(2) { opacity: 0; }
-.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+.nav-cta:hover {
+  background: var(--gold-light);
+  box-shadow: 0 2px 12px rgba(184, 150, 78, 0.3);
+}
 
-/* ========================================
-   HERO
-   ======================================== */
-.hero {
-  min-height: 94vh;
-  display: flex;
+/* Hamburger */
+.hamburger {
+  display: none;
   flex-direction: column;
-  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--forest-deep);
+  z-index: 999;
+  padding: 100px 40px 40px;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 120px 56px 100px;
-  background: var(--forest);
+  gap: 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--ivory);
+  transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu .nav-cta {
+  margin-top: 20px;
+  font-size: 15px;
+  padding: 14px 40px;
+}
+
+/* ============================================
+   3. HERO
+   ============================================ */
+.hero {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
-.hero::before {
-  content: '';
+.hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 30%, rgba(184, 150, 78, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 70%, rgba(184, 150, 78, 0.03) 0%, transparent 50%);
-  z-index: 1;
+  z-index: 0;
 }
-.hero::after {
-  content: '';
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
   position: absolute;
   inset: 0;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 46, 35, 0.6) 0%,
+    rgba(27, 58, 45, 0.5) 50%,
+    rgba(20, 46, 35, 0.7) 100%
+  );
   z-index: 1;
 }
-.hero > * { position: relative; z-index: 2; }
-.hero-label {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: var(--gold);
-  margin-bottom: 36px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  padding: 0 32px;
 }
-.hero h1 {
+.hero-firm-name {
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 700;
   color: var(--ivory);
-  line-height: 1.08;
-  font-weight: 500;
-  margin-bottom: 0;
-  max-width: 800px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
 }
-.hero .gold-rule {
-  margin: 36px auto;
-  width: 120px;
+.hero-rule {
+  width: 100px;
+  height: 2px;
+  background: var(--gold);
+  border: none;
+  margin: 28px auto;
 }
 .hero-tagline {
-  font-family: var(--sans);
-  font-size: 1.08rem;
-  font-weight: 300;
-  color: rgba(248, 245, 238, 0.65);
-  max-width: 520px;
-  line-height: 1.8;
-  margin-bottom: 48px;
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.6vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 40px;
 }
 .hero-cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 16px 48px;
-  background: var(--gold);
-  color: var(--forest-deep);
+  display: inline-block;
   font-family: var(--sans);
-  font-size: 0.92rem;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
+  color: var(--forest-deep);
+  background: var(--gold);
+  padding: 16px 48px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 .hero-cta:hover {
   background: var(--gold-light);
-  transform: translateY(-2px);
-  box-shadow: 0 16px 48px rgba(184, 150, 78, 0.15);
+  box-shadow: 0 4px 20px rgba(184, 150, 78, 0.35);
+  transform: translateY(-1px);
 }
-
-/* ========================================
-   CONTAINER / SECTION
-   ======================================== */
-.cx { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
-.sec { padding: 100px 0; }
-.sec-label {
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(248, 245, 238, 0.5);
   font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 12px;
-  text-align: center;
+  animation: scrollPulse 2.5s ease-in-out infinite;
 }
-.sec-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-  color: var(--charcoal);
-  line-height: 1.18;
-  font-weight: 500;
-  margin-bottom: 16px;
-  text-align: center;
+.hero-scroll-indicator .scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
 }
-.sec-title-light {
-  color: var(--ivory);
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
-/* ========================================
-   PRACTICE AREAS
-   ======================================== */
+/* ============================================
+   4. PRACTICE AREAS
+   ============================================ */
 .practice-areas {
   background: var(--ivory);
-  padding: 100px 0;
+  padding: 100px 32px;
 }
-.practice-list {
-  max-width: 640px;
-  margin: 48px auto 0;
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
 }
-.practice-item {
-  display: flex;
-  align-items: baseline;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(184, 150, 78, 0.15);
-}
-.practice-item:first-child {
-  border-top: 1px solid rgba(184, 150, 78, 0.15);
-}
-.practice-diamond {
-  color: var(--gold);
-  font-size: 0.55rem;
-  margin-inline-end: 20px;
-  flex-shrink: 0;
-  line-height: 1;
-  position: relative;
-  top: -1px;
-}
-.practice-name {
-  font-family: var(--serif);
-  font-size: 1.18rem;
-  color: var(--charcoal);
-  font-weight: 500;
-  flex: 1;
-}
-.practice-desc {
+.section-label {
   font-family: var(--sans);
-  font-size: 0.84rem;
-  color: rgba(45, 45, 45, 0.55);
-  font-weight: 400;
-  max-width: 220px;
-  text-align: start;
-}
-
-/* ========================================
-   TRACK RECORD
-   ======================================== */
-.track {
-  background: var(--walnut);
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-}
-.track::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-.track > * { position: relative; z-index: 2; }
-.track-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-.track-item h3 {
-  font-family: var(--serif);
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
-  color: var(--gold);
-  line-height: 1;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.track-item p {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  color: rgba(248, 245, 238, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-/* ========================================
-   ATTORNEYS
-   ======================================== */
-.attorneys {
-  background: var(--parchment);
-  padding: 100px 0;
-}
-.att-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 56px;
-}
-.att-card {
-  text-align: center;
-}
-.att-portrait {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background: linear-gradient(180deg, rgba(27, 58, 45, 0.06) 0%, rgba(27, 58, 45, 0.12) 100%);
-  border: 1px solid var(--gold);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.att-portrait::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(184, 150, 78, 0.2);
-}
-.att-portrait svg {
-  width: 56px;
-  height: 56px;
-  stroke: rgba(27, 58, 45, 0.2);
-  fill: none;
-  stroke-width: 1;
-}
-.att-card h3 {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  color: var(--charcoal);
+  font-size: 12px;
   font-weight: 600;
-  margin-bottom: 4px;
-}
-.att-card .att-title {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  color: var(--gold-dark);
-  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  text-align: center;
   margin-bottom: 12px;
 }
-.att-card .att-credentials {
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--forest);
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 60px;
+  border: 1px solid rgba(184, 150, 78, 0.2);
+}
+.practice-item {
+  padding: 44px 36px;
+  border: 1px solid rgba(184, 150, 78, 0.15);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  margin: -1px;
+}
+.practice-item:hover {
+  background: var(--gold-faint);
+}
+.practice-diamond {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  margin-bottom: 20px;
+}
+.practice-item h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+.practice-item p {
   font-family: var(--sans);
-  font-size: 0.82rem;
-  color: rgba(45, 45, 45, 0.55);
+  font-size: 14px;
+  color: #6B6B6B;
   line-height: 1.7;
 }
 
-/* ========================================
-   TESTIMONIALS
-   ======================================== */
-.testimonials {
-  background: var(--forest);
-  padding: 100px 0;
+/* ============================================
+   5. TRACK RECORD
+   ============================================ */
+.track-record {
+  background: var(--walnut);
+  padding: 80px 32px;
   position: relative;
   overflow: hidden;
 }
-.testimonials::before {
+.track-record::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+  background: linear-gradient(135deg, rgba(61, 43, 31, 1) 0%, rgba(77, 59, 47, 0.9) 100%);
 }
-.testimonials > * { position: relative; z-index: 2; }
-.test-quote-mark {
+.track-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.track-item {}
+.track-number {
   font-family: var(--serif);
-  font-size: 5rem;
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
   color: var(--gold);
   line-height: 1;
-  opacity: 0.3;
-  text-align: center;
   margin-bottom: 8px;
 }
-[dir="rtl"] .test-quote-mark-open { display: none; }
-[dir="ltr"] .test-quote-mark-close { display: none; }
-body.lh .test-quote-mark-open { display: none; }
-body.lh .test-quote-mark-close { display: block; }
-body:not(.lh) .test-quote-mark-open { display: block; }
-body:not(.lh) .test-quote-mark-close { display: none; }
-.test-text {
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  font-style: italic;
-  color: var(--ivory);
-  line-height: 1.65;
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 32px;
-  font-weight: 400;
-}
-.test-attribution {
-  text-align: center;
-}
-.test-attribution strong {
-  font-family: var(--serif);
-  font-size: 1rem;
-  color: var(--gold);
-  display: block;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.test-attribution span {
+.track-label {
   font-family: var(--sans);
-  font-size: 0.78rem;
-  color: rgba(248, 245, 238, 0.4);
-  letter-spacing: 0.5px;
-}
-
-/* ========================================
-   RECOGNITION
-   ======================================== */
-.recognition {
-  background: var(--ivory);
-  padding: 56px 0;
-  border-top: 1px solid rgba(184, 150, 78, 0.12);
-  border-bottom: 1px solid rgba(184, 150, 78, 0.12);
-}
-.rec-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 56px;
-  flex-wrap: wrap;
-}
-.rec-item {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--charcoal);
-  opacity: 0.2;
+  font-size: 14px;
   font-weight: 500;
-  font-style: italic;
-  white-space: nowrap;
-  transition: opacity 0.3s;
-}
-.rec-item:hover { opacity: 0.5; }
-.rec-sep {
-  width: 4px;
-  height: 4px;
-  background: var(--gold);
-  opacity: 0.3;
-  flex-shrink: 0;
+  color: var(--parchment);
+  letter-spacing: 0.05em;
 }
 
-/* ========================================
-   CONTACT
-   ======================================== */
-.contact {
+/* ============================================
+   6. ABOUT / PHILOSOPHY
+   ============================================ */
+.about {
   background: var(--parchment);
-  padding: 100px 0;
+  padding: 100px 32px;
 }
-.contact-grid {
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
-  margin-top: 56px;
+  align-items: center;
 }
-.contact-left h3 {
+.about-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.about-image-wrapper img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+.about-image-frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+.about-text {}
+.about-text .section-label,
+.about-text .section-title {
+  text-align: start;
+}
+.about-text .gold-rule {
+  margin: 20px 0;
+  margin-inline-start: 0;
+}
+.about-text p {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: #4A4A4A;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.about-signature {
   font-family: var(--serif);
-  font-size: 1.5rem;
-  color: var(--charcoal);
-  font-weight: 500;
-  margin-bottom: 32px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--forest);
+  margin-top: 28px;
 }
+
+/* ============================================
+   7. TESTIMONIALS
+   ============================================ */
+.testimonials {
+  background: var(--forest);
+  padding: 100px 32px;
+  position: relative;
+}
+.testimonials .section-label { color: var(--gold); }
+.testimonials .section-title { color: var(--ivory); }
+.testimonials-grid {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 150, 78, 0.15);
+  padding: 40px 32px;
+  position: relative;
+}
+.testimonial-quote-mark {
+  font-family: var(--serif);
+  font-size: 64px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--parchment);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.testimonial-author {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.testimonial-role {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(237, 232, 222, 0.5);
+}
+.testimonial-gold-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+}
+html[lang="en"] .testimonial-gold-line {
+  right: auto;
+  left: 0;
+}
+
+/* ============================================
+   8. GALLERY
+   ============================================ */
+.gallery {
+  background: var(--ivory);
+  padding: 100px 32px;
+}
+.gallery-layout {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+.gallery-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(to top, rgba(20, 46, 35, 0.8), transparent);
+}
+.gallery-item-overlay span {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ivory);
+  font-style: italic;
+}
+
+/* ============================================
+   9. CONTACT CTA
+   ============================================ */
+.contact {
+  background: var(--parchment);
+  padding: 100px 32px;
+}
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--gold);
+}
+.contact-info {
+  padding: 56px 48px;
+  background: var(--forest);
+  color: var(--ivory);
+}
+.contact-info .section-label { text-align: start; }
+.contact-info .section-title { color: var(--ivory); text-align: start; }
+.contact-info .gold-rule { margin: 20px 0; margin-inline-start: 0; }
 .contact-detail {
   margin-bottom: 28px;
 }
-.contact-detail .detail-label {
+.contact-detail-label {
   font-family: var(--sans);
-  font-size: 0.65rem;
+  font-size: 11px;
   font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--gold-dark);
   margin-bottom: 6px;
 }
-.contact-detail .detail-value {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  color: var(--charcoal);
-  font-weight: 400;
-  line-height: 1.6;
-}
-.contact-detail .detail-value a {
-  color: var(--charcoal);
-  transition: color 0.3s;
-}
-.contact-detail .detail-value a:hover {
-  color: var(--gold-dark);
-}
-.contact-phone {
-  font-family: var(--serif);
-  font-size: 1.8rem;
-  color: var(--charcoal);
-  font-weight: 500;
-  direction: ltr;
-  display: inline-block;
-}
-.contact-form-wrap {
-  background: var(--ivory);
-  border: 1px solid rgba(184, 150, 78, 0.2);
-  padding: 40px;
-}
-.contact-form-wrap h3 {
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  color: var(--charcoal);
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-.contact-form-wrap .form-sub {
+.contact-detail-value {
   font-family: var(--sans);
-  font-size: 0.78rem;
-  color: var(--gold-dark);
-  font-weight: 500;
-  margin-bottom: 28px;
+  font-size: 16px;
+  color: var(--parchment);
+  line-height: 1.7;
 }
-.f { margin-bottom: 16px; }
-.f label {
+.contact-detail-value a {
+  color: var(--parchment);
+  transition: color 0.3s ease;
+}
+.contact-detail-value a:hover { color: var(--gold); }
+
+.contact-form-wrap {
+  padding: 56px 48px;
+  background: var(--ivory);
+}
+.contact-form-wrap .section-title {
+  text-align: start;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.contact-form-wrap .gold-rule {
+  margin: 16px 0 32px;
+  margin-inline-start: 0;
+}
+.form-group {
+  margin-bottom: 22px;
+}
+.form-group label {
   display: block;
   font-family: var(--sans);
-  font-size: 0.68rem;
+  font-size: 12px;
   font-weight: 600;
+  color: var(--forest);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(45, 45, 45, 0.5);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
-.f input, .f select, .f textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
-  padding: 12px 16px;
-  background: var(--parchment);
-  border: 1px solid rgba(184, 150, 78, 0.2);
-  color: var(--charcoal);
-  font-size: 0.9rem;
   font-family: var(--sans);
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 1px solid rgba(184, 150, 78, 0.3);
+  background: var(--white);
+  color: var(--charcoal);
+  transition: border-color 0.3s ease;
   outline: none;
-  transition: border-color 0.3s;
 }
-.f input::placeholder, .f textarea::placeholder {
-  color: rgba(45, 45, 45, 0.3);
-}
-.f input:focus, .f select:focus, .f textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: var(--gold);
 }
-.f select option { background: var(--ivory); }
-.f textarea { resize: vertical; min-height: 80px; }
-.fr { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.btn-submit {
-  width: 100%;
-  padding: 14px;
-  background: var(--forest);
-  color: var(--gold);
-  border: none;
-  font-size: 0.88rem;
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-submit {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 600;
-  font-family: var(--sans);
-  letter-spacing: 0.5px;
+  color: var(--forest-deep);
+  background: var(--gold);
+  padding: 14px 44px;
+  border: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 6px;
+  transition: all 0.3s ease;
+  width: 100%;
 }
-.btn-submit:hover {
-  background: var(--forest-deep);
-  transform: translateY(-1px);
-}
-.form-note {
-  text-align: center;
-  color: rgba(45, 45, 45, 0.4);
-  font-size: 0.72rem;
-  margin-top: 12px;
-  font-family: var(--sans);
+.form-submit:hover {
+  background: var(--gold-light);
+  box-shadow: 0 3px 16px rgba(184, 150, 78, 0.3);
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
-footer {
+/* ============================================
+   10. FOOTER
+   ============================================ */
+.footer {
   background: var(--forest-deep);
-  padding: 56px;
-  border-top: 1px solid rgba(184, 150, 78, 0.1);
+  padding: 56px 32px 32px;
+  border-top: 2px solid var(--gold);
 }
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-}
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  margin-bottom: 40px;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.footer-brand {
-  max-width: 320px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
 }
 .footer-brand-name {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 22px;
+  font-weight: 600;
   color: var(--ivory);
-  font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+.footer-brand-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 10px 0;
 }
 .footer-brand-desc {
   font-family: var(--sans);
-  font-size: 0.82rem;
-  color: rgba(248, 245, 238, 0.4);
+  font-size: 14px;
+  color: rgba(237, 232, 222, 0.5);
   line-height: 1.7;
+  max-width: 320px;
 }
-.footer-links h4 {
+.footer-col-title {
   font-family: var(--sans);
-  font-size: 0.65rem;
+  font-size: 11px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   color: var(--gold);
-  opacity: 0.6;
-  margin-bottom: 14px;
-}
-.footer-links a {
-  display: block;
-  font-family: var(--sans);
-  font-size: 0.84rem;
-  color: rgba(248, 245, 238, 0.4);
-  margin-bottom: 8px;
-  transition: color 0.3s;
-}
-.footer-links a:hover { color: var(--gold); }
-.footer-divider {
-  border: none;
-  border-top: 1px solid rgba(184, 150, 78, 0.08);
-  margin-bottom: 24px;
-}
-.footer-disclaimer {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  color: rgba(248, 245, 238, 0.25);
-  line-height: 1.8;
-  max-width: 840px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
-.footer-bottom {
+.footer-links li {
+  margin-bottom: 12px;
+}
+.footer-links a {
   font-family: var(--sans);
-  font-size: 0.72rem;
-  color: rgba(248, 245, 238, 0.3);
+  font-size: 14px;
+  color: rgba(237, 232, 222, 0.6);
+  transition: color 0.3s ease;
 }
-.footer-bottom a {
-  color: var(--gold);
-  opacity: 0.7;
-  transition: opacity 0.3s;
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(184, 150, 78, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.footer-bottom a:hover { opacity: 1; }
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(237, 232, 222, 0.35);
+}
+.footer-copy a { color: var(--gold); }
+.footer-copy a:hover { color: var(--gold-light); }
 
-/* ========================================
-   SCROLL REVEAL
-   ======================================== */
-.rv {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.rv.vis {
-  opacity: 1;
-  transform: none;
-}
-
-/* ========================================
+/* ============================================
    RESPONSIVE
-   ======================================== */
-@media (max-width: 1024px) {
-  .track-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .att-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  .practice-item { flex-wrap: wrap; gap: 4px; }
-  .practice-desc { max-width: none; }
-}
-
-@media (max-width: 768px) {
-  .nav { padding: 0 24px; height: 64px; }
-  .nm {
-    display: none;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(20, 46, 35, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    padding: 40px 24px;
-    z-index: 99;
-  }
-  .nm.open { display: flex; }
-  .nm > .en, .nm > .he { flex-direction: column; gap: 24px; }
-  .nm a { font-size: 1.1rem; color: var(--ivory); }
-  body.lh .nm > .he { flex-direction: column; gap: 24px; }
-  .menu-toggle { display: block; }
-  .nr { gap: 10px; }
-  .btn-cta { padding: 9px 16px; font-size: 0.78rem; }
-
-  .hero { min-height: auto; padding: 80px 24px 72px; }
-  .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-cta { padding: 14px 36px; }
-
-  .cx { padding: 0 24px; }
-  .sec { padding: 72px 0; }
-
-  .att-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
-  .track { padding: 56px 0; }
+   ============================================ */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .practice-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-image-wrapper img { height: 380px; }
+  .gallery-layout { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .track-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-
-  .practice-item { flex-direction: column; gap: 2px; }
-  .practice-desc { max-width: none; font-size: 0.8rem; }
-
-  .footer-top { flex-direction: column; gap: 28px; }
-  footer { padding: 40px 24px; }
-  .rec-bar { gap: 24px; }
-  .fr { grid-template-columns: 1fr; }
-  .contact-form-wrap { padding: 28px; }
-  .contact-phone { font-size: 1.4rem; }
-
-  .test-text { font-size: clamp(1.05rem, 4vw, 1.3rem); }
 }
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .nav-inner { padding: 0 20px; height: 66px; }
+  .nav-brand-name { font-size: 18px; }
+  .nav-actions .nav-cta { display: none; }
+  .practice-grid { grid-template-columns: 1fr; }
   .track-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .rec-bar { gap: 16px; }
-  .rec-sep { display: none; }
+  .track-record { padding: 60px 24px; }
+  .hero-content { padding: 0 20px; }
+  .contact-info,
+  .contact-form-wrap { padding: 40px 28px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .section-container,
+  .practice-areas,
+  .testimonials,
+  .gallery,
+  .about,
+  .contact { padding-left: 20px; padding-right: 20px; }
 }
 </style>
 </head>
-<body class="lh">
+<body>
 
-<!-- ==================== MIZRA DEMO BANNER ==================== -->
-<div class="demo-banner">
-  <div class="he">
-    <span>זו דוגמה לאתר שנבנה על ידי Mizra. רוצים אתר כזה?</span>
-    <a href="/free-audit/">לחצו כאן</a>
-  </div>
-  <div class="en">
-    <span>This is an example site built by Mizra. Want one like this?</span>
-    <a href="/free-audit/">Click here</a>
-  </div>
+<!-- ============================================
+     1. MIZRA DEMO BANNER
+     ============================================ -->
+<div class="mizra-banner">
+  <span class="he">
+    זהו אתר לדוגמה שנבנה באמצעות <a href="https://mizra.io" target="_blank">Mizra</a> &mdash; בונה אתרים חכם שמבין עיצוב.
+  </span>
+  <span class="en">
+    This is a demo site built with <a href="https://mizra.io" target="_blank">Mizra</a> &mdash; the smart website builder that understands design.
+  </span>
 </div>
 
-<!-- ==================== NAVIGATION ==================== -->
-<nav class="nav">
-  <a href="#" class="nav-logo">
-    <div class="he">לוי, שפירא ושות'</div>
-    <div class="en">Levi, Shapira & Partners</div>
-    <div class="logo-divider"></div>
-    <div class="logo-sub">
-      <span class="he">עורכי דין</span>
-      <span class="en">Attorneys at Law</span>
-    </div>
-  </a>
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="nm">
-    <div class="en">
-      <a href="#areas">Practice Areas</a>
-      <a href="#team">Attorneys</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="he">
-      <a href="#areas">תחומי עיסוק</a>
-      <a href="#team">עורכי הדין</a>
-      <a href="#testimonials">המלצות</a>
-      <a href="#contact">צור קשר</a>
-    </div>
-  </div>
-  <div class="nr">
-    <div class="ls">
-      <button onclick="setL('en')">EN</button>
-      <button class="on" onclick="setL('he')">HE</button>
-    </div>
-    <a href="#contact" class="btn-cta">
-      <span class="en">Free Consultation</span>
-      <span class="he">ייעוץ חינם</span>
+<!-- ============================================
+     2. NAVIGATION
+     ============================================ -->
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <span class="nav-brand-name">
+        <span class="he">לוי, שפירא ושות'</span>
+        <span class="en">Levi, Shapira & Partners</span>
+      </span>
+      <span class="nav-brand-divider"></span>
+      <span class="nav-brand-sub">
+        <span class="he">עורכי דין</span>
+        <span class="en">Attorneys at Law</span>
+      </span>
     </a>
+    <div class="nav-links">
+      <a href="#practice">
+        <span class="he">תחומי עיסוק</span>
+        <span class="en">Practice Areas</span>
+      </a>
+      <a href="#about">
+        <span class="he">אודות</span>
+        <span class="en">About</span>
+      </a>
+      <a href="#testimonials">
+        <span class="he">המלצות</span>
+        <span class="en">Testimonials</span>
+      </a>
+      <a href="#gallery">
+        <span class="he">גלריה</span>
+        <span class="en">Gallery</span>
+      </a>
+      <a href="#contact">
+        <span class="he">צור קשר</span>
+        <span class="en">Contact</span>
+      </a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="he">EN</span>
+        <span class="en">HE</span>
+      </button>
+      <a href="#contact" class="nav-cta">
+        <span class="he">ייעוץ חינם</span>
+        <span class="en">Free Consultation</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<section class="hero">
-  <div class="he">
-    <div class="hero-label">משפט מסחרי ומקרקעין</div>
-    <h1>לוי, שפירא ושות'</h1>
-    <hr class="gold-rule">
-    <p class="hero-tagline">למעלה משני עשורים של ייצוג משפטי מהשורה הראשונה. ליווי עסקאות מסחריות, נדל"ן והתדיינות משפטית ברמה הגבוהה ביותר.</p>
-    <a href="#contact" class="hero-cta">קבעו ייעוץ ראשוני</a>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#practice" class="mobile-nav-link">
+    <span class="he">תחומי עיסוק</span>
+    <span class="en">Practice Areas</span>
+  </a>
+  <a href="#about" class="mobile-nav-link">
+    <span class="he">אודות</span>
+    <span class="en">About</span>
+  </a>
+  <a href="#testimonials" class="mobile-nav-link">
+    <span class="he">המלצות</span>
+    <span class="en">Testimonials</span>
+  </a>
+  <a href="#gallery" class="mobile-nav-link">
+    <span class="he">גלריה</span>
+    <span class="en">Gallery</span>
+  </a>
+  <a href="#contact" class="mobile-nav-link">
+    <span class="he">צור קשר</span>
+    <span class="en">Contact</span>
+  </a>
+  <a href="#contact" class="nav-cta">
+    <span class="he">ייעוץ חינם</span>
+    <span class="en">Free Consultation</span>
+  </a>
+</div>
+
+<!-- ============================================
+     3. HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="img/lawyer2.jpg" alt="Dark elegant library with law books and modern furnishings" loading="eager">
   </div>
-  <div class="en">
-    <div class="hero-label">Commercial & Real Estate Law</div>
-    <h1>Levi, Shapira & Partners</h1>
-    <hr class="gold-rule">
-    <p class="hero-tagline">Over two decades of first-class legal representation. Commercial transactions, real estate, and litigation at the highest standard.</p>
-    <a href="#contact" class="hero-cta">Schedule a Consultation</a>
-  </div>
-</section>
-
-<!-- ==================== PRACTICE AREAS ==================== -->
-<section class="practice-areas sec" id="areas">
-  <div class="cx">
-    <div class="en">
-      <div class="sec-label">Practice Areas</div>
-      <h2 class="sec-title">Areas of Expertise</h2>
-    </div>
-    <div class="he">
-      <div class="sec-label">תחומי עיסוק</div>
-      <h2 class="sec-title">תחומי המומחיות שלנו</h2>
-    </div>
-    <hr class="gold-rule">
-
-    <div class="practice-list rv">
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Commercial Law</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">משפט מסחרי</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Contracts, M&A, Joint Ventures</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">חוזים, מיזוגים ורכישות, מיזמים משותפים</span>
-        </div>
-      </div>
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Real Estate Law</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">דיני מקרקעין</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Transactions, Planning, Development</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">עסקאות, תכנון, פיתוח</span>
-        </div>
-      </div>
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Corporate Law</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">דיני תאגידים</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Governance, Compliance, Advisory</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">ממשל תאגידי, ציות, ייעוץ</span>
-        </div>
-      </div>
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Litigation & Arbitration</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">ליטיגציה ובוררות</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Civil, Commercial, Appellate</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">אזרחי, מסחרי, ערעורים</span>
-        </div>
-      </div>
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Employment Law</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">דיני עבודה</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Contracts, Disputes, Regulation</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">חוזים, סכסוכים, רגולציה</span>
-        </div>
-      </div>
-
-      <div class="practice-item">
-        <span class="practice-diamond">&#x25C6;</span>
-        <div class="en">
-          <span class="practice-name">Startup & Technology</span>
-        </div>
-        <div class="he">
-          <span class="practice-name">סטארטאפ וטכנולוגיה</span>
-        </div>
-        <div class="en">
-          <span class="practice-desc">Venture Capital, IP, Licensing</span>
-        </div>
-        <div class="he">
-          <span class="practice-desc">הון סיכון, קניין רוחני, רישוי</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== TRACK RECORD ==================== -->
-<section class="track">
-  <div class="cx">
-    <div class="track-grid">
-      <div class="track-item rv">
-        <h3>500+</h3>
-        <div class="en"><p>Cases Handled</p></div>
-        <div class="he"><p>תיקים שטופלו</p></div>
-      </div>
-      <div class="track-item rv">
-        <h3>20+</h3>
-        <div class="en"><p>Years of Practice</p></div>
-        <div class="he"><p>שנות ניסיון</p></div>
-      </div>
-      <div class="track-item rv">
-        <h3>98%</h3>
-        <div class="en"><p>Client Satisfaction</p></div>
-        <div class="he"><p>שביעות רצון</p></div>
-      </div>
-      <div class="track-item rv">
-        <h3>3</h3>
-        <div class="en"><p>Office Locations</p></div>
-        <div class="he"><p>סניפים</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ATTORNEYS ==================== -->
-<section class="attorneys sec" id="team">
-  <div class="cx">
-    <div class="en">
-      <div class="sec-label">Our Attorneys</div>
-      <h2 class="sec-title">The Partners</h2>
-    </div>
-    <div class="he">
-      <div class="sec-label">עורכי הדין שלנו</div>
-      <h2 class="sec-title">השותפים</h2>
-    </div>
-    <hr class="gold-rule">
-
-    <div class="att-grid">
-
-      <!-- Attorney 1 -->
-      <div class="att-card rv">
-        <div class="att-portrait">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="en">
-          <h3>Adv. Daniel Levi</h3>
-          <div class="att-title">Managing Partner</div>
-          <div class="att-credentials">Bar Admission: 2002<br>Hebrew University, LL.B. Magna Cum Laude<br>Commercial Law, Mergers & Acquisitions</div>
-        </div>
-        <div class="he">
-          <h3>עו"ד דניאל לוי</h3>
-          <div class="att-title">שותף מנהל</div>
-          <div class="att-credentials">רישיון עריכת דין: 2002<br>האוניברסיטה העברית, LL.B. בהצטיינות יתרה<br>משפט מסחרי, מיזוגים ורכישות</div>
-        </div>
-      </div>
-
-      <!-- Attorney 2 -->
-      <div class="att-card rv">
-        <div class="att-portrait">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="en">
-          <h3>Adv. Noa Shapira</h3>
-          <div class="att-title">Senior Partner</div>
-          <div class="att-credentials">Bar Admission: 2004<br>Tel Aviv University, LL.B., LL.M.<br>Real Estate, Urban Planning</div>
-        </div>
-        <div class="he">
-          <h3>עו"ד נועה שפירא</h3>
-          <div class="att-title">שותפה בכירה</div>
-          <div class="att-credentials">רישיון עריכת דין: 2004<br>אוניברסיטת תל אביב, LL.B., LL.M.<br>מקרקעין, תכנון ובנייה</div>
-        </div>
-      </div>
-
-      <!-- Attorney 3 -->
-      <div class="att-card rv">
-        <div class="att-portrait">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="en">
-          <h3>Adv. Yonatan Raz</h3>
-          <div class="att-title">Partner, Head of Litigation</div>
-          <div class="att-credentials">Bar Admission: 2007<br>IDC Herzliya, LL.B.<br>Litigation, Employment Law</div>
-        </div>
-        <div class="he">
-          <h3>עו"ד יונתן רז</h3>
-          <div class="att-title">שותף, ראש מחלקת ליטיגציה</div>
-          <div class="att-credentials">רישיון עריכת דין: 2007<br>המרכז הבינתחומי הרצליה, LL.B.<br>ליטיגציה, דיני עבודה</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== TESTIMONIALS ==================== -->
-<section class="testimonials" id="testimonials">
-  <div class="cx">
-    <div class="test-quote-mark test-quote-mark-open" style="text-align:center">"</div>
-    <div class="test-quote-mark test-quote-mark-close" style="text-align:center">"</div>
-    <div class="en">
-      <p class="test-text">Levi, Shapira handled our company acquisition with exceptional precision. Their strategic counsel and negotiation expertise saved us significant costs and delivered beyond our expectations. A truly world-class legal team.</p>
-      <div class="test-attribution">
-        <strong>Avi Goldstein</strong>
-        <span>CEO, TechVentures Ltd.</span>
-      </div>
-    </div>
-    <div class="he">
-      <p class="test-text">לוי, שפירא ליוו את רכישת החברה שלנו בדיוק יוצא דופן. הייעוץ האסטרטגי וכישורי המשא ומתן שלהם חסכו לנו עלויות משמעותיות והעלו על כל הציפיות. צוות משפטי ברמה עולמית באמת.</p>
-      <div class="test-attribution">
-        <strong>אבי גולדשטיין</strong>
-        <span>מנכ"ל, TechVentures Ltd.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== RECOGNITION ==================== -->
-<section class="recognition">
-  <div class="cx">
-    <div class="rec-bar rv">
-      <span class="rec-item">The Marker</span>
-      <span class="rec-sep"></span>
-      <span class="rec-item">Globes</span>
-      <span class="rec-sep"></span>
-      <span class="rec-item">Calcalist</span>
-      <span class="rec-sep"></span>
-      <span class="rec-item">Israel Bar Association</span>
-      <span class="rec-sep"></span>
-      <span class="rec-item">BDI Code</span>
-      <span class="rec-sep"></span>
-      <span class="rec-item">Dun's 100</span>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== CONTACT ==================== -->
-<section class="contact sec" id="contact">
-  <div class="cx">
-    <div class="en">
-      <div class="sec-label">Contact</div>
-      <h2 class="sec-title">Get in Touch</h2>
-    </div>
-    <div class="he">
-      <div class="sec-label">צור קשר</div>
-      <h2 class="sec-title">דברו איתנו</h2>
-    </div>
-    <hr class="gold-rule">
-
-    <div class="contact-grid">
-
-      <div class="contact-left">
-        <div class="en"><h3>Office</h3></div>
-        <div class="he"><h3>המשרד</h3></div>
-
-        <div class="contact-detail">
-          <div class="en"><div class="detail-label">Address</div></div>
-          <div class="he"><div class="detail-label">כתובת</div></div>
-          <div class="detail-value">
-            <div class="en">Rothschild Tower, 22nd Floor<br>45 Rothschild Blvd, Tel Aviv 6578401</div>
-            <div class="he">מגדל רוטשילד, קומה 22<br>שדרות רוטשילד 45, תל אביב 6578401</div>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="en"><div class="detail-label">Telephone</div></div>
-          <div class="he"><div class="detail-label">טלפון</div></div>
-          <div class="detail-value">
-            <a href="tel:+97236123456" class="contact-phone">03-612-3456</a>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="en"><div class="detail-label">Email</div></div>
-          <div class="he"><div class="detail-label">אימייל</div></div>
-          <div class="detail-value">
-            <a href="mailto:info@levi-shapira.co.il">info@levi-shapira.co.il</a>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="en"><div class="detail-label">Office Hours</div></div>
-          <div class="he"><div class="detail-label">שעות פעילות</div></div>
-          <div class="detail-value">
-            <div class="en">Sunday - Thursday, 8:30 - 18:00</div>
-            <div class="he">ראשון - חמישי, 8:30 - 18:00</div>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="en"><div class="detail-label">Additional Offices</div></div>
-          <div class="he"><div class="detail-label">סניפים נוספים</div></div>
-          <div class="detail-value">
-            <div class="en">Jerusalem &middot; Haifa</div>
-            <div class="he">ירושלים &middot; חיפה</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form-wrap rv">
-        <div class="en">
-          <h3>Request a Consultation</h3>
-          <div class="form-sub">A senior attorney will contact you within 24 hours</div>
-          <form onsubmit="return false">
-            <div class="fr">
-              <div class="f"><label>Full Name</label><input placeholder="Your full name" required></div>
-              <div class="f"><label>Phone</label><input type="tel" placeholder="054-000-0000" required></div>
-            </div>
-            <div class="f"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-            <div class="f"><label>Legal Area</label>
-              <select>
-                <option value="">Select...</option>
-                <option>Commercial Law</option>
-                <option>Real Estate</option>
-                <option>Corporate Law</option>
-                <option>Litigation</option>
-                <option>Employment Law</option>
-                <option>Startup & Tech</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="f"><label>Brief Description</label><textarea placeholder="Describe your legal matter briefly..."></textarea></div>
-            <button type="submit" class="btn-submit">Send Request</button>
-            <p class="form-note">All inquiries are treated with strict confidentiality.</p>
-          </form>
-        </div>
-        <div class="he">
-          <h3>בקשו ייעוץ ראשוני</h3>
-          <div class="form-sub">עורך דין בכיר יחזור אליכם תוך 24 שעות</div>
-          <form onsubmit="return false">
-            <div class="fr">
-              <div class="f"><label>שם מלא</label><input placeholder="השם המלא שלכם" required></div>
-              <div class="f"><label>טלפון</label><input type="tel" placeholder="054-000-0000" required></div>
-            </div>
-            <div class="f"><label>אימייל</label><input type="email" placeholder="you@email.com"></div>
-            <div class="f"><label>תחום משפטי</label>
-              <select>
-                <option value="">בחרו...</option>
-                <option>משפט מסחרי</option>
-                <option>מקרקעין</option>
-                <option>דיני תאגידים</option>
-                <option>ליטיגציה</option>
-                <option>דיני עבודה</option>
-                <option>סטארטאפ וטכנולוגיה</option>
-                <option>אחר</option>
-              </select>
-            </div>
-            <div class="f"><label>תיאור קצר</label><textarea placeholder="תארו בקצרה את הנושא המשפטי..."></textarea></div>
-            <button type="submit" class="btn-submit">שליחת בקשה</button>
-            <p class="form-note">כל הפניות מטופלות בסודיות מוחלטת.</p>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="en">
-          <div class="footer-brand-name">Levi, Shapira & Partners</div>
-          <div class="footer-brand-desc">Commercial and real estate law. Serving businesses and individuals across Israel since 2002.</div>
-        </div>
-        <div class="he">
-          <div class="footer-brand-name">לוי, שפירא ושות'</div>
-          <div class="footer-brand-desc">משפט מסחרי ומקרקעין. משרתים עסקים ופרטיים ברחבי ישראל משנת 2002.</div>
-        </div>
-      </div>
-      <div class="footer-links">
-        <div class="en"><h4>Practice Areas</h4></div>
-        <div class="he"><h4>תחומי עיסוק</h4></div>
-        <div class="en">
-          <a href="#areas">Commercial Law</a>
-          <a href="#areas">Real Estate</a>
-          <a href="#areas">Corporate</a>
-          <a href="#areas">Litigation</a>
-        </div>
-        <div class="he">
-          <a href="#areas">משפט מסחרי</a>
-          <a href="#areas">מקרקעין</a>
-          <a href="#areas">תאגידים</a>
-          <a href="#areas">ליטיגציה</a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <div class="en"><h4>Contact</h4></div>
-        <div class="he"><h4>צור קשר</h4></div>
-        <a href="tel:+97236123456">03-612-3456</a>
-        <a href="mailto:info@levi-shapira.co.il">info@levi-shapira.co.il</a>
-        <div class="en"><a href="#contact">Rothschild Tower, Tel Aviv</a></div>
-        <div class="he"><a href="#contact">מגדל רוטשילד, תל אביב</a></div>
-      </div>
-    </div>
-    <hr class="footer-divider">
-    <div class="en"><p class="footer-disclaimer">Disclaimer: This website and its contents are for informational purposes only and do not constitute legal advice. No attorney-client relationship is established by use of this website. Past results do not guarantee future outcomes. Every legal matter is different and results depend on the specific facts and circumstances of each case. Levi, Shapira & Partners is a fictional law firm created for demonstration purposes.</p></div>
-    <div class="he"><p class="footer-disclaimer">הבהרה: אתר זה ותכניו מיועדים למטרות מידע בלבד ואינם מהווים ייעוץ משפטי. שימוש באתר אינו יוצר יחסי עורך דין-לקוח. תוצאות עבר אינן מבטיחות תוצאות עתידיות. כל עניין משפטי שונה והתוצאות תלויות בעובדות ובנסיבות הספציפיות של כל מקרה. לוי, שפירא ושות' הוא משרד עורכי דין בדיוני שנוצר למטרות הדגמה.</p></div>
-    <p class="footer-bottom">
-      <span class="en">&copy; 2026 Levi, Shapira & Partners. All rights reserved.</span>
-      <span class="he">&copy; 2026 לוי, שפירא ושות'. כל הזכויות שמורות.</span>
-      &nbsp;&middot;&nbsp;
-      <span class="en">Demo site by</span>
-      <span class="he">אתר לדוגמה מאת</span>
-      <a href="https://getmizra.com" target="_blank">Mizra</a>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-firm-name reveal">
+      <span class="he">לוי, שפירא ושות'</span>
+      <span class="en">Levi, Shapira<br>& Partners</span>
+    </h1>
+    <hr class="hero-rule reveal reveal-delay-1">
+    <p class="hero-tagline reveal reveal-delay-2">
+      <span class="he">מסורת של מצוינות משפטית. ייצוג שמדבר בשקט ופועל בעוצמה.</span>
+      <span class="en">A tradition of legal excellence. Representation that speaks softly and acts with force.</span>
     </p>
+    <a href="#contact" class="hero-cta reveal reveal-delay-3">
+      <span class="he">קבעו פגישת ייעוץ</span>
+      <span class="en">Schedule a Consultation</span>
+    </a>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span class="he">גלול למטה</span>
+    <span class="en">Scroll</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<!-- ============================================
+     4. PRACTICE AREAS
+     ============================================ -->
+<section class="practice-areas" id="practice">
+  <div class="section-container">
+    <p class="section-label reveal">
+      <span class="he">תחומי עיסוק</span>
+      <span class="en">Practice Areas</span>
+    </p>
+    <h2 class="section-title reveal reveal-delay-1">
+      <span class="he">מומחיות רחבה, ייצוג מדויק</span>
+      <span class="en">Broad Expertise, Precise Counsel</span>
+    </h2>
+    <hr class="gold-rule reveal reveal-delay-1">
+    <div class="practice-grid">
+      <div class="practice-item reveal">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">משפט מסחרי</span>
+          <span class="en">Commercial Law</span>
+        </h3>
+        <p>
+          <span class="he">ליווי עסקאות מורכבות, חוזים מסחריים וסכסוכים עסקיים ברמה הגבוהה ביותר.</span>
+          <span class="en">Navigating complex transactions, commercial contracts, and business disputes at the highest level.</span>
+        </p>
+      </div>
+      <div class="practice-item reveal reveal-delay-1">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">מקרקעין ונדל"ן</span>
+          <span class="en">Real Estate</span>
+        </h3>
+        <p>
+          <span class="he">ייעוץ וליווי בעסקאות נדל"ן, תכנון ובנייה, ורישום מקרקעין.</span>
+          <span class="en">Advisory and representation in real estate transactions, planning, construction, and land registration.</span>
+        </p>
+      </div>
+      <div class="practice-item reveal reveal-delay-2">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">ליטיגציה</span>
+          <span class="en">Litigation</span>
+        </h3>
+        <p>
+          <span class="he">ייצוג בבתי משפט בהליכים אזרחיים ומסחריים, בוררויות וגישור.</span>
+          <span class="en">Courtroom representation in civil and commercial proceedings, arbitration, and mediation.</span>
+        </p>
+      </div>
+      <div class="practice-item reveal reveal-delay-1">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">דיני תאגידים</span>
+          <span class="en">Corporate Law</span>
+        </h3>
+        <p>
+          <span class="he">הקמת חברות, מיזוגים ורכישות, ממשל תאגידי וציות רגולטורי.</span>
+          <span class="en">Company formation, mergers and acquisitions, corporate governance, and regulatory compliance.</span>
+        </p>
+      </div>
+      <div class="practice-item reveal reveal-delay-2">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">דיני משפחה</span>
+          <span class="en">Family Law</span>
+        </h3>
+        <p>
+          <span class="he">ליווי רגיש ומקצועי בהליכי גירושין, משמורת, הסכמי ממון וירושה.</span>
+          <span class="en">Sensitive, professional guidance in divorce, custody, prenuptial agreements, and inheritance.</span>
+        </p>
+      </div>
+      <div class="practice-item reveal reveal-delay-3">
+        <span class="practice-diamond"></span>
+        <h3>
+          <span class="he">משפט בינלאומי</span>
+          <span class="en">International Law</span>
+        </h3>
+        <p>
+          <span class="he">ייעוץ בעסקאות חוצות גבולות, משפט בינלאומי פרטי ורגולציה גלובלית.</span>
+          <span class="en">Counsel on cross-border transactions, private international law, and global regulation.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     5. TRACK RECORD
+     ============================================ -->
+<section class="track-record" id="track-record">
+  <div class="track-grid">
+    <div class="track-item reveal">
+      <div class="track-number" data-count="500">0</div>
+      <div class="track-label">
+        <span class="he">תיקים שטופלו</span>
+        <span class="en">Cases Handled</span>
+      </div>
+    </div>
+    <div class="track-item reveal reveal-delay-1">
+      <div class="track-number" data-count="20">0</div>
+      <div class="track-label">
+        <span class="he">שנות ניסיון</span>
+        <span class="en">Years of Experience</span>
+      </div>
+    </div>
+    <div class="track-item reveal reveal-delay-2">
+      <div class="track-number" data-count="98">0</div>
+      <div class="track-label">
+        <span class="he">אחוז הצלחה</span>
+        <span class="en">Success Rate</span>
+      </div>
+    </div>
+    <div class="track-item reveal reveal-delay-3">
+      <div class="track-number" data-count="3">0</div>
+      <div class="track-label">
+        <span class="he">משרדים</span>
+        <span class="en">Offices</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     6. ABOUT / PHILOSOPHY
+     ============================================ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image-wrapper reveal">
+      <img src="img/lawyer4.jpg" alt="Warm library interior with mahogany shelves and leather-bound law books" loading="lazy">
+      <div class="about-image-frame"></div>
+    </div>
+    <div class="about-text">
+      <p class="section-label reveal">
+        <span class="he">אודות המשרד</span>
+        <span class="en">About the Firm</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1">
+        <span class="he">מסורת של מצוינות משפטית</span>
+        <span class="en">A Legacy of Legal Excellence</span>
+      </h2>
+      <hr class="gold-rule reveal reveal-delay-1">
+      <p class="reveal reveal-delay-2">
+        <span class="he">
+          משרד לוי, שפירא ושות' הוקם בשנת 2003 מתוך חזון ברור: לספק ייצוג משפטי ברמה הגבוהה ביותר, המשלב ידע מעמיק, חשיבה אסטרטגית ומחויבות אישית לכל לקוח.
+        </span>
+        <span class="en">
+          Levi, Shapira & Partners was founded in 2003 with a clear vision: to provide legal representation at the highest level, combining deep knowledge, strategic thinking, and personal commitment to every client.
+        </span>
+      </p>
+      <p class="reveal reveal-delay-3">
+        <span class="he">
+          אנו מאמינים שעריכת דין איכותית מתחילה בהקשבה. כל תיק מקבל את מלוא תשומת הלב, ניתוח מדוקדק ותכנון קפדני. הלקוחות שלנו סומכים עלינו כי אנו פועלים ביושרה, בדיסקרטיות ובנחישות.
+        </span>
+        <span class="en">
+          We believe that quality legal practice begins with listening. Every case receives full attention, meticulous analysis, and careful planning. Our clients trust us because we act with integrity, discretion, and determination.
+        </span>
+      </p>
+      <p class="reveal reveal-delay-4">
+        <span class="he">
+          עם משרדים בתל אביב, ירושלים וחיפה, אנו מלווים לקוחות פרטיים, חברות וארגונים במגוון רחב של תחומים משפטיים.
+        </span>
+        <span class="en">
+          With offices in Tel Aviv, Jerusalem, and Haifa, we serve private clients, corporations, and organizations across a broad spectrum of legal disciplines.
+        </span>
+      </p>
+      <div class="about-signature reveal reveal-delay-5">
+        <span class="he">-- עו"ד דוד לוי, שותף מייסד</span>
+        <span class="en">-- Adv. David Levi, Founding Partner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     7. TESTIMONIALS
+     ============================================ -->
+<section class="testimonials" id="testimonials">
+  <div class="section-container">
+    <p class="section-label reveal">
+      <span class="he">לקוחות ממליצים</span>
+      <span class="en">Client Testimonials</span>
+    </p>
+    <h2 class="section-title reveal reveal-delay-1">
+      <span class="he">המילים שלהם, לא שלנו</span>
+      <span class="en">Their Words, Not Ours</span>
+    </h2>
+    <hr class="gold-rule-long reveal reveal-delay-1">
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <span class="testimonial-gold-line"></span>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">
+          <span class="he">הייצוג שקיבלנו היה מעל ומעבר לציפיות. המשרד ליווה אותנו בעסקה מורכבת עם מקצועיות יוצאת דופן ותשומת לב לכל פרט.</span>
+          <span class="en">The representation we received exceeded all expectations. The firm guided us through a complex transaction with exceptional professionalism and attention to every detail.</span>
+        </p>
+        <div class="testimonial-author">
+          <span class="he">רונית כהן</span>
+          <span class="en">Ronit Cohen</span>
+        </div>
+        <div class="testimonial-role">
+          <span class="he">מנכ"לית, קבוצת מגדלי הים</span>
+          <span class="en">CEO, Sea Towers Group</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <span class="testimonial-gold-line"></span>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">
+          <span class="he">במשך שנים אנו עובדים עם לוי, שפירא ושות'. האמון שנבנה לאורך השנים מבוסס על תוצאות עקביות ויושרה מקצועית.</span>
+          <span class="en">We have worked with Levi, Shapira & Partners for years. The trust built over time is based on consistent results and professional integrity.</span>
+        </p>
+        <div class="testimonial-author">
+          <span class="he">אורי גולדשטיין</span>
+          <span class="en">Uri Goldstein</span>
+        </div>
+        <div class="testimonial-role">
+          <span class="he">יו"ר, גולדשטיין נכסים</span>
+          <span class="en">Chairman, Goldstein Properties</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <span class="testimonial-gold-line"></span>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">
+          <span class="he">בתקופה הקשה ביותר בחיי, עו"ד שפירא עמד לצידי בנחישות ובמסירות. הידיעה שאני בידיים טובות נתנה לי שקט נפשי.</span>
+          <span class="en">During the most difficult time in my life, Adv. Shapira stood by my side with determination and dedication. Knowing I was in good hands gave me peace of mind.</span>
+        </p>
+        <div class="testimonial-author">
+          <span class="he">מיכל אברהמי</span>
+          <span class="en">Michal Avrahami</span>
+        </div>
+        <div class="testimonial-role">
+          <span class="he">לקוחה פרטית</span>
+          <span class="en">Private Client</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     8. GALLERY
+     ============================================ -->
+<section class="gallery" id="gallery">
+  <div class="section-container">
+    <p class="section-label reveal">
+      <span class="he">מהמשרד</span>
+      <span class="en">From Our Offices</span>
+    </p>
+    <h2 class="section-title reveal reveal-delay-1">
+      <span class="he">הסביבה שלנו</span>
+      <span class="en">Our Environment</span>
+    </h2>
+    <hr class="gold-rule reveal reveal-delay-1">
+    <div class="gallery-layout">
+      <div class="gallery-item reveal">
+        <img src="img/lawyer1.jpg" alt="Lady Justice statue with golden scales and law books in library setting" loading="lazy">
+        <div class="gallery-item-overlay">
+          <span>
+            <span class="he">סמל הצדק</span>
+            <span class="en">Symbol of Justice</span>
+          </span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="img/lawyer2.jpg" alt="Dark elegant library with teal shelving and modern furnishings" loading="lazy">
+        <div class="gallery-item-overlay">
+          <span>
+            <span class="he">ספריית המשרד</span>
+            <span class="en">The Firm Library</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     9. CONTACT CTA
+     ============================================ -->
+<section class="contact" id="contact">
+  <div class="section-container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="section-label">
+          <span class="he">צרו קשר</span>
+          <span class="en">Get in Touch</span>
+        </p>
+        <h2 class="section-title">
+          <span class="he">נשמח לשמוע מכם</span>
+          <span class="en">We Look Forward to Hearing From You</span>
+        </h2>
+        <hr class="gold-rule">
+        <div class="contact-detail">
+          <div class="contact-detail-label">
+            <span class="he">כתובת</span>
+            <span class="en">Address</span>
+          </div>
+          <div class="contact-detail-value">
+            <span class="he">מגדל רוטשילד, שדרות רוטשילד 22<br>תל אביב-יפו, 6688218</span>
+            <span class="en">Rothschild Tower, 22 Rothschild Blvd<br>Tel Aviv-Yafo, 6688218</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">
+            <span class="he">טלפון</span>
+            <span class="en">Phone</span>
+          </div>
+          <div class="contact-detail-value">
+            <a href="tel:+97236123456" dir="ltr">+972-3-612-3456</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">
+            <span class="he">דוא"ל</span>
+            <span class="en">Email</span>
+          </div>
+          <div class="contact-detail-value">
+            <a href="mailto:office@lsp-law.co.il">office@lsp-law.co.il</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">
+            <span class="he">שעות פעילות</span>
+            <span class="en">Office Hours</span>
+          </div>
+          <div class="contact-detail-value">
+            <span class="he">ראשון - חמישי: 08:30 - 18:00</span>
+            <span class="en">Sunday - Thursday: 08:30 - 18:00</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3 class="section-title">
+          <span class="he">ייעוץ ראשוני חינם</span>
+          <span class="en">Free Initial Consultation</span>
+        </h3>
+        <hr class="gold-rule">
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-group">
+            <label>
+              <span class="he">שם מלא</span>
+              <span class="en">Full Name</span>
+            </label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="he">טלפון</span>
+              <span class="en">Phone</span>
+            </label>
+            <input type="tel" required>
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="he">דוא"ל</span>
+              <span class="en">Email</span>
+            </label>
+            <input type="email" required>
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="he">תיאור קצר של העניין</span>
+              <span class="en">Brief Description</span>
+            </label>
+            <textarea rows="4"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span class="he">שליחה</span>
+            <span class="en">Send Message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     10. FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name">
+        <span class="he">לוי, שפירא ושות'</span>
+        <span class="en">Levi, Shapira & Partners</span>
+      </div>
+      <div class="footer-brand-divider"></div>
+      <p class="footer-brand-desc">
+        <span class="he">משרד עורכי דין מוביל בישראל. מסורת של מצוינות משפטית מאז 2003.</span>
+        <span class="en">A leading law firm in Israel. A tradition of legal excellence since 2003.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">
+        <span class="he">ניווט</span>
+        <span class="en">Navigate</span>
+      </h4>
+      <ul class="footer-links">
+        <li><a href="#practice">
+          <span class="he">תחומי עיסוק</span>
+          <span class="en">Practice Areas</span>
+        </a></li>
+        <li><a href="#about">
+          <span class="he">אודות</span>
+          <span class="en">About</span>
+        </a></li>
+        <li><a href="#testimonials">
+          <span class="he">המלצות</span>
+          <span class="en">Testimonials</span>
+        </a></li>
+        <li><a href="#contact">
+          <span class="he">צור קשר</span>
+          <span class="en">Contact</span>
+        </a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">
+        <span class="he">תחומי עיסוק</span>
+        <span class="en">Practice Areas</span>
+      </h4>
+      <ul class="footer-links">
+        <li><a href="#practice">
+          <span class="he">משפט מסחרי</span>
+          <span class="en">Commercial Law</span>
+        </a></li>
+        <li><a href="#practice">
+          <span class="he">מקרקעין</span>
+          <span class="en">Real Estate</span>
+        </a></li>
+        <li><a href="#practice">
+          <span class="he">ליטיגציה</span>
+          <span class="en">Litigation</span>
+        </a></li>
+        <li><a href="#practice">
+          <span class="he">דיני משפחה</span>
+          <span class="en">Family Law</span>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      <span class="he">&copy; 2024 לוי, שפירא ושות'. כל הזכויות שמורות. נבנה באמצעות <a href="https://mizra.io" target="_blank">Mizra</a></span>
+      <span class="en">&copy; 2024 Levi, Shapira & Partners. All rights reserved. Built with <a href="https://mizra.io" target="_blank">Mizra</a></span>
+    </span>
+    <span class="footer-copy">
+      <span class="he">שדרות רוטשילד 22, תל אביב</span>
+      <span class="en">22 Rothschild Blvd, Tel Aviv</span>
+    </span>
   </div>
 </footer>
 
-<!-- ==================== SCRIPTS ==================== -->
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
 <script>
-// Language toggle
-function setL(l) {
-  document.body.classList.toggle('lh', l === 'he');
-  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
-  document.documentElement.lang = l === 'he' ? 'he' : 'en';
-  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
-  if (event && event.target) event.target.classList.add('on');
-  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
-}
+(function() {
+  'use strict';
 
-// Restore saved language
-try {
-  var saved = localStorage.getItem('mizra_lang');
-  if (saved === 'en') {
-    document.body.classList.remove('lh');
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    setTimeout(function() {
-      document.querySelectorAll('.ls button').forEach(function(b) {
-        b.classList.toggle('on', b.textContent.trim() === 'EN');
-      });
-    }, 50);
-  }
-} catch(e) {}
+  /* --- Language Toggle --- */
+  const html = document.documentElement;
+  const langToggle = document.getElementById('langToggle');
 
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-  var toggle = document.querySelector('.menu-toggle');
-  var nm = document.querySelector('.nm');
-  if (toggle && nm) {
-    toggle.addEventListener('click', function() {
-      this.classList.toggle('open');
-      nm.classList.toggle('open');
-      document.body.style.overflow = nm.classList.contains('open') ? 'hidden' : '';
-    });
-    nm.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        toggle.classList.remove('open');
-        nm.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  langToggle.addEventListener('click', function() {
+    const current = html.getAttribute('lang');
+    const next = current === 'he' ? 'en' : 'he';
+    html.setAttribute('lang', next);
+    html.setAttribute('dir', next === 'he' ? 'rtl' : 'ltr');
+  });
 
-  // Scroll reveal
-  var ob = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) entry.target.classList.add('vis');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv').forEach(function(el) { ob.observe(el); });
+  /* --- Sticky Nav Shadow --- */
+  const mainNav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      mainNav.classList.add('scrolled');
+    } else {
+      mainNav.classList.remove('scrolled');
+    }
+  }, { passive: true });
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  /* --- Hamburger Menu --- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  var mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
-});
+
+  /* --- Scroll Reveal --- */
+  var reveals = document.querySelectorAll('.reveal');
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  reveals.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  /* --- Counter Animation --- */
+  var counters = document.querySelectorAll('.track-number[data-count]');
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = '';
+        if (target === 500) suffix = '+';
+        else if (target === 20) suffix = '+';
+        else if (target === 98) suffix = '%';
+        var duration = 2000;
+        var startTime = null;
+
+        function animate(currentTime) {
+          if (!startTime) startTime = currentTime;
+          var progress = Math.min((currentTime - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.floor(eased * target);
+          el.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+        requestAnimationFrame(animate);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(function(el) {
+    counterObserver.observe(el);
+  });
+
+})();
 </script>
 </body>
 </html>

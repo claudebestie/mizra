@@ -3,516 +3,999 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אבי שיפוצים | בונים לכם בית חדש</title>
-<meta name="description" content="אבי שיפוצים - שיפוצי דירות, מטבחים, חדרי אמבטיה וקבלנות כללית בתל אביב והמרכז. 12+ שנות ניסיון, 200+ פרויקטים מוצלחים.">
+<title>אבי שיפוצים | בונים את החזון שלכם</title>
+<meta name="description" content="אבי שיפוצים - קבלן שיפוצים מוביל בתל אביב והמרכז. שיפוצי דירות, מטבחים, חדרי אמבטיה, משרדים. 12+ שנות ניסיון, 200+ פרויקטים מוצלחים.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* === VARIABLES === */
-:root{
-  --orange:#E8590C;--orange-hover:#d14f08;
-  --concrete:#D6D3CD;--concrete-light:#ECEAE6;
-  --asphalt:#1C1C1C;--asphalt-light:#2A2A2A;
-  --steel:#6B7280;--steel-light:#9CA3AF;
-  --blue:#1E40AF;
-  --white:#FFFFFF;--offwhite:#F9F8F6;
-  --heading:'Sora',sans-serif;
-  --body:'Work Sans',sans-serif;
+/* ============================================
+   VARIABLES
+   ============================================ */
+:root {
+  --orange: #E8590C;
+  --orange-dark: #C94A08;
+  --orange-glow: rgba(232, 89, 12, 0.35);
+  --asphalt: #1C1C1C;
+  --asphalt-light: #2A2A2A;
+  --concrete: #D6D3CD;
+  --concrete-light: #ECEAE6;
+  --steel: #6B7280;
+  --steel-light: #9CA3AF;
+  --white: #FFFFFF;
+  --heading: 'Sora', sans-serif;
+  --body: 'Work Sans', sans-serif;
 }
 
-/* === RESET === */
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--white);color:var(--asphalt);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--orange);color:#fff}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
-
-/* === LANGUAGE === */
-.he{display:none}
-body.lh .en{display:none}
-body.lh .he{display:block}
-body.lh{direction:rtl}
-
-/* === MIZRA BANNER === */
-.mizra-banner{
-  background:var(--orange);color:#fff;
-  text-align:center;padding:10px 20px;font-size:.8rem;
-  font-family:var(--body);font-weight:500;letter-spacing:.3px;
-  position:relative;z-index:1000;
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  font-weight: 400;
+  background: var(--white);
+  color: var(--asphalt);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-.mizra-banner a{color:#fff;text-decoration:underline;font-weight:700}
-.mizra-banner a:hover{opacity:.85}
+::selection { background: var(--orange); color: var(--white); }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-/* === DIAGONAL CAUTION STRIPE (decorative) === */
-.caution-stripe{
-  height:6px;
-  background:repeating-linear-gradient(
+/* ============================================
+   BILINGUAL: Hebrew default, English toggle
+   ============================================ */
+.he { display: block; }
+.en { display: none; }
+span.he { display: inline; }
+span.en { display: none; }
+body.lang-en .he { display: none !important; }
+body.lang-en .en { display: block !important; }
+body.lang-en span.en { display: inline !important; }
+body.lang-en { direction: ltr; }
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ============================================
+   CAUTION STRIPE
+   ============================================ */
+.caution-stripe {
+  height: 8px;
+  background: repeating-linear-gradient(
     -45deg,
-    var(--orange),var(--orange) 10px,
-    var(--asphalt) 10px,var(--asphalt) 20px
+    #E8590C, #E8590C 10px,
+    #1C1C1C 10px, #1C1C1C 20px
   );
 }
 
-/* === NAV === */
-.nav{
-  background:var(--asphalt);padding:0 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  height:70px;position:sticky;top:0;z-index:999;
+/* ============================================
+   1. MIZRA DEMO BANNER
+   ============================================ */
+.mizra-banner {
+  background: var(--orange);
+  color: var(--white);
+  text-align: center;
+  padding: 11px 20px;
+  font-size: 0.82rem;
+  font-family: var(--body);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1001;
 }
-.nav-logo{
-  font-family:var(--heading);font-weight:800;font-size:1.5rem;color:var(--white);
-  letter-spacing:-.5px;
+.mizra-banner a {
+  color: var(--white);
+  text-decoration: underline;
+  font-weight: 700;
 }
-.nav-logo span{color:var(--orange)}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{
-  color:var(--steel-light);font-size:.88rem;font-weight:500;
-  transition:color .2s;font-family:var(--body);
-}
-.nav-links a:hover{color:var(--white)}
-.nav-cta{
-  background:var(--orange);color:#fff;
-  padding:10px 26px;border-radius:50px;
-  font-family:var(--heading);font-weight:700;font-size:.82rem;
-  text-transform:uppercase;letter-spacing:1px;
-  transition:background .2s;border:none;cursor:pointer;
-}
-.nav-cta:hover{background:var(--orange-hover)}
-.lang-toggle{
-  color:var(--steel-light);cursor:pointer;font-size:.82rem;
-  font-weight:600;padding:6px 14px;border:1px solid var(--steel);
-  border-radius:50px;transition:all .2s;font-family:var(--body);
-  background:transparent;
-}
-.lang-toggle:hover{border-color:var(--orange);color:var(--orange)}
-.mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.mobile-menu-btn span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:.3s}
+.mizra-banner a:hover { opacity: 0.85; }
 
-/* === HERO === */
-.hero{
-  position:relative;overflow:hidden;
-  min-height:600px;display:flex;
+/* ============================================
+   2. NAVIGATION
+   ============================================ */
+.nav {
+  background: var(--asphalt);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.hero-left{
-  flex:1;background:var(--asphalt);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:80px 60px 80px 80px;
-  position:relative;z-index:2;
-  clip-path:polygon(0 0, 100% 0, 82% 100%, 0% 100%);
+.nav-logo {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.55rem;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
 }
-[dir="rtl"] .hero-left{
-  clip-path:polygon(0 0, 100% 0, 100% 100%, 18% 100%);
-  padding:80px 80px 80px 60px;
+.nav-logo span { color: var(--orange); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
-.hero-right{
-  position:absolute;top:0;right:0;bottom:0;
-  width:50%;
-  background:var(--concrete);
-  display:flex;align-items:center;justify-content:center;
+.nav-links a {
+  color: var(--steel-light);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.25s;
+  font-family: var(--body);
+  white-space: nowrap;
 }
-[dir="rtl"] .hero-right{right:auto;left:0}
-.hero-right-inner{
-  width:80%;height:70%;
-  background:linear-gradient(135deg,var(--concrete-light) 0%,#C4C0B8 100%);
-  border-radius:8px;position:relative;overflow:hidden;
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
 }
-.hero-right-inner::after{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(
-    45deg,transparent,transparent 40px,rgba(0,0,0,.03) 40px,rgba(0,0,0,.03) 80px
+.nav-cta:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--orange-glow);
+}
+
+.lang-toggle {
+  color: var(--steel-light);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border: 1px solid var(--steel);
+  border-radius: 50px;
+  transition: all 0.25s;
+  font-family: var(--body);
+  background: transparent;
+  white-space: nowrap;
+}
+.lang-toggle:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* Hamburger */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--asphalt);
+  z-index: 1002;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  color: var(--white);
+  font-family: var(--heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--orange); }
+.mobile-nav .close-btn {
+  position: absolute;
+  top: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+[dir="rtl"] .mobile-nav .close-btn { left: 22px; right: auto; }
+[dir="ltr"] .mobile-nav .close-btn { right: 22px; left: auto; }
+
+/* ============================================
+   3. HERO
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 28, 28, 0.75) 0%,
+    rgba(28, 28, 28, 0.6) 40%,
+    rgba(28, 28, 28, 0.85) 100%
+  );
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  padding: 40px 24px;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(232, 89, 12, 0.2);
+  border: 1px solid rgba(232, 89, 12, 0.4);
+  color: var(--orange);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 4.2rem;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+.hero h1 span { color: var(--orange); }
+.hero-sub {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.15rem;
+  max-width: 580px;
+  margin: 0 auto 44px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--orange-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.3s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-secondary:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-dark {
+  background: var(--asphalt);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-dark:hover {
+  background: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.btn-dark svg { width: 20px; height: 20px; fill: currentColor; }
+
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-whatsapp:hover {
+  background: #1FAF56;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+}
+.btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+.section-pad { padding: 110px 48px; }
+.section-concrete { background: var(--concrete-light); }
+.section-dark { background: var(--asphalt); color: var(--white); }
+.section-orange { background: var(--orange); color: var(--white); }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+.section-dark .section-label { color: var(--orange); }
+
+.section-title {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+.section-subtitle {
+  color: var(--steel);
+  font-size: 1.05rem;
+  max-width: 560px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+.section-dark .section-subtitle { color: var(--steel-light); }
+
+/* ============================================
+   4. SERVICES
+   ============================================ */
+.services-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.services-header-img {
+  flex: 0 0 320px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.services-header-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg, #E8590C, #E8590C 8px, transparent 8px, transparent 16px
   );
 }
-.hero-badge{
-  display:inline-block;
-  background:rgba(232,89,12,.15);color:var(--orange);
-  padding:6px 18px;border-radius:50px;
-  font-family:var(--heading);font-weight:700;font-size:.75rem;
-  text-transform:uppercase;letter-spacing:2px;
-  margin-bottom:24px;
-}
-.hero h1{
-  font-family:var(--heading);font-weight:800;
-  font-size:3.2rem;line-height:1.15;
-  color:var(--white);margin-bottom:20px;
-  letter-spacing:-.5px;
-}
-.hero h1 span{color:var(--orange)}
-.hero-sub{
-  color:var(--steel-light);font-size:1.1rem;
-  max-width:460px;margin-bottom:36px;line-height:1.7;
-}
-.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
-.btn-primary{
-  background:var(--orange);color:#fff;
-  padding:14px 36px;border-radius:50px;
-  font-family:var(--heading);font-weight:700;font-size:.88rem;
-  text-transform:uppercase;letter-spacing:1.2px;
-  transition:all .25s;border:none;cursor:pointer;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 8px 25px rgba(232,89,12,.3)}
-.btn-secondary{
-  background:transparent;color:var(--white);
-  padding:14px 36px;border-radius:50px;
-  font-family:var(--heading);font-weight:700;font-size:.88rem;
-  text-transform:uppercase;letter-spacing:1.2px;
-  border:2px solid var(--steel);
-  transition:all .25s;cursor:pointer;
-}
-.btn-secondary:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
-
-/* === SECTION UTILITIES === */
-.section-pad{padding:100px 40px}
-.section-concrete{background:var(--concrete-light)}
-.section-dark{background:var(--asphalt);color:var(--white)}
-.section-orange{background:var(--orange);color:var(--white)}
-.container{max-width:1200px;margin:0 auto}
-.section-label{
-  font-family:var(--heading);font-weight:700;font-size:.75rem;
-  text-transform:uppercase;letter-spacing:3px;
-  color:var(--orange);margin-bottom:12px;
-}
-.section-dark .section-label{color:var(--orange)}
-.section-title{
-  font-family:var(--heading);font-weight:800;
-  font-size:2.6rem;line-height:1.2;
-  margin-bottom:20px;letter-spacing:-.5px;
-}
-.section-subtitle{
-  color:var(--steel);font-size:1.05rem;
-  max-width:560px;line-height:1.7;
-}
-.section-dark .section-subtitle{color:var(--steel-light)}
-
-/* === SERVICES === */
-.services-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:28px;margin-top:56px;
-}
-.service-card{
-  background:var(--white);border-radius:10px;
-  padding:36px 30px;
-  border-top:5px solid var(--orange);
-  transition:transform .25s,box-shadow .25s;
-}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
-.service-icon{
-  width:64px;height:64px;
-  background:var(--concrete-light);border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:22px;
-}
-.service-icon svg{width:28px;height:28px;stroke:var(--orange);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.service-card h3{
-  font-family:var(--heading);font-weight:700;
-  font-size:1.15rem;margin-bottom:10px;color:var(--asphalt);
-}
-.service-card p{color:var(--steel);font-size:.92rem;line-height:1.65}
-
-/* === PROCESS TIMELINE === */
-.process-wrap{display:flex;gap:80px;margin-top:56px;align-items:flex-start}
-.process-line{
-  position:relative;display:flex;flex-direction:column;gap:0;
-  flex:1;
-}
-.process-step{
-  display:flex;gap:28px;align-items:flex-start;
-  position:relative;padding-bottom:52px;
-}
-.process-step:last-child{padding-bottom:0}
-.process-step::before{
-  content:'';position:absolute;
-  width:4px;background:var(--orange);
-  top:0;bottom:0;
-}
-[dir="rtl"] .process-step::before{right:27px}
-[dir="ltr"] .process-step::before{left:27px}
-.process-step:last-child::before{display:none}
-.process-num{
-  width:58px;height:58px;min-width:58px;
-  background:var(--orange);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--heading);font-weight:800;font-size:1.4rem;
-  color:var(--white);position:relative;z-index:2;
-}
-.process-content{padding-top:8px}
-.process-content h3{
-  font-family:var(--heading);font-weight:700;
-  font-size:1.2rem;margin-bottom:8px;
-}
-.process-content p{color:var(--steel);font-size:.92rem;line-height:1.65}
-.process-side{
-  flex:0 0 380px;
-  background:var(--concrete);border-radius:12px;
-  padding:40px;position:relative;overflow:hidden;
-}
-.process-side::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:6px;
-  background:repeating-linear-gradient(
-    -45deg,var(--orange),var(--orange) 8px,transparent 8px,transparent 16px
-  );
-}
-.before-after{display:flex;gap:4px;margin-top:20px;border-radius:8px;overflow:hidden}
-.before-after-box{
-  flex:1;height:160px;display:flex;align-items:center;justify-content:center;
-  font-family:var(--heading);font-weight:700;font-size:.85rem;
-  text-transform:uppercase;letter-spacing:2px;
-}
-.before-box{background:#A39E94;color:rgba(255,255,255,.7)}
-.after-box{background:var(--orange);color:rgba(255,255,255,.9)}
-
-/* === PROJECTS === */
-.projects-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:32px;margin-top:56px;
-}
-.project-card{
-  border-radius:12px;overflow:hidden;
-  background:var(--white);
-  transition:transform .25s,box-shadow .25s;
-}
-.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.project-img{
-  height:280px;position:relative;overflow:hidden;
-}
-.project-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.15) 100%);
-}
-.project-info{padding:24px 28px}
-.project-info h3{
-  font-family:var(--heading);font-weight:700;
-  font-size:1.15rem;margin-bottom:6px;
-}
-.project-info p{color:var(--steel);font-size:.85rem;font-weight:500}
-
-/* === STATS === */
-.stats-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:40px;text-align:center;
-}
-.stat-num{
-  font-family:var(--heading);font-weight:800;
-  font-size:3.8rem;color:var(--white);line-height:1;
-  margin-bottom:8px;
-}
-.stat-label{
-  color:var(--orange);font-family:var(--heading);
-  font-weight:700;font-size:.82rem;
-  text-transform:uppercase;letter-spacing:2px;
+.services-header-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* === TESTIMONIALS === */
-.testimonials-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:28px;margin-top:56px;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
-.testimonial-card{
-  background:var(--white);padding:36px;border-radius:10px;
-  position:relative;
+.service-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 40px 32px 36px;
+  border-top: 5px solid var(--orange);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
 }
-[dir="rtl"] .testimonial-card{border-right:5px solid var(--orange)}
-[dir="ltr"] .testimonial-card{border-left:5px solid var(--orange)}
-.testimonial-card p{
-  font-size:1rem;line-height:1.75;color:var(--asphalt);
-  margin-bottom:20px;font-style:italic;
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: var(--orange);
+  opacity: 0.05;
+  transition: height 0.4s;
 }
-.testimonial-author{
-  font-family:var(--heading);font-weight:700;
-  font-size:.88rem;color:var(--asphalt);
+.service-card:hover::after { height: 100%; }
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
-.testimonial-location{
-  color:var(--steel);font-size:.8rem;margin-top:2px;
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--concrete-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
-
-/* === SERVICE AREAS === */
-.areas-chips{
-  display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;
-  justify-content:center;
+.service-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-.area-chip{
-  padding:10px 24px;border-radius:50px;
-  border:2px solid var(--orange);
-  font-family:var(--heading);font-weight:600;font-size:.88rem;
-  color:var(--asphalt);transition:all .2s;
+.service-card h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  color: var(--asphalt);
+  position: relative;
+  z-index: 1;
 }
-.area-chip:hover{background:var(--orange);color:var(--white)}
-
-/* === CONTACT CTA === */
-.cta-content{text-align:center;max-width:700px;margin:0 auto}
-.cta-content h2{
-  font-family:var(--heading);font-weight:800;
-  font-size:2.8rem;margin-bottom:16px;color:var(--white);
-}
-.cta-content p{
-  font-size:1.1rem;color:rgba(255,255,255,.85);
-  margin-bottom:40px;
-}
-.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-dark{
-  background:var(--asphalt);color:var(--white);
-  padding:16px 40px;border-radius:50px;
-  font-family:var(--heading);font-weight:700;font-size:.88rem;
-  text-transform:uppercase;letter-spacing:1.2px;
-  transition:all .25s;border:none;cursor:pointer;
-  display:inline-flex;align-items:center;gap:10px;
-}
-.btn-dark:hover{background:#000;transform:translateY(-2px)}
-.btn-dark svg{width:20px;height:20px;fill:currentColor}
-
-/* === FOOTER === */
-.footer{
-  background:var(--asphalt);
-  padding:48px 40px 32px;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-.footer-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:20px;
-}
-.footer-logo{
-  font-family:var(--heading);font-weight:800;font-size:1.3rem;
-  color:var(--white);
-}
-.footer-logo span{color:var(--orange)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{color:var(--steel-light);font-size:.85rem;transition:color .2s}
-.footer-links a:hover{color:var(--white)}
-.footer-copy{
-  width:100%;text-align:center;
-  color:var(--steel);font-size:.78rem;
-  margin-top:32px;padding-top:24px;
-  border-top:1px solid rgba(255,255,255,.06);
+.service-card p {
+  color: var(--steel);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
-/* === MOBILE MENU === */
-.mobile-nav{
-  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
-  background:var(--asphalt);z-index:1001;
-  flex-direction:column;align-items:center;justify-content:center;
-  gap:28px;
+/* ============================================
+   5. PROCESS TIMELINE
+   ============================================ */
+.process-wrap {
+  display: flex;
+  gap: 80px;
+  margin-top: 60px;
+  align-items: flex-start;
 }
-.mobile-nav.active{display:flex}
-.mobile-nav a{
-  color:var(--white);font-family:var(--heading);
-  font-size:1.3rem;font-weight:700;
+.process-line {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.mobile-nav .close-btn{
-  position:absolute;top:20px;right:20px;
-  background:none;border:none;cursor:pointer;
-  color:var(--white);font-size:2rem;
+.process-step {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 56px;
 }
-[dir="rtl"] .mobile-nav .close-btn{right:auto;left:20px}
+.process-step:last-child { padding-bottom: 0; }
+.process-step::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(180deg, var(--orange), rgba(232, 89, 12, 0.2));
+  top: 58px;
+  bottom: 0;
+}
+[dir="rtl"] .process-step::before { right: 28px; }
+[dir="ltr"] .process-step::before { left: 28px; }
+.process-step:last-child::before { display: none; }
 
-/* === RESPONSIVE === */
-@media(max-width:1024px){
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .process-wrap{flex-direction:column;gap:48px}
-  .process-side{flex:none}
-  .hero h1{font-size:2.6rem}
-  .hero-left{padding:60px 40px}
-  .section-title{font-size:2.2rem}
+.process-num {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  background: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 20px var(--orange-glow);
 }
-@media(max-width:768px){
-  .nav-links{display:none}
-  .mobile-menu-btn{display:block}
-  .hero{flex-direction:column;min-height:auto}
-  .hero-left{
-    clip-path:none;padding:60px 24px;
-    width:100%;
+.process-content { padding-top: 8px; }
+.process-content h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.process-content p {
+  color: var(--steel);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.process-side {
+  flex: 0 0 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+.process-side img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+.process-side-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 32px 32px;
+  background: linear-gradient(180deg, transparent 0%, rgba(28, 28, 28, 0.9) 100%);
+}
+.process-side-overlay .section-label {
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.process-side-overlay p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   6. PROJECTS GALLERY
+   ============================================ */
+.projects-gallery {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-top: 60px;
+}
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:hover img {
+  transform: scale(1.06);
+}
+.project-card-large { min-height: 480px; }
+.project-card-small { min-height: 480px; }
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(28, 28, 28, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 36px;
+  transition: background 0.4s;
+}
+.project-card:hover .project-overlay {
+  background: linear-gradient(180deg, transparent 20%, rgba(28, 28, 28, 0.9) 100%);
+}
+.project-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+.project-overlay h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.project-overlay p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+/* ============================================
+   7. STATS
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+  padding: 20px 0;
+}
+.stat-item { position: relative; }
+.stat-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.1);
+}
+[dir="rtl"] .stat-item::after { left: 0; }
+[dir="ltr"] .stat-item::after { right: 0; }
+.stat-item:last-child::after { display: none; }
+
+.stat-num {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 4rem;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   8. TESTIMONIALS
+   ============================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+.testimonial-card {
+  background: var(--white);
+  padding: 40px 36px;
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+[dir="rtl"] .testimonial-card { border-right: 5px solid var(--orange); }
+[dir="ltr"] .testimonial-card { border-left: 5px solid var(--orange); }
+
+.testimonial-quote {
+  font-size: 2rem;
+  color: var(--orange);
+  font-family: var(--heading);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+.testimonial-card p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--asphalt);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.testimonial-author {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--asphalt);
+}
+.testimonial-location {
+  color: var(--steel);
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+/* ============================================
+   9. CONTACT CTA
+   ============================================ */
+.cta-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cta-content h2 {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+.cta-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.cta-phone {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--white);
+  margin-bottom: 36px;
+  display: block;
+  direction: ltr;
+  transition: opacity 0.2s;
+}
+.cta-phone:hover { opacity: 0.85; }
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   10. FOOTER
+   ============================================ */
+.footer {
+  background: var(--asphalt);
+  padding: 52px 48px 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-logo {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--white);
+}
+.footer-logo span { color: var(--orange); }
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+.footer-links a {
+  color: var(--steel-light);
+  font-size: 0.88rem;
+  transition: color 0.25s;
+  font-weight: 500;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  color: var(--steel);
+  font-size: 0.78rem;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 3.2rem; }
+  .section-pad { padding: 80px 32px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-header { flex-direction: column; align-items: flex-start; }
+  .services-header-img { flex: none; width: 100%; height: 180px; }
+  .process-wrap { flex-direction: column; gap: 48px; }
+  .process-side { flex: none; width: 100%; }
+  .process-side img { height: 320px; }
+  .projects-gallery { grid-template-columns: 1fr 1fr; }
+  .project-card-large, .project-card-small { min-height: 380px; }
+  .section-title { font-size: 2.3rem; }
+  .nav { padding: 0 28px; }
+  .stat-num { font-size: 3.2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .hero { min-height: 100vh; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-sub { font-size: 1rem; }
+  .section-pad { padding: 72px 20px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .projects-gallery { grid-template-columns: 1fr; }
+  .project-card-large, .project-card-small { min-height: 320px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .stat-num { font-size: 2.8rem; }
+  .stat-item::after { display: none; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+  .cta-content h2 { font-size: 2.2rem; }
+  .cta-phone { font-size: 1.8rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+  .nav { padding: 0 20px; }
+  .process-step { gap: 20px; }
+  .services-header-img { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-sub { font-size: 0.95rem; }
+  .btn-primary, .btn-secondary, .btn-dark, .btn-whatsapp {
+    padding: 14px 28px;
+    font-size: 0.82rem;
+    width: 100%;
+    justify-content: center;
   }
-  [dir="rtl"] .hero-left{clip-path:none;padding:60px 24px}
-  .hero-right{display:none}
-  .hero h1{font-size:2.2rem}
-  .hero-sub{font-size:1rem}
-  .section-pad{padding:64px 20px}
-  .services-grid{grid-template-columns:1fr}
-  .projects-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
-  .stat-num{font-size:2.8rem}
-  .testimonials-grid{grid-template-columns:1fr}
-  .section-title{font-size:1.9rem}
-  .cta-content h2{font-size:2rem}
-  .footer-inner{flex-direction:column;text-align:center}
-  .nav{padding:0 20px}
-  .process-step{gap:20px}
-}
-@media(max-width:480px){
-  .hero h1{font-size:1.8rem}
-  .btn-primary,.btn-secondary,.btn-dark{padding:12px 28px;font-size:.82rem}
-  .stat-num{font-size:2.2rem}
-  .nav-logo{font-size:1.2rem}
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .stat-num { font-size: 2.4rem; }
+  .nav-logo { font-size: 1.2rem; }
+  .section-title { font-size: 1.75rem; }
+  .cta-content h2 { font-size: 1.8rem; }
+  .cta-phone { font-size: 1.5rem; }
+  .process-num { width: 48px; height: 48px; min-width: 48px; font-size: 1.2rem; }
+  [dir="rtl"] .process-step::before { right: 23px; }
+  [dir="ltr"] .process-step::before { left: 23px; }
 }
 </style>
 </head>
-<body class="lh">
+<body>
 
-<!-- MIZRA BANNER -->
+<!-- ============================================
+     1. MIZRA DEMO BANNER
+     ============================================ -->
 <div class="mizra-banner">
-  <div class="he">
-    דף נחיתה לדוגמה נבנה ע״י <strong>Mizra</strong> --
-    <a href="/free-audit/">בדיקת אתר חינמית</a>
-  </div>
-  <div class="en">
-    Example landing page built by <strong>Mizra</strong> --
-    <a href="/free-audit/">Get a free site audit</a>
-  </div>
+  <span class="he">זהו דף נחיתה לדוגמה שנבנה באמצעות <strong>Mizra</strong> &mdash; <a href="/free-audit/">קבלו בדיקת אתר חינמית</a></span>
+  <span class="en">This is a demo landing page built with <strong>Mizra</strong> &mdash; <a href="/free-audit/">Get a free site audit</a></span>
 </div>
 
 <!-- CAUTION STRIPE -->
 <div class="caution-stripe"></div>
 
-<!-- NAV -->
+<!-- ============================================
+     2. NAVIGATION
+     ============================================ -->
 <nav class="nav">
-  <div class="he nav-logo">אבי <span>שיפוצים</span></div>
-  <div class="en nav-logo">Avi <span>Renovations</span></div>
+  <div class="nav-logo">
+    <span class="he">אבי <span>שיפוצים</span></span>
+    <span class="en">Avi <span>Renovations</span></span>
+  </div>
 
   <div class="nav-links">
-    <div class="he">
-      <a href="#services">שירותים</a>
-    </div>
-    <div class="en">
-      <a href="#services">Services</a>
-    </div>
-    <div class="he">
-      <a href="#process">תהליך עבודה</a>
-    </div>
-    <div class="en">
-      <a href="#process">Process</a>
-    </div>
-    <div class="he">
-      <a href="#projects">פרויקטים</a>
-    </div>
-    <div class="en">
-      <a href="#projects">Projects</a>
-    </div>
-    <div class="he">
-      <a href="#testimonials">המלצות</a>
-    </div>
-    <div class="en">
-      <a href="#testimonials">Reviews</a>
-    </div>
-    <div class="he">
-      <a href="#contact">צור קשר</a>
-    </div>
-    <div class="en">
-      <a href="#contact">Contact</a>
-    </div>
+    <span class="he"><a href="#services">שירותים</a></span>
+    <span class="en"><a href="#services">Services</a></span>
+    <span class="he"><a href="#projects">פרויקטים</a></span>
+    <span class="en"><a href="#projects">Projects</a></span>
+    <span class="he"><a href="#about">אודות</a></span>
+    <span class="en"><a href="#about">About</a></span>
+    <span class="he"><a href="#contact">צור קשר</a></span>
+    <span class="en"><a href="#contact">Contact</a></span>
     <button class="lang-toggle" onclick="toggleLang()">
       <span class="he">EN</span>
       <span class="en">HE</span>
     </button>
-    <div class="he">
-      <a href="#contact" class="nav-cta">קבל הצעת מחיר</a>
-    </div>
-    <div class="en">
-      <a href="#contact" class="nav-cta">Get Quote</a>
-    </div>
+    <span class="he"><a href="#contact" class="nav-cta">קבל הצעת מחיר</a></span>
+    <span class="en"><a href="#contact" class="nav-cta">Get Quote</a></span>
   </div>
 
   <button class="mobile-menu-btn" onclick="toggleMobile()" aria-label="Menu">
@@ -522,278 +1005,265 @@ body.lh{direction:rtl}
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <button class="close-btn" onclick="toggleMobile()">&times;</button>
-  <div class="he">
-    <a href="#services" onclick="toggleMobile()">שירותים</a>
-  </div>
-  <div class="en">
-    <a href="#services" onclick="toggleMobile()">Services</a>
-  </div>
-  <div class="he">
-    <a href="#process" onclick="toggleMobile()">תהליך עבודה</a>
-  </div>
-  <div class="en">
-    <a href="#process" onclick="toggleMobile()">Process</a>
-  </div>
-  <div class="he">
-    <a href="#projects" onclick="toggleMobile()">פרויקטים</a>
-  </div>
-  <div class="en">
-    <a href="#projects" onclick="toggleMobile()">Projects</a>
-  </div>
-  <div class="he">
-    <a href="#testimonials" onclick="toggleMobile()">המלצות</a>
-  </div>
-  <div class="en">
-    <a href="#testimonials" onclick="toggleMobile()">Reviews</a>
-  </div>
-  <div class="he">
-    <a href="#contact" onclick="toggleMobile()">צור קשר</a>
-  </div>
-  <div class="en">
-    <a href="#contact" onclick="toggleMobile()">Contact</a>
-  </div>
-  <button class="lang-toggle" onclick="toggleLang()" style="margin-top:12px">
+  <button class="close-btn" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <span class="he"><a href="#services" onclick="toggleMobile()">שירותים</a></span>
+  <span class="en"><a href="#services" onclick="toggleMobile()">Services</a></span>
+  <span class="he"><a href="#projects" onclick="toggleMobile()">פרויקטים</a></span>
+  <span class="en"><a href="#projects" onclick="toggleMobile()">Projects</a></span>
+  <span class="he"><a href="#about" onclick="toggleMobile()">אודות</a></span>
+  <span class="en"><a href="#about" onclick="toggleMobile()">About</a></span>
+  <span class="he"><a href="#contact" onclick="toggleMobile()">צור קשר</a></span>
+  <span class="en"><a href="#contact" onclick="toggleMobile()">Contact</a></span>
+  <button class="lang-toggle" onclick="toggleLang()" style="margin-top:16px">
     <span class="he">EN</span>
     <span class="en">HE</span>
   </button>
 </div>
 
-<!-- HERO -->
+<!-- ============================================
+     3. HERO
+     ============================================ -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="he hero-badge">12+ שנות ניסיון</div>
-    <div class="en hero-badge">12+ Years Experience</div>
-
-    <div class="he">
-      <h1>בונים לכם<br><span>בית חדש</span></h1>
-    </div>
-    <div class="en">
-      <h1>Building Your<br><span>Dream Home</span></h1>
-    </div>
-
-    <div class="he">
-      <p class="hero-sub">שיפוצים מקצועיים מהיסוד. מטבחים, חדרי אמבטיה, דירות שלמות. עבודה מדויקת, לוחות זמנים ברורים, תוצאות שמדברות.</p>
-    </div>
-    <div class="en">
-      <p class="hero-sub">Professional renovations from the ground up. Kitchens, bathrooms, full apartments. Precise work, clear timelines, results that speak for themselves.</p>
-    </div>
-
-    <div class="hero-buttons">
-      <div class="he">
-        <a href="#contact" class="btn-primary">דברו איתנו</a>
-        <a href="#projects" class="btn-secondary">ראו פרויקטים</a>
-      </div>
-      <div class="en">
-        <a href="#contact" class="btn-primary">Talk To Us</a>
-        <a href="#projects" class="btn-secondary">See Projects</a>
-      </div>
-    </div>
+  <div class="hero-bg">
+    <img src="img/contracting3.jpg" alt="Professional building inspection - two workers in safety vests examining concrete interior" loading="eager">
   </div>
-  <div class="hero-right">
-    <div class="hero-right-inner"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="he">12+ שנות ניסיון בשטח</span>
+      <span class="en">12+ Years in the Field</span>
+    </div>
+    <div class="he">
+      <h1 class="reveal reveal-delay-1">אנחנו בונים את<br><span>החזון שלכם</span></h1>
+    </div>
+    <div class="en">
+      <h1 class="reveal reveal-delay-1">We Build<br><span>Your Vision</span></h1>
+    </div>
+    <div class="he">
+      <p class="hero-sub reveal reveal-delay-2">שיפוצים מקצועיים מהיסוד. מטבחים, חדרי אמבטיה, דירות שלמות ומשרדים. עבודה מדויקת, לוחות זמנים ברורים, תוצאות שמדברות בעד עצמן.</p>
+    </div>
+    <div class="en">
+      <p class="hero-sub reveal reveal-delay-2">Professional renovations from the ground up. Kitchens, bathrooms, full apartments and offices. Precise craftsmanship, clear timelines, results that speak for themselves.</p>
+    </div>
+    <div class="hero-buttons reveal reveal-delay-3">
+      <span class="he">
+        <a href="#contact" class="btn-primary">דברו איתנו היום</a>
+        <a href="#projects" class="btn-secondary">ראו פרויקטים</a>
+      </span>
+      <span class="en">
+        <a href="#contact" class="btn-primary">Talk To Us Today</a>
+        <a href="#projects" class="btn-secondary">See Our Work</a>
+      </span>
+    </div>
   </div>
 </section>
 
 <!-- CAUTION STRIPE -->
 <div class="caution-stripe"></div>
 
-<!-- SERVICES -->
+<!-- ============================================
+     4. SERVICES
+     ============================================ -->
 <section id="services" class="section-pad section-concrete">
   <div class="container">
-    <div class="he">
-      <div class="section-label">מה אנחנו עושים</div>
-      <h2 class="section-title">שירותי שיפוץ ובנייה</h2>
-      <p class="section-subtitle">מגוון רחב של שירותי שיפוץ מקצועיים תחת קורת גג אחת. מהתכנון ועד למפתח.</p>
-    </div>
-    <div class="en">
-      <div class="section-label">What We Do</div>
-      <h2 class="section-title">Renovation & Construction Services</h2>
-      <p class="section-subtitle">A wide range of professional renovation services under one roof. From planning to handover.</p>
+    <div class="services-header">
+      <div>
+        <div class="he reveal">
+          <div class="section-label">מה אנחנו עושים</div>
+          <h2 class="section-title">שירותי שיפוץ ובנייה</h2>
+          <p class="section-subtitle">מגוון רחב של שירותי שיפוץ מקצועיים תחת קורת גג אחת. מהתכנון הראשוני ועד למסירת המפתח.</p>
+        </div>
+        <div class="en reveal">
+          <div class="section-label">What We Do</div>
+          <h2 class="section-title">Renovation & Construction</h2>
+          <p class="section-subtitle">A comprehensive range of professional renovation services under one roof. From initial planning to key handover.</p>
+        </div>
+      </div>
+      <div class="services-header-img reveal">
+        <img src="img/contracting1.jpg" alt="Professional worker measuring wall with tape measure, wearing orange hard hat and blue overalls" loading="lazy">
+      </div>
     </div>
 
     <div class="services-grid">
-      <!-- Service 1 -->
-      <div class="service-card">
+      <!-- Kitchen Renovation -->
+      <div class="service-card reveal">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <div class="he">
-          <h3>שיפוץ דירות</h3>
-          <p>שיפוץ כללי של דירות מגורים, כולל הריסה, בנייה, חשמל, אינסטלציה וגמרים.</p>
+          <h3>שיפוץ מטבחים</h3>
+          <p>עיצוב והתקנה של מטבחים מודרניים. ארונות בהתאמה אישית, משטחי עבודה, חיפויים ומכשירי חשמל.</p>
         </div>
         <div class="en">
-          <h3>Apartment Renovation</h3>
-          <p>Complete residential renovation including demolition, construction, electrical, plumbing and finishing.</p>
+          <h3>Kitchen Renovation</h3>
+          <p>Design and installation of modern kitchens. Custom cabinets, countertops, tiling and appliance fitting.</p>
         </div>
       </div>
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
-        </div>
-        <div class="he">
-          <h3>מטבחים</h3>
-          <p>עיצוב והתקנה של מטבחים מודרניים. ארונות, משטחים, חיפויים ומכשירי חשמל.</p>
-        </div>
-        <div class="en">
-          <h3>Kitchens</h3>
-          <p>Design and installation of modern kitchens. Cabinets, countertops, tiling and appliances.</p>
-        </div>
-      </div>
-      <!-- Service 3 -->
-      <div class="service-card">
+
+      <!-- Bathroom Renovation -->
+      <div class="service-card reveal reveal-delay-1">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
         </div>
         <div class="he">
-          <h3>חדרי אמבטיה</h3>
-          <p>חידוש חדרי רחצה מלא. איטום, ריצוף, סניטריה מודרנית ועיצוב נקי.</p>
+          <h3>שיפוץ חדרי אמבטיה</h3>
+          <p>חידוש מלא של חדרי רחצה. איטום מקצועי, ריצוף, סניטריה מודרנית ועיצוב נקי.</p>
         </div>
         <div class="en">
-          <h3>Bathrooms</h3>
-          <p>Full bathroom renovation. Waterproofing, tiling, modern sanitary ware and clean design.</p>
+          <h3>Bathroom Renovation</h3>
+          <p>Complete bathroom overhaul. Professional waterproofing, tiling, modern fixtures and clean design.</p>
         </div>
       </div>
-      <!-- Service 4 -->
-      <div class="service-card">
+
+      <!-- Full Apartment -->
+      <div class="service-card reveal reveal-delay-2">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
         </div>
         <div class="he">
-          <h3>ריצוף וחיפוי</h3>
-          <p>ריצוף ברמה גבוהה, חיפוי קירות, פורצלן, שיש ואבן טבעית בכל מידה וסגנון.</p>
+          <h3>שיפוץ דירה מלא</h3>
+          <p>שיפוץ כללי מהיסוד. הריסה, בנייה, חשמל, אינסטלציה, גמרים ועיצוב פנים.</p>
         </div>
         <div class="en">
-          <h3>Tiling & Cladding</h3>
-          <p>High-quality floor and wall tiling. Porcelain, marble and natural stone in any size and style.</p>
+          <h3>Full Apartment</h3>
+          <p>Ground-up renovation. Demolition, construction, electrical, plumbing, finishing and interior design.</p>
         </div>
       </div>
-      <!-- Service 5 -->
-      <div class="service-card">
+
+      <!-- Office Renovation -->
+      <div class="service-card reveal">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
         </div>
         <div class="he">
-          <h3>חשמל ותאורה</h3>
-          <p>עבודות חשמל מקיפות, החלפת לוחות, תאורה מודרנית ופתרונות חכמים לבית.</p>
+          <h3>שיפוץ משרדים</h3>
+          <p>התאמת חללי עבודה מסחריים. מחיצות, תשתיות, חדרי ישיבות ועיצוב מותאם מותג.</p>
         </div>
         <div class="en">
-          <h3>Electrical & Lighting</h3>
-          <p>Comprehensive electrical work, panel upgrades, modern lighting and smart home solutions.</p>
+          <h3>Office Renovation</h3>
+          <p>Commercial workspace adaptation. Partitions, infrastructure, meeting rooms and brand-aligned design.</p>
         </div>
       </div>
-      <!-- Service 6 -->
-      <div class="service-card">
+
+      <!-- Painting -->
+      <div class="service-card reveal reveal-delay-1">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/><path d="M12 11v6"/><path d="M8 21h8"/><path d="M12 17h.01"/></svg>
         </div>
         <div class="he">
-          <h3>קבלנות כללית</h3>
-          <p>ניהול פרויקט מא׳ עד ת׳. תיאום בעלי מקצוע, פיקוח צמוד ועמידה בלוחות זמנים.</p>
+          <h3>צביעה מקצועית</h3>
+          <p>צביעת דירות ומשרדים. הכנת משטחים, שפכטל, צבעים איכותיים וגימור מושלם.</p>
         </div>
         <div class="en">
-          <h3>General Contracting</h3>
-          <p>End-to-end project management. Coordinating trades, close supervision and meeting deadlines.</p>
+          <h3>Professional Painting</h3>
+          <p>Residential and commercial painting. Surface prep, plastering, premium paints and flawless finish.</p>
+        </div>
+      </div>
+
+      <!-- Electrical & Plumbing -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <div class="he">
+          <h3>חשמל ואינסטלציה</h3>
+          <p>עבודות חשמל ואינסטלציה מקיפות. החלפת לוחות, תאורה מודרנית, צנרת ופתרונות חכמים.</p>
+        </div>
+        <div class="en">
+          <h3>Electrical & Plumbing</h3>
+          <p>Comprehensive electrical and plumbing. Panel upgrades, modern lighting, piping and smart solutions.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process" class="section-pad">
+<!-- ============================================
+     5. PROCESS
+     ============================================ -->
+<section id="about" class="section-pad">
   <div class="container">
-    <div class="he">
+    <div class="he reveal">
       <div class="section-label">איך זה עובד</div>
       <h2 class="section-title">תהליך העבודה שלנו</h2>
-      <p class="section-subtitle">ארבעה שלבים ברורים מהפגישה הראשונה ועד למסירת המפתח. בלי הפתעות.</p>
+      <p class="section-subtitle">ארבעה שלבים ברורים מהפגישה הראשונה ועד למסירת המפתח. בלי הפתעות, בלי עלויות נסתרות.</p>
     </div>
-    <div class="en">
+    <div class="en reveal">
       <div class="section-label">How It Works</div>
       <h2 class="section-title">Our Work Process</h2>
-      <p class="section-subtitle">Four clear steps from the first meeting to handing over the keys. No surprises.</p>
+      <p class="section-subtitle">Four clear steps from the first meeting to key handover. No surprises, no hidden costs.</p>
     </div>
 
     <div class="process-wrap">
       <div class="process-line">
         <!-- Step 1 -->
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-num">1</div>
           <div class="process-content">
             <div class="he">
               <h3>פגישת ייעוץ</h3>
-              <p>מגיעים אליכם, בודקים את השטח, מבינים את הצרכים והחזון שלכם. הכל מתחיל בשיחה.</p>
+              <p>מגיעים אליכם, סוקרים את השטח, מבינים את הצרכים והחזון שלכם. הכל מתחיל בשיחה פתוחה.</p>
             </div>
             <div class="en">
               <h3>Consultation</h3>
-              <p>We come to you, survey the space, understand your needs and vision. Everything starts with a conversation.</p>
+              <p>We visit your space, survey the site, and understand your needs and vision. Everything starts with an open conversation.</p>
             </div>
           </div>
         </div>
         <!-- Step 2 -->
-        <div class="process-step">
+        <div class="process-step reveal reveal-delay-1">
           <div class="process-num">2</div>
           <div class="process-content">
             <div class="he">
               <h3>תכנון והצעת מחיר</h3>
-              <p>מכינים תוכנית עבודה מפורטת עם לוח זמנים ברור והצעת מחיר שקופה ללא הפתעות.</p>
+              <p>מכינים תוכנית עבודה מפורטת עם לוח זמנים ברור והצעת מחיר שקופה. אתם יודעים בדיוק מה מקבלים.</p>
             </div>
             <div class="en">
               <h3>Planning & Quote</h3>
-              <p>We prepare a detailed work plan with a clear timeline and transparent quote with no hidden costs.</p>
+              <p>We prepare a detailed work plan with a clear timeline and transparent pricing. You know exactly what you are getting.</p>
             </div>
           </div>
         </div>
         <!-- Step 3 -->
-        <div class="process-step">
+        <div class="process-step reveal reveal-delay-2">
           <div class="process-num">3</div>
           <div class="process-content">
             <div class="he">
-              <h3>ביצוע הפרויקט</h3>
-              <p>צוות מקצועי בשטח, פיקוח צמוד, עדכונים שוטפים. עובדים נקי ובזמן.</p>
+              <h3>ביצוע ובנייה</h3>
+              <p>צוות מקצועי בשטח, פיקוח צמוד ועדכונים שוטפים. עובדים נקי, מדויק ובזמן.</p>
             </div>
             <div class="en">
-              <h3>Project Build</h3>
-              <p>Professional crew on-site, close supervision, regular updates. Clean work, on schedule.</p>
+              <h3>Construction</h3>
+              <p>Professional crew on site, close supervision and regular updates. Clean, precise, on schedule.</p>
             </div>
           </div>
         </div>
         <!-- Step 4 -->
-        <div class="process-step">
+        <div class="process-step reveal reveal-delay-3">
           <div class="process-num">4</div>
           <div class="process-content">
             <div class="he">
               <h3>מסירה ואחריות</h3>
-              <p>סיור מסירה משותף, בדיקה של כל פרט. אחריות מלאה על העבודה גם אחרי שסיימנו.</p>
+              <p>סיור מסירה משותף, בדיקה של כל פרט ופרט. אחריות מלאה על העבודה שלנו גם אחרי שסיימנו.</p>
             </div>
             <div class="en">
-              <h3>Handover & Warranty</h3>
-              <p>Joint walkthrough, checking every detail. Full warranty on our work even after completion.</p>
+              <h3>Delivery & Warranty</h3>
+              <p>Joint walkthrough, checking every single detail. Full warranty on our work long after completion.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="process-side">
-        <div class="he">
-          <div class="section-label">התמחות</div>
-          <h3 style="font-family:var(--heading);font-weight:700;font-size:1.2rem;margin-bottom:8px;">לפני ואחרי</h3>
-          <p style="color:var(--steel);font-size:.88rem;margin-bottom:20px;">כל פרויקט עובר מהפך מלא. מהישן לחדש, מהרעיון למציאות.</p>
-        </div>
-        <div class="en">
-          <div class="section-label">Specialization</div>
-          <h3 style="font-family:var(--heading);font-weight:700;font-size:1.2rem;margin-bottom:8px;">Before & After</h3>
-          <p style="color:var(--steel);font-size:.88rem;margin-bottom:20px;">Every project goes through a complete transformation. From old to new, from idea to reality.</p>
-        </div>
-        <div class="before-after">
-          <div class="before-after-box before-box">
-            <span class="he">לפני</span>
-            <span class="en">Before</span>
+      <div class="process-side reveal">
+        <img src="img/contracting4.jpg" alt="Three white hard helmets on wooden beam, team reviewing blueprints in background" loading="lazy">
+        <div class="process-side-overlay">
+          <div class="he">
+            <div class="section-label">הצוות שלנו</div>
+            <p>15 אנשי מקצוע מנוסים. כל פרויקט מנוהל אישית מתחילתו ועד סופו.</p>
           </div>
-          <div class="before-after-box after-box">
-            <span class="he">אחרי</span>
-            <span class="en">After</span>
+          <div class="en">
+            <div class="section-label">Our Team</div>
+            <p>15 experienced professionals. Every project is personally managed from start to finish.</p>
           </div>
         </div>
       </div>
@@ -801,60 +1271,55 @@ body.lh{direction:rtl}
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- CAUTION STRIPE -->
+<div class="caution-stripe"></div>
+
+<!-- ============================================
+     6. PROJECTS GALLERY
+     ============================================ -->
 <section id="projects" class="section-pad section-concrete">
   <div class="container">
-    <div class="he">
+    <div class="he reveal">
       <div class="section-label">מהעבודות שלנו</div>
       <h2 class="section-title">פרויקטים אחרונים</h2>
       <p class="section-subtitle">מבחר עבודות שיפוץ שהשלמנו לאחרונה באזור תל אביב והמרכז.</p>
     </div>
-    <div class="en">
-      <div class="section-label">Our Work</div>
+    <div class="en reveal">
+      <div class="section-label">Our Portfolio</div>
       <h2 class="section-title">Recent Projects</h2>
-      <p class="section-subtitle">A selection of renovation projects we recently completed in Tel Aviv and Central Israel.</p>
+      <p class="section-subtitle">A selection of renovation projects recently completed across Tel Aviv and Central Israel.</p>
     </div>
 
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-img" style="background:linear-gradient(135deg,#8B7355 0%,#A0896C 50%,#6B5B45 100%)"></div>
-        <div class="project-info">
+    <div class="projects-gallery">
+      <!-- Large card -->
+      <div class="project-card project-card-large reveal">
+        <img src="img/contracting2.jpg" alt="Two workers on stilts performing drywall finishing and painting in a bright room" loading="lazy">
+        <div class="project-overlay">
           <div class="he">
+            <div class="project-tag">שיפוץ דירה</div>
             <h3>שיפוץ כללי דירת 4 חדרים</h3>
-            <p>תל אביב, שכונת נווה שאנן</p>
+            <p>תל אביב, שכונת לב העיר</p>
           </div>
           <div class="en">
-            <h3>Full 4-Room Apartment Renovation</h3>
-            <p>Tel Aviv, Neve Sha'anan</p>
+            <div class="project-tag">Full Renovation</div>
+            <h3>Complete 4-Room Apartment</h3>
+            <p>Tel Aviv, City Center</p>
           </div>
         </div>
       </div>
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-img" style="background:linear-gradient(135deg,#5C7A6B 0%,#7A9988 50%,#4A6358 100%)"></div>
-        <div class="project-info">
+      <!-- Small card -->
+      <div class="project-card project-card-small reveal reveal-delay-1">
+        <img src="img/contracting3.jpg" alt="Workers in safety vests inspecting concrete building interior with columns" loading="lazy">
+        <div class="project-overlay">
           <div class="he">
-            <h3>מטבח מודרני + פינת אוכל</h3>
-            <p>רמת גן, רמת עמידר</p>
+            <div class="project-tag">פרויקט מסחרי</div>
+            <h3>שיפוץ חלל מסחרי 280 מ"ר</h3>
+            <p>רמת גן, בורסה</p>
           </div>
           <div class="en">
-            <h3>Modern Kitchen + Dining Area</h3>
-            <p>Ramat Gan, Ramat Amidar</p>
-          </div>
-        </div>
-      </div>
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-img" style="background:linear-gradient(135deg,#7A6B5C 0%,#998877 50%,#645646 100%)"></div>
-        <div class="project-info">
-          <div class="he">
-            <h3>שני חדרי אמבטיה + שירותים</h3>
-            <p>הרצליה פיתוח</p>
-          </div>
-          <div class="en">
-            <h3>Two Bathrooms + Guest WC</h3>
-            <p>Herzliya Pituach</p>
+            <div class="project-tag">Commercial</div>
+            <h3>280 sqm Commercial Space</h3>
+            <p>Ramat Gan, Diamond Exchange</p>
           </div>
         </div>
       </div>
@@ -862,26 +1327,28 @@ body.lh{direction:rtl}
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ============================================
+     7. STATS
+     ============================================ -->
 <section class="section-pad section-dark">
   <div class="container">
     <div class="stats-grid">
-      <div>
+      <div class="stat-item reveal">
         <div class="stat-num">12+</div>
         <div class="he stat-label">שנות ניסיון</div>
         <div class="en stat-label">Years Experience</div>
       </div>
-      <div>
+      <div class="stat-item reveal reveal-delay-1">
         <div class="stat-num">200+</div>
         <div class="he stat-label">פרויקטים</div>
         <div class="en stat-label">Projects Done</div>
       </div>
-      <div>
+      <div class="stat-item reveal reveal-delay-2">
         <div class="stat-num">98%</div>
         <div class="he stat-label">שביעות רצון</div>
         <div class="en stat-label">Satisfaction</div>
       </div>
-      <div>
+      <div class="stat-item reveal reveal-delay-3">
         <div class="stat-num">15</div>
         <div class="he stat-label">אנשי צוות</div>
         <div class="en stat-label">Team Members</div>
@@ -893,65 +1360,74 @@ body.lh{direction:rtl}
 <!-- CAUTION STRIPE -->
 <div class="caution-stripe"></div>
 
-<!-- TESTIMONIALS -->
+<!-- ============================================
+     8. TESTIMONIALS
+     ============================================ -->
 <section id="testimonials" class="section-pad section-concrete">
   <div class="container">
-    <div class="he">
+    <div class="he reveal">
       <div class="section-label">מה אומרים עלינו</div>
       <h2 class="section-title">לקוחות ממליצים</h2>
-      <p class="section-subtitle">המילה הכי חזקה שלנו היא של הלקוחות עצמם.</p>
+      <p class="section-subtitle">ההמלצה הכי חזקה שלנו היא המילה של הלקוחות עצמם.</p>
     </div>
-    <div class="en">
-      <div class="section-label">What They Say</div>
+    <div class="en reveal">
+      <div class="section-label">What Clients Say</div>
       <h2 class="section-title">Client Testimonials</h2>
-      <p class="section-subtitle">Our strongest word comes from our clients themselves.</p>
+      <p class="section-subtitle">Our strongest recommendation comes from the words of our clients themselves.</p>
     </div>
 
     <div class="testimonials-grid">
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
         <div class="he">
-          <p>״אבי והצוות שלו שיפצו לנו את הדירה מהיסוד. עבודה מקצועית, נקייה ובזמן. התוצאה מדהימה. ממליצים בחום.״</p>
+          <p>אבי והצוות שלו שיפצו לנו את הדירה מהיסוד. עבודה מקצועית, נקייה ובזמן. התוצאה מדהימה ועברה כל ציפייה. ממליצים בחום.</p>
           <div class="testimonial-author">דנה ויואב כהן</div>
-          <div class="testimonial-location">תל אביב</div>
+          <div class="testimonial-location">תל אביב, נווה צדק</div>
         </div>
         <div class="en">
-          <p>"Avi and his team renovated our apartment from scratch. Professional, clean, and on time. The result is amazing. Highly recommend."</p>
+          <p>Avi and his team renovated our apartment from scratch. Professional, clean, and on time. The result is stunning and exceeded all expectations. Highly recommend.</p>
           <div class="testimonial-author">Dana & Yoav Cohen</div>
-          <div class="testimonial-location">Tel Aviv</div>
+          <div class="testimonial-location">Tel Aviv, Neve Tzedek</div>
         </div>
       </div>
-      <div class="testimonial-card">
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote">"</div>
         <div class="he">
-          <p>״הפכו לנו את המטבח הישן למטבח חלומות. תשומת לב לכל פרט, חומרים איכותיים ושירות מעולה מההתחלה ועד הסוף.״</p>
+          <p>הפכו לנו את המטבח הישן למטבח חלומות. תשומת לב לכל פרט, חומרים ברמה הגבוהה ביותר ושירות מעולה מההתחלה ועד הסוף.</p>
           <div class="testimonial-author">מיכל לוי</div>
           <div class="testimonial-location">רמת גן</div>
         </div>
         <div class="en">
-          <p>"They turned our old kitchen into a dream kitchen. Attention to every detail, quality materials and excellent service from start to finish."</p>
+          <p>They transformed our old kitchen into a dream kitchen. Meticulous attention to detail, top-grade materials and outstanding service from start to finish.</p>
           <div class="testimonial-author">Michal Levy</div>
           <div class="testimonial-location">Ramat Gan</div>
         </div>
       </div>
-      <div class="testimonial-card">
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
         <div class="he">
-          <p>״שיפצנו שני חדרי אמבטיה ושירותי אורחים. העבודה הייתה מדויקת, הצוות אדיב והמחיר הוגן. תודה רבה!״</p>
+          <p>שיפצנו שני חדרי אמבטיה ושירותי אורחים. העבודה הייתה מדויקת, הצוות אדיב ומקצועי והמחיר הוגן. תודה רבה!</p>
           <div class="testimonial-author">רון ושירה ברק</div>
-          <div class="testimonial-location">הרצליה</div>
+          <div class="testimonial-location">הרצליה פיתוח</div>
         </div>
         <div class="en">
-          <p>"We renovated two bathrooms and a guest WC. The work was precise, the team was courteous and the price was fair. Thank you!"</p>
+          <p>We renovated two bathrooms and a guest WC. The work was precise, the team was courteous and professional, and the price was fair. Thank you!</p>
           <div class="testimonial-author">Ron & Shira Barak</div>
-          <div class="testimonial-location">Herzliya</div>
+          <div class="testimonial-location">Herzliya Pituach</div>
         </div>
       </div>
-      <div class="testimonial-card">
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote">"</div>
         <div class="he">
-          <p>״פרויקט שיפוץ מורכב שכלל הריסה ובנייה מחדש. אבי ניהל את הפרויקט ביד רמה, תמיד זמין ותמיד עם פתרונות.״</p>
+          <p>פרויקט שיפוץ משרד מורכב שכלל הריסה ובנייה מחדש. אבי ניהל את הפרויקט ביד רמה, תמיד זמין ותמיד עם פתרונות יצירתיים.</p>
           <div class="testimonial-author">אילן מזרחי</div>
           <div class="testimonial-location">גבעתיים</div>
         </div>
         <div class="en">
-          <p>"A complex renovation project that included demolition and rebuild. Avi managed the project expertly, always available and always with solutions."</p>
+          <p>A complex office renovation that included full demolition and rebuild. Avi managed the project masterfully, always available and always with creative solutions.</p>
           <div class="testimonial-author">Ilan Mizrachi</div>
           <div class="testimonial-location">Givatayim</div>
         </div>
@@ -960,101 +1436,73 @@ body.lh{direction:rtl}
   </div>
 </section>
 
-<!-- SERVICE AREAS -->
-<section class="section-pad" style="text-align:center">
-  <div class="container">
-    <div class="he">
-      <div class="section-label">אזורי שירות</div>
-      <h2 class="section-title">איפה אנחנו עובדים</h2>
-      <p class="section-subtitle" style="margin:0 auto 0">מכסים את כל אזור תל אביב והמרכז. הגיעו מרחוק? דברו איתנו.</p>
-    </div>
-    <div class="en">
-      <div class="section-label">Service Areas</div>
-      <h2 class="section-title">Where We Work</h2>
-      <p class="section-subtitle" style="margin:0 auto 0">Covering all of Tel Aviv and Central Israel. Coming from far? Talk to us.</p>
-    </div>
-
-    <div class="areas-chips">
-      <div class="he">
-        <span class="area-chip">תל אביב</span>
-        <span class="area-chip">רמת גן</span>
-        <span class="area-chip">גבעתיים</span>
-        <span class="area-chip">הרצליה</span>
-        <span class="area-chip">רעננה</span>
-        <span class="area-chip">כפר סבא</span>
-        <span class="area-chip">פתח תקווה</span>
-        <span class="area-chip">ראשון לציון</span>
-        <span class="area-chip">חולון</span>
-        <span class="area-chip">בת ים</span>
-        <span class="area-chip">בני ברק</span>
-        <span class="area-chip">הוד השרון</span>
-      </div>
-      <div class="en">
-        <span class="area-chip">Tel Aviv</span>
-        <span class="area-chip">Ramat Gan</span>
-        <span class="area-chip">Givatayim</span>
-        <span class="area-chip">Herzliya</span>
-        <span class="area-chip">Ra'anana</span>
-        <span class="area-chip">Kfar Saba</span>
-        <span class="area-chip">Petah Tikva</span>
-        <span class="area-chip">Rishon LeZion</span>
-        <span class="area-chip">Holon</span>
-        <span class="area-chip">Bat Yam</span>
-        <span class="area-chip">Bnei Brak</span>
-        <span class="area-chip">Hod HaSharon</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT CTA -->
+<!-- ============================================
+     9. CONTACT CTA
+     ============================================ -->
 <section id="contact" class="section-pad section-orange">
   <div class="container">
     <div class="cta-content">
-      <div class="he">
-        <h2>מוכנים להתחיל?</h2>
-        <p>התקשרו עכשיו לייעוץ ראשוני ללא עלות. נשמח להגיע, לראות את השטח ולתת הצעת מחיר מפורטת.</p>
+      <div class="he reveal">
+        <h2>קבלו הצעת מחיר חינם</h2>
+        <p>התקשרו עכשיו לייעוץ ראשוני ללא עלות. נגיע, נסקור את השטח ונחזור אליכם עם הצעה מפורטת.</p>
       </div>
-      <div class="en">
-        <h2>Ready to Start?</h2>
-        <p>Call now for a free initial consultation. We'll come to you, survey the space and provide a detailed quote.</p>
+      <div class="en reveal">
+        <h2>Get Your Free Quote</h2>
+        <p>Call now for a free initial consultation. We will visit, survey your space and get back to you with a detailed proposal.</p>
       </div>
-      <div class="cta-buttons">
+      <a href="tel:+972501234567" class="cta-phone reveal">050-123-4567</a>
+      <div class="cta-buttons reveal">
         <a href="tel:+972501234567" class="btn-dark">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="he">050-123-4567</span>
-          <span class="en">050-123-4567</span>
+          <span class="he">התקשרו עכשיו</span>
+          <span class="en">Call Now</span>
         </a>
-        <a href="https://wa.me/972501234567" class="btn-dark" target="_blank" rel="noopener">
+        <a href="https://wa.me/972501234567" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.554 4.122 1.524 5.857L0 24l6.335-1.652A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.88 0-3.63-.5-5.14-1.37l-.37-.22-3.82.998.978-3.57-.24-.38A9.78 9.78 0 0 1 2.18 12C2.18 6.58 6.58 2.18 12 2.18c2.61 0 5.06 1.02 6.9 2.86a9.72 9.72 0 0 1 2.92 6.96c0 5.42-4.4 9.82-9.82 9.82z"/></svg>
-          <span class="he">WhatsApp</span>
-          <span class="en">WhatsApp</span>
+          <span class="he">שלחו WhatsApp</span>
+          <span class="en">WhatsApp Us</span>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================================
+     10. FOOTER
+     ============================================ -->
 <div class="caution-stripe"></div>
 <footer class="footer">
   <div class="footer-inner">
-    <div class="he footer-logo">אבי <span>שיפוצים</span></div>
-    <div class="en footer-logo">Avi <span>Renovations</span></div>
+    <div class="footer-logo">
+      <span class="he">אבי <span>שיפוצים</span></span>
+      <span class="en">Avi <span>Renovations</span></span>
+    </div>
 
     <div class="footer-links">
-      <div class="he">
+      <span class="he">
         <a href="#services">שירותים</a>
-        <a href="#projects">פרויקטים</a>
-        <a href="#testimonials">המלצות</a>
-        <a href="#contact">צור קשר</a>
-      </div>
-      <div class="en">
+      </span>
+      <span class="en">
         <a href="#services">Services</a>
+      </span>
+      <span class="he">
+        <a href="#projects">פרויקטים</a>
+      </span>
+      <span class="en">
         <a href="#projects">Projects</a>
-        <a href="#testimonials">Reviews</a>
+      </span>
+      <span class="he">
+        <a href="#about">אודות</a>
+      </span>
+      <span class="en">
+        <a href="#about">About</a>
+      </span>
+      <span class="he">
+        <a href="#contact">צור קשר</a>
+      </span>
+      <span class="en">
         <a href="#contact">Contact</a>
-      </div>
+      </span>
     </div>
 
     <div class="footer-copy">
@@ -1064,21 +1512,96 @@ body.lh{direction:rtl}
   </div>
 </footer>
 
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
 <script>
-function toggleLang(){
-  document.body.classList.toggle('lh');
-  const html=document.documentElement;
-  if(document.body.classList.contains('lh')){
-    html.setAttribute('dir','rtl');
-    html.setAttribute('lang','he');
-  }else{
-    html.setAttribute('dir','ltr');
-    html.setAttribute('lang','en');
+/* Language toggle */
+function toggleLang() {
+  document.body.classList.toggle('lang-en');
+  var html = document.documentElement;
+  if (document.body.classList.contains('lang-en')) {
+    html.setAttribute('dir', 'ltr');
+    html.setAttribute('lang', 'en');
+  } else {
+    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'he');
   }
 }
-function toggleMobile(){
+
+/* Mobile menu toggle */
+function toggleMobile() {
   document.getElementById('mobileNav').classList.toggle('active');
 }
+
+/* Scroll reveal with IntersectionObserver */
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+})();
+
+/* Close mobile menu on link click (already handled inline, but also on escape) */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var mobileNav = document.getElementById('mobileNav');
+    if (mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+    }
+  }
+});
+
+/* Animate stat numbers on scroll */
+(function() {
+  var animated = false;
+  var statsSection = document.querySelector('.stats-grid');
+  if (!statsSection) return;
+
+  function animateNumbers() {
+    if (animated) return;
+    var nums = statsSection.querySelectorAll('.stat-num');
+    nums.forEach(function(el) {
+      var text = el.textContent.trim();
+      var suffix = text.replace(/[0-9]/g, '');
+      var target = parseInt(text);
+      if (isNaN(target)) return;
+      var current = 0;
+      var step = Math.max(1, Math.floor(target / 50));
+      var interval = setInterval(function() {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        el.textContent = current + suffix;
+      }, 25);
+    });
+    animated = true;
+  }
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateNumbers();
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(statsSection);
+  }
+})();
 </script>
 </body>
 </html>

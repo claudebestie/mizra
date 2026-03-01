@@ -3,828 +3,1385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>שולחן הזהב | The Golden Table</title>
-<meta name="description" content="Mediterranean fine dining on Rothschild Blvd, Tel Aviv. שולחן הזהב - מסעדת שף ים-תיכונית בשדרות רוטשילד, תל אביב.">
+<title>The Golden Table | Mediterranean Fine Dining, Tel Aviv</title>
+<meta name="description" content="Mediterranean fine dining on Rothschild Blvd, Tel Aviv. Fresh seasonal cuisine inspired by the land and sea.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ==============================
+/* ===========================================
    THE GOLDEN TABLE
-   Warm Intimate Elegance
-   ============================== */
+   Mediterranean Bistro Editorial
+   =========================================== */
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
-:root{
-  --burgundy:#722F37;
-  --burgundy-deep:#5A2129;
-  --burgundy-light:#8B3A44;
-  --gold:#C5A47E;
-  --gold-light:#D4BA9A;
-  --gold-dim:rgba(197,164,126,.15);
-  --cream:#FDF6EC;
-  --cream-dark:#F5EBD9;
-  --charcoal:#2C2C2C;
-  --charcoal-light:#3D3D3D;
-  --soft-white:#FEFAF5;
-  --text-dark:#2C2C2C;
-  --text-muted:#6B6560;
-  --text-light:rgba(253,246,236,.7);
-  --text-on-dark:rgba(253,246,236,.85);
-  --border-gold:rgba(197,164,126,.3);
-  --border-cream:rgba(44,44,44,.08);
-  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
-  --sans:'DM Sans',system-ui,-apple-system,sans-serif;
+:root {
+  --burgundy: #722F37;
+  --burgundy-deep: #5A2129;
+  --burgundy-light: #8B3A44;
+  --gold: #C5A47E;
+  --gold-light: #D4BA9A;
+  --gold-dark: #A8895E;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EBD9;
+  --charcoal: #1A1A1A;
+  --charcoal-mid: #2C2C2C;
+  --warm-white: #FFFCF7;
+  --text-dark: #1A1A1A;
+  --text-body: #3D3D3D;
+  --text-muted: #6B6560;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
-body{
-  font-family:var(--sans);
-  background:var(--soft-white);
-  color:var(--text-dark);
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
+body {
+  font-family: var(--sans);
+  background: var(--warm-white);
+  color: var(--text-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-::selection{background:var(--burgundy);color:var(--cream)}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
+::selection { background: var(--burgundy); color: var(--cream); }
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { font-family: inherit; }
 
-/* --- LANGUAGE SYSTEM --- */
-.he{display:none}
-body.lh .en{display:none}
-body.lh .he{display:block}
-span.he{display:none}
-body.lh span.en{display:none}
-body.lh span.he{display:inline}
-body.lh{direction:rtl}
+/* --- BILINGUAL SYSTEM --- */
+.he { display: none; }
+body.lh .en { display: none; }
+body.lh .he { display: block; }
+span.he, a.he { display: none; }
+body.lh span.en, body.lh a.en { display: none; }
+body.lh span.he, body.lh a.he { display: inline; }
+body.lh { direction: rtl; }
+body:not(.lh) { direction: ltr; }
 
-/* --- MIZRA DEMO BANNER --- */
-.mizra-banner{
-  background:var(--charcoal);
-  padding:9px 24px;
-  text-align:center;
-  font-size:.73rem;
-  color:rgba(253,246,236,.45);
-  letter-spacing:.3px;
-  line-height:1.5;
+/* --- SCROLL REVEAL --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.mizra-banner a{
-  color:var(--gold);
-  font-weight:600;
-  text-decoration:underline;
-  text-underline-offset:2px;
-  transition:color .3s;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-.mizra-banner a:hover{color:var(--gold-light)}
-
-/* --- NAVIGATION --- */
-.nav{
-  position:sticky;top:0;left:0;right:0;z-index:100;
-  padding:0 48px;
-  height:68px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(114,47,55,.97);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(197,164,126,.15);
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.nav-logo{
-  font-family:var(--serif);
-  font-size:1.45rem;
-  font-weight:500;
-  color:var(--cream);
-  letter-spacing:.5px;
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
-.nav-logo em{
-  color:var(--gold);
-  font-style:italic;
-  font-weight:400;
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.nav-right{display:flex;align-items:center;gap:16px}
-.lang-toggle{
-  display:flex;
-  gap:0;
-  border:1px solid rgba(197,164,126,.3);
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
-.lang-toggle button{
-  padding:6px 14px;
-  border:none;
-  background:transparent;
-  color:rgba(253,246,236,.5);
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:1px;
-  cursor:pointer;
-  transition:all .3s;
-  font-family:var(--sans);
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.lang-toggle button.on{
-  background:var(--gold);
-  color:var(--charcoal);
-}
-.btn-reserve{
-  display:inline-flex;align-items:center;
-  padding:10px 28px;
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  font-family:var(--serif);
-  font-size:.9rem;
-  font-weight:500;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:all .35s;
-}
-.btn-reserve:hover{
-  background:var(--gold);
-  color:var(--charcoal);
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* --- HERO --- */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:120px 48px 100px;
-  background:var(--burgundy);
-  position:relative;
-  overflow:hidden;
+/* stagger children */
+.reveal-stagger > * { transition-delay: calc(var(--i, 0) * 0.12s); }
+
+/* --- 1. MIZRA DEMO BANNER --- */
+.mizra-banner {
+  background: var(--cream-dark);
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 200;
 }
-.hero::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(90,33,41,.6) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(197,164,126,.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(44,44,44,.3) 0%, transparent 60%),
-    linear-gradient(175deg, var(--burgundy) 0%, var(--burgundy-deep) 40%, #3D1A20 100%);
-  z-index:0;
+.mizra-banner a {
+  color: var(--burgundy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s;
 }
-.hero::after{
-  content:'';
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(197,164,126,.012) 2px,
-    rgba(197,164,126,.012) 4px
+.mizra-banner a:hover { color: var(--gold-dark); }
+
+/* --- 2. NAVIGATION --- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 150;
+  padding: 0 56px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 40px rgba(0,0,0,0.2);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.nav-logo em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.nav-link {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,248,240,0.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-link:hover { color: var(--cream); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.lang-toggle {
+  display: flex;
+  border: 1px solid rgba(197,164,126,0.35);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.lang-toggle button {
+  padding: 5px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(255,248,240,0.45);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lang-toggle button.on {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+.btn-nav-reserve {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+.btn-nav-reserve:hover {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 210;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--cream);
+  margin: 3px 0;
+  transition: all 0.35s ease;
+  border-radius: 1px;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4.5px, 4.5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4.5px, -4.5px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 149;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 2px;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu .mobile-lang {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(197,164,126,0.35);
+  margin-top: 16px;
+}
+.mobile-menu .mobile-lang button {
+  padding: 8px 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255,248,240,0.45);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: var(--sans);
+}
+.mobile-menu .mobile-lang button.on {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+/* --- 3. HERO --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 48px 100px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('img/restaurant5.jpg') center center / cover no-repeat;
+  z-index: 0;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26,26,26,0.55) 0%,
+    rgba(26,26,26,0.35) 40%,
+    rgba(26,26,26,0.50) 100%
   );
-  z-index:0;
+  z-index: 1;
 }
-.hero>*{position:relative;z-index:1}
-
-.hero-ornament{
-  width:60px;
-  height:1px;
-  background:var(--gold);
-  margin:0 auto 40px;
-  position:relative;
-}
-.hero-ornament::before{
-  content:'';
-  position:absolute;
-  top:-3px;left:50%;
-  transform:translateX(-50%);
-  width:7px;height:7px;
-  border:1px solid var(--gold);
-  transform:translateX(-50%) rotate(45deg);
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-.hero h1{
-  font-family:var(--serif);
-  font-size:clamp(3.5rem,8.5vw,7.5rem);
-  color:var(--cream);
-  font-weight:300;
-  line-height:1;
-  letter-spacing:2px;
-  margin-bottom:20px;
-}
-.hero h1 em{
-  display:block;
-  font-style:italic;
-  font-weight:400;
-  color:var(--gold);
-  font-size:.85em;
+.hero-ornament {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 48px;
+  opacity: 0.7;
 }
 
-.hero-tagline{
-  font-family:var(--serif);
-  font-size:clamp(1rem,2vw,1.3rem);
-  font-weight:300;
-  font-style:italic;
-  color:var(--gold-light);
-  letter-spacing:2px;
-  margin-bottom:48px;
-  opacity:.85;
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  color: var(--cream);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+  font-size: 0.9em;
 }
 
-.hero-line{
-  width:1px;height:64px;
-  background:linear-gradient(to bottom, var(--gold), transparent);
-  margin:0 auto;
-  opacity:.4;
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  margin-bottom: 56px;
+  opacity: 0.9;
 }
 
-/* --- PHILOSOPHY --- */
-.philosophy{
-  padding:120px 48px;
-  background:var(--cream);
-  text-align:center;
-  position:relative;
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 48px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
 }
-.philosophy::before{
-  content:'';position:absolute;inset:0;
+.btn-hero:hover {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+.hero-scroll-line {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  opacity: 0.4;
+  z-index: 2;
+  animation: pulse-line 2.5s ease-in-out infinite;
+}
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* --- 4. ABOUT / CONCEPT --- */
+.about {
+  padding: 140px 0;
+  background: var(--cream);
+  overflow: hidden;
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: center;
+}
+.about-image-wrap {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+.about-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-image-wrap:hover img {
+  transform: scale(1.03);
+}
+.about-image-accent {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  border: 1px solid rgba(197,164,126,0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-text {
+  padding: 64px 80px;
+}
+.about-label {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 24px;
+}
+.about-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+.about-text h2 em {
+  font-style: italic;
+  color: var(--burgundy);
+}
+.about-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 32px;
+}
+.about-text p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+.about-text p:last-of-type { margin-bottom: 0; }
+
+/* --- 5. MENU HIGHLIGHTS --- */
+.menu-section {
+  padding: 120px 48px;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+.menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(197,164,126,.06) 0%, transparent 60%);
-}
-.philosophy>*{position:relative}
-
-.philosophy-divider{
-  width:48px;height:1px;
-  background:var(--gold);
-  margin:0 auto 48px;
-}
-.philosophy p{
-  font-family:var(--serif);
-  font-size:clamp(1.15rem,2.2vw,1.55rem);
-  font-weight:300;
-  line-height:1.9;
-  color:var(--text-dark);
-  max-width:680px;
-  margin:0 auto;
-  letter-spacing:.2px;
-}
-.philosophy-divider-bottom{
-  width:48px;height:1px;
-  background:var(--gold);
-  margin:48px auto 0;
+    radial-gradient(ellipse at 30% 20%, rgba(114,47,55,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(197,164,126,0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-/* --- MENU CARD --- */
-.menu-section{
-  padding:100px 48px 120px;
-  background:var(--charcoal);
-  position:relative;
-  overflow:hidden;
+.menu-header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
 }
-.menu-section::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(114,47,55,.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(197,164,126,.05) 0%, transparent 50%);
+.menu-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-.menu-card{
-  position:relative;
-  max-width:700px;
-  margin:0 auto;
-  border:1px solid var(--border-gold);
-  padding:72px 64px;
-  background:rgba(44,44,44,.5);
-  text-align:center;
+.menu-header-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 1px;
 }
-.menu-card::before,
-.menu-card::after{
-  content:'';position:absolute;
-  border:1px solid rgba(197,164,126,.12);
-}
-.menu-card::before{
-  top:8px;left:8px;right:8px;bottom:8px;
+.menu-header-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 24px auto 0;
+  opacity: 0.5;
 }
 
-.menu-title{
-  font-family:var(--serif);
-  font-size:clamp(1.6rem,3vw,2.4rem);
-  font-weight:300;
-  color:var(--cream);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.menu-subtitle{
-  font-family:var(--serif);
-  font-size:.95rem;
-  font-style:italic;
-  color:var(--gold);
-  margin-bottom:48px;
-  letter-spacing:1px;
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.menu-category{margin-bottom:40px}
-.menu-category:last-child{margin-bottom:0}
-.menu-cat-name{
-  font-family:var(--serif);
-  font-size:1.1rem;
-  font-weight:600;
-  color:var(--gold);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:24px;
+.menu-card {
+  background: rgba(44, 44, 44, 0.4);
+  border: 1px solid rgba(197,164,126,0.15);
+  padding: 48px 36px;
+  text-align: center;
+  transition: border-color 0.4s, transform 0.4s;
 }
-.menu-gold-divider{
-  width:32px;height:1px;
-  background:var(--gold);
-  margin:0 auto 24px;
-  opacity:.5;
+.menu-card:hover {
+  border-color: rgba(197,164,126,0.35);
+  transform: translateY(-4px);
 }
 
-.menu-item{
-  padding:10px 0;
-  cursor:default;
-  transition:all .3s;
+.menu-cat-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
-.menu-item:hover .menu-item-name{
-  background-size:100% 1px;
-}
-.menu-item-row{
-  display:flex;
-  align-items:baseline;
-  gap:8px;
-  justify-content:center;
-}
-.menu-item-name{
-  font-family:var(--serif);
-  font-size:1.15rem;
-  font-weight:400;
-  color:var(--cream);
-  background-image:linear-gradient(var(--gold), var(--gold));
-  background-size:0% 1px;
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  transition:background-size .4s ease;
-  padding-bottom:2px;
-}
-.menu-item-dots{
-  flex:1;
-  border-bottom:1px dotted rgba(197,164,126,.25);
-  min-width:20px;
-  margin:0 4px;
-  position:relative;
-  top:-4px;
-}
-.menu-item-price{
-  font-family:var(--serif);
-  font-size:1.05rem;
-  color:var(--gold);
-  font-weight:400;
-  white-space:nowrap;
-}
-.menu-item-desc{
-  font-family:var(--sans);
-  font-size:.78rem;
-  color:rgba(253,246,236,.4);
-  margin-top:4px;
-  letter-spacing:.3px;
-  line-height:1.5;
-}
-.menu-section-divider{
-  width:48px;height:1px;
-  background:var(--gold);
-  margin:36px auto;
-  opacity:.3;
+.menu-cat-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 28px;
+  opacity: 0.4;
 }
 
-/* --- CHEF QUOTE --- */
-.chef-section{
-  padding:120px 48px;
-  background:var(--cream);
-  text-align:center;
-  position:relative;
+.menu-item {
+  margin-bottom: 20px;
 }
-.chef-section::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(197,164,126,.05) 0%, transparent 60%);
-}
-.chef-section>*{position:relative}
+.menu-item:last-child { margin-bottom: 0; }
 
-.chef-quote-mark{
-  font-family:var(--serif);
-  font-size:4rem;
-  color:var(--gold);
-  line-height:1;
-  margin-bottom:16px;
-  opacity:.5;
+.menu-item-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  justify-content: center;
 }
-.chef-quote{
-  font-family:var(--serif);
-  font-size:clamp(1.2rem,2.5vw,1.7rem);
-  font-style:italic;
-  font-weight:300;
-  color:var(--text-dark);
-  max-width:640px;
-  margin:0 auto 32px;
-  line-height:1.8;
-  letter-spacing:.3px;
+.menu-item-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--cream);
 }
-.chef-attr-line{
-  width:32px;height:1px;
-  background:var(--gold);
-  margin:0 auto 20px;
+.menu-item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(197,164,126,0.2);
+  min-width: 16px;
+  position: relative;
+  top: -4px;
 }
-.chef-name{
-  font-family:var(--serif);
-  font-size:1.1rem;
-  font-weight:600;
-  color:var(--burgundy);
-  letter-spacing:1px;
+.menu-item-price {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 400;
+  white-space: nowrap;
 }
-.chef-role{
-  font-family:var(--sans);
-  font-size:.78rem;
-  color:var(--text-muted);
-  letter-spacing:1px;
-  text-transform:uppercase;
-  margin-top:4px;
+.menu-item-desc {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: rgba(255,248,240,0.4);
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
 }
 
-/* --- GALLERY --- */
-.gallery-section{
-  padding:100px 48px;
-  background:var(--charcoal);
-  position:relative;
+/* Full-width menu image break */
+.menu-image-break {
+  margin: 100px -48px 0;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
 }
-.gallery-section::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%, rgba(114,47,55,.1) 0%, transparent 50%);
+.menu-image-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.gallery-section>*{position:relative}
-
-.gallery-header{
-  text-align:center;
-  margin-bottom:64px;
-}
-.gallery-header h2{
-  font-family:var(--serif);
-  font-size:clamp(1.4rem,2.5vw,2rem);
-  font-weight:300;
-  color:var(--cream);
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-.gallery-header-line{
-  width:48px;height:1px;
-  background:var(--gold);
-  margin:20px auto 0;
-  opacity:.5;
+.menu-image-break::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--charcoal) 0%,
+    transparent 20%,
+    transparent 80%,
+    var(--charcoal) 100%
+  );
+  pointer-events: none;
 }
 
-.gallery-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-template-rows:280px 220px;
-  gap:4px;
-  max-width:1000px;
-  margin:0 auto;
+/* --- 6. GALLERY --- */
+.gallery-section {
+  padding: 120px 48px;
+  background: var(--warm-white);
+  overflow: hidden;
 }
-.gallery-item{
-  position:relative;overflow:hidden;
-  cursor:pointer;
-  transition:transform .5s ease;
+.gallery-header {
+  text-align: center;
+  margin-bottom: 72px;
 }
-.gallery-item::before{
-  content:'';
-  position:absolute;inset:0;
-  z-index:1;
-  transition:opacity .4s;
+.gallery-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-.gallery-item:hover{transform:scale(1.02)}
-.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0)}
-
-.gallery-item:nth-child(1){
-  grid-column:1 / 2;grid-row:1 / 3;
-  background:linear-gradient(160deg, #3D1A20 0%, var(--burgundy-deep) 40%, var(--burgundy) 100%);
+.gallery-header-sub {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 1px;
 }
-.gallery-item:nth-child(1)::before{
-  background:linear-gradient(to top, rgba(44,44,44,.6), transparent);
-}
-.gallery-item:nth-child(2){
-  grid-column:2 / 3;grid-row:1 / 2;
-  background:linear-gradient(135deg, var(--burgundy-light) 0%, #A84B55 100%);
-}
-.gallery-item:nth-child(2)::before{
-  background:linear-gradient(to top, rgba(44,44,44,.5), transparent 60%);
-}
-.gallery-item:nth-child(3){
-  grid-column:3 / 4;grid-row:1 / 2;
-  background:linear-gradient(135deg, var(--charcoal-light) 0%, #555049 100%);
-  transform:translateY(32px);
-}
-.gallery-item:nth-child(3)::before{
-  background:linear-gradient(to top, rgba(44,44,44,.5), transparent 60%);
-}
-.gallery-item:nth-child(3):hover{transform:translateY(32px) scale(1.02)}
-.gallery-item:nth-child(4){
-  grid-column:2 / 3;grid-row:2 / 3;
-  background:linear-gradient(135deg, #4A3528 0%, #6B4D3A 100%);
-}
-.gallery-item:nth-child(4)::before{
-  background:linear-gradient(to top, rgba(44,44,44,.5), transparent 60%);
-}
-.gallery-item:nth-child(5){
-  grid-column:3 / 4;grid-row:2 / 3;
-  background:linear-gradient(135deg, var(--burgundy-deep) 0%, #4A2028 100%);
-  transform:translateY(32px);
-}
-.gallery-item:nth-child(5)::before{
-  background:linear-gradient(to top, rgba(44,44,44,.5), transparent 60%);
-}
-.gallery-item:nth-child(5):hover{transform:translateY(32px) scale(1.02)}
-
-.gallery-caption{
-  position:absolute;
-  bottom:20px;left:20px;right:20px;
-  z-index:2;
-  font-family:var(--serif);
-  font-size:.88rem;
-  font-style:italic;
-  color:rgba(253,246,236,.75);
-  letter-spacing:.5px;
-  opacity:0;
-  transform:translateY(8px);
-  transition:all .4s;
+.gallery-header-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 24px auto 0;
 }
 
-/* --- HOURS & RESERVATION --- */
-.hours-section{
-  padding:100px 48px;
-  background:var(--cream);
-  text-align:center;
-  position:relative;
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 320px 320px;
+  gap: 16px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
-.hours-section::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 50%, rgba(197,164,126,.04) 0%, transparent 60%);
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
-.hours-section>*{position:relative}
-
-.hours-header h2{
-  font-family:var(--serif);
-  font-size:clamp(1.4rem,2.5vw,2rem);
-  font-weight:300;
-  color:var(--text-dark);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:8px;
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.hours-header-line{
-  width:48px;height:1px;
-  background:var(--gold);
-  margin:16px auto 56px;
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26,26,26,0);
+  transition: background 0.5s ease;
+  z-index: 1;
 }
-
-.hours-table-wrap{
-  max-width:480px;
-  margin:0 auto 56px;
+.gallery-item:hover img {
+  transform: scale(1.08);
 }
-.hours-table{
-  width:100%;
-  border-collapse:collapse;
+.gallery-item:hover::after {
+  background: rgba(26,26,26,0.15);
 }
-.hours-table tr{
-  border-bottom:1px solid rgba(197,164,126,.2);
+.gallery-item:nth-child(1) {
+  grid-column: 1 / 6;
+  grid-row: 1 / 2;
 }
-.hours-table tr:last-child{border-bottom:none}
-.hours-table td{
-  padding:16px 0;
-  font-family:var(--sans);
-  font-size:.9rem;
-  color:var(--text-muted);
+.gallery-item:nth-child(2) {
+  grid-column: 6 / 13;
+  grid-row: 1 / 2;
 }
-.hours-table td:first-child{
-  font-weight:500;
-  color:var(--text-dark);
-  text-align:start;
-}
-.hours-table td:last-child{
-  text-align:end;
-  font-family:var(--serif);
-  font-size:1rem;
-  color:var(--burgundy);
-  font-weight:500;
+.gallery-item:nth-child(3) {
+  grid-column: 1 / 13;
+  grid-row: 2 / 3;
 }
 
-.hours-divider{
-  width:32px;height:1px;
-  background:var(--gold);
-  margin:0 auto 40px;
-  opacity:.5;
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  padding: 48px 32px 28px;
+  background: linear-gradient(to top, rgba(26,26,26,0.7), transparent);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s, transform 0.5s;
 }
-.hours-contact{
-  font-family:var(--serif);
-  font-size:1.05rem;
-  color:var(--text-dark);
-  margin-bottom:8px;
-  letter-spacing:.3px;
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
 }
-.hours-phone{
-  font-family:var(--serif);
-  font-size:1.2rem;
-  color:var(--burgundy);
-  font-weight:500;
-  letter-spacing:1px;
-  margin-bottom:32px;
-}
-.btn-reserve-dark{
-  display:inline-flex;
-  padding:14px 40px;
-  border:1px solid var(--burgundy);
-  background:transparent;
-  color:var(--burgundy);
-  font-family:var(--serif);
-  font-size:.95rem;
-  font-weight:500;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:all .35s;
-}
-.btn-reserve-dark:hover{
-  background:var(--burgundy);
-  color:var(--cream);
+.gallery-caption span {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,248,240,0.9);
+  letter-spacing: 0.5px;
 }
 
-/* --- FOOTER --- */
-.footer{
-  background:var(--charcoal);
-  padding:56px 48px 40px;
-  text-align:center;
-  border-top:1px solid rgba(197,164,126,.15);
+/* --- 7. TESTIMONIALS --- */
+.testimonials {
+  padding: 120px 48px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
 }
-.footer-name{
-  font-family:var(--serif);
-  font-size:1.5rem;
-  font-weight:400;
-  color:var(--cream);
-  letter-spacing:2px;
-  margin-bottom:6px;
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(197,164,126,0.06) 0%, transparent 60%);
+  pointer-events: none;
 }
-.footer-name em{
-  color:var(--gold);
-  font-style:italic;
+.testimonials-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  position: relative;
 }
-.footer-address{
-  font-family:var(--sans);
-  font-size:.82rem;
-  color:rgba(253,246,236,.35);
-  letter-spacing:.5px;
-  line-height:1.7;
-  margin-bottom:4px;
-}
-.footer-phone{
-  font-family:var(--sans);
-  font-size:.82rem;
-  color:rgba(253,246,236,.35);
-  letter-spacing:.5px;
-  margin-bottom:24px;
-}
-.footer-divider{
-  width:32px;height:1px;
-  background:rgba(197,164,126,.2);
-  margin:0 auto 20px;
-}
-.footer-credit{
-  font-size:.72rem;
-  color:rgba(253,246,236,.25);
-  letter-spacing:.3px;
-}
-.footer-credit a{
-  color:var(--gold);
-  font-weight:600;
-  transition:color .3s;
-}
-.footer-credit a:hover{color:var(--gold-light)}
 
-/* --- MOBILE --- */
-@media(max-width:768px){
-  .nav{padding:0 20px;height:60px}
-  .hero{min-height:90vh;padding:80px 24px 60px}
-  .hero h1{font-size:clamp(2.8rem,12vw,4.5rem)}
-  .philosophy{padding:80px 24px}
-  .menu-section{padding:80px 20px 100px}
-  .menu-card{padding:48px 28px}
-  .menu-item-row{flex-wrap:nowrap}
-  .chef-section{padding:80px 24px}
-  .gallery-section{padding:80px 20px}
-  .gallery-grid{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:200px 200px 200px;
-    gap:3px;
+.testimonial-item {
+  text-align: center;
+}
+.testimonial-quote-mark {
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.85;
+  margin-bottom: 28px;
+  letter-spacing: 0.2px;
+}
+.testimonial-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 20px;
+}
+.testimonial-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.testimonial-source {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- 8. RESERVATION CTA --- */
+.reservation-cta {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 48px;
+  overflow: hidden;
+}
+.reservation-cta-bg {
+  position: absolute;
+  inset: 0;
+  background: url('img/restaurant1.jpg') center center / cover no-repeat;
+  z-index: 0;
+}
+.reservation-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26,26,26,0.65) 0%,
+    rgba(90,33,41,0.55) 100%
+  );
+  z-index: 1;
+}
+.reservation-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.reservation-cta-ornament {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 40px;
+  opacity: 0.6;
+}
+.reservation-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.reservation-cta-sub {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+.reservation-cta-phone {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cream);
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+.btn-reserve-large {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 56px;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: var(--charcoal);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.btn-reserve-large:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+/* --- 9. HOURS & CONTACT --- */
+.hours-section {
+  padding: 120px 48px;
+  background: var(--warm-white);
+  position: relative;
+}
+.hours-inner {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 56px;
+  align-items: start;
+}
+.hours-divider-v {
+  width: 1px;
+  background: rgba(197,164,126,0.25);
+  align-self: stretch;
+}
+
+.hours-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.hours-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hours-header-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto 0;
+}
+
+.hours-col {
+  text-align: center;
+}
+.hours-col-title {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 24px;
+}
+.hours-col-line {
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 24px;
+  opacity: 0.4;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.hours-table tr {
+  border-bottom: 1px solid rgba(197,164,126,0.15);
+}
+.hours-table tr:last-child { border-bottom: none; }
+.hours-table td {
+  padding: 14px 0;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.hours-table td:first-child {
+  font-weight: 500;
+  color: var(--text-dark);
+  text-align: start;
+}
+.hours-table td:last-child {
+  text-align: end;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--burgundy);
+  font-weight: 500;
+}
+
+.contact-address {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.contact-phone {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--burgundy);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.contact-email {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 200px;
+  background: var(--cream-dark);
+  border: 1px solid rgba(197,164,126,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* --- 10. FOOTER --- */
+.footer {
+  background: var(--charcoal);
+  padding: 64px 48px 48px;
+  border-top: 1px solid rgba(197,164,126,0.1);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {}
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.footer-name em {
+  color: var(--gold);
+  font-style: italic;
+}
+.footer-address-line {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: rgba(255,248,240,0.35);
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+.footer-center {
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  gap: 32px;
+}
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: rgba(255,248,240,0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.footer-right {
+  text-align: end;
+}
+.footer-phone-line {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(197,164,126,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-credit {
+  font-size: 0.72rem;
+  color: rgba(255,248,240,0.2);
+  letter-spacing: 0.3px;
+}
+.footer-credit a {
+  color: var(--gold);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.footer-credit a:hover { color: var(--gold-light); }
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,248,240,0.15);
+  letter-spacing: 0.3px;
+}
+
+
+/* ===========================================
+   RESPONSIVE - TABLET (768px)
+   =========================================== */
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; height: 64px; }
+  .nav-center { display: none; }
+  .nav-right .btn-nav-reserve { display: none; }
+  .nav-right .lang-toggle { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+
+  .hero { min-height: 90vh; padding: 100px 24px 80px; }
+  .hero h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); letter-spacing: 1px; }
+
+  .about { padding: 80px 0; }
+  .about-inner {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
-  .gallery-item:nth-child(1){grid-column:1/2;grid-row:1/3}
-  .gallery-item:nth-child(2){grid-column:2/3;grid-row:1/2}
-  .gallery-item:nth-child(3){grid-column:2/3;grid-row:2/3;transform:none}
-  .gallery-item:nth-child(3):hover{transform:scale(1.02)}
-  .gallery-item:nth-child(4){grid-column:1/2;grid-row:3/4}
-  .gallery-item:nth-child(5){grid-column:2/3;grid-row:3/4;transform:none}
-  .gallery-item:nth-child(5):hover{transform:scale(1.02)}
-  .hours-section{padding:80px 24px}
-  .footer{padding:48px 24px 32px}
-  .mizra-banner{font-size:.68rem;padding:8px 16px}
-  .btn-reserve{padding:8px 20px;font-size:.8rem}
+  .about-image-wrap { height: 400px; }
+  .about-text { padding: 56px 32px; }
+
+  .menu-section { padding: 80px 24px; }
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .menu-image-break {
+    margin: 64px -24px 0;
+    height: 280px;
+  }
+
+  .gallery-section { padding: 80px 24px; }
+  .gallery-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px 280px 220px;
+    gap: 12px;
+  }
+  .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .gallery-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .gallery-item:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .gallery-caption { opacity: 1; transform: translateY(0); }
+
+  .testimonials { padding: 80px 24px; }
+  .testimonials-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .reservation-cta { min-height: 420px; padding: 80px 24px; }
+  .reservation-cta h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+
+  .hours-section { padding: 80px 24px; }
+  .hours-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hours-divider-v {
+    width: 48px;
+    height: 1px;
+    margin: 0 auto;
+    align-self: auto;
+  }
+
+  .footer { padding: 48px 24px 36px; }
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  .footer-right { text-align: center; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+
+  .mizra-banner { font-size: 0.72rem; padding: 8px 16px; }
 }
 
-@media(max-width:480px){
-  .nav{padding:0 16px}
-  .nav-logo{font-size:1.2rem}
-  .hero{padding:60px 20px 50px}
-  .hero h1{letter-spacing:0}
-  .hero-tagline{font-size:.9rem}
-  .philosophy p{font-size:1.05rem}
-  .menu-card{padding:40px 20px}
-  .menu-item-name{font-size:1rem}
-  .menu-item-price{font-size:.92rem}
-  .menu-item-dots{display:none}
-  .menu-item-row{
-    flex-direction:column;
-    align-items:center;
-    gap:2px;
+/* ===========================================
+   RESPONSIVE - MOBILE (480px)
+   =========================================== */
+@media (max-width: 480px) {
+  .nav { padding: 0 16px; }
+  .nav-logo { font-size: 1.2rem; }
+
+  .hero { padding: 80px 20px 60px; }
+  .hero h1 { letter-spacing: 0; }
+  .hero-tagline { font-size: 0.9rem; letter-spacing: 1px; }
+  .btn-hero { padding: 14px 36px; font-size: 0.9rem; }
+
+  .about-image-wrap { height: 300px; }
+  .about-text { padding: 40px 20px; }
+  .about-text h2 { font-size: 1.8rem; }
+
+  .menu-section { padding: 64px 16px; }
+  .menu-card { padding: 36px 20px; }
+  .menu-item-dots { display: none; }
+  .menu-item-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
-  .chef-quote{font-size:1.1rem}
-  .gallery-grid{
-    grid-template-columns:1fr;
-    grid-template-rows:repeat(5,180px);
+  .menu-image-break { margin: 48px -16px 0; height: 200px; }
+
+  .gallery-section { padding: 64px 16px; }
+  .gallery-mosaic {
+    grid-template-rows: 220px 220px 180px;
+    gap: 8px;
   }
-  .gallery-item:nth-child(1){grid-column:1;grid-row:1}
-  .gallery-item:nth-child(2){grid-column:1;grid-row:2}
-  .gallery-item:nth-child(3){grid-column:1;grid-row:3}
-  .gallery-item:nth-child(4){grid-column:1;grid-row:4}
-  .gallery-item:nth-child(5){grid-column:1;grid-row:5}
-  .gallery-caption{opacity:1;transform:translateY(0)}
-  .hours-table td{padding:12px 0;font-size:.85rem}
-  .footer-name{font-size:1.3rem}
+
+  .testimonials { padding: 64px 20px; }
+  .testimonial-text { font-size: 1rem; }
+
+  .reservation-cta { min-height: 380px; padding: 64px 20px; }
+  .reservation-cta-phone { font-size: 1.2rem; }
+  .btn-reserve-large { padding: 14px 40px; font-size: 0.88rem; }
+
+  .hours-section { padding: 64px 20px; }
+  .hours-table td { padding: 10px 0; font-size: 0.82rem; }
+
+  .footer { padding: 40px 20px 28px; }
+  .footer-name { font-size: 1.3rem; }
+  .footer-links { gap: 16px; }
+  .footer-links a { font-size: 0.72rem; }
+
+  .mizra-banner { font-size: 0.68rem; padding: 7px 12px; }
 }
 </style>
 </head>
 <body class="lh">
 
-<!-- MIZRA DEMO BANNER -->
+<!-- ==========================================
+     1. MIZRA DEMO BANNER
+     ========================================== -->
 <div class="mizra-banner">
   <div class="en">This is a demo site built by <a href="/free-audit/">Mizra</a>. Want one like this? <a href="/free-audit/">Get a free audit</a></div>
   <div class="he">זהו אתר לדוגמה שנבנה על ידי <a href="/free-audit/">Mizra</a>. רוצים אתר כזה? <a href="/free-audit/">לבדיקה חינמית</a></div>
 </div>
 
-<!-- NAVIGATION -->
-<nav class="nav">
-  <div class="en"><a href="#" class="nav-logo">The Golden <em>Table</em></a></div>
-  <div class="he"><a href="#" class="nav-logo">שולחן <em>הזהב</em></a></div>
+<!-- ==========================================
+     2. NAVIGATION
+     ========================================== -->
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="en">The Golden <em>Table</em></span>
+    <span class="he">שולחן <em>הזהב</em></span>
+  </a>
+
+  <div class="nav-center">
+    <a href="#menu" class="nav-link"><span class="en">Menu</span><span class="he">תפריט</span></a>
+    <a href="#about" class="nav-link"><span class="en">About</span><span class="he">אודות</span></a>
+    <a href="#gallery" class="nav-link"><span class="en">Gallery</span><span class="he">גלריה</span></a>
+    <a href="#reserve" class="nav-link"><span class="en">Reserve</span><span class="he">הזמנה</span></a>
+  </div>
+
   <div class="nav-right">
     <div class="lang-toggle">
       <button onclick="setL('en')">EN</button>
       <button class="on" onclick="setL('he')">HE</button>
     </div>
-    <div class="en"><a href="#reserve" class="btn-reserve">Reserve</a></div>
-    <div class="he"><a href="#reserve" class="btn-reserve">הזמנה</a></div>
+    <a href="#reserve" class="btn-nav-reserve">
+      <span class="en">Reserve</span>
+      <span class="he">הזמנה</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-ornament"></div>
-  <div class="en">
-    <h1>The Golden<em>Table</em></h1>
-    <p class="hero-tagline">Mediterranean Fine Dining -- Rothschild Blvd, Tel Aviv</p>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" class="mobile-menu-link"><span class="en">Menu</span><span class="he">תפריט</span></a>
+  <a href="#about" class="mobile-menu-link"><span class="en">About</span><span class="he">אודות</span></a>
+  <a href="#gallery" class="mobile-menu-link"><span class="en">Gallery</span><span class="he">גלריה</span></a>
+  <a href="#reserve" class="mobile-menu-link"><span class="en">Reserve a Table</span><span class="he">הזמנת שולחן</span></a>
+  <div class="mobile-lang">
+    <button onclick="setL('en')">EN</button>
+    <button class="on" onclick="setL('he')">HE</button>
   </div>
-  <div class="he">
-    <h1>שולחן<em>הזהב</em></h1>
-    <p class="hero-tagline">מסעדת שף ים-תיכונית -- שדרות רוטשילד, תל אביב</p>
+</div>
+
+<!-- ==========================================
+     3. HERO
+     ========================================== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-ornament"></div>
+    <div class="en">
+      <h1>The Golden<em>Table</em></h1>
+      <p class="hero-tagline">Mediterranean Fine Dining &middot; Tel Aviv</p>
+    </div>
+    <div class="he">
+      <h1>שולחן<em>הזהב</em></h1>
+      <p class="hero-tagline">מסעדת שף ים-תיכונית &middot; תל אביב</p>
+    </div>
+    <a href="#reserve" class="btn-hero">
+      <span class="en">Reserve a Table</span>
+      <span class="he">הזמנת שולחן</span>
+    </a>
   </div>
-  <div class="hero-line"></div>
+  <div class="hero-scroll-line"></div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-  <div class="philosophy-divider"></div>
-  <div class="en">
-    <p>We believe that a meal is not simply nourishment but a conversation between land and sea, tradition and the present moment. Every dish at The Golden Table is shaped by the seasons, drawn from the markets of Jaffa and the fishing boats of the Mediterranean, and served with the quiet reverence that good food deserves.</p>
+<!-- ==========================================
+     4. ABOUT / CONCEPT
+     ========================================== -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image-wrap reveal-left">
+      <img src="img/restaurant4.jpg" alt="Blue table setting with Mediterranean dishes and wine glasses" loading="lazy">
+      <div class="about-image-accent"></div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="en">
+        <p class="about-label">Our Story</p>
+        <h2>Where the Sea Meets <em>the Table</em></h2>
+        <div class="about-divider"></div>
+        <p>Nestled on a quiet corner of Rothschild Boulevard, The Golden Table is a celebration of Mediterranean heritage reimagined through modern craft. Our kitchen draws from the ancient traditions of the Levant, North Africa, and Southern Europe -- guided always by what is freshest at the Jaffa port and local farms.</p>
+        <p>Chef Yonatan Levi leads a team devoted to seasonality, simplicity, and the belief that the finest ingredients need only a gentle hand. Every plate tells a story of land and sea, memory and discovery.</p>
+      </div>
+      <div class="he">
+        <p class="about-label">הסיפור שלנו</p>
+        <h2>כשהים פוגש <em>את השולחן</em></h2>
+        <div class="about-divider"></div>
+        <p>בפינה שקטה בשדרות רוטשילד, שולחן הזהב הוא חגיגה של מורשת ים-תיכונית שנולדה מחדש דרך אומנות מודרנית. המטבח שלנו שואב מהמסורות העתיקות של הלבנט, צפון אפריקה ודרום אירופה -- תמיד בהנחיית מה שטרי ביותר בנמל יפו ובחוות המקומיות.</p>
+        <p>השף יונתן לוי מוביל צוות המסור לעונתיות, לפשטות ולאמונה שהמרכיבים הטובים ביותר צריכים רק יד עדינה. כל צלחת מספרת סיפור של יבשה וים, זיכרון וגילוי.</p>
+      </div>
+    </div>
   </div>
-  <div class="he">
-    <p>אנחנו מאמינים שארוחה היא לא רק מזון אלא שיחה בין היבשה לים, בין המסורת לרגע הנוכחי. כל מנה בשולחן הזהב מעוצבת על פי העונות, שואבת מהשווקים של יפו ומסירות הדיג של הים התיכון, ומוגשת עם היראה השקטה שאוכל טוב ראוי לה.</p>
-  </div>
-  <div class="philosophy-divider-bottom"></div>
 </section>
 
-<!-- MENU CARD -->
+<!-- ==========================================
+     5. MENU HIGHLIGHTS
+     ========================================== -->
 <section class="menu-section" id="menu">
-  <div class="menu-card">
+  <div class="menu-header reveal">
+    <div class="en">
+      <h2>The Menu</h2>
+      <p class="menu-header-sub">A seasonal selection</p>
+    </div>
+    <div class="he">
+      <h2>התפריט</h2>
+      <p class="menu-header-sub">מבחר עונתי</p>
+    </div>
+    <div class="menu-header-line"></div>
+  </div>
 
-    <div class="en"><h2 class="menu-title">The Menu</h2></div>
-    <div class="he"><h2 class="menu-title">התפריט</h2></div>
-    <div class="en"><p class="menu-subtitle">A seasonal selection</p></div>
-    <div class="he"><p class="menu-subtitle">מבחר עונתי</p></div>
-
+  <div class="menu-grid">
     <!-- STARTERS -->
-    <div class="menu-category">
+    <div class="menu-card reveal" style="--i:0">
       <div class="en"><h3 class="menu-cat-name">Starters</h3></div>
       <div class="he"><h3 class="menu-cat-name">פתיחה</h3></div>
-      <div class="menu-gold-divider"></div>
+      <div class="menu-cat-line"></div>
 
       <div class="menu-item">
         <div class="menu-item-row">
@@ -857,13 +1414,11 @@ body.lh{direction:rtl}
       </div>
     </div>
 
-    <div class="menu-section-divider"></div>
-
     <!-- MAINS -->
-    <div class="menu-category">
+    <div class="menu-card reveal" style="--i:1">
       <div class="en"><h3 class="menu-cat-name">Mains</h3></div>
       <div class="he"><h3 class="menu-cat-name">עיקריות</h3></div>
-      <div class="menu-gold-divider"></div>
+      <div class="menu-cat-line"></div>
 
       <div class="menu-item">
         <div class="menu-item-row">
@@ -906,13 +1461,11 @@ body.lh{direction:rtl}
       </div>
     </div>
 
-    <div class="menu-section-divider"></div>
-
     <!-- DESSERTS -->
-    <div class="menu-category">
+    <div class="menu-card reveal" style="--i:2">
       <div class="en"><h3 class="menu-cat-name">Desserts</h3></div>
       <div class="he"><h3 class="menu-cat-name">קינוחים</h3></div>
-      <div class="menu-gold-divider"></div>
+      <div class="menu-cat-line"></div>
 
       <div class="menu-item">
         <div class="menu-item-row">
@@ -933,145 +1486,270 @@ body.lh{direction:rtl}
         <div class="en"><p class="menu-item-desc">Lavender shortbread, fresh berries</p></div>
         <div class="he"><p class="menu-item-desc">שורטברד לבנדר, פירות יער טריים</p></div>
       </div>
+
+      <div class="menu-item">
+        <div class="menu-item-row">
+          <span class="menu-item-name"><span class="en">Seasonal Sorbet Trio</span><span class="he">שלישיית סורבה עונתית</span></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">42 &#8362;</span>
+        </div>
+        <div class="en"><p class="menu-item-desc">Daily selection of house-made sorbets</p></div>
+        <div class="he"><p class="menu-item-desc">מבחר יומי של סורבה תוצרת הבית</p></div>
+      </div>
     </div>
+  </div>
 
+  <!-- Full-width image break -->
+  <div class="menu-image-break reveal-scale">
+    <img src="img/restaurant3.jpg" alt="Elegant fine dining plates with carpaccio and fish dishes" loading="lazy">
   </div>
 </section>
 
-<!-- CHEF QUOTE -->
-<section class="chef-section">
-  <div class="chef-quote-mark">"</div>
-  <div class="en">
-    <p class="chef-quote">Cooking is listening. To the sea, to the soil, to the seasons. My role is not to impose upon the ingredient but to reveal what it already carries within it.</p>
-  </div>
-  <div class="he">
-    <p class="chef-quote">בישול זה הקשבה. לים, לאדמה, לעונות. התפקיד שלי הוא לא לכפות על המרכיב אלא לחשוף את מה שהוא כבר נושא בתוכו.</p>
-  </div>
-  <div class="chef-attr-line"></div>
-  <div class="en">
-    <p class="chef-name">Yonatan Levi</p>
-    <p class="chef-role">Executive Chef</p>
-  </div>
-  <div class="he">
-    <p class="chef-name">יונתן לוי</p>
-    <p class="chef-role">שף ראשי</p>
-  </div>
-</section>
-
-<!-- GALLERY -->
+<!-- ==========================================
+     6. GALLERY
+     ========================================== -->
 <section class="gallery-section" id="gallery">
-  <div class="gallery-header">
-    <div class="en"><h2>The Space</h2></div>
-    <div class="he"><h2>המרחב</h2></div>
+  <div class="gallery-header reveal">
+    <div class="en">
+      <h2>The Experience</h2>
+      <p class="gallery-header-sub">A feast for all the senses</p>
+    </div>
+    <div class="he">
+      <h2>החוויה</h2>
+      <p class="gallery-header-sub">חגיגה לכל החושים</p>
+    </div>
     <div class="gallery-header-line"></div>
   </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <span class="gallery-caption">
-        <span class="en">Main Dining Hall</span>
-        <span class="he">אולם האוכל הראשי</span>
-      </span>
+
+  <div class="gallery-mosaic">
+    <div class="gallery-item reveal-left">
+      <img src="img/restaurant1.jpg" alt="Overhead view of a Mediterranean mezze spread with hummus, tabbouleh, kebabs, and wine" loading="lazy">
+      <div class="gallery-caption">
+        <span class="en">The Mezze Spread</span>
+        <span class="he">מגש המזה</span>
+      </div>
     </div>
-    <div class="gallery-item">
-      <span class="gallery-caption">
-        <span class="en">The Open Kitchen</span>
-        <span class="he">המטבח הפתוח</span>
-      </span>
+    <div class="gallery-item reveal-right">
+      <img src="img/restaurant2.jpg" alt="Colorful Mediterranean tapas on a vivid blue table with sardines, olives, and bread" loading="lazy">
+      <div class="gallery-caption">
+        <span class="en">Mediterranean Tapas</span>
+        <span class="he">טאפאס ים-תיכוניות</span>
+      </div>
     </div>
-    <div class="gallery-item">
-      <span class="gallery-caption">
-        <span class="en">Terrace Garden</span>
-        <span class="he">מרפסת הגן</span>
-      </span>
-    </div>
-    <div class="gallery-item">
-      <span class="gallery-caption">
-        <span class="en">Wine Cellar</span>
-        <span class="he">מרתף היין</span>
-      </span>
-    </div>
-    <div class="gallery-item">
-      <span class="gallery-caption">
-        <span class="en">Private Dining</span>
-        <span class="he">חדר אירוח פרטי</span>
-      </span>
+    <div class="gallery-item reveal-scale">
+      <img src="img/restaurant3.jpg" alt="Fine dining plating with carpaccio, caprese, and fish dish on elegant red table" loading="lazy">
+      <div class="gallery-caption">
+        <span class="en">Chef's Selection</span>
+        <span class="he">בחירת השף</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOURS & RESERVATION -->
-<section class="hours-section" id="reserve">
-  <div class="hours-header">
-    <div class="en"><h2>Hours &amp; Reservations</h2></div>
-    <div class="he"><h2>שעות ו הזמנות</h2></div>
+<!-- ==========================================
+     7. TESTIMONIALS
+     ========================================== -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal-left">
+      <div class="testimonial-quote-mark">"</div>
+      <div class="en">
+        <p class="testimonial-text">A dining experience unlike any other in Tel Aviv. Every dish arrived as a work of art, and the flavors transported us straight to the shores of the Mediterranean. We left feeling truly nourished in every sense.</p>
+      </div>
+      <div class="he">
+        <p class="testimonial-text">חוויית אוכל שאין כמותה בתל אביב. כל מנה הגיעה כיצירת אמנות, והטעמים העבירו אותנו ישירות לחופי הים התיכון. יצאנו מרגישים מוזנים באמת בכל מובן.</p>
+      </div>
+      <div class="testimonial-line"></div>
+      <div class="en">
+        <p class="testimonial-name">Noa Shavit</p>
+        <p class="testimonial-source">Haaretz Food Critic</p>
+      </div>
+      <div class="he">
+        <p class="testimonial-name">נעה שביט</p>
+        <p class="testimonial-source">מבקרת האוכל של הארץ</p>
+      </div>
+    </div>
+
+    <div class="testimonial-item reveal-right">
+      <div class="testimonial-quote-mark">"</div>
+      <div class="en">
+        <p class="testimonial-text">The Golden Table captures the soul of Mediterranean cooking with elegance and restraint. Chef Levi understands that great cuisine is not about complexity but about honoring what is already perfect.</p>
+      </div>
+      <div class="he">
+        <p class="testimonial-text">שולחן הזהב לוכד את הנשמה של הבישול הים-תיכוני באלגנטיות ואיפוק. השף לוי מבין שמטבח גדול הוא לא עניין של מורכבות אלא של כבוד למה שכבר מושלם.</p>
+      </div>
+      <div class="testimonial-line"></div>
+      <div class="en">
+        <p class="testimonial-name">Daniel Rosenberg</p>
+        <p class="testimonial-source">Time Out Tel Aviv</p>
+      </div>
+      <div class="he">
+        <p class="testimonial-name">דניאל רוזנברג</p>
+        <p class="testimonial-source">טיים אאוט תל אביב</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     8. RESERVATION CTA
+     ========================================== -->
+<section class="reservation-cta" id="reserve">
+  <div class="reservation-cta-bg"></div>
+  <div class="reservation-cta-overlay"></div>
+  <div class="reservation-cta-content reveal">
+    <div class="reservation-cta-ornament"></div>
+    <div class="en">
+      <h2>Reserve Your Table</h2>
+      <p class="reservation-cta-sub">An evening you will not forget</p>
+    </div>
+    <div class="he">
+      <h2>הזמינו שולחן</h2>
+      <p class="reservation-cta-sub">ערב שלא תשכחו</p>
+    </div>
+    <p class="reservation-cta-phone">03-555-1234</p>
+    <a href="tel:03-555-1234" class="btn-reserve-large">
+      <span class="en">Call to Reserve</span>
+      <span class="he">התקשרו להזמנה</span>
+    </a>
+  </div>
+</section>
+
+<!-- ==========================================
+     9. HOURS & CONTACT
+     ========================================== -->
+<section class="hours-section" id="contact">
+  <div class="hours-header reveal">
+    <div class="en"><h2>Visit Us</h2></div>
+    <div class="he"><h2>בואו לבקר</h2></div>
     <div class="hours-header-line"></div>
   </div>
-  <div class="hours-table-wrap">
-    <table class="hours-table">
-      <tbody>
-        <tr>
-          <td><span class="en">Sunday -- Thursday</span><span class="he">ראשון -- חמישי</span></td>
-          <td>12:00 -- 23:00</td>
-        </tr>
-        <tr>
-          <td><span class="en">Friday</span><span class="he">שישי</span></td>
-          <td>12:00 -- 15:00</td>
-        </tr>
-        <tr>
-          <td><span class="en">Saturday</span><span class="he">שבת</span></td>
-          <td>19:00 -- 23:30</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="hours-divider"></div>
-  <div class="en">
-    <p class="hours-contact">Reservations by phone or WhatsApp</p>
-    <p class="hours-phone">03-555-1234</p>
-    <a href="tel:03-555-1234" class="btn-reserve-dark">Reserve a Table</a>
-  </div>
-  <div class="he">
-    <p class="hours-contact">הזמנות בטלפון או בוואטסאפ</p>
-    <p class="hours-phone">03-555-1234</p>
-    <a href="tel:03-555-1234" class="btn-reserve-dark">הזמנת שולחן</a>
+
+  <div class="hours-inner">
+    <!-- HOURS -->
+    <div class="hours-col reveal" style="--i:0">
+      <div class="en"><p class="hours-col-title">Opening Hours</p></div>
+      <div class="he"><p class="hours-col-title">שעות פתיחה</p></div>
+      <div class="hours-col-line"></div>
+      <table class="hours-table">
+        <tbody>
+          <tr>
+            <td><span class="en">Sunday -- Thursday</span><span class="he">ראשון -- חמישי</span></td>
+            <td>12:00 -- 23:00</td>
+          </tr>
+          <tr>
+            <td><span class="en">Friday</span><span class="he">שישי</span></td>
+            <td>12:00 -- 15:00</td>
+          </tr>
+          <tr>
+            <td><span class="en">Saturday</span><span class="he">שבת</span></td>
+            <td>19:00 -- 23:30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hours-divider-v"></div>
+
+    <!-- ADDRESS -->
+    <div class="hours-col reveal" style="--i:1">
+      <div class="en"><p class="hours-col-title">Location</p></div>
+      <div class="he"><p class="hours-col-title">מיקום</p></div>
+      <div class="hours-col-line"></div>
+      <div class="en">
+        <p class="contact-address">82 Rothschild Boulevard<br>Tel Aviv-Yafo, Israel</p>
+      </div>
+      <div class="he">
+        <p class="contact-address">שדרות רוטשילד 82<br>תל אביב-יפו, ישראל</p>
+      </div>
+      <div class="map-placeholder">
+        <span class="en">Map</span>
+        <span class="he">מפה</span>
+      </div>
+    </div>
+
+    <div class="hours-divider-v"></div>
+
+    <!-- CONTACT -->
+    <div class="hours-col reveal" style="--i:2">
+      <div class="en"><p class="hours-col-title">Contact</p></div>
+      <div class="he"><p class="hours-col-title">יצירת קשר</p></div>
+      <div class="hours-col-line"></div>
+      <p class="contact-phone">03-555-1234</p>
+      <p class="contact-email">info@thegoldentable.co.il</p>
+      <div style="margin-top:28px;">
+        <div class="en">
+          <p style="font-family:var(--sans);font-size:0.82rem;color:var(--text-muted);line-height:1.8;">
+            Reservations by phone<br>or WhatsApp
+          </p>
+        </div>
+        <div class="he">
+          <p style="font-family:var(--sans);font-size:0.82rem;color:var(--text-muted);line-height:1.8;">
+            הזמנות בטלפון<br>או בוואטסאפ
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ==========================================
+     10. FOOTER
+     ========================================== -->
 <footer class="footer">
-  <div class="en">
-    <p class="footer-name">The Golden <em>Table</em></p>
-    <p class="footer-address">82 Rothschild Blvd, Tel Aviv-Yafo</p>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="en"><p class="footer-name">The Golden <em>Table</em></p></div>
+      <div class="he"><p class="footer-name">שולחן <em>הזהב</em></p></div>
+      <div class="en"><p class="footer-address-line">82 Rothschild Blvd, Tel Aviv-Yafo</p></div>
+      <div class="he"><p class="footer-address-line">שדרות רוטשילד 82, תל אביב-יפו</p></div>
+    </div>
+    <div class="footer-center">
+      <div class="footer-links">
+        <a href="#menu"><span class="en">Menu</span><span class="he">תפריט</span></a>
+        <a href="#about"><span class="en">About</span><span class="he">אודות</span></a>
+        <a href="#gallery"><span class="en">Gallery</span><span class="he">גלריה</span></a>
+        <a href="#reserve"><span class="en">Reserve</span><span class="he">הזמנה</span></a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <p class="footer-phone-line">03-555-1234</p>
+      <p class="footer-address-line">info@thegoldentable.co.il</p>
+    </div>
   </div>
-  <div class="he">
-    <p class="footer-name">שולחן <em>הזהב</em></p>
-    <p class="footer-address">שדרות רוטשילד 82, תל אביב-יפו</p>
+  <div class="footer-bottom">
+    <p class="footer-credit">
+      <span class="en">Website by </span>
+      <span class="he">אתר על ידי </span>
+      <a href="https://getmizra.com" target="_blank">Mizra</a>
+    </p>
+    <p class="footer-copy">
+      <span class="en">The Golden Table. All rights reserved.</span>
+      <span class="he">שולחן הזהב. כל הזכויות שמורות.</span>
+    </p>
   </div>
-  <p class="footer-phone">03-555-1234</p>
-  <div class="footer-divider"></div>
-  <p class="footer-credit">
-    <span class="en">Website by </span>
-    <span class="he">אתר על ידי </span>
-    <a href="https://getmizra.com" target="_blank">Mizra</a>
-  </p>
 </footer>
 
+<!-- ==========================================
+     SCRIPTS
+     ========================================== -->
 <script>
 (function(){
+  /* ---- LANGUAGE TOGGLE ---- */
   function setL(l){
     var isHe = l === 'he';
     document.body.classList.toggle('lh', isHe);
     document.documentElement.dir = isHe ? 'rtl' : 'ltr';
     document.documentElement.lang = isHe ? 'he' : 'en';
-    document.querySelectorAll('.lang-toggle button').forEach(function(b){
+
+    // Update all language toggle buttons (nav + mobile)
+    document.querySelectorAll('.lang-toggle button, .mobile-lang button').forEach(function(b){
       b.classList.remove('on');
-    });
-    var buttons = document.querySelectorAll('.lang-toggle button');
-    buttons.forEach(function(b){
-      if((isHe && b.textContent === 'HE') || (!isHe && b.textContent === 'EN')){
+      if ((isHe && b.textContent === 'HE') || (!isHe && b.textContent === 'EN')) {
         b.classList.add('on');
       }
     });
+
     try { localStorage.setItem('golden_table_lang', l); } catch(e) {}
   }
   window.setL = setL;
@@ -1079,19 +1757,107 @@ body.lh{direction:rtl}
   // Restore saved language
   try {
     var saved = localStorage.getItem('golden_table_lang');
-    if(saved === 'en') setL('en');
+    if (saved === 'en') setL('en');
   } catch(e) {}
 
-  // Smooth scroll for anchor links
+  /* ---- NAVBAR SCROLL BEHAVIOR ---- */
+  var nav = document.getElementById('navbar');
+  var banner = document.querySelector('.mizra-banner');
+  var bannerH = banner ? banner.offsetHeight : 0;
+
+  function handleScroll() {
+    if (window.scrollY > bannerH + 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  /* ---- MOBILE HAMBURGER ---- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-menu-link').forEach(function(link){
+    link.addEventListener('click', function(){
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---- SMOOTH SCROLL FOR ANCHOR LINKS ---- */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var target = document.querySelector(this.getAttribute('href'));
-      if(target){
+      if (target) {
         e.preventDefault();
-        target.scrollIntoView({behavior:'smooth', block:'start'});
+        var offset = nav ? nav.offsetHeight : 0;
+        var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     });
   });
+
+  /* ---- SCROLL REVEAL (IntersectionObserver) ---- */
+  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(function(el){
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show everything
+    revealEls.forEach(function(el){
+      el.classList.add('visible');
+    });
+  }
+
+  /* ---- PARALLAX HERO BACKGROUND ---- */
+  var heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', function(){
+      var scrolled = window.pageYOffset;
+      var heroH = document.querySelector('.hero').offsetHeight;
+      if (scrolled < heroH) {
+        heroBg.style.transform = 'translateY(' + (scrolled * 0.35) + 'px) scale(1.05)';
+      }
+    }, { passive: true });
+  }
+
+  /* ---- PARALLAX RESERVATION CTA BACKGROUND ---- */
+  var resBg = document.querySelector('.reservation-cta-bg');
+  if (resBg) {
+    window.addEventListener('scroll', function(){
+      var rect = resBg.parentElement.getBoundingClientRect();
+      var winH = window.innerHeight;
+      if (rect.top < winH && rect.bottom > 0) {
+        var progress = (winH - rect.top) / (winH + rect.height);
+        var offset = (progress - 0.5) * 80;
+        resBg.style.transform = 'translateY(' + offset + 'px) scale(1.05)';
+      }
+    }, { passive: true });
+  }
+
 })();
 </script>
 </body>

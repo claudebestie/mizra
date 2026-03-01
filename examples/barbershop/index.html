@@ -7,71 +7,89 @@
 <meta name="description" content="הספר של יוסי - ברברשופ בפלורנטין, תל אביב. תספורות קלאסיות ומודרניות, עיצוב זקן, גילוח חם. הזמינו תור עכשיו.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* --- VARIABLES --- */
+/* ============================================================
+   VARIABLES
+   ============================================================ */
 :root {
   --black: #0A0A0A;
   --concrete: #B5B0A8;
-  --raw-white: #F0EDE8;
   --amber: #D4943A;
-  --leather: #1A1410;
-  --dark-gray: #161616;
-  --mid-gray: #2A2A2A;
-  --line: rgba(181,176,168,.12);
-  --line-light: rgba(181,176,168,.25);
-  --text-dim: rgba(240,237,232,.4);
-  --text-mid: rgba(240,237,232,.6);
+  --off-white: #F5F2ED;
+  --dark-gray: #141414;
+  --mid-gray: #1E1E1E;
+  --line: rgba(181,176,168,.1);
+  --line-light: rgba(181,176,168,.2);
+  --text-dim: rgba(245,242,237,.35);
+  --text-mid: rgba(245,242,237,.6);
   --heading: 'Bebas Neue', Impact, sans-serif;
   --body: 'Barlow', system-ui, sans-serif;
 }
 
-/* --- RESET --- */
+/* ============================================================
+   RESET
+   ============================================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--body);
   background: var(--black);
-  color: var(--raw-white);
+  color: var(--off-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 ::selection { background: var(--amber); color: var(--black); }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
+button { font-family: var(--body); }
 
-/* --- LANGUAGE --- */
-.he { display: none; }
-body.lh .en { display: none; }
-body.lh .he { display: block; }
-body.lh { direction: rtl; }
+/* ============================================================
+   BILINGUAL: Hebrew default, English hidden
+   ============================================================ */
+.he { display: block; }
+.en { display: none; }
+span.he { display: inline; }
+span.en { display: none; }
 
-/* --- NOISE TEXTURE OVERLAY --- */
+body.lang-en .he { display: none !important; }
+body.lang-en .en { display: block; }
+body.lang-en span.en { display: inline; }
+body.lang-en { direction: ltr; }
+
+/* ============================================================
+   NOISE OVERLAY
+   ============================================================ */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: .035;
+  opacity: .03;
   background-image:
     repeating-conic-gradient(var(--concrete) 0% 25%, transparent 0% 50%) 0 0 / 2px 2px,
     repeating-conic-gradient(var(--concrete) 0% 25%, transparent 0% 50%) 1px 1px / 2px 2px;
 }
 
-/* --- MIZRA DEMO BANNER --- */
+/* ============================================================
+   1. MIZRA DEMO BANNER
+   ============================================================ */
 .demo-banner {
   background: var(--black);
+  border-bottom: 1px solid var(--line);
   padding: 10px 24px;
   text-align: center;
   font-size: .75rem;
   font-weight: 500;
   color: var(--text-dim);
-  border-bottom: 1px solid var(--line);
   letter-spacing: .5px;
+  position: relative;
+  z-index: 200;
 }
-.demo-banner strong { color: var(--amber); }
+.demo-banner strong { color: var(--amber); font-weight: 700; }
 .demo-banner a {
   color: var(--amber);
   font-weight: 700;
@@ -81,55 +99,73 @@ body::before {
 }
 .demo-banner a:hover { opacity: .7; }
 
-/* --- NAV --- */
+/* ============================================================
+   2. NAVIGATION
+   ============================================================ */
 .topnav {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(10,10,10,.95);
-  backdrop-filter: blur(12px);
-  padding: 0 48px;
-  height: 60px;
+  z-index: 150;
+  background: rgba(10,10,10,.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 48px;
   border-bottom: 1px solid var(--line);
 }
-.topnav-logo {
+.nav-logo {
   font-family: var(--heading);
-  font-size: 1.6rem;
-  color: var(--raw-white);
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+  color: var(--off-white);
+  letter-spacing: 3px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
-.topnav-right {
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-family: var(--body);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color .3s;
+}
+.nav-links a:hover { color: var(--off-white); }
+.nav-right {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-.ls {
+.lang-toggle {
   display: flex;
   gap: 2px;
   background: rgba(255,255,255,.04);
   padding: 2px;
 }
-.ls button {
-  padding: 4px 10px;
+.lang-toggle button {
+  padding: 5px 12px;
   border: none;
   background: none;
   color: var(--text-dim);
   font-size: .7rem;
   font-weight: 700;
   cursor: pointer;
-  font-family: var(--body);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   transition: .3s;
 }
-.ls button.on {
+.lang-toggle button.active {
   background: var(--amber);
   color: var(--black);
 }
-.btn-book {
+.btn-book-nav {
   display: inline-flex;
   align-items: center;
   padding: 10px 28px;
@@ -141,15 +177,60 @@ body::before {
   text-transform: uppercase;
   border: none;
   cursor: pointer;
+  transition: background .3s, color .3s;
+}
+.btn-book-nav:hover { background: var(--off-white); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--off-white);
   transition: .3s;
 }
-.btn-book:hover {
-  background: var(--raw-white);
-  color: var(--black);
-}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* --- HERO --- */
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,.98);
+  z-index: 140;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--heading);
+  font-size: 2.5rem;
+  color: var(--off-white);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color .3s;
+}
+.mobile-menu a:hover { color: var(--amber); }
+
+/* ============================================================
+   3. HERO
+   ============================================================ */
 .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -157,48 +238,54 @@ body::before {
   align-items: center;
   text-align: center;
   padding: 80px 48px;
-  position: relative;
-  background: var(--black);
   overflow: hidden;
 }
-.hero::before {
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(212,148,58,.04) 0%, transparent 60%);
-  pointer-events: none;
+  background: rgba(10,10,10,.65);
 }
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 900px;
+  z-index: 2;
+  max-width: 1000px;
 }
 .hero h1 {
   font-family: var(--heading);
-  font-size: clamp(5rem, 14vw, 11rem);
-  color: var(--raw-white);
+  font-size: clamp(4.5rem, 13vw, 12rem);
+  color: var(--off-white);
   line-height: .88;
-  letter-spacing: 6px;
+  letter-spacing: 8px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
-.hero h1 .amber-dot {
+.hero h1 .dot {
   color: var(--amber);
 }
-.hero-tagline {
+.hero-sub {
   font-family: var(--body);
-  font-size: clamp(.85rem, 1.5vw, 1.05rem);
+  font-size: clamp(.8rem, 1.4vw, 1rem);
   color: var(--text-mid);
-  font-weight: 300;
-  letter-spacing: 3px;
+  font-weight: 400;
+  letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 48px;
 }
 .hero-cta {
   display: inline-flex;
   align-items: center;
-  padding: 16px 56px;
+  padding: 18px 64px;
   background: var(--amber);
   color: var(--black);
   font-family: var(--heading);
@@ -207,200 +294,477 @@ body::before {
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: .3s;
+  transition: background .3s;
 }
-.hero-cta:hover {
-  background: var(--raw-white);
+.hero-cta:hover { background: var(--off-white); }
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-scroll span {
+  font-size: .65rem;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--amber);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: .3; transform: scaleY(.5); }
+  50% { opacity: 1; transform: scaleY(1); }
 }
 
-/* --- SECTIONS COMMON --- */
-.sec {
+/* ============================================================
+   4. SERVICES (Receipt Style)
+   ============================================================ */
+.services-section {
+  background: var(--black);
   padding: 100px 0;
-  position: relative;
+  border-top: 1px solid var(--line);
 }
-.cx {
-  max-width: 900px;
+.services-wrap {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 64px;
+  align-items: start;
 }
-.sec-label {
+.services-content { min-width: 0; }
+.sec-title {
   font-family: var(--heading);
-  font-size: 3rem;
-  color: var(--raw-white);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--off-white);
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 48px;
   line-height: 1;
+  margin-bottom: 48px;
 }
-.sec-label .amber-dot {
-  color: var(--amber);
+.sec-title .dot { color: var(--amber); }
+.receipt {
+  border-top: 2px dashed var(--line-light);
+  padding-top: 16px;
 }
-
-/* --- SERVICES (RECEIPT STYLE) --- */
-.services-list {
-  border-top: 1px solid var(--line-light);
-}
-.service-row {
+.receipt-row {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
   transition: .3s;
   cursor: default;
-  gap: 16px;
+  gap: 8px;
 }
-.service-row:hover {
-  padding-right: 8px;
-  padding-left: 8px;
-}
-body.lh .service-row:hover {
-  padding-right: 8px;
-  padding-left: 8px;
-}
-.service-row:hover .service-name {
-  color: var(--amber);
-}
-.service-row:hover .service-price {
-  color: var(--amber);
-}
-.service-name {
+.receipt-row:hover { padding-left: 12px; padding-right: 12px; }
+body.lang-en .receipt-row:hover { padding-left: 12px; padding-right: 12px; }
+.receipt-row:hover .receipt-name { color: var(--amber); }
+.receipt-row:hover .receipt-price { color: var(--amber); }
+.receipt-name {
   font-family: var(--body);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--raw-white);
-  letter-spacing: .5px;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--off-white);
   text-transform: uppercase;
+  letter-spacing: 1px;
   transition: color .3s;
+  white-space: nowrap;
 }
-.service-duration {
-  font-size: .75rem;
-  color: var(--text-dim);
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-  margin-top: 2px;
+.receipt-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--line-light);
+  margin: 0 12px;
+  min-width: 20px;
+  align-self: center;
+  position: relative;
+  top: -4px;
 }
-.service-price {
+.receipt-price {
   font-family: var(--heading);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--concrete);
   letter-spacing: 1px;
   white-space: nowrap;
   transition: color .3s;
   flex-shrink: 0;
 }
-
-/* --- BARBERS --- */
-.barbers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-.barber-card {
-  background: var(--dark-gray);
-  padding: 40px 28px;
-  position: relative;
-  transition: .3s;
-}
-.barber-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 0;
-  background: var(--amber);
-  transition: height .4s;
-}
-body.lh .barber-card::before {
-  left: auto;
-  right: 0;
-}
-.barber-card:hover::before {
-  height: 100%;
-}
-.barber-card:hover {
-  background: var(--mid-gray);
-}
-.barber-years {
-  font-family: var(--heading);
-  font-size: 4.5rem;
-  color: rgba(240,237,232,.06);
-  line-height: 1;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-.barber-card:hover .barber-years {
-  color: rgba(212,148,58,.15);
-}
-.barber-name {
-  font-family: var(--heading);
-  font-size: 1.5rem;
-  color: var(--raw-white);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.barber-role {
+.receipt-footer {
+  border-top: 2px dashed var(--line-light);
+  margin-top: 16px;
+  padding-top: 20px;
   font-size: .75rem;
-  color: var(--amber);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 16px;
-}
-.barber-desc {
-  font-size: .85rem;
-  color: var(--text-mid);
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-/* --- THE SPACE --- */
-.space-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.space-item {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-.space-photo {
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 4/3;
-  background: var(--dark-gray);
-  flex-shrink: 0;
-  position: relative;
-  border-left: 3px solid var(--amber);
-}
-body.lh .space-photo {
-  border-left: none;
-  border-right: 3px solid var(--amber);
-}
-.space-caption {
-  font-family: var(--body);
-  font-size: .8rem;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 500;
-  padding-top: 12px;
+  text-align: center;
+}
+.services-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.services-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.85) contrast(1.05);
+}
+.services-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,10,10,.6) 100%);
 }
 
-/* --- HOURS --- */
-.hours-section {
-  background: var(--black);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+/* ============================================================
+   5. ABOUT
+   ============================================================ */
+.about-section {
+  background: var(--dark-gray);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
-.hours-grid {
+.about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  min-height: 600px;
+}
+.about-image {
+  position: relative;
+  overflow: hidden;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.8) contrast(1.1);
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+}
+.about-label {
+  font-family: var(--body);
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+.about-heading {
+  font-family: var(--heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--off-white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+.about-heading .dot { color: var(--amber); }
+.about-body {
+  font-size: .95rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+  font-weight: 400;
+  max-width: 480px;
+}
+.about-body p + p { margin-top: 20px; }
+.about-stat-row {
+  display: flex;
+  gap: 48px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.about-stat-num {
+  font-family: var(--heading);
+  font-size: 2.5rem;
+  color: var(--amber);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.about-stat-label {
+  font-size: .7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   6. GALLERY
+   ============================================================ */
+.gallery-section {
+  background: var(--black);
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+}
+.gallery-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 4px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.25,.46,.45,.94), filter .6s;
+  filter: brightness(.75) contrast(1.05);
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(.9) contrast(1.1);
+}
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,.3);
+  transition: opacity .4s;
+}
+.gallery-item:hover::after { opacity: 0; }
+.gallery-item:first-child {
+  grid-row: 1 / 3;
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  color: var(--off-white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: .4s;
+}
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gallery-caption::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--amber);
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   7. TESTIMONIALS
+   ============================================================ */
+.testimonials-section {
+  background: var(--dark-gray);
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+}
+.testimonials-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.testimonial-card {
+  background: var(--mid-gray);
+  padding: 40px 32px;
+  position: relative;
+  border-left: 3px solid var(--amber);
+  transition: .3s;
+}
+body:not(.lang-en) .testimonial-card {
+  border-left: none;
+  border-right: 3px solid var(--amber);
+}
+body.lang-en .testimonial-card {
+  border-right: none;
+  border-left: 3px solid var(--amber);
+}
+.testimonial-card:hover { background: #232323; }
+.testimonial-quote-mark {
+  font-family: var(--heading);
+  font-size: 5rem;
+  color: var(--amber);
+  line-height: .7;
+  opacity: .3;
+  margin-bottom: 8px;
+}
+.testimonial-text {
+  font-size: .9rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+.testimonial-author {
+  font-family: var(--heading);
+  font-size: 1rem;
+  color: var(--off-white);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.testimonial-stars {
+  color: var(--amber);
+  font-size: .75rem;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   8. BOOK CTA
+   ============================================================ */
+.book-cta-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.book-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.book-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-cta-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,.7);
+}
+.book-cta-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 48px;
+}
+.book-cta-heading {
+  font-family: var(--heading);
+  font-size: clamp(4rem, 10vw, 9rem);
+  color: var(--off-white);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  line-height: .9;
+  margin-bottom: 32px;
+}
+.book-cta-heading .dot { color: var(--amber); }
+.book-cta-sub {
+  font-size: .85rem;
+  color: var(--text-mid);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.book-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 56px;
+  background: var(--amber);
+  color: var(--black);
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background .3s;
+}
+.btn-primary:hover { background: var(--off-white); }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 56px;
+  background: transparent;
+  color: var(--off-white);
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 2px solid var(--line-light);
+  cursor: pointer;
+  transition: .3s;
+}
+.btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+/* ============================================================
+   9. HOURS & LOCATION
+   ============================================================ */
+.info-section {
+  background: var(--black);
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+}
+.info-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.info-col-title {
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  color: var(--off-white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--amber);
+  display: inline-block;
 }
 .hours-row {
   display: flex;
@@ -410,13 +774,10 @@ body.lh .space-photo {
   border-bottom: 1px solid var(--line);
   font-size: .9rem;
 }
-.hours-row:last-child {
-  border-bottom: none;
-}
+.hours-row:last-child { border-bottom: none; }
 .hours-day {
-  font-family: var(--body);
   font-weight: 500;
-  color: var(--raw-white);
+  color: var(--off-white);
   font-size: .85rem;
   letter-spacing: .5px;
 }
@@ -432,31 +793,36 @@ body.lh .space-photo {
   font-weight: 700;
   font-size: .85rem;
 }
-
-/* --- LOCATION --- */
-.location-section {
-  background: var(--black);
-}
 .location-address {
   font-family: var(--heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--raw-white);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--off-white);
   letter-spacing: 3px;
   text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  line-height: 1.2;
+  margin-bottom: 24px;
 }
 .location-phone {
   font-family: var(--heading);
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: 1.8rem;
   color: var(--amber);
   letter-spacing: 4px;
-  margin-bottom: 0;
   direction: ltr;
   display: inline-block;
+  transition: opacity .3s;
+}
+.location-phone:hover { opacity: .7; }
+.location-detail {
+  font-size: .85rem;
+  color: var(--text-dim);
+  margin-top: 20px;
+  letter-spacing: .5px;
+  line-height: 1.7;
 }
 
-/* --- FOOTER --- */
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
 .site-footer {
   background: var(--black);
   padding: 32px 48px;
@@ -477,7 +843,7 @@ body.lh .space-photo {
   transition: opacity .3s;
 }
 .footer-copy a:hover { opacity: .7; }
-.footer-walkin {
+.footer-tagline {
   font-family: var(--heading);
   font-size: 1rem;
   color: var(--amber);
@@ -485,219 +851,425 @@ body.lh .space-photo {
   text-transform: uppercase;
 }
 
-/* --- SCROLL REVEAL --- */
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
 .rv {
   opacity: 0;
-  transform: translateY(14px);
-  transition: .6s cubic-bezier(.25,.46,.45,.94);
+  transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);
 }
 .rv.vis {
   opacity: 1;
   transform: translateY(0);
 }
+.rv-delay-1 { transition-delay: .1s; }
+.rv-delay-2 { transition-delay: .2s; }
+.rv-delay-3 { transition-delay: .3s; }
+.rv-delay-4 { transition-delay: .4s; }
+.rv-delay-5 { transition-delay: .5s; }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE - TABLET
    ============================================================ */
 @media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
   .topnav { padding: 0 24px; }
-  .cx { padding: 0 24px; }
-  .sec { padding: 64px 0; }
-  .hero { padding: 60px 24px; min-height: 80vh; }
-  .barbers-grid { grid-template-columns: 1fr; gap: 2px; }
-  .barber-card { padding: 32px 24px; }
-  .barber-years { font-size: 3.5rem; }
-  .space-item { flex-direction: column; }
-  .space-photo { max-width: 100%; }
-  .site-footer { flex-direction: column; text-align: center; padding: 24px; }
+  .hero { padding: 60px 24px; }
+  .services-wrap {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 24px;
+  }
+  .services-image { max-height: 400px; aspect-ratio: 16/9; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { min-height: 400px; }
+  .about-text { padding: 64px 32px; }
+  .gallery-wrap { padding: 0 24px; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px;
+  }
+  .gallery-item:first-child { grid-row: auto; }
+  .testimonials-wrap { padding: 0 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .info-wrap { padding: 0 24px; }
+  .info-grid { gap: 48px; }
+  .book-cta-content { padding: 60px 24px; }
+  .site-footer { padding: 24px; }
 }
+
+/* ============================================================
+   RESPONSIVE - MOBILE
+   ============================================================ */
 @media (max-width: 640px) {
-  .topnav { padding: 0 16px; height: 52px; }
-  .topnav-logo { font-size: 1.2rem; letter-spacing: 1px; }
-  .btn-book { padding: 8px 18px; font-size: .85rem; }
-  .hero { padding: 48px 20px; min-height: auto; padding-top: 80px; padding-bottom: 80px; }
-  .hero h1 { font-size: clamp(3.5rem, 16vw, 5rem); letter-spacing: 3px; }
-  .hero-tagline { font-size: .75rem; letter-spacing: 1.5px; }
-  .hero-cta { padding: 14px 36px; font-size: 1.1rem; width: 100%; justify-content: center; }
-  .sec { padding: 48px 0; }
-  .cx { padding: 0 16px; }
-  .sec-label { font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 32px; }
-  .service-name { font-size: .85rem; }
-  .service-price { font-size: 1.5rem; }
-  .service-row { padding: 16px 0; }
-  .barbers-grid { grid-template-columns: 1fr; }
-  .barber-card { padding: 28px 20px; }
-  .barber-years { font-size: 3rem; }
-  .barber-name { font-size: 1.2rem; }
-  .space-photo { aspect-ratio: 16/9; }
-  .location-address { font-size: 1.6rem; letter-spacing: 1px; }
-  .location-phone { font-size: 1.3rem; letter-spacing: 2px; }
-  .site-footer { padding: 20px 16px; }
+  .topnav { padding: 0 16px; height: 56px; }
+  .nav-logo { font-size: 1.2rem; letter-spacing: 1.5px; }
+  .btn-book-nav { padding: 8px 20px; font-size: .85rem; }
+  .lang-toggle button { font-size: .65rem; padding: 4px 8px; }
   .demo-banner { font-size: .68rem; padding: 8px 16px; }
-  .ls button { font-size: .65rem; padding: 3px 8px; }
+
+  .hero { min-height: auto; padding: 100px 20px; }
+  .hero h1 { font-size: clamp(3.2rem, 15vw, 5rem); letter-spacing: 3px; }
+  .hero-sub { font-size: .72rem; letter-spacing: 2px; }
+  .hero-cta { padding: 14px 36px; font-size: 1.1rem; width: 100%; justify-content: center; }
+  .hero-scroll { display: none; }
+
+  .services-section { padding: 64px 0; }
+  .services-wrap { padding: 0 16px; }
+  .sec-title { font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 32px; }
+  .receipt-name { font-size: .82rem; }
+  .receipt-price { font-size: 1.5rem; }
+  .receipt-row { padding: 14px 0; }
+
+  .about-text { padding: 48px 20px; }
+  .about-stat-row { gap: 32px; }
+
+  .gallery-section { padding: 64px 0; }
+  .gallery-wrap { padding: 0 16px; }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 200px 200px;
+  }
+
+  .testimonials-section { padding: 64px 0; }
+  .testimonials-wrap { padding: 0 16px; }
+  .testimonial-card { padding: 28px 20px; }
+
+  .book-cta-section { min-height: 400px; }
+  .book-cta-heading { font-size: clamp(3rem, 12vw, 5rem); letter-spacing: 3px; }
+  .btn-primary, .btn-outline { padding: 14px 36px; font-size: 1rem; width: 100%; justify-content: center; }
+
+  .info-section { padding: 64px 0; }
+  .info-wrap { padding: 0 16px; }
+  .info-grid { grid-template-columns: 1fr; gap: 56px; }
+  .location-address { font-size: 1.6rem; letter-spacing: 1.5px; }
+  .location-phone { font-size: 1.4rem; letter-spacing: 2px; }
+
+  .site-footer { flex-direction: column; text-align: center; padding: 20px 16px; }
+
+  .mobile-menu a { font-size: 2rem; }
 }
 </style>
 </head>
-<body class="lh">
+<body class="">
 
 <!-- ============================================================
-     MIZRA DEMO BANNER
+     1. MIZRA DEMO BANNER
      ============================================================ -->
 <div class="demo-banner">
-  <div class="en">This is an example site built by <strong>Mizra</strong>. Want one like this? <a href="/free-audit/">Get a free audit</a></div>
-  <div class="he">זו דוגמה לאתר שנבנה על ידי <strong>Mizra</strong>. רוצים אתר כזה? <a href="/free-audit/">לבדיקה חינמית</a></div>
+  <span class="en">This is an example site built with <strong>Mizra</strong>. Want one like this? <a href="/free-audit/">Get a free audit</a></span>
+  <span class="he">זו דוגמה לאתר שנבנה עם <strong>Mizra</strong>. רוצים אתר כזה? <a href="/free-audit/">לבדיקה חינמית</a></span>
 </div>
 
 <!-- ============================================================
-     NAVIGATION
+     2. NAVIGATION
      ============================================================ -->
 <nav class="topnav">
-  <div class="en topnav-logo">YOSSI'S BARBERSHOP</div>
-  <div class="he topnav-logo">הספר של יוסי</div>
-  <div class="topnav-right">
-    <div class="ls">
-      <button onclick="setL('en')">EN</button>
-      <button class="on" onclick="setL('he')">HE</button>
-    </div>
-    <a href="#book" class="btn-book">
-      <span class="en">BOOK</span>
+  <a href="#top" class="nav-logo">
+    <span class="en">YOSSI'S BARBERSHOP</span>
+    <span class="he">הספר של יוסי</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">
+      <span class="en">Services</span>
+      <span class="he">שירותים</span>
+    </a>
+    <a href="#gallery">
+      <span class="en">Gallery</span>
+      <span class="he">גלריה</span>
+    </a>
+    <a href="#book">
+      <span class="en">Book</span>
       <span class="he">הזמנה</span>
     </a>
   </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button onclick="setLang('en')">EN</button>
+      <button class="active" onclick="setLang('he')">HE</button>
+    </div>
+    <a href="#book" class="btn-book-nav">
+      <span class="en">BOOK</span>
+      <span class="he">הזמנה</span>
+    </a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
 
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">
+    <span class="en">Services</span>
+    <span class="he">שירותים</span>
+  </a>
+  <a href="#gallery" onclick="toggleMenu()">
+    <span class="en">Gallery</span>
+    <span class="he">גלריה</span>
+  </a>
+  <a href="#about" onclick="toggleMenu()">
+    <span class="en">About</span>
+    <span class="he">אודות</span>
+  </a>
+  <a href="#book" onclick="toggleMenu()">
+    <span class="en">Book Now</span>
+    <span class="he">הזמינו תור</span>
+  </a>
+</div>
+
 <!-- ============================================================
-     HERO
+     3. HERO
      ============================================================ -->
 <section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="img/barbershop3.jpg" alt="Barbershop storefront view through window with barber working on a client" loading="eager">
+  </div>
   <div class="hero-content">
     <div class="en">
-      <h1>YOSSI'S<br>BARBER<br>SHOP<span class="amber-dot">.</span></h1>
-      <p class="hero-tagline">Florentin, Tel Aviv &mdash; Since 2014</p>
+      <h1 class="rv">YOSSI'S<br>BARBER<br>SHOP<span class="dot">.</span></h1>
+      <p class="hero-sub rv rv-delay-1">Est. 2018 &middot; Florentin, Tel Aviv</p>
     </div>
     <div class="he">
-      <h1>הספר<br>של<br>יוסי<span class="amber-dot">.</span></h1>
-      <p class="hero-tagline">פלורנטין, תל אביב &mdash; מאז 2014</p>
+      <h1 class="rv">הספר<br>של<br>יוסי<span class="dot">.</span></h1>
+      <p class="hero-sub rv rv-delay-1">מאז 2018 &middot; פלורנטין, תל אביב</p>
     </div>
-    <a href="#book" class="hero-cta">
+    <a href="#book" class="hero-cta rv rv-delay-2">
       <span class="en">BOOK YOUR CHAIR</span>
       <span class="he">הזמינו תור</span>
     </a>
   </div>
+  <div class="hero-scroll">
+    <span class="en">Scroll</span>
+    <span class="he">גלול</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>
 
 <!-- ============================================================
-     SERVICES
+     4. SERVICES (Receipt Style)
      ============================================================ -->
-<section class="sec" id="services" style="border-top:1px solid var(--line)">
-  <div class="cx">
-    <div class="en"><h2 class="sec-label">SERVICES<span class="amber-dot">.</span></h2></div>
-    <div class="he"><h2 class="sec-label">שירותים<span class="amber-dot">.</span></h2></div>
-    <div class="services-list">
+<section class="services-section" id="services">
+  <div class="services-wrap">
+    <div class="services-content">
+      <div class="en"><h2 class="sec-title rv">SERVICES<span class="dot">.</span></h2></div>
+      <div class="he"><h2 class="sec-title rv">שירותים<span class="dot">.</span></h2></div>
+      <div class="receipt">
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">Classic Haircut</div><div class="service-duration">Consultation, wash, cut, style / 30 min</div></div>
-          <div class="he"><div class="service-name">תספורת קלאסית</div><div class="service-duration">ייעוץ, שמפו, תספורת, עיצוב / 30 דק'</div></div>
+        <div class="receipt-row rv">
+          <span class="receipt-name">
+            <span class="en">Haircut</span>
+            <span class="he">תספורת</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">80</span>
         </div>
-        <div class="service-price">80</div>
-      </div>
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">Beard Trim & Shape</div><div class="service-duration">Sculpt, razor lines, hot towel / 20 min</div></div>
-          <div class="he"><div class="service-name">עיצוב זקן</div><div class="service-duration">פיסול, קווי תער, מגבת חמה / 20 דק'</div></div>
+        <div class="receipt-row rv rv-delay-1">
+          <span class="receipt-name">
+            <span class="en">Beard Trim</span>
+            <span class="he">עיצוב זקן</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">60</span>
         </div>
-        <div class="service-price">60</div>
-      </div>
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">Hot Towel Shave</div><div class="service-duration">Straight razor, premium lather, finish / 35 min</div></div>
-          <div class="he"><div class="service-name">גילוח במגבת חמה</div><div class="service-duration">סכין ישר, קצף פרימיום, גימור / 35 דק'</div></div>
+        <div class="receipt-row rv rv-delay-2">
+          <span class="receipt-name">
+            <span class="en">Hot Towel Shave</span>
+            <span class="he">גילוח מגבת חמה</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">90</span>
         </div>
-        <div class="service-price">90</div>
-      </div>
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">Hair + Beard Combo</div><div class="service-duration">Full haircut plus beard treatment / 45 min</div></div>
-          <div class="he"><div class="service-name">תספורת + זקן</div><div class="service-duration">תספורת מלאה בתוספת טיפול זקן / 45 דק'</div></div>
+        <div class="receipt-row rv rv-delay-3">
+          <span class="receipt-name">
+            <span class="en">Buzz Cut</span>
+            <span class="he">מספר אפס</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">50</span>
         </div>
-        <div class="service-price">120</div>
-      </div>
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">Kids Cut</div><div class="service-duration">Ages 3-12, patient and fun / 20 min</div></div>
-          <div class="he"><div class="service-name">תספורת ילדים</div><div class="service-duration">גילאי 3-12, בסבלנות ובכיף / 20 דק'</div></div>
+        <div class="receipt-row rv rv-delay-4">
+          <span class="receipt-name">
+            <span class="en">Kids Cut</span>
+            <span class="he">תספורת ילדים</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">60</span>
         </div>
-        <div class="service-price">60</div>
-      </div>
 
-      <div class="service-row rv">
-        <div>
-          <div class="en"><div class="service-name">The Works</div><div class="service-duration">Haircut, beard, hot towel shave, styling / 60 min</div></div>
-          <div class="he"><div class="service-name">החבילה המלאה</div><div class="service-duration">תספורת, זקן, גילוח מגבת חמה, עיצוב / 60 דק'</div></div>
+        <div class="receipt-row rv rv-delay-5">
+          <span class="receipt-name">
+            <span class="en">The Full Treatment</span>
+            <span class="he">החבילה המלאה</span>
+          </span>
+          <span class="receipt-dots"></span>
+          <span class="receipt-price">180</span>
         </div>
-        <div class="service-price">180</div>
-      </div>
 
+      </div>
+      <div class="receipt-footer rv">
+        <span class="en">* All prices in ILS &middot; Walk-ins welcome</span>
+        <span class="he">* כל המחירים בשקלים &middot; כניסה חופשית</span>
+      </div>
+    </div>
+    <div class="services-image rv">
+      <img src="img/barbershop2.jpg" alt="Modern barbershop interior with dark shelves, amber product bottles, and black leather chairs" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     THE BARBERS
+     5. ABOUT
      ============================================================ -->
-<section class="sec" id="barbers" style="border-top:1px solid var(--line)">
-  <div class="cx">
-    <div class="en"><h2 class="sec-label">THE BARBERS<span class="amber-dot">.</span></h2></div>
-    <div class="he"><h2 class="sec-label">הספרים<span class="amber-dot">.</span></h2></div>
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="img/barbershop1.jpg" alt="Classic barbershop interior with vintage chairs, warm wood paneling, and framed pictures" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="en">
+        <div class="about-label rv">Est. 2018</div>
+        <h2 class="about-heading rv">NOT JUST A<br>HAIRCUT<span class="dot">.</span></h2>
+        <div class="about-body rv rv-delay-1">
+          <p>Yossi's opened its doors on a quiet corner in Florentin with one chair, a straight razor, and a promise: every man who sits down leaves looking and feeling sharper than when he walked in.</p>
+          <p>This is the neighborhood barbershop done right. No rush. No small talk unless you want it. Just honest craft, cold beer, and a cut that holds up weeks later.</p>
+        </div>
+      </div>
+      <div class="he">
+        <div class="about-label rv">מאז 2018</div>
+        <h2 class="about-heading rv">לא סתם<br>תספורת<span class="dot">.</span></h2>
+        <div class="about-body rv rv-delay-1">
+          <p>הספר של יוסי נפתח בפינה שקטה בפלורנטין עם כיסא אחד, סכין גילוח ישר, והבטחה: כל גבר שיושב יוצא חד יותר ממה שנכנס.</p>
+          <p>זה הברברשופ של השכונה, כמו שצריך. בלי לחץ. בלי שיחות חולין אלא אם בא לך. מלאכה כנה, בירה קרה, ותספורת שמחזיקה שבועות.</p>
+        </div>
+      </div>
+      <div class="about-stat-row rv rv-delay-2">
+        <div>
+          <div class="about-stat-num">8+</div>
+          <div class="about-stat-label">
+            <span class="en">Years</span>
+            <span class="he">שנים</span>
+          </div>
+        </div>
+        <div>
+          <div class="about-stat-num">3</div>
+          <div class="about-stat-label">
+            <span class="en">Barbers</span>
+            <span class="he">ספרים</span>
+          </div>
+        </div>
+        <div>
+          <div class="about-stat-num">15K+</div>
+          <div class="about-stat-label">
+            <span class="en">Cuts</span>
+            <span class="he">תספורות</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="max-width:900px;margin:0 auto;padding:0 48px">
-    <div class="barbers-grid">
+</section>
 
-      <div class="barber-card rv">
-        <div class="barber-years">12</div>
+<!-- ============================================================
+     6. GALLERY
+     ============================================================ -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-wrap">
+    <div class="en"><h2 class="sec-title rv">THE SPACE<span class="dot">.</span></h2></div>
+    <div class="he"><h2 class="sec-title rv">המקום<span class="dot">.</span></h2></div>
+    <div class="gallery-grid">
+      <div class="gallery-item rv">
+        <img src="img/barbershop3.jpg" alt="Street view of the barbershop through the window, barber at work in moody lighting" loading="lazy">
+        <div class="gallery-caption">
+          <span class="en">The Window</span>
+          <span class="he">החלון</span>
+        </div>
+      </div>
+      <div class="gallery-item rv rv-delay-1">
+        <img src="img/barbershop2.jpg" alt="Modern upscale barbershop interior with premium products and herringbone floor" loading="lazy">
+        <div class="gallery-caption">
+          <span class="en">The Products</span>
+          <span class="he">המוצרים</span>
+        </div>
+      </div>
+      <div class="gallery-item rv rv-delay-2">
+        <img src="img/barbershop1.jpg" alt="Vintage barbershop interior with classic chairs and warm wood paneling" loading="lazy">
+        <div class="gallery-caption">
+          <span class="en">The Chairs</span>
+          <span class="he">הכיסאות</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-wrap">
+    <div class="en"><h2 class="sec-title rv">WHAT THEY SAY<span class="dot">.</span></h2></div>
+    <div class="he"><h2 class="sec-title rv">מה אומרים<span class="dot">.</span></h2></div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card rv">
+        <div class="testimonial-quote-mark">"</div>
         <div class="en">
-          <div class="barber-name">YOSSI AZULAY</div>
-          <div class="barber-role">Owner / Master Barber</div>
-          <p class="barber-desc">Classic cuts and straight-razor shaves. The man behind the chair and the brand. Florentin born and raised.</p>
+          <p class="testimonial-text">Best barbershop in Tel Aviv. Period. Yossi knows exactly what works for your face before you even say a word. Been coming here for three years and never looked back.</p>
+          <div class="testimonial-author">DANIEL K.</div>
         </div>
         <div class="he">
-          <div class="barber-name">יוסי אזולאי</div>
-          <div class="barber-role">בעלים / ספר ראשי</div>
-          <p class="barber-desc">תספורות קלאסיות וגילוח בסכין ישר. האיש מאחורי הכיסא והמותג. ילד של פלורנטין.</p>
+          <p class="testimonial-text">הברברשופ הכי טוב בתל אביב. נקודה. יוסי יודע בדיוק מה מתאים לך לפני שאתה אומר מילה. שלוש שנים שאני מגיע ואף פעם לא הסתכלתי אחורה.</p>
+          <div class="testimonial-author">דניאל כ.</div>
         </div>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
       </div>
 
-      <div class="barber-card rv">
-        <div class="barber-years">08</div>
+      <div class="testimonial-card rv rv-delay-1">
+        <div class="testimonial-quote-mark">"</div>
         <div class="en">
-          <div class="barber-name">TAL BEN AMI</div>
-          <div class="barber-role">Senior Barber</div>
-          <p class="barber-desc">The fade king of Florentin. Sharp lines, clean blends. Eight years behind the chair and counting.</p>
+          <p class="testimonial-text">The hot towel shave here is an experience. You walk in stressed and walk out a different person. The vibe, the craft, the attention to detail. This is the real deal.</p>
+          <div class="testimonial-author">AMIT R.</div>
         </div>
         <div class="he">
-          <div class="barber-name">טל בן עמי</div>
-          <div class="barber-role">ספר בכיר</div>
-          <p class="barber-desc">מלך הפייד של פלורנטין. קווים חדים, מעברים נקיים. שמונה שנים מאחורי הכיסא.</p>
+          <p class="testimonial-text">הגילוח במגבת חמה פה זה חוויה. אתה נכנס לחוץ ויוצא בן אדם אחר. האווירה, המלאכה, תשומת הלב לפרטים. זה העסק האמיתי.</p>
+          <div class="testimonial-author">עמית ר.</div>
         </div>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
       </div>
 
-      <div class="barber-card rv">
-        <div class="barber-years">05</div>
+      <div class="testimonial-card rv rv-delay-2">
+        <div class="testimonial-quote-mark">"</div>
         <div class="en">
-          <div class="barber-name">OMER DAHAN</div>
-          <div class="barber-role">Barber / Beard Specialist</div>
-          <p class="barber-desc">Beard sculpting expert. Master of modern textured cuts. The new generation with old-school precision.</p>
+          <p class="testimonial-text">I bring my son here now too. Great with kids, patient, makes it fun. And my fade? Nobody does it like Tal. Sharpest lines in Florentin.</p>
+          <div class="testimonial-author">OREN M.</div>
         </div>
         <div class="he">
-          <div class="barber-name">עומר דהן</div>
-          <div class="barber-role">ספר / מומחה זקן</div>
-          <p class="barber-desc">מומחה בפיסול זקן. אמן בתספורות מודרניות עם טקסטורה. הדור החדש עם דיוק של בית ספר ישן.</p>
+          <p class="testimonial-text">אני מביא גם את הבן שלי עכשיו. מעולים עם ילדים, סבלניים, הופכים את זה לכיף. והפייד שלי? אף אחד לא עושה את זה כמו טל. הקווים הכי חדים בפלורנטין.</p>
+          <div class="testimonial-author">אורן מ.</div>
         </div>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      </div>
+
+      <div class="testimonial-card rv rv-delay-3">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="en">
+          <p class="testimonial-text">No nonsense. No pretention. Just a damn good haircut and cold beer on the house. This is how a barbershop should be. Florentin's best kept secret.</p>
+          <div class="testimonial-author">RON S.</div>
+        </div>
+        <div class="he">
+          <p class="testimonial-text">בלי שטויות. בלי פוזות. פשוט תספורת מטורפת ובירה קרה על חשבון הבית. ככה ברברשופ צריך להיות. הסוד הכי שמור של פלורנטין.</p>
+          <div class="testimonial-author">רון ש.</div>
+        </div>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
       </div>
 
     </div>
@@ -705,109 +1277,27 @@ body.lh .space-photo {
 </section>
 
 <!-- ============================================================
-     THE SPACE
+     8. BOOK CTA
      ============================================================ -->
-<section class="sec" id="space" style="border-top:1px solid var(--line)">
-  <div class="cx">
-    <div class="en"><h2 class="sec-label">THE SPACE<span class="amber-dot">.</span></h2></div>
-    <div class="he"><h2 class="sec-label">המקום<span class="amber-dot">.</span></h2></div>
-    <div class="space-grid">
-
-      <div class="space-item rv">
-        <div class="space-photo"></div>
-        <div>
-          <div class="en"><div class="space-caption">The Chairs</div></div>
-          <div class="he"><div class="space-caption">הכיסאות</div></div>
-        </div>
-      </div>
-
-      <div class="space-item rv">
-        <div class="space-photo"></div>
-        <div>
-          <div class="en"><div class="space-caption">The Interior</div></div>
-          <div class="he"><div class="space-caption">הפנים</div></div>
-        </div>
-      </div>
-
-      <div class="space-item rv">
-        <div class="space-photo"></div>
-        <div>
-          <div class="en"><div class="space-caption">At Work</div></div>
-          <div class="he"><div class="space-caption">בעבודה</div></div>
-        </div>
-      </div>
-
-    </div>
+<section class="book-cta-section" id="book">
+  <div class="book-cta-bg">
+    <img src="img/barbershop1.jpg" alt="Classic barbershop interior atmosphere" loading="lazy">
   </div>
-</section>
-
-<!-- ============================================================
-     HOURS
-     ============================================================ -->
-<section class="sec hours-section" id="hours">
-  <div class="cx">
-    <div class="en"><h2 class="sec-label">HOURS<span class="amber-dot">.</span></h2></div>
-    <div class="he"><h2 class="sec-label">שעות פעילות<span class="amber-dot">.</span></h2></div>
-
+  <div class="book-cta-content">
     <div class="en">
-      <div class="hours-row rv"><span class="hours-day">Sunday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Monday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Tuesday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Wednesday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Thursday</span><span class="hours-time">09:00 &mdash; 21:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Friday</span><span class="hours-time">08:00 &mdash; 14:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">Saturday</span><span class="hours-closed">CLOSED</span></div>
-    </div>
-
-    <div class="he">
-      <div class="hours-row rv"><span class="hours-day">ראשון</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">שני</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">שלישי</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">רביעי</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">חמישי</span><span class="hours-time">09:00 &mdash; 21:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">שישי</span><span class="hours-time">08:00 &mdash; 14:00</span></div>
-      <div class="hours-row rv"><span class="hours-day">שבת</span><span class="hours-closed">סגור</span></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     LOCATION
-     ============================================================ -->
-<section class="sec location-section" id="location" style="border-top:1px solid var(--line)">
-  <div class="cx">
-    <div class="en"><h2 class="sec-label">FIND US<span class="amber-dot">.</span></h2></div>
-    <div class="he"><h2 class="sec-label">איך מגיעים<span class="amber-dot">.</span></h2></div>
-
-    <div class="en">
-      <div class="location-address">42 FLORENTIN ST<br>TEL AVIV</div>
-      <a href="tel:+972521234567" class="location-phone">052-123-4567</a>
+      <h2 class="book-cta-heading rv">BOOK YOUR<br>CHAIR<span class="dot">.</span></h2>
+      <p class="book-cta-sub rv rv-delay-1">Walk-ins welcome &middot; Appointments recommended</p>
     </div>
     <div class="he">
-      <div class="location-address">פלורנטין 42<br>תל אביב</div>
-      <a href="tel:+972521234567" class="location-phone">052-123-4567</a>
+      <h2 class="book-cta-heading rv">הזמינו<br>כיסא<span class="dot">.</span></h2>
+      <p class="book-cta-sub rv rv-delay-1">כניסה חופשית &middot; מומלץ לתאם מראש</p>
     </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BOOK CTA
-     ============================================================ -->
-<section id="book" style="padding:80px 0;border-top:1px solid var(--line);text-align:center">
-  <div class="cx">
-    <div class="en">
-      <h2 style="font-family:var(--heading);font-size:clamp(2.5rem,6vw,4.5rem);color:var(--raw-white);text-transform:uppercase;letter-spacing:4px;line-height:.95;margin-bottom:24px">READY<span style="color:var(--amber)">?</span></h2>
-    </div>
-    <div class="he">
-      <h2 style="font-family:var(--heading);font-size:clamp(2.5rem,6vw,4.5rem);color:var(--raw-white);text-transform:uppercase;letter-spacing:4px;line-height:.95;margin-bottom:24px">מוכנים<span style="color:var(--amber)">?</span></h2>
-    </div>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-      <a href="tel:+972521234567" class="hero-cta" style="padding:14px 44px;font-size:1.1rem">
+    <div class="book-cta-buttons rv rv-delay-2">
+      <a href="tel:+972521234567" class="btn-primary">
         <span class="en">CALL NOW</span>
         <span class="he">התקשרו עכשיו</span>
       </a>
-      <a href="https://wa.me/972521234567" target="_blank" style="display:inline-flex;align-items:center;padding:14px 44px;border:2px solid var(--line-light);color:var(--raw-white);font-family:var(--heading);font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;transition:.3s">
+      <a href="https://wa.me/972521234567" target="_blank" rel="noopener" class="btn-outline">
         <span class="en">WHATSAPP</span>
         <span class="he">וואטסאפ</span>
       </a>
@@ -816,16 +1306,69 @@ body.lh .space-photo {
 </section>
 
 <!-- ============================================================
-     FOOTER
+     9. HOURS & LOCATION
+     ============================================================ -->
+<section class="info-section" id="hours">
+  <div class="info-wrap">
+    <div class="info-grid">
+
+      <div>
+        <div class="en"><h3 class="info-col-title rv">Hours</h3></div>
+        <div class="he"><h3 class="info-col-title rv">שעות פעילות</h3></div>
+        <div class="en">
+          <div class="hours-row rv"><span class="hours-day">Sunday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Monday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Tuesday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Wednesday</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Thursday</span><span class="hours-time">09:00 &mdash; 21:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Friday</span><span class="hours-time">08:00 &mdash; 14:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">Saturday</span><span class="hours-closed">CLOSED</span></div>
+        </div>
+        <div class="he">
+          <div class="hours-row rv"><span class="hours-day">ראשון</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">שני</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">שלישי</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">רביעי</span><span class="hours-time">09:00 &mdash; 20:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">חמישי</span><span class="hours-time">09:00 &mdash; 21:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">שישי</span><span class="hours-time">08:00 &mdash; 14:00</span></div>
+          <div class="hours-row rv"><span class="hours-day">שבת</span><span class="hours-closed">סגור</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="en"><h3 class="info-col-title rv">Location</h3></div>
+        <div class="he"><h3 class="info-col-title rv">מיקום</h3></div>
+        <div class="en">
+          <div class="location-address rv">42 Florentin St<br>Tel Aviv</div>
+          <a href="tel:+972521234567" class="location-phone rv rv-delay-1">052-123-4567</a>
+          <p class="location-detail rv rv-delay-2">Corner of Florentin and Vital. Look for the painted window. Street parking available. Bus lines 40, 41.</p>
+        </div>
+        <div class="he">
+          <div class="location-address rv">פלורנטין 42<br>תל אביב</div>
+          <a href="tel:+972521234567" class="location-phone rv rv-delay-1">052-123-4567</a>
+          <p class="location-detail rv rv-delay-2">פינת פלורנטין ויטל. חפשו את החלון המצויר. חניה ברחוב. קווי אוטובוס 40, 41.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. FOOTER
      ============================================================ -->
 <footer class="site-footer">
   <div>
-    <div class="en"><span class="footer-copy">&copy; 2026 Yossi's Barbershop. <span style="opacity:.5">Built by <a href="https://getmizra.com">Mizra</a></span></span></div>
-    <div class="he"><span class="footer-copy">&copy; 2026 הספר של יוסי. <span style="opacity:.5">נבנה על ידי <a href="https://getmizra.com">Mizra</a></span></span></div>
+    <span class="footer-copy">
+      <span class="en">&copy; 2026 Yossi's Barbershop. <span style="opacity:.5">Built by <a href="https://getmizra.com">Mizra</a></span></span>
+      <span class="he">&copy; 2026 הספר של יוסי. <span style="opacity:.5">נבנה על ידי <a href="https://getmizra.com">Mizra</a></span></span>
+    </span>
   </div>
   <div>
-    <div class="en"><span class="footer-walkin">WALK-INS WELCOME</span></div>
-    <div class="he"><span class="footer-walkin">כניסה חופשית בברכה</span></div>
+    <span class="footer-tagline">
+      <span class="en">WALK-INS WELCOME</span>
+      <span class="he">כניסה חופשית</span>
+    </span>
   </div>
 </footer>
 
@@ -833,48 +1376,79 @@ body.lh .space-photo {
      SCRIPTS
      ============================================================ -->
 <script>
-// Language toggle
-function setL(l) {
-  document.body.classList.toggle('lh', l === 'he');
-  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
-  document.documentElement.lang = l === 'he' ? 'he' : 'en';
-  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
-  if (event && event.target) event.target.classList.add('on');
-  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
-}
-
-// Restore saved language
-try {
-  var saved = localStorage.getItem('mizra_lang');
-  if (saved === 'en') {
-    document.body.classList.remove('lh');
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    setTimeout(function() {
-      document.querySelectorAll('.ls button').forEach(function(b) {
-        b.classList.toggle('on', b.textContent.trim() === 'EN');
-      });
-    }, 50);
+(function() {
+  // --- Language Toggle ---
+  function setLang(lang) {
+    var isHebrew = (lang === 'he');
+    document.body.classList.toggle('lang-en', !isHebrew);
+    document.documentElement.dir = isHebrew ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+    var buttons = document.querySelectorAll('.lang-toggle button');
+    buttons.forEach(function(btn) {
+      btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+    });
+    try { localStorage.setItem('mizra_lang', lang); } catch(e) {}
   }
-} catch(e) {}
+  window.setLang = setLang;
 
-// Scroll reveal
-document.addEventListener('DOMContentLoaded', function() {
-  var ob = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) entry.target.classList.add('vis');
-    });
-  }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv').forEach(function(el) { ob.observe(el); });
+  // Restore saved language
+  try {
+    var saved = localStorage.getItem('mizra_lang');
+    if (saved === 'en') {
+      setLang('en');
+    }
+  } catch(e) {}
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  // --- Mobile Menu ---
+  function toggleMenu() {
+    var menu = document.getElementById('mobileMenu');
+    var burger = document.querySelector('.hamburger');
+    var isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open');
+    burger.classList.toggle('open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+  window.toggleMenu = toggleMenu;
+
+  // --- Scroll Reveal ---
+  document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
     });
+
+    document.querySelectorAll('.rv').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Navbar shrink on scroll
+    var nav = document.querySelector('.topnav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        nav.style.height = '52px';
+      } else {
+        nav.style.height = '64px';
+      }
+    }, { passive: true });
   });
-});
+})();
 </script>
 </body>
 </html>

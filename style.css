@@ -30,9 +30,10 @@ body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65
 .nm a{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .3s}.nm a:hover{color:var(--navy)}
 /* Nav dropdown */
 .nd{position:relative}.nd-label{color:var(--tx);font-size:.82rem;font-weight:500;cursor:pointer;transition:color .3s}.nd-label:hover{color:var(--navy)}
-.nd-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s;background:var(--white);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.1);border:1px solid var(--bd);min-width:220px;overflow:hidden;margin-top:4px}
-body.lh .nd-drop{left:auto;right:50%;transform:translateX(50%)}
-.nd:hover .nd-drop{visibility:visible;opacity:1}
+.nd-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);padding-top:12px;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s,transform .25s;background:var(--white);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.1);border:1px solid var(--bd);min-width:220px;overflow:hidden;margin-top:4px}
+body.lh .nd-drop{left:auto;right:50%;transform:translateX(50%) translateY(8px)}
+.nd:hover .nd-drop{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0)}
+body.lh .nd:hover .nd-drop{transform:translateX(50%) translateY(0)}
 .nd-drop>a{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 20px;white-space:nowrap;border-bottom:1px solid var(--bd);font-size:.82rem}
 .nd-drop>a:last-child{border-bottom:0}
 .nd-drop>a strong{color:var(--navy);font-weight:600}.nd-drop>a small{color:var(--or);font-size:.7rem;font-weight:600}
@@ -122,19 +123,20 @@ body.lh .nd-drop{left:auto;right:50%;transform:translateX(50%)}
 .pfn{font-size:.72rem;color:var(--txd);font-weight:500}.pflk{font-size:.66rem;color:var(--or);font-weight:600}
 
 /* --- PRICING --- */
-.prg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
-.prc{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:32px 24px;position:relative;transition:.3s}
+.prg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start;justify-content:center;max-width:1080px;margin:0 auto}
+.prc{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:32px 24px;position:relative;transition:.3s;text-align:center}
 .prc:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.06)}
 .prc.pop{border-color:var(--or);box-shadow:0 4px 20px rgba(212,100,58,.1)}
 .prc.pop::before{content:'Most Popular';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--or);color:#fff;font-size:.66rem;font-weight:700;padding:4px 14px;border-radius:100px;text-transform:uppercase;white-space:nowrap}
 body.lh .prc.pop::before{content:'הכי פופולרי'}
 .ptr{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--or);margin-bottom:6px}
 .prc h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:16px}
-.pam{display:flex;align-items:baseline;gap:3px;margin-bottom:3px}.pcr{font-size:.95rem;font-weight:500;color:var(--txl)}
+.pam{display:flex;align-items:baseline;gap:3px;margin-bottom:3px;justify-content:center}.pcr{font-size:.95rem;font-weight:500;color:var(--txl)}
 .pnm{font-family:var(--sf);font-size:2.6rem;color:var(--navy);line-height:1;font-weight:600}
 .pnt{font-size:.73rem;color:var(--txl);margin-bottom:20px}
 .psp{height:1px;background:var(--bd);margin:16px 0}
-.pft{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.pft{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;text-align:left}
+body.lh .pft{text-align:right}
 .pft li{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;line-height:1.5}
 .fc{color:var(--grn);font-weight:800;font-size:.72rem;margin-top:3px;flex-shrink:0}
 .bp{display:block;width:100%;padding:12px;text-align:center;border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:.3s;font-family:var(--sn);border:none;cursor:pointer}
@@ -228,11 +230,11 @@ body.lh .wa{right:auto;left:24px}
    ============================================================ */
 
 /* --- VERTICALS GRID (homepage) --- */
-.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:48px}
+.vg{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:48px;max-width:900px;margin-left:auto;margin-right:auto}.vg>.vc{flex:0 1 calc(25% - 14px);min-width:140px}
 .vc{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:28px 18px;text-align:center;text-decoration:none;color:var(--tx);transition:.3s}
 .vc:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.06);border-color:var(--or)}
 /* --- EXAMPLES SHOWCASE --- */
-.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .ex-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;background:var(--navy2);border:1px solid var(--bdd);transition:transform .3s,box-shadow .3s}
 .ex-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
 .ex-preview{width:100%;height:220px;background-size:cover;background-position:center;transition:transform .5s}.ex-card:hover .ex-preview{transform:scale(1.05)}
@@ -349,13 +351,14 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .breadcrumbs{padding:80px 24px 0}
   .page-hero{padding:100px 24px 48px}
   .page-hero h1{font-size:2rem}
-  .vg{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+  .vg{gap:16px}
   .blog-grid{grid-template-columns:1fr 1fr}
   .cta{padding:80px 24px}
   .feat-grid{grid-template-columns:1fr 1fr}
   .test-grid{grid-template-columns:1fr 1fr}
   .faq-list,.faq{max-width:100%}
   .ex-grid{grid-template-columns:repeat(2,1fr)}
+  .vg>.vc{flex:0 1 calc(25% - 14px)}
 }
 @media(max-width:640px){
   .hero{padding:100px 20px 48px}
@@ -376,7 +379,7 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .cx{padding:0 16px}
   .feat-grid{grid-template-columns:1fr}
   .test-grid{grid-template-columns:1fr}
-  .vg{grid-template-columns:1fr 1fr;gap:10px}
+  .vg{gap:10px}.vg>.vc{flex:0 1 calc(50% - 10px)}
   .blog-grid{grid-template-columns:1fr}
   .page-hero{padding:90px 16px 36px}
   .page-hero h1{font-size:1.6rem}

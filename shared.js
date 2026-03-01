@@ -23,7 +23,7 @@ function renderNav() {
         <a href="/services/contractors/"><strong>Contractors</strong><small>See example</small></a>
       </div>
     </div>
-    <a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    <a href="/#examples">Examples</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
   </div>
   <div class="he">
     <div class="nd"><span class="nd-label">שירותים</span>
@@ -37,12 +37,12 @@ function renderNav() {
         <a href="/services/contractors/"><strong>קבלנים</strong><small>ראו דוגמה</small></a>
       </div>
     </div>
-    <a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a>
+    <a href="/#examples">דוגמאות</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a>
   </div>
 </div>
 <div class="nr">
   <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
-  <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Free Audit</span><span class="he">בדיקה חינמית</span></a>
+  <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></a>
 </div>`;
   document.body.prepend(nav);
   const toggle = nav.querySelector('.menu-toggle');

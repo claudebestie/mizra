@@ -19,9 +19,20 @@ function renderNav() {
   <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Free Audit</span><span class="he">בדיקה חינמית</span></a>
 </div>`;
   document.body.prepend(nav);
-  nav.querySelector('.menu-toggle').addEventListener('click', function() {
+  const toggle = nav.querySelector('.menu-toggle');
+  const nm = nav.querySelector('.nm');
+  toggle.addEventListener('click', function() {
     this.classList.toggle('open');
-    nav.querySelector('.nm').classList.toggle('open');
+    nm.classList.toggle('open');
+    document.body.style.overflow = nm.classList.contains('open') ? 'hidden' : '';
+  });
+  // Auto-close menu on link click
+  nm.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      nm.classList.remove('open');
+      document.body.style.overflow = '';
+    });
   });
 }
 

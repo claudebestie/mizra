@@ -112,13 +112,13 @@
 <div class="en"><div class="sl">Who We Serve</div><h2 class="st">Websites for <i>every</i> business.</h2><p class="sd" style="margin:0 auto 48px">From restaurants to law offices. We build the perfect site for your industry.</p></div>
 <div class="he"><div class="sl">למי אנחנו בונים</div><h2 class="st">אתרים לכל <i>סוג</i> עסק.</h2><p class="sd" style="margin:0 auto 48px">ממסעדות ועד משרדי עורכי דין. אנחנו בונים אתר מושלם לתחום שלכם.</p></div>
 <div class="vg">
-<a href="/services/restaurants/" class="vc rv"><div class="vc-icon">🍽️</div><div class="en"><h3>Restaurants</h3><p>Menu, ordering, reservations</p></div><div class="he"><h3>מסעדות</h3><p>תפריט, הזמנות, הזמנת מקום</p></div></a>
-<a href="/services/cafes/" class="vc rv"><div class="vc-icon">☕</div><div class="en"><h3>Cafés</h3><p>Atmosphere, menu, events</p></div><div class="he"><h3>בתי קפה</h3><p>אווירה, תפריט, אירועים</p></div></a>
-<a href="/services/beauty-salons/" class="vc rv"><div class="vc-icon">💇</div><div class="en"><h3>Beauty Salons</h3><p>Services, booking, gallery</p></div><div class="he"><h3>מכוני יופי</h3><p>שירותים, תורים, גלריה</p></div></a>
-<a href="/services/barbershops/" class="vc rv"><div class="vc-icon">💈</div><div class="en"><h3>Barbershops</h3><p>Services, pricing, scheduling</p></div><div class="he"><h3>מספרות</h3><p>שירותים, מחירון, זימון תור</p></div></a>
-<a href="/services/clinics/" class="vc rv"><div class="vc-icon">🏥</div><div class="en"><h3>Clinics</h3><p>Services, team, appointments</p></div><div class="he"><h3>קליניקות</h3><p>שירותים, צוות, תורים</p></div></a>
-<a href="/services/lawyers/" class="vc rv"><div class="vc-icon">⚖️</div><div class="en"><h3>Lawyers</h3><p>Practice areas, credentials</p></div><div class="he"><h3>עורכי דין</h3><p>תחומי עיסוק, ניסיון</p></div></a>
-<a href="/services/contractors/" class="vc rv"><div class="vc-icon">🔨</div><div class="en"><h3>Contractors</h3><p>Projects, quotes, portfolio</p></div><div class="he"><h3>קבלנים</h3><p>פרויקטים, הצעות מחיר, תיק עבודות</p></div></a>
+<a href="/services/restaurants/" class="vc rv"><div class="en"><h3>Restaurants</h3><p>Menu, ordering, reservations</p></div><div class="he"><h3>מסעדות</h3><p>תפריט, הזמנות, הזמנת מקום</p></div></a>
+<a href="/services/cafes/" class="vc rv"><div class="en"><h3>Cafés</h3><p>Atmosphere, menu, events</p></div><div class="he"><h3>בתי קפה</h3><p>אווירה, תפריט, אירועים</p></div></a>
+<a href="/services/beauty-salons/" class="vc rv"><div class="en"><h3>Beauty Salons</h3><p>Services, booking, gallery</p></div><div class="he"><h3>מכוני יופי</h3><p>שירותים, תורים, גלריה</p></div></a>
+<a href="/services/barbershops/" class="vc rv"><div class="en"><h3>Barbershops</h3><p>Services, pricing, scheduling</p></div><div class="he"><h3>מספרות</h3><p>שירותים, מחירון, זימון תור</p></div></a>
+<a href="/services/clinics/" class="vc rv"><div class="en"><h3>Clinics</h3><p>Services, team, appointments</p></div><div class="he"><h3>קליניקות</h3><p>שירותים, צוות, תורים</p></div></a>
+<a href="/services/lawyers/" class="vc rv"><div class="en"><h3>Lawyers</h3><p>Practice areas, credentials</p></div><div class="he"><h3>עורכי דין</h3><p>תחומי עיסוק, ניסיון</p></div></a>
+<a href="/services/contractors/" class="vc rv"><div class="en"><h3>Contractors</h3><p>Projects, quotes, portfolio</p></div><div class="he"><h3>קבלנים</h3><p>פרויקטים, הצעות מחיר, תיק עבודות</p></div></a>
 </div>
 </div></section>
 
@@ -411,9 +411,19 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 // Mobile menu
-document.querySelector('.menu-toggle').addEventListener('click', function() {
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nm');
+menuToggle.addEventListener('click', function() {
   this.classList.toggle('open');
-  document.querySelector('.nm').classList.toggle('open');
+  navMenu.classList.toggle('open');
+  document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+});
+navMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    navMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
 });
 
 // =============================================

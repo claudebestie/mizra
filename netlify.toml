@@ -1,7 +1,7 @@
 [build]
   publish = "."
 
-# Trailing slash enforcement for service pages
+# Trailing slash enforcement for all pages
 [[redirects]]
   from = "/services/restaurants"
   to = "/services/restaurants/"
@@ -37,15 +37,49 @@
   to = "/services/contractors/"
   status = 301
 
-# Old single-page hash redirects
 [[redirects]]
-  from = "/#audit"
+  from = "/pricing"
+  to = "/pricing/"
+  status = 301
+
+[[redirects]]
+  from = "/free-audit"
   to = "/free-audit/"
   status = 301
 
 [[redirects]]
-  from = "/#pricing"
-  to = "/pricing/"
+  from = "/portfolio"
+  to = "/portfolio/"
+  status = 301
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/kama-ole-livnot-atar"
+  to = "/blog/kama-ole-livnot-atar/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/lama-kol-esek-tsarikh-atar"
+  to = "/blog/lama-kol-esek-tsarikh-atar/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/wix-vs-atar-mutaam"
+  to = "/blog/wix-vs-atar-mutaam/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/tauyot-be-atar-iski"
+  to = "/blog/tauyot-be-atar-iski/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ai-biniyat-atarim"
+  to = "/blog/ai-biniyat-atarim/"
   status = 301
 
 # Cache headers
@@ -63,3 +97,6 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

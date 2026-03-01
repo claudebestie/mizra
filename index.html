@@ -1,1786 +1,571 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary Meta Tags -->
-    <title>MIZRA | אתרים למסעדות תוך 48 שעות - בניית אתרים מקצועיים למסעדות</title>
-    <meta name="title" content="MIZRA | אתרים למסעדות תוך 48 שעות - בניית אתרים מקצועיים">
-    <meta name="description" content="MIZRA - אתרים מקצועיים למסעדות תוך 48 שעות. עיצוב מותאם אישית, אופטימיזציה לנייד, מערכת הזמנות. החל מ-₪2,990. מהר. מקצועי. משתלם. +40% יותר הזמנות.">
-    <meta name="keywords" content="בניית אתרים למסעדות, אתרים למסעדות, עיצוב אתרים למסעדות, תפריט דיגיטלי, מערכת הזמנות אונליין, אתר מסעדה, MIZRA, קפה, בית קפה, מסעדה יוקרה">
-    <meta name="author" content="MIZRA">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Hebrew">
-    <meta name="revisit-after" content="7 days">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://mizra.co.il">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mizra.co.il">
-    <meta property="og:title" content="MIZRA | אתרים למסעדות תוך 48 שעות">
-    <meta property="og:description" content="אתרים מקצועיים למסעדות תוך 48 שעות. עיצוב מותאם אישית, מערכת הזמנות אונליין. החל מ-₪2,990. +40% יותר הזמנות.">
-    <meta property="og:image" content="https://mizra.co.il/og-image.jpg">
-    <meta property="og:locale" content="he_IL">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:site_name" content="MIZRA">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mizra.co.il">
-    <meta name="twitter:title" content="MIZRA | אתרים למסעדות תוך 48 שעות">
-    <meta name="twitter:description" content="אתרים מקצועיים למסעדות תוך 48 שעות. עיצוב מותאם אישית, מערכת הזמנות. החל מ-₪2,990.">
-    <meta name="twitter:image" content="https://mizra.co.il/twitter-image.jpg">
-
-    <!-- Alternative Languages -->
-    <link rel="alternate" hreflang="he" href="https://mizra.co.il">
-    <link rel="alternate" hreflang="en" href="https://mizra.co.il/en">
-    <link rel="alternate" hreflang="x-default" href="https://mizra.co.il">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#0EA5E9">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="MIZRA">
-
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800;900&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Schema.org Markup for Local Business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "MIZRA",
-      "description": "בניית אתרים מקצועיים למסעדות תוך 48 שעות",
-      "url": "https://mizra.co.il",
-      "email": "contact@getmizra.com",
-      "telephone": "+972-55-992-7367",
-      "priceRange": "₪₪",
-      "image": "https://mizra.co.il/logo.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IL",
-        "addressLocality": "Tel Aviv"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "32.0853",
-        "longitude": "34.7818"
-      },
-      "sameAs": [
-        "https://www.instagram.com/mizra",
-        "https://www.facebook.com/mizra"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "50"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "BASIC Package",
-          "description": "אתר מקצועי למסעדות קטנות וקפה",
-          "price": "2990",
-          "priceCurrency": "ILS"
-        },
-        {
-          "@type": "Offer",
-          "name": "PRO Package",
-          "description": "החבילה המומלצת למסעדות",
-          "price": "4990",
-          "priceCurrency": "ILS"
-        },
-        {
-          "@type": "Offer",
-          "name": "PREMIUM Package",
-          "description": "לרשתות ומסעדות יוקרה",
-          "price": "7990",
-          "priceCurrency": "ILS"
-        }
-      ]
-    }
-    </script>
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "כמה זמן לוקח לבנות אתר למסעדה?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "בניית אתר מקצועי למסעדה לוקחת 48 שעות בלבד עם MIZRA. התהליך כולל שיחה ראשונית, עיצוב ופיתוח, בדיקה ואישור, והשקה מיידית."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "כמה עולה אתר למסעדה?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "המחירים מתחילים מ-₪2,990 לחבילת BASIC, ₪4,990 לחבילת PRO (הכי פופולרי), ועד ₪7,990 לחבילת PREMIUM. כל החבילות כוללות עיצוב מותאם אישית, אופטימיזציה לנייד, ושנת אחסון."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "האם האתר מותאם לנייד?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "כן, כל האתרים שלנו מותאמים באופן מלא למכשירים ניידים. 85% מהלקוחות מחפשים מסעדות בנייד, ולכן אופטימיזציה לנייד היא חלק בסיסי מכל חבילה."
-          }
-        }
-      ]
-    }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #0EA5E9;
-            --primary-dark: #0284C7;
-            --secondary: #2563EB;
-            --dark: #0F172A;
-            --gray: #64748B;
-            --light: #F8FAFC;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --gradient: linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%);
-        }
-
-        body {
-            font-family: 'Assistant', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            padding-top: 0;
-        }
-
-        main {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            z-index: 9999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .header-wrap {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Heebo', sans-serif;
-            letter-spacing: -1px;
-        }
-
-        .header-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header-menu a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .header-menu a:hover {
-            color: var(--primary);
-        }
-
-        .header-right {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .lang-btns {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .lang-btns button {
-            padding: 0.5rem 0.8rem;
-            border: 2px solid var(--primary);
-            background: white;
-            color: var(--primary);
-            cursor: pointer;
-            border-radius: 6px;
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-
-        .lang-btns button.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .wa-btn {
-            padding: 0.7rem 1.3rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-
-        .wa-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 8rem 2rem 6rem;
-            background: var(--dark);
-            color: white;
-            margin-top: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(14, 165, 233, 0.15), transparent);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.15; }
-            50% { transform: scale(1.1); opacity: 0.25; }
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(14, 165, 233, 0.2);
-            color: var(--primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(14, 165, 233, 0.3);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .hero-highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-tagline {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-family: 'Heebo', sans-serif;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1.2rem 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 900px;
-            margin: 5rem auto 0;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .problem-card {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border-right: 4px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .problem-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .problem-stat {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.2);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--gradient);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-        }
-
-        .pricing-name {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .pricing-desc {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-price {
-            margin-bottom: 2rem;
-        }
-
-        .price-old {
-            font-size: 1.2rem;
-            text-decoration: line-through;
-            color: var(--gray);
-        }
-
-        .price-new {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--dark);
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .price-currency {
-            font-size: 1.8rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #F1F5F9;
-            font-size: 0.95rem;
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            color: var(--success);
-            font-weight: bold;
-            margin-left: 0.5rem;
-        }
-
-        .pricing-cta {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-
-        .pricing-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
-        }
-
-        /* ROI Calculator */
-        .roi-calculator {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--light);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .calc-input-group {
-            margin-bottom: 2rem;
-        }
-
-        .calc-input-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .calc-input-group input {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid #E2E8F0;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .calc-input-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
-        }
-
-        .calc-result {
-            background: var(--gradient);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
-        }
-
-        .calc-result-number {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        /* Case Studies */
-        .case-studies {
-            padding: 6rem 2rem;
-            background: var(--dark);
-            color: white;
-        }
-
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .case-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .case-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-5px);
-        }
-
-        .case-logo {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .case-metric {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--success);
-            margin-bottom: 0.5rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .case-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .case-quote {
-            font-style: italic;
-            opacity: 0.9;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .case-author {
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        /* Process */
-        .process {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-step::after {
-            content: "←";
-            position: absolute;
-            top: 30px;
-            right: calc(100% + 0.5rem);
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .process-step:first-child::after {
-            display: none;
-        }
-
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 5px 20px rgba(14, 165, 233, 0.3);
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .step-title {
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .step-time {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        /* CTA Final */
-        .final-cta {
-            padding: 8rem 2rem;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        .final-cta h2 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            font-family: 'Heebo', sans-serif;
-            position: relative;
-            z-index: 2;
-        }
-
-        .final-cta p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-brand {
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-container {
-                padding: 1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-            .nav-center {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            }
-
-            .nav-center.active {
-                display: flex;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 0;
-                width: 100%;
-            }
-
-            .nav-links a {
-                padding: 1rem;
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid var(--light);
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .nav-right {
-                gap: 0.5rem;
-            }
-
-            .cta-nav {
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
-            }
-
-            .lang-switch {
-                order: -1;
-            }
-
-            .stats,
-            .problem-grid,
-            .pricing-grid,
-            .cases-grid,
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .process-step::after {
-                display: none;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .hero {
-                padding: 8rem 1.5rem 4rem;
-            }
-        }
-
-        .lang-content {
-            display: none;
-        }
-
-        .lang-content.active {
-            display: block;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 3rem auto 0;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #E2E8F0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Assistant', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
-        }
-
-        /* Addons Section */
-        .addons {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .addon-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--light);
-            border-radius: 16px;
-            padding: 2.5rem;
-            border-right: 4px solid var(--warning);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .addon-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .addon-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--dark);
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .addon-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--warning);
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .addon-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .addon-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #E2E8F0;
-            font-size: 1rem;
-        }
-
-        .addon-features li:before {
-            content: "✓";
-            color: var(--warning);
-            font-weight: bold;
-            margin-left: 0.5rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Mizra | אתרים מקצועיים לעסקים תוך 48 שעות | בניית אתרים בישראל</title>
+<meta name="description" content="Mizra בונה אתרים מקצועיים לעסקים קטנים תוך 48 שעות. מסעדות, בתי קפה, מספרות, מכוני יופי, עורכי דין, קליניקות, קבלנים. החל מ-₪2,990.">
+<meta name="keywords" content="בניית אתרים, אתרים לעסקים קטנים, עיצוב אתרים, אתר למסעדה, אתר למספרה, אתר לעורך דין, אתר לקליניקה, בניית אתרים בישראל, Mizra">
+<meta name="author" content="Mizra">
+<meta name="robots" content="index, follow">
+
+<!-- Canonical + Hreflang -->
+<link rel="canonical" href="https://getmizra.com/">
+<link rel="alternate" hreflang="he" href="https://getmizra.com/">
+<link rel="alternate" hreflang="en" href="https://getmizra.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://getmizra.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getmizra.com/">
+<meta property="og:title" content="Mizra | אתרים מקצועיים לעסקים תוך 48 שעות">
+<meta property="og:description" content="אתרים מקצועיים לעסקים קטנים תוך 48 שעות. מסעדות, בתי קפה, מספרות, קליניקות, עורכי דין. החל מ-₪2,990.">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Mizra">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mizra | אתרים מקצועיים לעסקים תוך 48 שעות">
+<meta name="twitter:description" content="אתרים מקצועיים לעסקים קטנים. מהיר, מקצועי, משתלם. החל מ-₪2,990.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Mizra",
+  "url":"https://getmizra.com",
+  "description":"Professional websites for small businesses in 48 hours",
+  "address":{"@type":"PostalAddress","addressLocality":"Tel Aviv","addressCountry":"IL"},
+  "priceRange":"₪2,990 - ₪7,990",
+  "areaServed":{"@type":"Country","name":"Israel"},
+  "serviceType":["Web Design","Web Development","SEO"],
+  "knowsLanguage":["he","en","fr"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"כמה זמן לוקח לבנות אתר?","acceptedAnswer":{"@type":"Answer","text":"48-72 שעות מרגע קבלת כל החומרים. אנחנו עובדים מהר בלי לפגוע באיכות."}},
+    {"@type":"Question","name":"האם אני צריך לדעת טכנולוגיה?","acceptedAnswer":{"@type":"Answer","text":"לא. אנחנו מטפלים בהכל. אתם רק צריכים לספק תוכן ותמונות."}},
+    {"@type":"Question","name":"מה קורה אחרי שהאתר עולה?","acceptedAnswer":{"@type":"Answer","text":"האתר שלכם לתמיד. אחסון לשנה כלול. תחזוקה ועדכונים בתשלום נפרד."}},
+    {"@type":"Question","name":"האם אפשר לעדכן את האתר בעצמי?","acceptedAnswer":{"@type":"Answer","text":"כן, אנחנו מספקים גישה מלאה לקוד. אפשר גם להזמין שירות תחזוקה."}},
+    {"@type":"Question","name":"למה Mizra ולא סוכנות אחרת?","acceptedAnswer":{"@type":"Answer","text":"מהירות (48 שעות), מחיר הוגן (החל מ-₪2,990), ותוצאות מוכחות. בלי חוזים ארוכי טווח."}}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-wrap">
-            <div class="logo">MIZRA</div>
-            <ul class="header-menu">
-                <li><a href="#pricing" data-he="מחירים" data-en="Pricing">מחירים</a></li>
-                <li><a href="#cases" data-he="תיק עבודות" data-en="Portfolio">תיק עבודות</a></li>
-                <li><a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></li>
-            </ul>
-            <div class="header-right">
-                <div class="lang-btns">
-                    <button class="active" data-lang="he">HE</button>
-                    <button data-lang="en">EN</button>
-                </div>
-                <a href="https://wa.me/9720559927367" class="wa-btn">💬 WhatsApp</a>
-            </div>
-        </div>
-    </header>
+<body class="lh">
 
-    <!-- HEBREW CONTENT -->
-    <main class="lang-content active" data-lang="he" lang="he">
-        <!-- Hero -->
-        <section class="hero" role="banner" aria-label="כותרת ראשית">
-            <div class="hero-container">
-                <div class="hero-badge">אתרים למסעדות</div>
-                <h1 itemprop="headline">אתר מקצועי למסעדה שלך<br><span class="hero-highlight">תוך 48 שעות</span></h1>
-                <div class="hero-tagline">מהר. מקצועי. משתלם.</div>
-                <p itemprop="description">הפסק לאבד לקוחות למתחרים. קבל אתר יוקרתי שמביא הזמנות ומעלה דירוג במחיר שווה לארוחה אחת.</p>
-                <div class="hero-cta">
-                    <a href="mailto:contact@getmizra.com?subject=בקשה לאתר מסעדה" class="btn-primary" title="שלח מייל עכשיו" aria-label="צור קשר במייל">📧 שלח מייל</a>
-                    <a href="https://wa.me/9720559927367?text=היי, אני רוצה לשמוע על האתר למסעדה שלי" class="btn-secondary" title="שלח הודעה ב-WhatsApp" aria-label="צור קשר ב-WhatsApp">💬 WhatsApp</a>
-                </div>
-                <p style="margin-top: 1.5rem; font-size: 1.1rem; opacity: 0.9;">
-                    📧 <a href="mailto:contact@getmizra.com" style="color: white; text-decoration: underline;">contact@getmizra.com</a> |
-                    📱 <a href="tel:+9720559927367" style="color: white; text-decoration: underline;">055-992-7367</a>
-                </p>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-number">48h</span>
-                        <span class="stat-label">זמן אספקה</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">מאות</span>
-                        <span class="stat-label">בקשות</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">+40%</span>
-                        <span class="stat-label">עלייה בהזמנות</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<nav class="nav">
+<a href="/" class="nav-logo">mizra<span>.</span></a>
+<button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<div class="nm">
+  <div class="en"><a href="/services/restaurants/">Restaurants</a><a href="/services/cafes/">Cafés</a><a href="/services/beauty-salons/">Salons</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a></div>
+  <div class="he"><a href="/services/restaurants/">מסעדות</a><a href="/services/cafes/">בתי קפה</a><a href="/services/beauty-salons/">מכוני יופי</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a></div>
+</div>
+<div class="nr">
+  <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
+  <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Free Audit</span><span class="he">בדיקה חינמית</span></a>
+</div>
+</nav>
 
-        <!-- Problem -->
-        <section class="problem" role="region" aria-labelledby="problem-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">הבעיה</div>
-                    <h2 class="section-title" id="problem-title">המסעדה שלך מאבדת כסף כל יום</h2>
-                    <p class="section-description">ללא אתר מקצועי, אתה מפסיד לקוחות, דירוג והכנסות</p>
-                </div>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <div class="problem-stat">70%</div>
-                        <h3>מהלקוחות לא יבחרו במסעדה עם דירוג מתחת ל-3 כוכבים</h3>
-                        <p>אתר ישן או לא קיים פוגע בדירוג שלך ב-Google</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">85%</div>
-                        <h3>מהלקוחות מחפשים מסעדות בנייד</h3>
-                        <p>אתר שלא מותאם לנייד = לקוחות שעוזבים תוך 3 שניות</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">3 שניות</div>
-                        <h3>יש לך רק 3 שניות לעשות רושם</h3>
-                        <p>אתר איטי או מכוער = לקוח שהלך למתחרה</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">₪8,900</div>
-                        <h3>המחיר הממוצע לאתר "מקצועי"</h3>
-                        <p>חברות פיתוח גובות הון ולוקח להם חודשים</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section class="hero">
+<div class="en">
+<div class="htag">Websites for every business</div>
+<h1>Your business<br>deserves <i>better.</i></h1>
+<p class="hero-sub">We build stunning websites for small businesses in 48 hours with AI-powered design. Faster, sharper, and at a fraction of what agencies charge.</p>
+<div class="ha"><a href="#" class="btn btn-p" onclick="openS();return false">Get Started</a><a href="#audit" class="btn btn-o">Free Audit First</a></div>
+</div>
+<div class="he">
+<div class="htag">אתרים לכל עסק</div>
+<h1>לעסק שלך<br>מגיע <i>יותר.</i></h1>
+<p class="hero-sub">אנחנו בונים אתרים מרהיבים לעסקים קטנים תוך 48 שעות בעזרת AI. יותר מהיר, יותר חד, בחלק מהמחיר של סוכנות.</p>
+<div class="ha"><a href="#" class="btn btn-p" onclick="openS();return false">בואו נתחיל</a><a href="#audit" class="btn btn-o">בדיקה חינמית קודם</a></div>
+</div>
+<div class="hm">
+<div class="mt"><h3>48h</h3><div class="en"><p>Delivery</p></div><div class="he"><p>אספקה</p></div></div>
+<div class="mt"><h3>2,990</h3><div class="en"><p>NIS / Starting</p></div><div class="he"><p>ש"ח / החל מ</p></div></div>
+<div class="mt"><h3>0</h3><div class="en"><p>Monthly Fees</p></div><div class="he"><p>דמי מנוי</p></div></div>
+<div class="mt"><h3>100%</h3><div class="en"><p>Yours Forever</p></div><div class="he"><p>שלך לתמיד</p></div></div>
+</div>
+</section>
 
-        <!-- Pricing -->
-        <section class="pricing" id="pricing" role="region" aria-labelledby="pricing-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">מחירים</div>
-                    <h2 class="section-title" id="pricing-title">בחר את החבילה המתאימה לך</h2>
-                    <p class="section-description">מחיר חד פעמי. ללא הפתעות. ללא מנויים נסתרים.</p>
-                </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-name">BASIC</div>
-                        <div class="pricing-desc">מושלם למסעדות קטנות וקפה</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪8,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>2,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>עיצוב מותאם אישית</li>
-                            <li>אופטימיזציה לנייד</li>
-                            <li>תפריט דיגיטלי (עד 30 מנות)</li>
-                            <li>גלריית תמונות (10 תמונות)</li>
-                            <li>טופס הזמנות</li>
-                            <li>חיבור Google Maps</li>
-                            <li>שנת אחסון</li>
-                            <li>חודש תמיכה</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=התעניינות בחבילת BASIC" class="pricing-cta">📧 שלח מייל</a>
-                    </div>
+<div class="lbar">
+<div class="en"><p class="llbl">Trusted by organizations across France and Israel</p></div>
+<div class="he"><p class="llbl">מהימנים על ידי ארגונים בצרפת ובישראל</p></div>
+<div class="lrow"><a href="https://cciif.org" target="_blank">CCIIF</a><a href="https://beyitworld.com" target="_blank">Beyit</a><a href="https://thelevantedit.com" target="_blank">The Levant Edit</a><a href="https://competitiveintelligencecenter.com" target="_blank">Competitive Intelligence Center</a></div>
+</div>
 
-                    <div class="pricing-card featured">
-                        <div class="pricing-badge">הכי פופולרי</div>
-                        <div class="pricing-name">PRO</div>
-                        <div class="pricing-desc">האופציה המומלצת</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪12,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>4,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>כל מה שב-BASIC +</li>
-                            <li>תפריט מתקדם (ללא הגבלה)</li>
-                            <li>גלריה מורחבת (30 תמונות)</li>
-                            <li>מערכת הזמנות אונליין</li>
-                            <li>שילוב Instagram</li>
-                            <li>בלוג / חדשות</li>
-                            <li>אנימציות מתקדמות</li>
-                            <li>חודשיים תמיכה</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=התעניינות בחבילת PRO" class="pricing-cta">📧 שלח מייל</a>
-                    </div>
+<!-- VERTICALS -->
+<section class="sec"><div class="cx" style="text-align:center">
+<div class="en"><div class="sl">Who We Serve</div><h2 class="st">Websites for <i>every</i> business.</h2><p class="sd" style="margin:0 auto 48px">From restaurants to law offices. We build the perfect site for your industry.</p></div>
+<div class="he"><div class="sl">למי אנחנו בונים</div><h2 class="st">אתרים לכל <i>סוג</i> עסק.</h2><p class="sd" style="margin:0 auto 48px">ממסעדות ועד משרדי עורכי דין. אנחנו בונים אתר מושלם לתחום שלכם.</p></div>
+<div class="vg">
+<a href="/services/restaurants/" class="vc rv"><div class="vc-icon">🍽️</div><div class="en"><h3>Restaurants</h3><p>Menu, ordering, reservations</p></div><div class="he"><h3>מסעדות</h3><p>תפריט, הזמנות, הזמנת מקום</p></div></a>
+<a href="/services/cafes/" class="vc rv"><div class="vc-icon">☕</div><div class="en"><h3>Cafés</h3><p>Atmosphere, menu, events</p></div><div class="he"><h3>בתי קפה</h3><p>אווירה, תפריט, אירועים</p></div></a>
+<a href="/services/beauty-salons/" class="vc rv"><div class="vc-icon">💇</div><div class="en"><h3>Beauty Salons</h3><p>Services, booking, gallery</p></div><div class="he"><h3>מכוני יופי</h3><p>שירותים, תורים, גלריה</p></div></a>
+<a href="/services/barbershops/" class="vc rv"><div class="vc-icon">💈</div><div class="en"><h3>Barbershops</h3><p>Services, pricing, scheduling</p></div><div class="he"><h3>מספרות</h3><p>שירותים, מחירון, זימון תור</p></div></a>
+<a href="/services/clinics/" class="vc rv"><div class="vc-icon">🏥</div><div class="en"><h3>Clinics</h3><p>Services, team, appointments</p></div><div class="he"><h3>קליניקות</h3><p>שירותים, צוות, תורים</p></div></a>
+<a href="/services/lawyers/" class="vc rv"><div class="vc-icon">⚖️</div><div class="en"><h3>Lawyers</h3><p>Practice areas, credentials</p></div><div class="he"><h3>עורכי דין</h3><p>תחומי עיסוק, ניסיון</p></div></a>
+<a href="/services/contractors/" class="vc rv"><div class="vc-icon">🔨</div><div class="en"><h3>Contractors</h3><p>Projects, quotes, portfolio</p></div><div class="he"><h3>קבלנים</h3><p>פרויקטים, הצעות מחיר, תיק עבודות</p></div></a>
+</div>
+</div></section>
 
-                    <div class="pricing-card">
-                        <div class="pricing-name">PREMIUM</div>
-                        <div class="pricing-desc">לרשתות ומסעדות יוקרה</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪18,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>7,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>כל מה שב-PRO +</li>
-                            <li>מערכת תשלומים מלאה</li>
-                            <li>ניהול מלאי</li>
-                            <li>דשבורד ניהול</li>
-                            <li>רב-לשוני (3 שפות)</li>
-                            <li>SEO מתקדם</li>
-                            <li>10 תמונות מקצועיות</li>
-                            <li>3 חודשים תמיכה</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=התעניינות בחבילת PREMIUM" class="pricing-cta">📧 שלח מייל</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- AUDIT -->
+<section class="aud sec" id="audit"><div class="cx"><div class="ag"><div>
+<div class="en"><div class="sl">Free Digital Audit</div><h2 class="st">Know exactly where you stand <i>online.</i></h2><p class="sd">We analyze your business's entire digital footprint and deliver a personalized report. No strings attached.</p><ul class="ack"><li><span class="ck">+</span>Google Business Profile analysis</li><li><span class="ck">+</span>SEO and search visibility check</li><li><span class="ck">+</span>Competitor benchmarking</li><li><span class="ck">+</span>Social media presence review</li><li><span class="ck">+</span>Revenue impact estimation</li><li><span class="ck">+</span>Personalized action plan</li></ul></div>
+<div class="he"><div class="sl">בדיקה דיגיטלית חינמית</div><h2 class="st">דעו בדיוק איפה אתם עומדים <i>אונליין.</i></h2><p class="sd">ניתוח מלא של הנוכחות הדיגיטלית + דו"ח מותאם. בלי התחייבות.</p><ul class="ack"><li><span class="ck">+</span>ניתוח Google Business</li><li><span class="ck">+</span>בדיקת SEO</li><li><span class="ck">+</span>השוואת מתחרים</li><li><span class="ck">+</span>סקירת רשתות חברתיות</li><li><span class="ck">+</span>הערכת השפעה על הכנסות</li><li><span class="ck">+</span>תוכנית פעולה</li></ul></div>
+</div><div class="af">
+<div class="en"><h3>Request Your Free Audit</h3><p class="sub">Results within 24 hours</p><form id="auditFormEn" onsubmit="return sendA(event,'en')"><div class="fr"><div class="f"><label>Your Name</label><input id="a_name_en" placeholder="David Cohen" required></div><div class="f"><label>Business Name</label><input id="a_resto_en" placeholder="My Business" required></div></div><div class="f"><label>Email</label><input id="a_email_en" type="email" placeholder="david@mybusiness.com" required></div><div class="f"><label>Phone / WhatsApp</label><input id="a_phone_en" type="tel" placeholder="+972 54 227 1670"></div><div class="f"><label>Business Type</label><select id="a_type_en"><option value="">Select...</option><option>Restaurant</option><option>Café</option><option>Beauty Salon</option><option>Barbershop</option><option>Clinic</option><option>Law Office</option><option>Contractor</option><option>Other</option></select></div><div class="f"><label>Current website?</label><select id="a_status_en"><option value="">Select...</option><option>No website</option><option>Yes, but outdated</option><option>Only social media</option><option>Yes, but want better</option></select></div><button type="submit" class="bsub">Send Me My Free Audit</button><p class="fn">No spam, no commitment.</p></form></div>
+<div class="he"><h3>בקשו בדיקה חינמית</h3><p class="sub">תוצאות תוך 24 שעות</p><form id="auditFormHe" onsubmit="return sendA(event,'he')"><div class="fr"><div class="f"><label>שם</label><input id="a_name_he" placeholder="דוד כהן" required></div><div class="f"><label>שם העסק</label><input id="a_resto_he" placeholder="שם העסק שלי" required></div></div><div class="f"><label>אימייל</label><input id="a_email_he" type="email" placeholder="david@mybusiness.com" required></div><div class="f"><label>טלפון</label><input id="a_phone_he" type="tel" placeholder="054-227-1670"></div><div class="f"><label>סוג עסק</label><select id="a_type_he"><option value="">בחרו...</option><option>מסעדה</option><option>בית קפה</option><option>מכון יופי</option><option>מספרה</option><option>קליניקה</option><option>משרד עורכי דין</option><option>קבלן</option><option>אחר</option></select></div><div class="f"><label>יש אתר?</label><select id="a_status_he"><option value="">בחרו...</option><option>אין אתר</option><option>כן, ישן</option><option>רק רשתות חברתיות</option><option>רוצה יותר טוב</option></select></div><button type="submit" class="bsub">שלחו בדיקה חינמית</button><p class="fn">ללא ספאם, ללא התחייבות.</p></form></div>
+</div></div></div></section>
 
-        <!-- Addons -->
-        <section class="addons">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">תוספים</div>
-                    <h2 class="section-title">שדרג את הנוכחות הדיגיטלית שלך</h2>
-                </div>
-                <div class="addon-card">
-                    <div class="addon-header">
-                        <div class="addon-title">תוסף: אופטימיזציה של Google My Business</div>
-                        <div class="addon-price">₪499</div>
-                    </div>
-                    <ul class="addon-features">
-                        <li>הגדרה מלאה של הפרופיל</li>
-                        <li>אופטימיזציה של תמונות ותיאור</li>
-                        <li>פוסטים שבועיים (חודש אחד)</li>
-                        <li>אסטרטגיית ביקורות לקוחות</li>
-                    </ul>
-                    <a href="mailto:contact@getmizra.com?subject=התעניינות בתוסף Google My Business" class="pricing-cta">📧 שלח מייל</a>
-                </div>
-            </div>
-        </section>
+<!-- PROBLEM -->
+<section class="sec"><div class="cx">
+<div class="en"><div class="sl">The Problem</div><h2 class="st">Your competitors have websites. <i>You don't.</i></h2><p class="sd">Every business with a website is taking your customers.</p></div>
+<div class="he"><div class="sl">הבעיה</div><h2 class="st">למתחרים יש אתרים. <i>לך אין.</i></h2><p class="sd">כל עסק עם אתר לוקח לך לקוחות.</p></div>
+<div class="pg">
+<div class="pc rv"><div class="pn">01</div><div class="en"><h3>Invisible on Google</h3><p>Search for your service near you and you don't appear.</p></div><div class="he"><h3>בלתי נראים בגוגל</h3><p>חפשו את השירות שלכם -- אתם לא מופיעים.</p></div></div>
+<div class="pc rv"><div class="pn">02</div><div class="en"><h3>Losing to Competitors</h3><p>Businesses with websites get 70% more customers.</p></div><div class="he"><h3>מפסידים למתחרים</h3><p>עסקים עם אתר מקבלים 70% יותר לקוחות.</p></div></div>
+<div class="pc rv"><div class="pn">03</div><div class="en"><h3>No Online Presence</h3><p>Without a site, customers can't find or trust you.</p></div><div class="he"><h3>בלי נוכחות אונליין</h3><p>בלי אתר, לקוחות לא מוצאים ולא סומכים עליכם.</p></div></div>
+<div class="pc rv"><div class="pn">04</div><div class="en"><h3>Low Trust Score</h3><p>70% skip businesses without a website.</p></div><div class="he"><h3>אמון נמוך</h3><p>70% לא יבחרו עסק בלי אתר.</p></div></div>
+</div>
+</div></section>
 
-        <!-- ROI Calculator -->
-        <section class="roi-calculator">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">מחשבון ROI</div>
-                    <h2 class="section-title">תראה כמה האתר ישתלם לך</h2>
-                </div>
-                <div class="calculator-container">
-                    <div class="calc-input-group">
-                        <label>מספר לקוחות חדשים בחודש (הערכה)</label>
-                        <input type="number" id="newCustomers" value="20" min="1">
-                    </div>
-                    <div class="calc-input-group">
-                        <label>הוצאה ממוצעת ללקוח (₪)</label>
-                        <input type="number" id="avgSpend" value="150" min="1">
-                    </div>
-                    <div class="calc-result">
-                        <div class="calc-result-number" id="roiResult">₪3,000</div>
-                        <div>הכנסה חודשית נוספת</div>
-                        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.95;">ההשקעה מחזירה את עצמה תוך <strong id="paybackMonths">1</strong> חודשים</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- CTA BAND -->
+<div class="ctab">
+<div class="en"><h2>Ready to get your business <i>online?</i></h2><p>Pick your package. Fill the brief. We handle the rest.</p><div class="btns"><a href="#" class="btn btn-p" onclick="openS();return false">Get Started Now</a><a href="https://wa.me/972542271670" class="btn btn-o" style="border-color:var(--bddh);color:#fff" target="_blank">Chat on WhatsApp</a></div></div>
+<div class="he"><h2>מוכנים לקחת את העסק <i>לאונליין?</i></h2><p>בחרו חבילה. מלאו בריף. אנחנו מטפלים בשאר.</p><div class="btns"><a href="#" class="btn btn-p" onclick="openS();return false">בואו נתחיל</a><a href="https://wa.me/972542271670" class="btn btn-o" style="border-color:var(--bddh);color:#fff" target="_blank">וואטסאפ</a></div></div>
+</div>
 
-        <!-- Case Studies -->
-        <section class="case-studies" id="cases" role="region" aria-labelledby="cases-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label" style="color: var(--primary);">מקרי בוחן</div>
-                    <h2 class="section-title" id="cases-title" style="color: white;">התוצאות מדברות בעד עצמן</h2>
-                    <p class="section-description" style="color: rgba(255,255,255,0.8);">לקוחות אמיתיים, תוצאות אמיתיות</p>
-                </div>
-                <div class="cases-grid">
-                    <div class="case-card">
-                        <div class="case-logo">טאבון</div>
-                        <div class="case-metric">+65%</div>
-                        <div class="case-label">עלייה בהזמנות</div>
-                        <p class="case-quote">"תוך שבועיים קיבלנו פי 2 הזמנות. האתר פשוט מדהים."</p>
-                        <div class="case-author">יוסי כהן, בעלים</div>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo">קפה נורה</div>
-                        <div class="case-metric">4.8★</div>
-                        <div class="case-label">דירוג Google חדש</div>
-                        <p class="case-quote">"מ-2.5 כוכבים ל-4.8. הלקוחות מתלהבים מהאתר."</p>
-                        <div class="case-author">מירי לוי, בעלת</div>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo">בשרים</div>
-                        <div class="case-metric">₪42K</div>
-                        <div class="case-label">הכנסה נוספת בחודש</div>
-                        <p class="case-quote">"ההשקעה החזירה את עצמה פי 8 בחודש הראשון."</p>
-                        <div class="case-author">דני אברהם, שותף</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PORTFOLIO -->
+<section class="pf sec" id="work"><div class="cx" style="text-align:center">
+<div class="en"><div class="sl">Portfolio</div><h2 class="st" style="color:#fff">They trust <i>us.</i></h2><p class="sd" style="color:var(--txd);margin:0 auto 48px">From bilingual institutional sites to luxury design platforms.</p></div>
+<div class="he"><div class="sl">פורטפוליו</div><h2 class="st" style="color:#fff">הם סומכים <i>עלינו.</i></h2><p class="sd" style="color:var(--txd);margin:0 auto 48px">מאתרים מוסדיים ועד פלטפורמות יוקרה.</p></div>
+<div class="pfr">
+<a href="https://beyitworld.com" target="_blank" class="pfi"><div class="pfl bgb">Beyit</div><p class="pfn">Interior Design</p><p class="pflk">beyitworld.com</p></a>
+<a href="https://thelevantedit.com" target="_blank" class="pfi"><div class="pfl bgl">The<br>Levant Edit</div><p class="pfn">Lifestyle / Airbnb</p><p class="pflk">thelevantedit.com</p></a>
+<a href="https://cciif.org" target="_blank" class="pfi"><div class="pfl bgc">CCIIF</div><p class="pfn">Chamber of Commerce</p><p class="pflk">cciif.org</p></a>
+<a href="https://competitiveintelligencecenter.com" target="_blank" class="pfi"><div class="pfl bgi">CIC</div><p class="pfn">Consulting / B2B</p><p class="pflk">competitiveintelligence..</p></a>
+</div>
+</div></section>
 
-        <!-- Process -->
-        <section class="process" id="process" role="region" aria-labelledby="process-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">התהליך</div>
-                    <h2 class="section-title" id="process-title">4 צעדים פשוטים לאתר חדש</h2>
-                </div>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">שיחה ראשונית</div>
-                        <div class="step-time">15 דקות</div>
-                        <p>נבין את הצרכים והסגנון שלך</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">עיצוב ופיתוח</div>
-                        <div class="step-time">24-48 שעות</div>
-                        <p>ניצור את האתר המושלם</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">בדיקה ואישור</div>
-                        <div class="step-time">כמה שעות</div>
-                        <p>תבדוק ונבצע שינויים</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">השקה</div>
-                        <div class="step-time">מיידי</div>
-                        <p>האתר עולה לאוויר!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PRICING -->
+<section class="sec" id="pricing"><div class="cx" style="text-align:center">
+<div class="en"><div class="sl">Pricing</div><h2 class="st">Simple pricing. <i>No surprises.</i></h2><p class="sd" style="margin:0 auto 48px">One-time payment. No monthly fees. 50% upfront, 50% on delivery.</p></div>
+<div class="he"><div class="sl">מחירון</div><h2 class="st">מחירים פשוטים. <i>בלי הפתעות.</i></h2><p class="sd" style="margin:0 auto 48px">תשלום חד פעמי. ללא מנוי. 50% מראש, 50% באספקה.</p></div>
+<div class="prg">
+<div class="prc rv"><div class="ptr">Starter</div><div class="en"><h3>Single Page Website</h3></div><div class="he"><h3>אתר עמוד יחיד</h3></div><div class="pam"><span class="pcr">NIS</span><span class="pnm">2,990</span></div><div class="en"><p class="pnt">50/50 payment / 48h</p></div><div class="he"><p class="pnt">50/50 / 48 שעות</p></div><div class="psp"></div><ul class="pft"><div class="en"><li><span class="fc">+</span>Custom design</li><li><span class="fc">+</span>Mobile responsive</li><li><span class="fc">+</span>Google Maps + contact</li><li><span class="fc">+</span>Social media integration</li><li><span class="fc">+</span>1 year hosting</li><li><span class="fc">+</span>2 revision rounds</li></div><div class="he"><li><span class="fc">+</span>עיצוב מותאם</li><li><span class="fc">+</span>מותאם למובייל</li><li><span class="fc">+</span>Google Maps + קשר</li><li><span class="fc">+</span>אינטגרציית רשתות</li><li><span class="fc">+</span>אחסון לשנה</li><li><span class="fc">+</span>2 סבבי תיקונים</li></div></ul><button class="bp btn-o" onclick="openS()"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></button></div>
 
-        <!-- Final CTA -->
-        <section class="final-cta" id="contact" role="region" aria-labelledby="contact-title">
-            <div class="container">
-                <h2 id="contact-title">מוכן לקבל יותר לקוחות?</h2>
-                <p>דבר איתנו עכשיו וקבל הצעת מחיר מותאמת</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                    <a href="mailto:contact@getmizra.com?subject=בקשה לאתר מסעדה" class="btn-primary" title="שלח מייל" aria-label="צור קשר במייל">📧 שלח מייל</a>
-                    <a href="https://wa.me/9720559927367?text=היי, אני רוצה לשמוע על האתר למסעדה שלי" class="btn-primary" title="פתח שיחה ב-WhatsApp" aria-label="שלח הודעה ב-WhatsApp" style="background: #25D366;">💬 WhatsApp</a>
-                </div>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    📧 <a href="mailto:contact@getmizra.com" style="color: white; text-decoration: underline; font-weight: 700;">contact@getmizra.com</a><br>
-                    📱 <a href="tel:+9720559927367" style="color: white; text-decoration: underline; font-weight: 700;">055-992-7367</a>
-                </p>
+<div class="prc pop rv"><div class="ptr">Pro</div><div class="en"><h3>Full Business Website</h3></div><div class="he"><h3>אתר עסקי מלא</h3></div><div class="pam"><span class="pcr">NIS</span><span class="pnm">4,990</span></div><div class="en"><p class="pnt">50/50 payment / 48-72h</p></div><div class="he"><p class="pnt">50/50 / 48-72 שעות</p></div><div class="psp"></div><ul class="pft"><div class="en"><li><span class="fc">+</span>Everything in Starter +</li><li><span class="fc">+</span>Multi-page site</li><li><span class="fc">+</span>Online booking / ordering</li><li><span class="fc">+</span>Photo gallery (30)</li><li><span class="fc">+</span>SEO optimization</li><li><span class="fc">+</span>Google Reviews</li><li><span class="fc">+</span>Bilingual HE/EN</li><li><span class="fc">+</span>Google Business</li><li><span class="fc">+</span>3 revision rounds</li></div><div class="he"><li><span class="fc">+</span>הכל בסטארטר +</li><li><span class="fc">+</span>מרובה עמודים</li><li><span class="fc">+</span>הזמנות / תורים אונליין</li><li><span class="fc">+</span>גלריה (30)</li><li><span class="fc">+</span>SEO</li><li><span class="fc">+</span>ביקורות Google</li><li><span class="fc">+</span>דו-לשוני</li><li><span class="fc">+</span>Google Business</li><li><span class="fc">+</span>3 סבבי תיקונים</li></div></ul><button class="bp btn-p" onclick="openS()"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></button></div>
 
-                <!-- Contact Form -->
-                <form class="contact-form" action="https://formspree.io/f/xpqjadde" method="POST" aria-label="טופס יצירת קשר">
-                    <h3 style="text-align: center; margin-bottom: 2rem; font-family: 'Heebo', sans-serif;">או מלא פרטים ונחזור אליך</h3>
-                    <div class="form-group">
-                        <label for="name">שם מלא</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">אימייל</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">טלפון</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">הודעה</label>
-                        <textarea id="message" name="message" placeholder="ספר לנו על המסעדה שלך..."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">שלח</button>
-                </form>
-            </div>
-        </section>
-    </main>
+<div class="prc rv"><div class="ptr">Premium</div><div class="en"><h3>Full Service + Growth</h3></div><div class="he"><h3>שירות מלא + צמיחה</h3></div><div class="pam"><span class="pcr">NIS</span><span class="pnm">7,990</span></div><div class="en"><p class="pnt">50/50 payment / 72h</p></div><div class="he"><p class="pnt">50/50 / 72 שעות</p></div><div class="psp"></div><ul class="pft"><div class="en"><li><span class="fc">+</span>Everything in Pro +</li><li><span class="fc">+</span>Payment gateway</li><li><span class="fc">+</span>Advanced SEO</li><li><span class="fc">+</span>Events / catering page</li><li><span class="fc">+</span>Newsletter</li><li><span class="fc">+</span>3 QR codes</li><li><span class="fc">+</span>Unlimited gallery</li><li><span class="fc">+</span>4 rounds / 2 months</li></div><div class="he"><li><span class="fc">+</span>הכל בפרו +</li><li><span class="fc">+</span>שער תשלומים</li><li><span class="fc">+</span>SEO מתקדם</li><li><span class="fc">+</span>דף אירועים / קייטרינג</li><li><span class="fc">+</span>ניוזלטר</li><li><span class="fc">+</span>3 QR קודים</li><li><span class="fc">+</span>גלריה ללא הגבלה</li><li><span class="fc">+</span>4 סבבי / חודשיים</li></div></ul><button class="bp btn-o" onclick="openS()"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></button></div>
+</div>
+</div></section>
 
-    <!-- ENGLISH CONTENT -->
-    <main class="lang-content" data-lang="en">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-badge">Restaurant Websites</div>
-                <h1>Professional Website For Your Restaurant<br><span class="hero-highlight">In 48 Hours</span></h1>
-                <div class="hero-tagline">Fast. Pro. Profitable.</div>
-                <p>Stop losing customers to competitors. Get a premium website that drives bookings at a fraction of the cost.</p>
-                <div class="hero-cta">
-                    <a href="mailto:contact@getmizra.com?subject=Restaurant Website Inquiry" class="btn-primary" title="Send email now" aria-label="Contact via email">📧 Send Email</a>
-                    <a href="https://wa.me/9720559927367?text=Hi, I want to hear about the website for my restaurant" class="btn-secondary" title="Send WhatsApp message" aria-label="Contact via WhatsApp">💬 WhatsApp</a>
-                </div>
-                <p style="margin-top: 1.5rem; font-size: 1.1rem; opacity: 0.9;">
-                    📧 <a href="mailto:contact@getmizra.com" style="color: white; text-decoration: underline;">contact@getmizra.com</a> |
-                    📱 <a href="tel:+9720559927367" style="color: white; text-decoration: underline;">055-992-7367</a>
-                </p>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-number">48h</span>
-                        <span class="stat-label">Delivery Time</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">מאות</span>
-                        <span class="stat-label">Requests</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">+40%</span>
-                        <span class="stat-label">More Bookings</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ADDONS -->
+<section class="ads sec"><div class="cx" style="text-align:center">
+<div class="en"><div class="sl">Add-ons</div><h2 class="st">Boost your <i>results.</i></h2><p class="sd" style="margin:0 auto 48px">Optional extras.</p></div>
+<div class="he"><div class="sl">תוספות</div><h2 class="st">שפרו את <i>התוצאות.</i></h2><p class="sd" style="margin:0 auto 48px">שירותים נוספים.</p></div>
+<div class="adg">
+<div class="adc rv"><div class="en"><h4>Pro Photography</h4><p>30 photos. Product, ambiance.</p></div><div class="he"><h4>צילום מקצועי</h4><p>30 תמונות.</p></div><div class="adp">1,500 NIS</div></div>
+<div class="adc rv"><div class="en"><h4>Video Package</h4><p>3 videos (30-60s).</p></div><div class="he"><h4>חבילת וידאו</h4><p>3 סרטונים.</p></div><div class="adp">5,500 NIS</div></div>
+<div class="adc rv"><div class="en"><h4>Google Business</h4><p>Profile + review strategy.</p></div><div class="he"><h4>Google Business</h4><p>פרופיל + ביקורות.</p></div><div class="adp">790 NIS</div></div>
+<div class="adc rv"><div class="en"><h4>Social Media</h4><p>Monthly content plan.</p></div><div class="he"><h4>רשתות חברתיות</h4><p>תוכנית תוכן חודשית.</p></div><div class="adp">1,800 NIS<span class="adu">/mo</span></div></div>
+<div class="adc rv"><div class="en"><h4>QR Codes (x3)</h4><p>Branded for your business.</p></div><div class="he"><h4>QR ממותגים (x3)</h4><p>מעוצבים לעסק.</p></div><div class="adp">390 NIS</div></div>
+<div class="adc rv"><div class="en"><h4>Maintenance</h4><p>Updates + support.</p></div><div class="he"><h4>תחזוקה</h4><p>עדכונים + תמיכה.</p></div><div class="adp">250 NIS<span class="adu">/hr</span></div></div>
+</div>
+</div></section>
 
-        <!-- Problem -->
-        <section class="problem">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">The Problem</div>
-                    <h2 class="section-title">Your Restaurant Is Losing Money Every Day</h2>
-                    <p class="section-description">Without a professional website, you're losing customers, ratings, and revenue</p>
-                </div>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <div class="problem-stat">70%</div>
-                        <h3>Of customers won't choose a restaurant with less than 3 stars</h3>
-                        <p>Old or missing website hurts your Google ranking</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">85%</div>
-                        <h3>Of customers search for restaurants on mobile</h3>
-                        <p>Non-mobile site = customers leaving in 3 seconds</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">3 seconds</div>
-                        <h3>You have only 3 seconds to make an impression</h3>
-                        <p>Slow or ugly website = customer going to competitor</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-stat">₪8,900</div>
-                        <h3>Average price for a "professional" website</h3>
-                        <p>Development companies charge a fortune and take months</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PROCESS -->
+<section class="sec" id="process"><div class="cx" style="text-align:center">
+<div class="en"><div class="sl">How It Works</div><h2 class="st">From zero to live in <i>48 hours.</i></h2><p class="sd" style="margin:0 auto 48px">No lengthy meetings. Just results.</p></div>
+<div class="he"><div class="sl">איך זה עובד</div><h2 class="st">מאפס לאוויר תוך <i>48 שעות.</i></h2><p class="sd" style="margin:0 auto 48px">בלי פגישות ארוכות. רק תוצאות.</p></div>
+<div class="prg2">
+<div class="stp rv"><div class="stn">01</div><div class="en"><h3>Free Audit</h3><p>We analyze your presence. Free.</p></div><div class="he"><h3>בדיקה חינמית</h3><p>מנתחים את הנוכחות. בחינם.</p></div></div>
+<div class="stp rv"><div class="stn">02</div><div class="en"><h3>Choose + Brief</h3><p>Pick package, fill onboarding form.</p></div><div class="he"><h3>בחרו + בריף</h3><p>בחרו חבילה, מלאו טופס.</p></div></div>
+<div class="stp rv"><div class="stn">03</div><div class="en"><h3>Pay 50% + We Build</h3><p>Pay half upfront. We start immediately.</p></div><div class="he"><h3>50% + אנחנו בונים</h3><p>שלמו חצי. מתחילים מיד.</p></div></div>
+<div class="stp rv"><div class="stn">04</div><div class="en"><h3>Review + Go Live</h3><p>Approve, pay remaining 50%, launch.</p></div><div class="he"><h3>אישור + עלייה</h3><p>אשרו, שלמו 50% שנותר, השיקו.</p></div></div>
+</div>
+</div></section>
 
-        <!-- Pricing -->
-        <section class="pricing" id="pricing">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">Pricing</div>
-                    <h2 class="section-title">Choose Your Package</h2>
-                    <p class="section-description">One-time payment. No surprises. No hidden subscriptions.</p>
-                </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-name">BASIC</div>
-                        <div class="pricing-desc">Perfect for small restaurants and cafés</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪8,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>2,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>Custom design</li>
-                            <li>Mobile optimized</li>
-                            <li>Digital menu (up to 30 items)</li>
-                            <li>Photo gallery (10 photos)</li>
-                            <li>Booking form</li>
-                            <li>Google Maps integration</li>
-                            <li>1-year hosting</li>
-                            <li>1 month support</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=Interested in BASIC Package" class="pricing-cta">📧 Send Email</a>
-                    </div>
+<!-- ROI -->
+<section class="roi sec"><div class="cx"><div class="rg"><div>
+<div class="en"><div class="sl">ROI</div><h2 class="st">Your site pays for itself in <i>under 2 months.</i></h2><p class="sd">Based on real data from Israeli businesses.</p></div>
+<div class="he"><div class="sl">החזר השקעה</div><h2 class="st">האתר מחזיר את עצמו תוך <i>פחות מחודשיים.</i></h2><p class="sd">נתונים אמיתיים מעסקים בישראל.</p></div>
+</div><div class="rn">
+<div class="rb rv"><strong>25-50</strong><div class="en"><span>New customers/mo</span></div><div class="he"><span>לקוחות חדשים/חודש</span></div></div>
+<div class="rb rv"><strong>120-250</strong><div class="en"><span>NIS avg. order</span></div><div class="he"><span>ש"ח הזמנה ממוצעת</span></div></div>
+<div class="rb rv"><strong>3-5%</strong><div class="en"><span>Conversion rate</span></div><div class="he"><span>שיעור המרה</span></div></div>
+<div class="rb rv"><strong>5,000+</strong><div class="en"><span>NIS extra/mo</span></div><div class="he"><span>ש"ח נוסף/חודש</span></div></div>
+<div class="rb big rv"><strong>60,000-144,000</strong><div class="en"><span>NIS missed/year without a website</span></div><div class="he"><span>ש"ח/שנה שאתם מפסידים</span></div></div>
+</div></div></div></section>
 
-                    <div class="pricing-card featured">
-                        <div class="pricing-badge">Most Popular</div>
-                        <div class="pricing-name">PRO</div>
-                        <div class="pricing-desc">Recommended option</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪12,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>4,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>Everything in BASIC +</li>
-                            <li>Advanced menu (unlimited items)</li>
-                            <li>Extended gallery (30 photos)</li>
-                            <li>Online booking system</li>
-                            <li>Instagram integration</li>
-                            <li>Blog / News section</li>
-                            <li>Advanced animations</li>
-                            <li>2 months support</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=Interested in PRO Package" class="pricing-cta">📧 Send Email</a>
-                    </div>
+<!-- FAQ -->
+<section class="sec"><div class="cx">
+<div class="en" style="text-align:center"><div class="sl">FAQ</div><h2 class="st">Common <i>questions.</i></h2><p class="sd" style="margin:0 auto 48px">Everything you need to know.</p></div>
+<div class="he" style="text-align:center"><div class="sl">שאלות נפוצות</div><h2 class="st">שאלות <i>נפוצות.</i></h2><p class="sd" style="margin:0 auto 48px">כל מה שצריך לדעת.</p></div>
+<div class="faq-list" style="margin:0 auto">
+<div class="faq-item"><div class="faq-q"><div class="en">How long does it take to build a website?</div><div class="he">כמה זמן לוקח לבנות אתר?</div></div><div class="faq-a"><div class="en"><p>48-72 hours from the moment we receive all your materials. We work fast without compromising quality.</p></div><div class="he"><p>48-72 שעות מרגע קבלת כל החומרים. אנחנו עובדים מהר בלי לפגוע באיכות.</p></div></div></div>
+<div class="faq-item"><div class="faq-q"><div class="en">Do I need technical knowledge?</div><div class="he">האם אני צריך לדעת טכנולוגיה?</div></div><div class="faq-a"><div class="en"><p>Not at all. We handle everything. You just need to provide content and images.</p></div><div class="he"><p>לא. אנחנו מטפלים בהכל. אתם רק צריכים לספק תוכן ותמונות.</p></div></div></div>
+<div class="faq-item"><div class="faq-q"><div class="en">What happens after the site goes live?</div><div class="he">מה קורה אחרי שהאתר עולה?</div></div><div class="faq-a"><div class="en"><p>The site is yours forever. Hosting for one year is included. Maintenance and updates are available separately.</p></div><div class="he"><p>האתר שלכם לתמיד. אחסון לשנה כלול. תחזוקה ועדכונים בתשלום נפרד.</p></div></div></div>
+<div class="faq-item"><div class="faq-q"><div class="en">Can I update the site myself?</div><div class="he">האם אפשר לעדכן את האתר בעצמי?</div></div><div class="faq-a"><div class="en"><p>Yes, we provide full access to the code. You can also order our maintenance service.</p></div><div class="he"><p>כן, אנחנו מספקים גישה מלאה לקוד. אפשר גם להזמין שירות תחזוקה.</p></div></div></div>
+<div class="faq-item"><div class="faq-q"><div class="en">Why Mizra and not another agency?</div><div class="he">למה Mizra ולא סוכנות אחרת?</div></div><div class="faq-a"><div class="en"><p>Speed (48 hours), fair pricing (from NIS 2,990), and proven results. No long-term contracts.</p></div><div class="he"><p>מהירות (48 שעות), מחיר הוגן (החל מ-₪2,990), ותוצאות מוכחות. בלי חוזים ארוכי טווח.</p></div></div></div>
+</div>
+</div></section>
 
-                    <div class="pricing-card">
-                        <div class="pricing-name">PREMIUM</div>
-                        <div class="pricing-desc">For chains and luxury restaurants</div>
-                        <div class="pricing-price">
-                            <div class="price-old">₪18,900</div>
-                            <div class="price-new"><span class="price-currency">₪</span>7,990</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li>Everything in PRO +</li>
-                            <li>Full payment system</li>
-                            <li>Inventory management</li>
-                            <li>Admin dashboard</li>
-                            <li>Multilingual (3 languages)</li>
-                            <li>Advanced SEO</li>
-                            <li>10 professional photos</li>
-                            <li>3 months support</li>
-                        </ul>
-                        <a href="mailto:contact@getmizra.com?subject=Interested in PREMIUM Package" class="pricing-cta">📧 Send Email</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- FINAL CTA -->
+<section class="cta">
+<div class="en"><h2>Stop losing customers. <i>Start today.</i></h2><p>30 seconds to start. 48 hours to launch.</p><div class="ctbs"><a href="#" class="btn btn-p" onclick="openS();return false">Get Started</a><a href="#audit" class="btn btn-o">Free Audit First</a></div></div>
+<div class="he"><h2>הפסיקו להפסיד לקוחות. <i>התחילו היום.</i></h2><p>30 שניות להתחיל. 48 שעות לעלות לאוויר.</p><div class="ctbs"><a href="#" class="btn btn-p" onclick="openS();return false">בואו נתחיל</a><a href="#audit" class="btn btn-o">בדיקה חינמית</a></div></div>
+</section>
 
-        <!-- Addons -->
-        <section class="addons">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">Add-ons</div>
-                    <h2 class="section-title">Upgrade Your Digital Presence</h2>
-                </div>
-                <div class="addon-card">
-                    <div class="addon-header">
-                        <div class="addon-title">ADDON: Google My Business Optimization</div>
-                        <div class="addon-price">₪499</div>
-                    </div>
-                    <ul class="addon-features">
-                        <li>Complete profile setup</li>
-                        <li>Photos + description optimization</li>
-                        <li>Weekly posts setup (1 month)</li>
-                        <li>Customer reviews strategy</li>
-                    </ul>
-                    <a href="mailto:contact@getmizra.com?subject=Interested in Google My Business Addon" class="pricing-cta">📧 Send Email</a>
-                </div>
-            </div>
-        </section>
+<footer>
+<div>
+<p style="font-family:var(--sf);font-size:1.15rem;color:var(--or);margin-bottom:3px;font-weight:600">mizra<span style="color:#fff">.</span></p>
+<div class="en"><p>Professional websites for small businesses. Tel Aviv.</p></div>
+<div class="he"><p>אתרים מקצועיים לעסקים קטנים. תל אביב.</p></div>
+</div>
+<div class="footer-links">
+<div class="en"><a href="/services/restaurants/">Restaurants</a> · <a href="/services/cafes/">Cafés</a> · <a href="/services/beauty-salons/">Salons</a> · <a href="/services/barbershops/">Barbers</a> · <a href="/services/clinics/">Clinics</a> · <a href="/services/lawyers/">Lawyers</a> · <a href="/services/contractors/">Contractors</a></div>
+<div class="he"><a href="/services/restaurants/">מסעדות</a> · <a href="/services/cafes/">בתי קפה</a> · <a href="/services/beauty-salons/">מכוני יופי</a> · <a href="/services/barbershops/">מספרות</a> · <a href="/services/clinics/">קליניקות</a> · <a href="/services/lawyers/">עורכי דין</a> · <a href="/services/contractors/">קבלנים</a></div>
+</div>
+<p>&copy; 2026 Mizra. hello@getmizra.com</p>
+</footer>
 
-        <!-- ROI Calculator -->
-        <section class="roi-calculator">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">ROI Calculator</div>
-                    <h2 class="section-title">See How Much Your Website Will Pay Off</h2>
-                </div>
-                <div class="calculator-container">
-                    <div class="calc-input-group">
-                        <label>New customers per month (estimate)</label>
-                        <input type="number" id="newCustomersEn" value="20" min="1">
-                    </div>
-                    <div class="calc-input-group">
-                        <label>Average spend per customer (₪)</label>
-                        <input type="number" id="avgSpendEn" value="150" min="1">
-                    </div>
-                    <div class="calc-result">
-                        <div class="calc-result-number" id="roiResultEn">₪3,000</div>
-                        <div>Additional Monthly Revenue</div>
-                        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.95;">Investment pays back in <strong id="paybackMonthsEn">1</strong> month</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<a href="https://wa.me/972542271670" class="wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
-        <!-- Case Studies -->
-        <section class="case-studies" id="cases">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label" style="color: var(--primary);">Case Studies</div>
-                    <h2 class="section-title" style="color: white;">Results Speak For Themselves</h2>
-                    <p class="section-description" style="color: rgba(255,255,255,0.8);">Real clients, real results</p>
-                </div>
-                <div class="cases-grid">
-                    <div class="case-card">
-                        <div class="case-logo">Taboon</div>
-                        <div class="case-metric">+65%</div>
-                        <div class="case-label">Increase in bookings</div>
-                        <p class="case-quote">"Within two weeks we got 2x more bookings. The website is simply amazing."</p>
-                        <div class="case-author">Yossi Cohen, Owner</div>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo">Café Nora</div>
-                        <div class="case-metric">4.8★</div>
-                        <div class="case-label">New Google rating</div>
-                        <p class="case-quote">"From 2.5 stars to 4.8. Customers love the website."</p>
-                        <div class="case-author">Miri Levi, Owner</div>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo">Meat House</div>
-                        <div class="case-metric">₪42K</div>
-                        <div class="case-label">Additional monthly revenue</div>
-                        <p class="case-quote">"The investment paid for itself 8x in the first month."</p>
-                        <div class="case-author">Danny Abraham, Partner</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ===== SALES MODAL: 4 STEPS ===== -->
+<div class="ov" id="modal">
+<div class="mo">
+<button class="mx" onclick="closeM()">&times;</button>
+<div class="prb"><div class="prd ac" id="d1"></div><div class="prd" id="d2"></div><div class="prd" id="d3"></div><div class="prd" id="d4"></div></div>
 
-        <!-- Process -->
-        <section class="process" id="process">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-label">The Process</div>
-                    <h2 class="section-title">4 Simple Steps To Your New Website</h2>
-                </div>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Initial Call</div>
-                        <div class="step-time">15 minutes</div>
-                        <p>We understand your needs and style</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Design & Development</div>
-                        <div class="step-time">24-48 hours</div>
-                        <p>We create your perfect website</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">Review & Approval</div>
-                        <div class="step-time">Few hours</div>
-                        <p>You review and we make changes</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">Launch</div>
-                        <div class="step-time">Immediate</div>
-                        <p>Your website goes live!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- S1: Package + Addons -->
+<div class="ms" id="s1">
+<h2>1. Choose your package</h2><p class="msb">Select a plan and optional add-ons.</p>
+<div class="pkgs">
+<div class="pkg" onclick="sp(this,'Starter','2,990')"><div class="rd"></div><div class="pi"><h4>Starter</h4><p>Single page / 48h</p></div><div class="pp">2,990 NIS</div></div>
+<div class="pkg sel" onclick="sp(this,'Pro','4,990')"><div class="rd"></div><div class="pi"><h4>Pro</h4><p>Multi-page + SEO + booking</p></div><div class="pp">4,990 NIS</div></div>
+<div class="pkg" onclick="sp(this,'Premium','7,990')"><div class="rd"></div><div class="pi"><h4>Premium</h4><p>Full service + payment gateway</p></div><div class="pp">7,990 NIS</div></div>
+</div>
+<p style="font-weight:600;color:var(--navy);font-size:.85rem;margin-bottom:8px">Optional add-ons:</p>
+<div class="addon-checks">
+<label class="addon-chk"><input type="checkbox" value="photo">Pro Photography (30 photos)<span class="ap">+1,500</span></label>
+<label class="addon-chk"><input type="checkbox" value="video">Video Package (3 videos)<span class="ap">+5,500</span></label>
+<label class="addon-chk"><input type="checkbox" value="gmb">Google Business Optimization<span class="ap">+790</span></label>
+<label class="addon-chk"><input type="checkbox" value="qr">Branded QR Codes (x3)<span class="ap">+390</span></label>
+</div>
+<button class="bsub" onclick="gs(2)">Continue</button>
+</div>
 
-        <!-- Final CTA -->
-        <section class="final-cta" id="contact">
-            <div class="container">
-                <h2>Ready To Get More Customers?</h2>
-                <p>Talk to us now and get a custom quote</p>
-                <a href="https://wa.me/9720559927367?text=Hi, I want to hear about the website for my restaurant" class="btn-primary">Send WhatsApp Message</a>
+<!-- S2: Onboarding Form -->
+<div class="ms" id="s2" style="display:none">
+<h2>2. Business Onboarding</h2><p class="msb">The more you fill in, the faster we build. Send missing items later.</p>
+<div class="fl">
+<div class="fsep">General Information</div>
+<div class="fr"><div class="f"><label>Business Name</label><input id="ob_name" required></div><div class="f"><label>Type</label><select id="ob_type"><option value="">Select...</option><option>Restaurant</option><option>Café</option><option>Beauty Salon</option><option>Barbershop</option><option>Clinic</option><option>Law Office</option><option>Contractor</option><option>Other</option></select></div></div>
+<div class="f"><label>Full Address</label><input id="ob_address" placeholder="123 Dizengoff St, Tel Aviv"></div>
+<div class="fr"><div class="f"><label>Phone</label><input id="ob_phone" type="tel"></div><div class="f"><label>Email</label><input id="ob_email" type="email"></div></div>
+<div class="fr"><div class="f"><label>Opening Hours</label><input id="ob_hours" placeholder="Sun-Thu 9-18..."></div><div class="f"><label>Closed Days</label><input id="ob_closed" placeholder="Saturday, holidays..."></div></div>
+<div class="f"><label>Google Maps Link</label><input id="ob_maps" placeholder="https://maps.google.com/..."></div>
+<div class="fr"><div class="f"><label>Instagram</label><input id="ob_ig" placeholder="@yourbusiness"></div><div class="f"><label>Facebook</label><input id="ob_fb" placeholder="facebook.com/..."></div></div>
+<div class="f"><label>TikTok (optional)</label><input id="ob_tiktok" placeholder="@..."></div>
+<div class="fr"><div class="f"><label>Booking / Reservation?</label><select id="ob_resa"><option value="">Select...</option><option>No</option><option>Phone only</option><option>Online system</option><option>Other</option></select></div><div class="f"><label>Website Language(s)</label><select id="ob_lang"><option>Hebrew</option><option>Hebrew + English</option><option>Hebrew + French</option><option>Hebrew + English + French</option><option>English only</option><option>French only</option></select></div></div>
 
-                <!-- Contact Form -->
-                <form class="contact-form" action="https://formspree.io/f/xpqjadde" method="POST">
-                    <h3 style="text-align: center; margin-bottom: 2rem; font-family: 'Heebo', sans-serif;">Or Fill In Your Details</h3>
-                    <div class="form-group">
-                        <label for="name-en">Full Name</label>
-                        <input type="text" id="name-en" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email-en">Email</label>
-                        <input type="email" id="email-en" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone-en">Phone</label>
-                        <input type="tel" id="phone-en" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message-en">Message</label>
-                        <textarea id="message-en" name="message" placeholder="Tell us about your restaurant..."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Send</button>
-                </form>
-            </div>
-        </section>
-    </main>
+<div class="fsep">Branding + Identity</div>
+<div class="fr"><div class="f"><label>Main Colors</label><input id="ob_colors" placeholder="e.g. black, gold, terracotta..."></div><div class="f"><label>Ambiance</label><select id="ob_ambiance"><option value="">Select...</option><option>Chill / relaxed</option><option>Premium / upscale</option><option>Family-friendly</option><option>Festive / party</option><option>Street / casual</option><option>Modern / minimalist</option></select></div></div>
+<div class="f"><label>Communication Tone</label><select id="ob_tone"><option value="">Select...</option><option>Luxurious / sophisticated</option><option>Fun / playful</option><option>Simple / clean</option><option>Modern / trendy</option><option>Traditional / warm</option></select></div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-brand">MIZRA</div>
+<div class="fsep">Content</div>
+<div class="f"><label>Short Description (2-3 sentences)</label><textarea id="ob_desc" placeholder="Describe your business in a few sentences..."></textarea></div>
+<div class="f"><label>Special Features</label><input id="ob_dietary" placeholder="Vegan, Kosher, Accessible, etc."></div>
+<div class="f"><label>Inspiration websites (URLs you like)</label><textarea id="ob_inspo" placeholder="https://example.com&#10;https://other-site.com"></textarea></div>
 
-            <!-- Footer Navigation for SEO -->
-            <nav aria-label="Footer Navigation" style="margin: 2rem 0;">
-                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 0.9rem;">
-                    <a href="#pricing" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#0EA5E9'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">מחירים</a>
-                    <a href="#cases" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#0EA5E9'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">מקרי בוחן</a>
-                    <a href="#process" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#0EA5E9'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">תהליך</a>
-                    <a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#0EA5E9'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">יצירת קשר</a>
-                </div>
-            </nav>
+<div class="fsep">Legal</div>
+<div class="fr"><div class="f"><label>Legal Business Name</label><input id="ob_legal_name"></div><div class="f"><label>Business Number</label><input id="ob_biz_num" placeholder="For invoicing"></div></div>
+<div class="f"><label>Special Conditions to Display</label><input id="ob_conditions" placeholder="Licensing, certifications, VAT..."></div>
 
-            <!-- Business Info for SEO -->
-            <div style="margin: 1.5rem 0; opacity: 0.8; font-size: 0.9rem;">
-                <p style="margin: 0.5rem 0;">בניית אתרים מקצועיים למסעדות, בתי קפה ועסקי אוכל</p>
-                <p style="margin: 0.5rem 0;">📧 Email: <a href="mailto:contact@getmizra.com" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600;">contact@getmizra.com</a></p>
-                <p style="margin: 0.5rem 0;">📱 טלפון: <a href="tel:+9720559927367" style="color: rgba(255,255,255,0.8); text-decoration: none;">055-992-7367</a></p>
-                <p style="margin: 0.5rem 0;">💬 WhatsApp: <a href="https://wa.me/9720559927367" style="color: rgba(255,255,255,0.8); text-decoration: none;">שלח הודעה</a></p>
-            </div>
+<div class="fsep">Validation</div>
+<div class="fr"><div class="f"><label>Who Approves the Site?</label><input id="ob_approver" placeholder="Name + phone/email"></div><div class="f"><label>Feedback Deadline</label><select id="ob_deadline"><option>Within 48 hours</option><option>Within 72 hours</option><option>Within 1 week</option></select></div></div>
+</div>
+<div style="display:flex;gap:10px;margin-top:16px"><button class="bp btn-o" onclick="gs(1)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="gs(3)">Continue to Payment</button></div>
+</div>
 
-            <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 2rem;">© 2025 MIZRA. All Rights Reserved. | בניית אתרים למסעדות בישראל</p>
-        </div>
-    </footer>
+<!-- S3: Payment + Files -->
+<div class="ms" id="s3" style="display:none">
+<h2>3. Payment + Documents</h2><p class="msb">50% upfront to start. 50% on delivery and approval.</p>
+<div style="background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:20px;text-align:center">
+<p style="font-size:.78rem;color:var(--txl);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:4px" id="ppl">Pro Package</p>
+<p style="font-family:var(--sf);font-size:2.2rem;color:var(--navy);font-weight:600" id="ppr">4,990 NIS</p>
+<p style="font-size:.8rem;color:var(--or);font-weight:600;margin-top:4px">50% now = <span id="pp50">2,495</span> NIS</p>
+</div>
 
-    <script>
-        // Language switcher
-        const langBtns = document.querySelectorAll('.lang-btns button');
-        const langContents = document.querySelectorAll('.lang-content');
-        const menuLinks = document.querySelectorAll('.header-menu a');
+<div class="fl">
+<div class="fsep">Payment Details</div>
+<div class="f"><label>Payer Name</label><input id="pay_name" required></div>
+<div class="f"><label>Billing Address</label><input id="pay_address"></div>
+<div class="f"><label>Payment Method</label><select id="payMethod"><option value="">Select...</option><option>Bank Transfer (Virement)</option><option>Bit</option><option>PayBox</option><option>Cash</option></select></div>
+</div>
 
-        function switchLang(lang) {
-            langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-            langContents.forEach(c => c.classList.toggle('active', c.dataset.lang === lang));
-            menuLinks.forEach(link => {
-                const text = link.getAttribute(`data-${lang}`);
-                if (text) link.textContent = text;
-            });
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
-        }
+<p style="font-size:.8rem;color:var(--tx);margin:16px 0 8px">Accepted:</p>
+<div class="pms"><div class="pm">Virement</div><div class="pm">Bit</div><div class="pm">PayBox</div><div class="pm">Cash</div></div>
 
-        langBtns.forEach(btn => btn.addEventListener('click', () => switchLang(btn.dataset.lang)));
-        switchLang('he');
+<a href="https://wetransfer.com" target="_blank" class="wt-link"><div class="wt-icon">WT</div><div class="wt-txt"><strong>Upload your documents via WeTransfer</strong><span>Logo, photos, menu PDF -- send to hello@getmizra.com</span></div></a>
 
-        // ROI Calculator - Hebrew
-        function calculateROI() {
-            const customers = parseInt(document.getElementById('newCustomers')?.value) || 0;
-            const spend = parseInt(document.getElementById('avgSpend')?.value) || 0;
-            const monthlyRevenue = customers * spend;
-            const investment = 4990;
-            const payback = Math.ceil(investment / monthlyRevenue) || 0;
-            
-            const resultEl = document.getElementById('roiResult');
-            const monthsEl = document.getElementById('paybackMonths');
-            if (resultEl) resultEl.textContent = '₪' + monthlyRevenue.toLocaleString();
-            if (monthsEl) monthsEl.textContent = payback;
-        }
+<div class="chk-accept"><input type="checkbox" id="acceptTerms"><span>I accept the terms and conditions. Payment: 50% before production, 50% upon delivery. Revisions included per package.</span></div>
 
-        // ROI Calculator - English
-        function calculateROIEn() {
-            const customers = parseInt(document.getElementById('newCustomersEn')?.value) || 0;
-            const spend = parseInt(document.getElementById('avgSpendEn')?.value) || 0;
-            const monthlyRevenue = customers * spend;
-            const investment = 4990;
-            const payback = Math.ceil(investment / monthlyRevenue) || 0;
+<div style="display:flex;gap:10px;margin-top:8px"><button class="bp btn-o" onclick="gs(2)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="gs(4)" id="confirmBtn">Confirm + Start Project</button></div>
+</div>
 
-            const resultEl = document.getElementById('roiResultEn');
-            const monthsEl = document.getElementById('paybackMonthsEn');
-            if (resultEl) resultEl.textContent = '₪' + monthlyRevenue.toLocaleString();
-            if (monthsEl) monthsEl.textContent = payback;
-        }
+<!-- S4: Confirmation -->
+<div class="ms" id="s4" style="display:none">
+<div class="cfb"><h3>You're all set.</h3><p>We received your brief and payment details. Production starts now.</p></div>
+<p style="font-weight:600;color:var(--navy);margin-bottom:8px;font-size:.88rem">What happens next:</p>
+<div class="cl">
+<div class="cli">We review your brief and start designing within 2 hours</div>
+<div class="cli">First draft within 48 hours via email</div>
+<div class="cli">You review and request changes (included)</div>
+<div class="cli">Pay remaining 50% upon approval</div>
+<div class="cli">Site goes live</div>
+</div>
+<a href="https://wetransfer.com" target="_blank" class="wt-link"><div class="wt-icon">WT</div><div class="wt-txt"><strong>Still have files to send?</strong><span>Upload via WeTransfer to hello@getmizra.com</span></div></a>
+<p style="font-size:.82rem;margin-bottom:20px">Questions? <a href="https://wa.me/972542271670" target="_blank" style="color:var(--or);font-weight:600">WhatsApp us</a> or email <strong>hello@getmizra.com</strong></p>
+<button class="bsub" onclick="closeM()">Done</button>
+</div>
 
-        document.getElementById('newCustomers')?.addEventListener('input', calculateROI);
-        document.getElementById('avgSpend')?.addEventListener('input', calculateROI);
-        document.getElementById('newCustomersEn')?.addEventListener('input', calculateROIEn);
-        document.getElementById('avgSpendEn')?.addEventListener('input', calculateROIEn);
-        
-        calculateROI();
-        calculateROIEn();
+</div></div>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    // Close mobile menu if open
-                    document.querySelectorAll('.nav-center').forEach(menu => {
-                        menu.classList.remove('active');
-                    });
-                }
-            });
-        });
+<script>
+// =============================================
+// SUPABASE CONFIG
+// =============================================
+const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
 
-        // Mobile menu toggle
-        document.querySelectorAll('.mobile-menu-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const navCenter = this.nextElementSibling;
-                navCenter.classList.toggle('active');
-            });
-        });
-    </script>
+const sb = {
+  async insert(table, data) {
+    try {
+      const res = await fetch(SUPABASE_URL + '/rest/v1/' + table, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) { console.error('Supabase error:', await res.text()); return null; }
+      const rows = await res.json();
+      return rows[0];
+    } catch (e) { console.error('Network error:', e); return null; }
+  }
+};
+
+// Language
+function setL(l){
+  document.body.classList.toggle('lh', l==='he');
+  document.documentElement.dir = l==='he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = l==='he' ? 'he' : 'en';
+  document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
+  if(event && event.target) event.target.classList.add('on');
+  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
+}
+
+// Restore language
+try {
+  const saved = localStorage.getItem('mizra_lang');
+  if (saved === 'en') {
+    document.body.classList.remove('lh');
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = 'en';
+    setTimeout(() => {
+      document.querySelectorAll('.ls button').forEach(b => {
+        b.classList.toggle('on', b.textContent.trim() === 'EN');
+      });
+    }, 50);
+  }
+} catch(e) {}
+
+// Scroll reveal
+const ob = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); });
+}, {threshold: .1, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => ob.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+
+// Mobile menu
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.querySelector('.nm').classList.toggle('open');
+});
+
+// =============================================
+// AUDIT FORM -> Supabase
+// =============================================
+async function sendA(e, lang) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.bsub');
+  const sfx = lang === 'he' ? '_he' : '_en';
+
+  const data = {
+    contact_name: document.getElementById('a_name' + sfx).value,
+    restaurant_name: document.getElementById('a_resto' + sfx).value,
+    email: document.getElementById('a_email' + sfx).value,
+    phone: document.getElementById('a_phone' + sfx).value,
+    business_type: document.getElementById('a_type' + sfx).value,
+    website_status: document.getElementById('a_status' + sfx).value,
+    lang: lang
+  };
+
+  btn.textContent = lang === 'he' ? '...שולח' : 'Sending...';
+  btn.disabled = true;
+
+  const result = await sb.insert('audit_requests', data);
+
+  if (result) {
+    btn.textContent = lang === 'he' ? 'נשלח! נחזור תוך 24 שעות' : 'Sent! We\'ll be in touch within 24h';
+    btn.style.background = 'var(--grn)'; btn.style.color = '#fff';
+    e.target.reset();
+  } else {
+    btn.textContent = lang === 'he' ? 'שגיאה - נסו שוב' : 'Error - try again';
+    btn.style.background = '#c44'; btn.style.color = '#fff';
+  }
+
+  setTimeout(() => {
+    btn.textContent = lang === 'he' ? 'שלחו בדיקה חינמית' : 'Send Me My Free Audit';
+    btn.style.background = ''; btn.style.color = ''; btn.disabled = false;
+  }, 4000);
+  return false;
+}
+
+// =============================================
+// SALES MODAL
+// =============================================
+let sPlan = 'Pro', sPrice = '4,990';
+
+function openS() {
+  gs(1);
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeM() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function sp(el, plan, price) {
+  document.querySelectorAll('.pkg').forEach(p => p.classList.remove('sel'));
+  el.classList.add('sel');
+  sPlan = plan; sPrice = price;
+}
+
+function gs(n) {
+  document.querySelectorAll('.ms').forEach(s => s.style.display = 'none');
+  document.getElementById('s' + n).style.display = '';
+  for (let i = 1; i <= 4; i++) document.getElementById('d' + i).classList.toggle('ac', i <= n);
+
+  if (n === 3) {
+    document.getElementById('ppl').textContent = sPlan + ' Package';
+    document.getElementById('ppr').textContent = sPrice + ' NIS';
+    var half = Math.round(parseInt(sPrice.replace(',', '')) / 2).toLocaleString();
+    document.getElementById('pp50').textContent = half;
+  }
+
+  if (n === 4) submitOrder();
+
+  document.querySelector('.mo').scrollTop = 0;
+}
+
+// =============================================
+// SUBMIT ORDER -> Supabase
+// =============================================
+async function submitOrder() {
+  var addons = [];
+  document.querySelectorAll('.addon-chk input:checked').forEach(function(cb) { addons.push(cb.value); });
+  var addonPrices = { photo: 1500, video: 5500, gmb: 790, qr: 390 };
+  var addonsTotal = addons.reduce(function(sum, a) { return sum + (addonPrices[a] || 0); }, 0);
+  var pkgPrice = parseInt(sPrice.replace(',', ''));
+  var totalPrice = pkgPrice + addonsTotal;
+
+  var order = await sb.insert('orders', {
+    package: sPlan,
+    package_price: pkgPrice,
+    addons: addons,
+    addons_total: addonsTotal,
+    total_price: totalPrice,
+    payment_method: document.getElementById('payMethod').value,
+    payer_name: document.getElementById('pay_name').value,
+    billing_address: document.getElementById('pay_address').value,
+    deposit_amount: Math.round(totalPrice / 2),
+    terms_accepted: document.getElementById('acceptTerms').checked,
+    status: 'new',
+    payment_status: 'pending'
+  });
+
+  if (!order) {
+    alert('Error submitting order. Please contact us via WhatsApp.');
+    return;
+  }
+
+  await sb.insert('onboarding', {
+    order_id: order.id,
+    restaurant_name: document.getElementById('ob_name').value,
+    restaurant_type: document.getElementById('ob_type').value,
+    full_address: document.getElementById('ob_address').value,
+    phone: document.getElementById('ob_phone').value,
+    email: document.getElementById('ob_email').value,
+    opening_hours: document.getElementById('ob_hours').value,
+    closed_days: document.getElementById('ob_closed').value,
+    google_maps_link: document.getElementById('ob_maps').value,
+    instagram: document.getElementById('ob_ig').value,
+    facebook: document.getElementById('ob_fb').value,
+    tiktok: document.getElementById('ob_tiktok').value,
+    reservation_system: document.getElementById('ob_resa').value,
+    website_languages: document.getElementById('ob_lang').value,
+    main_colors: document.getElementById('ob_colors').value,
+    ambiance: document.getElementById('ob_ambiance').value,
+    communication_tone: document.getElementById('ob_tone').value,
+    short_description: document.getElementById('ob_desc').value,
+    dietary_options: document.getElementById('ob_dietary').value,
+    inspiration_urls: document.getElementById('ob_inspo').value,
+    legal_business_name: document.getElementById('ob_legal_name').value,
+    business_number: document.getElementById('ob_biz_num').value,
+    special_conditions: document.getElementById('ob_conditions').value,
+    approver_contact: document.getElementById('ob_approver').value,
+    feedback_deadline: document.getElementById('ob_deadline').value
+  });
+
+  console.log('Order submitted:', order.id);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+  });
+});
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeM();
+});
+</script>
 </body>
 </html>

@@ -6,724 +6,947 @@
 <title>Dr. Cohen Dental Clinic | Tel Aviv</title>
 <meta name="description" content="General & cosmetic dentistry in Tel Aviv. Dr. Cohen Dental Clinic - modern equipment, gentle approach, 15+ years experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* --- VARIABLES --- */
-:root{
-  --bg:#f6f3ee;--bg2:#edebe5;--bg3:#e3e0d8;
-  --navy:#0c1829;--navy2:#142236;--navy3:#1b2d45;
-  --white:#fff;--or:#d4643a;--or2:#e07a54;--ord:rgba(212,100,58,.08);
-  --grn:#3d8b5e;--grnd:rgba(61,139,94,.08);
-  --tx:#5a5750;--txl:#8a857c;--txd:#a3aab8;--txd2:#6b7485;
-  --bd:rgba(0,0,0,.07);--bdd:rgba(255,255,255,.07);--bddh:rgba(255,255,255,.12);
-  --sf:'Playfair Display',Georgia,serif;--sn:'Outfit',system-ui,sans-serif;
-}
-
-/* --- RESET --- */
+/* === RESET === */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--or);color:#fff}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#FFFFFF;color:#1A365D;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#2B6CB0;color:#fff}
 img{display:block;max-width:100%}
-a{text-decoration:none}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
 
-/* --- LANGUAGE --- */
+/* === LANGUAGE TOGGLE === */
 .he{display:none}
 body.lh .en{display:none}
 body.lh .he{display:block}
 body.lh{direction:rtl}
+body:not(.lh){direction:ltr}
 
-/* --- MIZRA BANNER --- */
-.mizra-banner{background:var(--navy);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--txd);position:relative;z-index:110}
-.mizra-banner a{color:var(--or);font-weight:600;text-decoration:underline;text-underline-offset:2px;transition:color .3s}
-.mizra-banner a:hover{color:var(--or2)}
+/* Inline elements need inline display */
+span.en,span.he,a.en,a.he{display:inline}
+body.lh span.en,body.lh a.en{display:none}
+body.lh span.he,body.lh a.he{display:inline}
+body:not(.lh) span.he,body:not(.lh) a.he{display:none}
 
-/* --- NAVIGATION --- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(246,243,238,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:top .3s}
-.nav-logo{font-family:var(--sf);font-size:1.3rem;color:var(--navy);text-decoration:none;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:6px}
-.nav-logo .logo-icon{width:28px;height:28px;background:var(--or);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.nav-logo .logo-icon svg{width:16px;height:16px;fill:var(--white)}
-.nm{display:flex;gap:28px}
-.nm>.en,.nm>.he{display:flex;gap:28px;align-items:center}
-.nm>.he{display:none}
-body.lh .nm>.en{display:none}
-body.lh .nm>.he{display:flex;gap:28px;align-items:center}
-.nm a{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .3s}
-.nm a:hover{color:var(--or)}
-.nr{display:flex;align-items:center;gap:14px}
-.ls{display:flex;gap:2px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px}
-.ls button{padding:4px 10px;border:none;background:0;color:var(--txl);font-size:.72rem;font-weight:700;cursor:pointer;border-radius:4px;transition:.3s;font-family:var(--sn)}
-.ls button.on{background:var(--navy);color:#fff}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:8px;font-size:.82rem;font-weight:600;background:var(--or);color:#fff;border:none;font-family:var(--sn);transition:.3s;cursor:pointer;text-decoration:none}
-.nav-cta:hover{background:var(--or2);transform:translateY(-1px)}
+/* Nav menu inline fix */
+.nav-links .en,.nav-links .he{display:flex;gap:32px;align-items:center}
+.nav-links .he{display:none}
+body.lh .nav-links .en{display:none}
+body.lh .nav-links .he{display:flex}
 
-/* Mobile burger */
-.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:110}
-.menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0;transition:.3s;border-radius:2px}
-.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-.menu-toggle.open span:nth-child(2){opacity:0}
-.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+/* === MIZRA BANNER === */
+.mizra-banner{background:#FFFFFF;padding:10px 24px;text-align:center;font-size:.8rem;color:#2B6CB0;border-bottom:1px solid #E8F4FD;position:relative;z-index:200}
+.mizra-banner a{color:#2B6CB0;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.mizra-banner a:hover{color:#1A365D}
 
-/* --- BUTTONS --- */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;font-size:.92rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--sn);transition:.3s}
-.btn-p{background:var(--or);color:#fff}
-.btn-p:hover{background:var(--or2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,100,58,.2)}
-.btn-o{background:0;color:var(--navy);border:1.5px solid rgba(12,24,41,.15)}
-.btn-o:hover{border-color:var(--or);color:var(--or)}
+/* === NAVIGATION === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(43,108,176,.08);transition:top .3s}
+.nav.scrolled{box-shadow:0 1px 12px rgba(26,54,93,.06)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:#1A365D;letter-spacing:-.3px}
+.nav-logo svg{flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-links{display:flex;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:#1A365D;opacity:.7;transition:opacity .2s;padding:4px 0}
+.nav-links a:hover{opacity:1}
+.lang-toggle{font-size:.82rem;font-weight:600;color:#2B6CB0;cursor:pointer;border:1px solid rgba(43,108,176,.2);padding:5px 14px;border-radius:6px;background:transparent;transition:all .2s;font-family:inherit}
+.lang-toggle:hover{background:#E8F4FD}
+.nav-cta{background:#ED8936;color:#fff;font-size:.88rem;font-weight:700;padding:10px 24px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;font-family:inherit;white-space:nowrap}
+.nav-cta:hover{background:#dd7826;transform:translateY(-1px);box-shadow:0 4px 12px rgba(237,137,54,.3)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-burger span{display:block;width:22px;height:2px;background:#1A365D;border-radius:2px;transition:all .3s}
 
-/* --- HERO --- */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 48px 80px;position:relative}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(246,243,238,0) 60%,var(--bg) 100%);pointer-events:none;z-index:1}
-.hero>*{position:relative;z-index:2}
-.htag{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:var(--grnd);border:1px solid rgba(61,139,94,.15);border-radius:100px;color:var(--grn);font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px}
-.htag::before{content:'';width:5px;height:5px;background:var(--grn);border-radius:50%;animation:bl 2s infinite}
-@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--sf);font-size:clamp(2.6rem,5vw,4.2rem);color:var(--navy);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px;max-width:700px}
-.hero h1 i{color:var(--or);font-style:italic}
-.hero-sub{font-size:1.05rem;max-width:500px;line-height:1.7;margin-bottom:36px;color:var(--tx)}
-.hero-btns{display:flex;gap:12px;margin-bottom:64px;justify-content:center;flex-wrap:wrap}
-.hero-stats{display:flex;gap:48px;padding-top:44px;border-top:1px solid var(--bd)}
-.hero-stat h3{font-family:var(--sf);font-size:2.2rem;color:var(--navy);line-height:1;font-weight:600}
-.hero-stat p{font-size:.7rem;color:var(--txl);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-top:4px}
+/* === HERO === */
+.hero{padding:140px 48px 0;text-align:center;max-width:820px;margin:0 auto}
+.hero-label{display:inline-block;font-size:.78rem;font-weight:600;color:#2B6CB0;background:#E8F4FD;padding:6px 18px;border-radius:20px;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.hero h1{font-size:3.2rem;font-weight:800;color:#1A365D;line-height:1.2;letter-spacing:-.5px;margin-bottom:20px}
+.hero p{font-size:1.15rem;color:#4A5568;max-width:560px;margin:0 auto 36px;font-weight:400;line-height:1.8}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#ED8936;color:#fff;font-size:.95rem;font-weight:700;padding:14px 36px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#dd7826;transform:translateY(-1px);box-shadow:0 6px 20px rgba(237,137,54,.25)}
+.btn-secondary{background:transparent;color:#2B6CB0;font-size:.95rem;font-weight:600;padding:14px 36px;border-radius:10px;border:1px solid rgba(43,108,176,.25);cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{background:#E8F4FD;border-color:#2B6CB0}
 
-/* --- SECTIONS --- */
-.cx{max-width:1140px;margin:0 auto;padding:0 48px}
-.sec{padding:100px 0}
-.sl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--or);margin-bottom:12px}
-.st{font-family:var(--sf);font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--navy);line-height:1.14;letter-spacing:-.5px;margin-bottom:12px}
-.st i{color:var(--or);font-style:italic}
-.sd{font-size:.98rem;max-width:520px;line-height:1.7;margin-bottom:48px}
+/* Stats band */
+.stats-band{background:#E8F4FD;margin-top:64px;padding:36px 48px;display:flex;justify-content:center;gap:0}
+.stat-item{text-align:center;flex:1;max-width:220px;padding:0 24px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;left:0;top:15%;height:70%;width:1px;background:rgba(43,108,176,.12)}
+[dir="rtl"] .stat-item:not(:last-child)::after{left:auto;right:0}
+.stat-num{font-size:2rem;font-weight:800;color:#1A365D;line-height:1.2}
+.stat-label{font-size:.82rem;color:#4A5568;font-weight:500;margin-top:2px}
 
-/* --- SERVICES GRID --- */
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.srv-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:32px 26px;transition:.3s}
-.srv-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06);border-color:rgba(212,100,58,.15)}
-.srv-icon{width:48px;height:48px;border-radius:10px;background:var(--grnd);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.srv-icon svg{width:22px;height:22px;fill:var(--grn)}
-.srv-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:8px;font-weight:600}
-.srv-card p{font-size:.86rem;color:var(--txl);line-height:1.6}
+/* === SECTIONS === */
+.section{padding:80px 48px}
+.section-header{text-align:center;max-width:600px;margin:0 auto 48px}
+.section-header h2{font-size:2rem;font-weight:800;color:#1A365D;letter-spacing:-.3px;margin-bottom:12px}
+.section-header p{font-size:1rem;color:#718096;font-weight:400}
 
-/* --- TEAM --- */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.team-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:36px 28px;text-align:center;transition:.3s}
-.team-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
-.team-avatar{width:90px;height:90px;border-radius:50%;background:var(--bg2);border:3px solid var(--bd);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.team-avatar svg{width:40px;height:40px;fill:var(--txl)}
-.team-card h3{font-family:var(--sf);font-size:1.1rem;color:var(--navy);margin-bottom:4px;font-weight:600}
-.team-card .team-role{font-size:.78rem;color:var(--or);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.team-card .team-cred{font-size:.82rem;color:var(--txl);line-height:1.5}
+/* === SERVICES === */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+.service-card{background:#fff;border:1px solid #EDF2F7;border-radius:12px;padding:32px 28px;transition:all .25s;cursor:default}
+.service-card:hover{border-color:#2B6CB0;box-shadow:0 4px 20px rgba(43,108,176,.08)}
+.service-icon{width:48px;height:48px;margin-bottom:18px;color:#2B6CB0}
+.service-icon svg{width:48px;height:48px}
+.service-card h3{font-size:1.05rem;font-weight:700;color:#1A365D;margin-bottom:8px}
+.service-card p{font-size:.88rem;color:#718096;line-height:1.65}
 
-/* --- WHY US --- */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.why-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:28px 22px;text-align:center;transition:.3s}
-.why-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
-.why-icon{width:52px;height:52px;border-radius:50%;background:var(--ord);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-.why-icon svg{width:22px;height:22px;fill:var(--or)}
-.why-card h3{font-family:var(--sf);font-size:1.02rem;color:var(--navy);margin-bottom:6px;font-weight:600}
-.why-card p{font-size:.82rem;color:var(--txl);line-height:1.55}
+/* === WHY US === */
+.why-section{background:#E8F4FD}
+.why-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.why-item{background:#fff;border-radius:12px;padding:24px 28px;display:flex;align-items:center;gap:20px;border:1px solid transparent;transition:all .2s}
+.why-item:hover{border-color:rgba(43,108,176,.15)}
+.why-check{width:36px;height:36px;border-radius:8px;background:rgba(72,187,120,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-check svg{width:20px;height:20px;color:#48BB78}
+.why-text h4{font-size:.98rem;font-weight:700;color:#1A365D;margin-bottom:2px}
+.why-text p{font-size:.85rem;color:#718096}
 
-/* --- REVIEWS --- */
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rev-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:30px 26px;transition:.3s}
-.rev-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.06)}
-.rev-stars{display:flex;gap:3px;margin-bottom:14px}
-.rev-stars svg{width:16px;height:16px;fill:var(--or)}
-.rev-card blockquote{font-size:.9rem;color:var(--tx);line-height:1.7;margin-bottom:18px;font-style:italic}
-.rev-author{display:flex;align-items:center;gap:12px}
-.rev-dot{width:36px;height:36px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--sf);font-size:.82rem;color:var(--navy);font-weight:600}
-.rev-name{font-size:.82rem;font-weight:600;color:var(--navy)}
-.rev-date{font-size:.72rem;color:var(--txl)}
+/* === TEAM === */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.team-card{background:#fff;border:1px solid #EDF2F7;border-radius:12px;overflow:hidden;transition:all .25s}
+.team-card:hover{box-shadow:0 4px 20px rgba(43,108,176,.08);border-color:rgba(43,108,176,.15)}
+.team-photo{width:100%;aspect-ratio:1/1;background:#F7FAFC;display:flex;align-items:center;justify-content:center;color:#CBD5E0}
+.team-photo svg{width:64px;height:64px;opacity:.4}
+.team-info{padding:20px 24px;border-top:3px solid #2B6CB0}
+.team-info h3{font-size:1.05rem;font-weight:700;color:#1A365D;margin-bottom:2px}
+.team-info .credentials{font-size:.82rem;color:#2B6CB0;font-weight:600;margin-bottom:4px}
+.team-info .specialty{font-size:.85rem;color:#718096}
 
-/* --- INSURANCE --- */
-.ins-section{background:var(--white)}
-.ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.ins-list{display:flex;flex-direction:column;gap:12px}
-.ins-item{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--tx)}
-.ins-check{width:22px;height:22px;border-radius:6px;background:var(--grnd);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--grn);font-size:.65rem;font-weight:800}
-.payment-methods{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
-.pay-badge{padding:8px 16px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;font-size:.8rem;font-weight:500;color:var(--navy)}
+/* === REVIEWS === */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+.review-card{background:#fff;border:1px solid #EDF2F7;border-radius:12px;padding:28px;transition:all .25s}
+.review-card:hover{border-color:rgba(43,108,176,.15)}
+.review-stars{display:flex;gap:3px;margin-bottom:14px}
+.review-stars svg{width:18px;height:18px;color:#ED8936;fill:#ED8936}
+.review-text{font-size:.92rem;color:#4A5568;line-height:1.75;margin-bottom:16px}
+.review-author{font-size:.85rem;font-weight:700;color:#1A365D}
 
-/* --- CTA BAND --- */
-.cta-band{background:var(--navy);padding:80px 0;text-align:center}
-.cta-band h2{font-family:var(--sf);font-size:clamp(1.8rem,3.2vw,2.5rem);color:var(--white);line-height:1.14;letter-spacing:-.5px;margin-bottom:10px}
-.cta-band h2 i{color:var(--or);font-style:italic}
-.cta-band p{color:var(--txd);font-size:.98rem;margin-bottom:28px}
-.cta-band .phone-link{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-family:var(--sf);font-size:1.5rem;font-weight:600;margin-bottom:28px;text-decoration:none;direction:ltr}
-.cta-band .phone-link:hover{color:var(--or)}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* === INSURANCE === */
+.insurance-section{background:#F7FAFC;border-top:1px solid #EDF2F7;border-bottom:1px solid #EDF2F7}
+.insurance-list{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;max-width:800px;margin:0 auto}
+.insurance-item{background:#fff;border:1px solid #EDF2F7;border-radius:10px;padding:16px 32px;font-size:.92rem;font-weight:600;color:#4A5568;transition:all .2s}
+.insurance-item:hover{border-color:#2B6CB0;color:#2B6CB0}
 
-/* --- HOURS & LOCATION --- */
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.hours-table{width:100%;border-collapse:collapse}
-.hours-table tr{border-bottom:1px solid var(--bd)}
-.hours-table td{padding:12px 0;font-size:.88rem}
-.hours-table td:first-child{font-weight:600;color:var(--navy)}
-.hours-table td:last-child{color:var(--txl);text-align:left}
-body.lh .hours-table td:last-child{text-align:right}
-.location-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:32px;height:100%}
-.location-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:16px;font-weight:600}
-.location-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.88rem;color:var(--tx)}
-.location-detail svg{width:18px;height:18px;fill:var(--or);flex-shrink:0;margin-top:2px}
-.map-placeholder{width:100%;height:180px;background:var(--bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:18px;border:1px solid var(--bd)}
-.map-placeholder span{font-size:.78rem;color:var(--txl);font-weight:500}
+/* === CONTACT === */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:960px;margin:0 auto}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:#1A365D;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border:1px solid #E2E8F0;border-radius:10px;font-size:.92rem;font-family:inherit;color:#1A365D;background:#fff;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#2B6CB0;box-shadow:0 0 0 3px rgba(43,108,176,.08)}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:16px center;padding-right:16px}
+[dir="rtl"] .form-group select{background-position:16px center}
+[dir="ltr"] .form-group select{background-position:calc(100% - 16px) center}
+.form-submit{background:#ED8936;color:#fff;font-size:.95rem;font-weight:700;padding:14px 36px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;font-family:inherit;margin-top:4px}
+.form-submit:hover{background:#dd7826;transform:translateY(-1px)}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.info-block h3{font-size:1rem;font-weight:700;color:#1A365D;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.info-block h3 svg{width:20px;height:20px;color:#2B6CB0}
+.info-row{display:flex;justify-content:space-between;font-size:.88rem;color:#4A5568;padding:6px 0;border-bottom:1px solid #F7FAFC}
+.info-row span:first-child{font-weight:600;color:#1A365D}
+.info-address{font-size:.92rem;color:#4A5568;line-height:1.7}
+.map-placeholder{width:100%;height:180px;background:#F7FAFC;border:1px solid #EDF2F7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#CBD5E0;font-size:.85rem;margin-top:16px}
 
-/* --- FOOTER --- */
-footer{background:var(--navy);padding:48px;text-align:center;color:var(--txd2);font-size:.78rem;line-height:1.7;border-top:1px solid var(--bdd)}
-footer p{margin-bottom:6px}
-footer a{color:var(--txd);text-decoration:none;transition:color .3s}
-footer a:hover{color:var(--or)}
-.footer-links{margin:12px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-.footer-links a{color:var(--txd2);font-size:.76rem}
-.footer-mizra{margin-top:18px;padding-top:18px;border-top:1px solid var(--bdd)}
-.footer-mizra a{color:var(--or);font-weight:600}
+/* === FOOTER === */
+.footer{background:#1A365D;color:#fff;padding:48px 48px 32px;text-align:center}
+.footer-logo{font-size:1.15rem;font-weight:800;margin-bottom:8px}
+.footer-addr{font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:24px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.08);padding-top:24px}
 
-/* --- SCROLL REVEAL --- */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.rv.vis{opacity:1;transform:none}
+/* === MOBILE STICKY BAR === */
+.mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #EDF2F7;padding:12px 20px;z-index:150;box-shadow:0 -4px 20px rgba(0,0,0,.06)}
+.mobile-sticky button{width:100%;background:#ED8936;color:#fff;font-size:.95rem;font-weight:700;padding:14px 0;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
 
-/* ===================== RESPONSIVE ===================== */
-@media(max-width:1024px){
-  .srv-grid{grid-template-columns:repeat(2,1fr)}
-  .why-grid{grid-template-columns:repeat(2,1fr)}
-  .rev-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-stats{gap:32px}
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  .nav{padding:0 20px;height:60px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .hero{padding:110px 20px 0}
+  .hero h1{font-size:2.2rem}
+  .hero p{font-size:1rem}
+  .stats-band{flex-wrap:wrap;gap:24px;padding:28px 20px}
+  .stat-item{flex:0 0 calc(50% - 12px);max-width:none;padding:12px 0}
+  .stat-item::after{display:none!important}
+  .section{padding:56px 20px}
+  .services-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .reviews-grid{grid-template-columns:1fr;gap:14px}
+  .contact-wrap{grid-template-columns:1fr;gap:32px}
+  .mobile-sticky{display:block}
+  body{padding-bottom:68px}
+  .footer{padding:40px 20px 90px}
 }
-@media(max-width:768px){
-  .cx{padding:0 24px}
-  .sec{padding:64px 0}
-  .nav{padding:0 20px;height:56px}
-  .nm{position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:24px;display:none;z-index:99}
-  .nm.open{display:flex}
-  .nm>.en,.nm>.he{flex-direction:column;gap:18px;font-size:1.1rem}
-  body.lh .nm>.he{flex-direction:column;gap:18px}
-  .menu-toggle{display:block}
-  .nav-cta.desktop-only{display:none}
-  .hero{padding:120px 24px 60px;min-height:auto}
-  .hero h1{font-size:clamp(2rem,7vw,2.8rem)}
-  .hero-stats{flex-wrap:wrap;gap:20px;justify-content:center}
-  .hero-stat{flex:0 0 calc(50% - 10px);text-align:center}
-  .srv-grid{grid-template-columns:1fr}
+@media(max-width:600px){
+  .hero h1{font-size:1.8rem}
+  .services-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .rev-grid{grid-template-columns:1fr}
-  .ins-grid{grid-template-columns:1fr}
-  .info-grid{grid-template-columns:1fr}
-  footer{padding:32px 24px}
+  .insurance-list{gap:12px}
+  .insurance-item{padding:12px 20px;font-size:.85rem}
+  .stats-band{gap:16px}
 }
-@media(max-width:480px){
-  .hero-btns{flex-direction:column;align-items:center}
-  .why-grid{grid-template-columns:1fr}
-  .hero-stats{gap:16px}
-  .cta-btns{flex-direction:column;align-items:center}
-}
+
+/* Mobile menu */
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid #EDF2F7;padding:20px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-size:.95rem;font-weight:500;color:#1A365D;border-bottom:1px solid #F7FAFC}
+.mobile-menu a:last-child{border:none}
 </style>
 </head>
 <body class="lh">
 
-<!-- MIZRA DEMO BANNER -->
+<!-- ===== MIZRA DEMO BANNER ===== -->
 <div class="mizra-banner">
-  <div class="en">This is an example site built by <strong>Mizra</strong>. Want one like this? <a href="/free-audit/">Get your free audit</a></div>
-  <div class="he">&#1494;&#1493; &#1491;&#1493;&#1490;&#1502;&#1492; &#1500;&#1488;&#1514;&#1512; &#1513;&#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; <strong>Mizra</strong>. &#1512;&#1493;&#1510;&#1497;&#1501; &#1488;&#1514;&#1512; &#1499;&#1494;&#1492;? <a href="/free-audit/">&#1500;&#1489;&#1491;&#1497;&#1511;&#1492; &#1495;&#1497;&#1504;&#1502;&#1497;&#1514;</a></div>
+  <span class="he">
+    <span style="opacity:.7">אתר לדוגמה נבנה עם </span>
+    <a href="/free-audit/" style="font-weight:700">Mizra</a>
+    <span style="opacity:.7"> - בניית אתרים חכמה לעסקים</span>
+  </span>
+  <span class="en">
+    <span style="opacity:.7">Demo site built with </span>
+    <a href="/free-audit/" style="font-weight:700">Mizra</a>
+    <span style="opacity:.7"> - smart websites for businesses</span>
+  </span>
 </div>
 
-<!-- NAVIGATION -->
-<nav class="nav">
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
   <a href="#" class="nav-logo">
-    <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 5.5 4 4 7c-.4.8-.7 1.7-.9 2.6C3 10.4 3 11.2 3 12c0 1 .1 1.9.4 2.8.5 1.7 1.5 3.2 2.8 4.3C7.8 20.3 9.8 21 12 21s4.2-.7 5.8-1.9c1.3-1.1 2.3-2.6 2.8-4.3.3-.9.4-1.8.4-2.8 0-.8 0-1.6-.1-2.4-.2-.9-.5-1.8-.9-2.6C18.5 4 15.5 2 12 2zm0 4c.8 0 1.5.3 2 .9.3.3.5.6.6 1 .2.5.2 1 0 1.5-.1.3-.3.6-.5.8l-1.5 1.5c-.3.3-.6.3-.9.1l-.6-.3c-.5-.3-.9-.8-1-1.4-.1-.4 0-.9.2-1.3.2-.3.5-.6.8-.8.3-.4.6-.8.9-1z"/></svg></span>
-    <div class="en">Dr. Cohen</div>
-    <div class="he">&#1491;"&#1512; &#1499;&#1492;&#1503;</div>
+    <!-- Tooth SVG icon -->
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="7" fill="#2B6CB0"/>
+      <path d="M14 6c-2.2 0-3.8.8-4.8 1.8C8.2 8.8 7.5 10.5 7.5 12c0 1.8.5 3 .8 4.5.3 1.5.5 3.2 1.2 4.5.4.7.8 1 1.3 1s.9-.5 1.2-1.5c.3-1 .5-2.3 1-3 .3-.4.6-.5 1-.5s.7.1 1 .5c.5.7.7 2 1 3 .3 1 .6 1.5 1.2 1.5s.9-.3 1.3-1c.7-1.3.9-3 1.2-4.5.3-1.5.8-2.7.8-4.5 0-1.5-.7-3.2-1.7-4.2C17.8 6.8 16.2 6 14 6z" fill="#fff"/>
+    </svg>
+    <span class="he">Dr. Cohen</span>
+    <span class="en">Dr. Cohen</span>
   </a>
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="nm">
-    <div class="en"><a href="#services">Services</a><a href="#team">Our Team</a><a href="#reviews">Reviews</a><a href="#insurance">Insurance</a><a href="#contact">Contact</a></div>
-    <div class="he"><a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a><a href="#team">&#1492;&#1510;&#1493;&#1493;&#1514;</a><a href="#reviews">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</a><a href="#insurance">&#1489;&#1497;&#1496;&#1493;&#1495;</a><a href="#contact">&#1510;&#1493;&#1512; &#1511;&#1513;&#1512;</a></div>
-  </div>
-  <div class="nr">
-    <div class="ls">
-      <button onclick="setL('en')">EN</button>
-      <button class="on" onclick="setL('he')">HE</button>
+
+  <div class="nav-right">
+    <div class="nav-links">
+      <div class="he">
+        <a href="#services">שירותים</a>
+        <a href="#team">הצוות</a>
+        <a href="#reviews">המלצות</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="en">
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-    <a href="#contact" class="nav-cta desktop-only">
-      <span class="en">Schedule Appointment</span>
-      <span class="he">&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</span>
-    </a>
+    <button class="lang-toggle" onclick="toggleLang()">EN</button>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <span class="he">קביעת תור</span>
+      <span class="en">Schedule</span>
+    </button>
+    <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()" class="he">שירותים</a>
+  <a href="#team" onclick="closeMenu()" class="he">הצוות</a>
+  <a href="#reviews" onclick="closeMenu()" class="he">המלצות</a>
+  <a href="#contact" onclick="closeMenu()" class="he">צור קשר</a>
+  <a href="#services" onclick="closeMenu()" class="en">Services</a>
+  <a href="#team" onclick="closeMenu()" class="en">Team</a>
+  <a href="#reviews" onclick="closeMenu()" class="en">Reviews</a>
+  <a href="#contact" onclick="closeMenu()" class="en">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="en">
-    <div class="htag">General &amp; Cosmetic Dentistry</div>
-    <h1>A smile that speaks<br>for <i>itself.</i></h1>
-    <p class="hero-sub">Dr. Cohen Dental Clinic in Tel Aviv offers a full range of dental treatments in a comfortable, modern environment with a gentle personal approach.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-p">Schedule Appointment</a>
-      <a href="tel:+97236421850" class="btn btn-o">Call: 03-642-1850</a>
-    </div>
-  </div>
   <div class="he">
-    <div class="htag">&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500;&#1500;&#1497;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;</div>
-    <h1>&#1495;&#1497;&#1493;&#1498; &#1513;&#1502;&#1491;&#1489;&#1512;<br>&#1489;&#1506;&#1491; <i>&#1506;&#1510;&#1502;&#1493;.</i></h1>
-    <p class="hero-sub">&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503; &#1489;&#1514;&#1500; &#1488;&#1489;&#1497;&#1489; &#1502;&#1510;&#1497;&#1506;&#1492; &#1502;&#1490;&#1493;&#1493;&#1503; &#1502;&#1500;&#1488; &#1513;&#1500; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1489;&#1505;&#1489;&#1497;&#1489;&#1492; &#1504;&#1493;&#1495;&#1492; &#1493;&#1502;&#1493;&#1491;&#1512;&#1504;&#1497;&#1514;, &#1506;&#1501; &#1490;&#1497;&#1513;&#1492; &#1488;&#1497;&#1513;&#1497;&#1514; &#1493;&#1506;&#1491;&#1497;&#1504;&#1492;.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-p">&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
-      <a href="tel:+97236421850" class="btn btn-o">&#1495;&#1497;&#1497;&#1490;&#1493;: 03-642-1850</a>
-    </div>
+    <div class="hero-label">רפואת שיניים כללית וקוסמטית</div>
+    <h1>טיפול שיניים מקצועי<br>בלב תל אביב</h1>
+    <p>קליניקת ד"ר כהן מציעה טיפולי שיניים מתקדמים בסביבה נעימה ומרגיעה. ציוד חדשני, גישה עדינה וניסיון של למעלה מ-15 שנה.</p>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat"><h3>15+</h3><div class="en"><p>Years Experience</p></div><div class="he"><p>&#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;</p></div></div>
-    <div class="hero-stat"><h3>8,000+</h3><div class="en"><p>Happy Patients</p></div><div class="he"><p>&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1502;&#1512;&#1493;&#1510;&#1497;&#1501;</p></div></div>
-    <div class="hero-stat"><h3>6</h3><div class="en"><p>Days a Week</p></div><div class="he"><p>&#1497;&#1502;&#1497;&#1501; &#1489;&#1513;&#1489;&#1493;&#1506;</p></div></div>
-    <div class="hero-stat"><h3>4.9</h3><div class="en"><p>Google Rating</p></div><div class="he"><p>&#1491;&#1497;&#1512;&#1493;&#1490; &#1490;&#1493;&#1490;&#1500;</p></div></div>
+  <div class="en">
+    <div class="hero-label">General & Cosmetic Dentistry</div>
+    <h1>Professional Dental Care<br>in the Heart of Tel Aviv</h1>
+    <p>Dr. Cohen Dental Clinic offers advanced dental treatments in a pleasant, calming environment. Modern equipment, gentle approach, and over 15 years of experience.</p>
+  </div>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="he">קביעת תור</span>
+      <span class="en">Schedule Appointment</span>
+    </button>
+    <a href="tel:03-1234567" class="btn-secondary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="he">03-123-4567</span>
+      <span class="en">03-123-4567</span>
+    </a>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="sec" id="services">
-<div class="cx" style="text-align:center">
-  <div class="en"><div class="sl">Our Services</div><h2 class="st">Comprehensive dental <i>care.</i></h2><p class="sd" style="margin:0 auto 48px">From routine checkups to advanced cosmetic treatments, all under one roof.</p></div>
-  <div class="he"><div class="sl">&#1492;&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493;</div><h2 class="st">&#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; <i>&#1502;&#1511;&#1497;&#1507;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1502;&#1489;&#1491;&#1497;&#1511;&#1493;&#1514; &#1513;&#1490;&#1512;&#1514;&#1497;&#1493;&#1514; &#1493;&#1506;&#1491; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1497;&#1501; &#1502;&#1514;&#1511;&#1491;&#1502;&#1497;&#1501;, &#1492;&#1499;&#1500; &#1514;&#1495;&#1514; &#1511;&#1493;&#1512;&#1514; &#1490;&#1490; &#1488;&#1495;&#1514;.</p></div>
-  <div class="srv-grid">
-    <!-- Routine Checkup -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M9 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7h1v6h4v-6h1c3.87 0 7-3.13 7-7a7 7 0 0 0-7-7h-1V0H10v2H9zm0 2h6c2.76 0 5 2.24 5 5s-2.24 5-5 5H9c-2.76 0-5-2.24-5-5s2.24-5 5-5z"/></svg></div>
-      <div class="en"><h3>Routine Checkup</h3><p>Comprehensive examination, professional cleaning, and digital X-rays to maintain your oral health and catch issues early.</p></div>
-      <div class="he"><h3>&#1489;&#1491;&#1497;&#1511;&#1492; &#1513;&#1490;&#1512;&#1514;&#1497;&#1514;</h3><p>&#1489;&#1491;&#1497;&#1511;&#1492; &#1502;&#1511;&#1497;&#1508;&#1492;, &#1504;&#1497;&#1511;&#1493;&#1497; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497; &#1493;&#1510;&#1497;&#1500;&#1493;&#1502;&#1497; &#1512;&#1504;&#1496;&#1490;&#1503; &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1497;&#1501; &#1500;&#1513;&#1502;&#1497;&#1512;&#1492; &#1506;&#1500; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; &#1492;&#1508;&#1492; &#1493;&#1488;&#1497;&#1514;&#1493;&#1512; &#1502;&#1493;&#1511;&#1491;&#1501; &#1513;&#1500; &#1489;&#1506;&#1497;&#1493;&#1514;.</p></div>
+<!-- Stats Band -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">15+</div>
+    <div class="stat-label">
+      <span class="he">שנות ניסיון</span>
+      <span class="en">Years Experience</span>
     </div>
-    <!-- Teeth Whitening -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="en"><h3>Teeth Whitening</h3><p>Professional in-office and take-home whitening solutions for a brighter, more confident smile in just one visit.</p></div>
-      <div class="he"><h3>&#1492;&#1500;&#1489;&#1504;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1508;&#1514;&#1512;&#1493;&#1504;&#1493;&#1514; &#1492;&#1500;&#1489;&#1504;&#1492; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497;&#1497;&#1501; &#1489;&#1502;&#1512;&#1508;&#1488;&#1492; &#1493;&#1500;&#1513;&#1497;&#1502;&#1493;&#1513; &#1489;&#1497;&#1514;&#1497; &#1500;&#1495;&#1497;&#1493;&#1498; &#1489;&#1492;&#1497;&#1512; &#1493;&#1489;&#1496;&#1493;&#1495; &#1497;&#1493;&#1514;&#1512;.</p></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">8,000+</div>
+    <div class="stat-label">
+      <span class="he">מטופלים מרוצים</span>
+      <span class="en">Happy Patients</span>
     </div>
-    <!-- Dental Implants -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></div>
-      <div class="en"><h3>Dental Implants</h3><p>State-of-the-art implant solutions for missing teeth. Permanent, natural-looking results that restore function and aesthetics.</p></div>
-      <div class="he"><h3>&#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1508;&#1514;&#1512;&#1493;&#1504;&#1493;&#1514; &#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1502;&#1514;&#1511;&#1491;&#1502;&#1497;&#1501; &#1500;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1495;&#1505;&#1512;&#1493;&#1514;. &#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1511;&#1489;&#1493;&#1506;&#1493;&#1514; &#1493;&#1496;&#1489;&#1506;&#1497;&#1493;&#1514; &#1500;&#1513;&#1497;&#1511;&#1493;&#1501; &#1514;&#1508;&#1511;&#1493;&#1491; &#1493;&#1488;&#1505;&#1514;&#1496;&#1497;&#1511;&#1492;.</p></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4.9</div>
+    <div class="stat-label">
+      <span class="he">דירוג ממוצע</span>
+      <span class="en">Average Rating</span>
     </div>
-    <!-- Orthodontics -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
-      <div class="en"><h3>Orthodontics</h3><p>Traditional braces and clear aligner systems, including Invisalign, tailored to your alignment goals and lifestyle.</p></div>
-      <div class="he"><h3>&#1497;&#1497;&#1513;&#1493;&#1512; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1490;&#1513;&#1512;&#1497;&#1493;&#1514; &#1502;&#1505;&#1493;&#1512;&#1514;&#1497;&#1493;&#1514; &#1493;&#1502;&#1506;&#1512;&#1499;&#1493;&#1514; &#1497;&#1497;&#1513;&#1493;&#1512; &#1513;&#1511;&#1493;&#1508;&#1493;&#1514;, &#1499;&#1493;&#1500;&#1500; Invisalign, &#1502;&#1493;&#1514;&#1488;&#1502;&#1493;&#1514; &#1500;&#1497;&#1506;&#1491;&#1497;&#1501; &#1493;&#1500;&#1488;&#1493;&#1512;&#1495; &#1492;&#1495;&#1497;&#1497;&#1501; &#1513;&#1500;&#1499;&#1501;.</p></div>
-    </div>
-    <!-- Root Canal -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg></div>
-      <div class="en"><h3>Root Canal Treatment</h3><p>Painless endodontic therapy using advanced technology to save damaged teeth and relieve discomfort quickly.</p></div>
-      <div class="he"><h3>&#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1493;&#1512;&#1513;</h3><p>&#1496;&#1497;&#1508;&#1493;&#1500; &#1488;&#1504;&#1491;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497; &#1500;&#1500;&#1488; &#1499;&#1488;&#1489; &#1489;&#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1492; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514; &#1500;&#1492;&#1510;&#1500;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1508;&#1490;&#1493;&#1502;&#1493;&#1514; &#1493;&#1492;&#1511;&#1500;&#1492; &#1502;&#1492;&#1497;&#1512;&#1492; &#1506;&#1500; &#1488;&#1497; &#1504;&#1493;&#1495;&#1493;&#1514;.</p></div>
-    </div>
-    <!-- Cosmetic Dentistry -->
-    <div class="srv-card rv" style="text-align:start">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-      <div class="en"><h3>Cosmetic Dentistry</h3><p>Veneers, bonding, smile makeovers, and aesthetic treatments designed to give you the smile you have always wanted.</p></div>
-      <div class="he"><h3>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;</h3><p>&#1510;&#1497;&#1508;&#1493;&#1497;&#1497;&#1501;, &#1489;&#1493;&#1504;&#1491;&#1497;&#1504;&#1490;, &#1506;&#1497;&#1510;&#1493;&#1489; &#1495;&#1497;&#1493;&#1498; &#1493;&#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1488;&#1505;&#1514;&#1496;&#1497;&#1497;&#1501; &#1513;&#1504;&#1493;&#1506;&#1491;&#1493; &#1500;&#1514;&#1514; &#1500;&#1499;&#1501; &#1488;&#1514; &#1492;&#1495;&#1497;&#1493;&#1498; &#1513;&#1514;&#1502;&#1497;&#1491; &#1512;&#1510;&#1497;&#1514;&#1501;.</p></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">6</div>
+    <div class="stat-label">
+      <span class="he">ימים בשבוע</span>
+      <span class="en">Days a Week</span>
     </div>
   </div>
 </div>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="section-header">
+    <h2>
+      <span class="he">השירותים שלנו</span>
+      <span class="en">Our Services</span>
+    </h2>
+    <p>
+      <span class="he">מגוון טיפולי שיניים מתקדמים בסטנדרטים הגבוהים ביותר</span>
+      <span class="en">A wide range of advanced dental treatments at the highest standards</span>
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <!-- Service 1: General Dentistry -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 8c-4 0-7 1.5-9 3.5S12 16 12 19c0 3 1 5.5 1.5 8s1 5.5 2 7.5c.8 1.5 1.5 2 2.5 2s1.8-1 2.5-3c.7-2 1-4 2-5 .6-.6 1-1 1.5-1s.9.4 1.5 1c1 1 1.3 3 2 5s1.5 3 2.5 3 1.7-.5 2.5-2c1-2 1.5-5 2-7.5S36 22 36 19c0-3-.8-5.5-3-7.5S28 8 24 8z"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">רפואת שיניים כללית</span>
+        <span class="en">General Dentistry</span>
+      </h3>
+      <p>
+        <span class="he">בדיקות שגרתיות, סתימות, ניקוי שיניים וטיפולים מונעים לבריאות הפה</span>
+        <span class="en">Routine checkups, fillings, dental cleaning and preventive treatments for oral health</span>
+      </p>
+    </div>
+
+    <!-- Service 2: Cosmetic Dentistry -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 32c2-2 5-3 8-3s6 1 8 3"/>
+          <circle cx="24" cy="20" r="12"/>
+          <path d="M20 18v-2M28 18v-2"/>
+          <path d="M18 24c1.5 2 3.5 3 6 3s4.5-1 6-3"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">רפואת שיניים קוסמטית</span>
+        <span class="en">Cosmetic Dentistry</span>
+      </h3>
+      <p>
+        <span class="he">הלבנת שיניים, ציפויי חרסינה, עיצוב חיוך ושיפור מראה השיניים</span>
+        <span class="en">Teeth whitening, porcelain veneers, smile design and aesthetic improvements</span>
+      </p>
+    </div>
+
+    <!-- Service 3: Implants -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6v4M24 38v4"/>
+          <rect x="19" y="10" width="10" height="10" rx="2"/>
+          <path d="M21 20h6v3h-6z"/>
+          <path d="M22 23h4l1 6h-6z"/>
+          <path d="M22.5 29h3l.5 4h-4z"/>
+          <path d="M23 33h2v5h-2z"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">שתלים דנטליים</span>
+        <span class="en">Dental Implants</span>
+      </h3>
+      <p>
+        <span class="he">שתלים מתקדמים להחלפת שיניים חסרות, עם תוצאות טבעיות ועמידות לאורך זמן</span>
+        <span class="en">Advanced implants to replace missing teeth with natural, long-lasting results</span>
+      </p>
+    </div>
+
+    <!-- Service 4: Orthodontics -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 24h28"/>
+          <rect x="14" y="20" width="6" height="8" rx="1.5"/>
+          <rect x="28" y="20" width="6" height="8" rx="1.5"/>
+          <circle cx="17" cy="24" r="1.5" fill="#2B6CB0"/>
+          <circle cx="31" cy="24" r="1.5" fill="#2B6CB0"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">יישור שיניים</span>
+        <span class="en">Orthodontics</span>
+      </h3>
+      <p>
+        <span class="he">גשר שיניים שקוף, פלטות ויישור שיניים מתקדם לילדים ולמבוגרים</span>
+        <span class="en">Clear aligners, retainers and advanced orthodontic care for children and adults</span>
+      </p>
+    </div>
+
+    <!-- Service 5: Root Canal -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 8c-3.5 0-6 1.5-7.5 3.5S14 16 14 18.5c0 2.5.8 4.5 1.2 6.5"/>
+          <path d="M24 8c3.5 0 6 1.5 7.5 3.5S34 16 34 18.5c0 2.5-.8 4.5-1.2 6.5"/>
+          <path d="M24 18v22"/>
+          <path d="M20 22l4-4 4 4"/>
+          <circle cx="24" cy="40" r="2"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">טיפולי שורש</span>
+        <span class="en">Root Canal</span>
+      </h3>
+      <p>
+        <span class="he">טיפולי שורש מתקדמים בגישה עדינה ובטכנולוגיה חדשנית להצלת השן</span>
+        <span class="en">Advanced root canal treatments with a gentle approach and innovative technology</span>
+      </p>
+    </div>
+
+    <!-- Service 6: Pediatric -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#2B6CB0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="18" r="10"/>
+          <path d="M20 17c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/>
+          <path d="M21 21a3 3 0 006 0"/>
+          <path d="M18 30c-3 2-5 5-5 8h22c0-3-2-6-5-8"/>
+          <circle cx="21" cy="15" r="1" fill="#2B6CB0"/>
+          <circle cx="27" cy="15" r="1" fill="#2B6CB0"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="he">רפואת שיניים לילדים</span>
+        <span class="en">Pediatric Dentistry</span>
+      </h3>
+      <p>
+        <span class="he">טיפולים בגישה ידידותית לילדים, סביבה מותאמת ויצירת חוויה חיובית</span>
+        <span class="en">Child-friendly treatments in an adapted environment, creating a positive experience</span>
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- TEAM -->
-<section class="sec" id="team" style="background:var(--white)">
-<div class="cx" style="text-align:center">
-  <div class="en"><div class="sl">Our Team</div><h2 class="st">Meet the <i>professionals.</i></h2><p class="sd" style="margin:0 auto 48px">Experienced, certified, and dedicated to your comfort and wellbeing.</p></div>
-  <div class="he"><div class="sl">&#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1504;&#1493;</div><h2 class="st">&#1492;&#1499;&#1497;&#1512;&#1493; &#1488;&#1514; <i>&#1492;&#1502;&#1511;&#1510;&#1493;&#1506;&#1504;&#1497;&#1501;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1502;&#1504;&#1493;&#1505;&#1497;&#1501;, &#1502;&#1493;&#1505;&#1502;&#1499;&#1497;&#1501; &#1493;&#1502;&#1495;&#1493;&#1497;&#1489;&#1497;&#1501; &#1500;&#1504;&#1493;&#1495;&#1493;&#1514; &#1493;&#1500;&#1512;&#1493;&#1493;&#1495;&#1514;&#1499;&#1501;.</p></div>
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="section why-section">
+  <div class="section-header">
+    <h2>
+      <span class="he">למה לבחור בנו</span>
+      <span class="en">Why Choose Us</span>
+    </h2>
+    <p>
+      <span class="he">אנחנו מחויבים לספק את הטיפול הטוב ביותר עבורכם</span>
+      <span class="en">We are committed to providing the best care for you</span>
+    </p>
+  </div>
+
+  <div class="why-list">
+    <div class="why-item">
+      <div class="why-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="why-text">
+        <h4>
+          <span class="he">ציוד וטכנולוגיה מתקדמים</span>
+          <span class="en">Advanced Equipment & Technology</span>
+        </h4>
+        <p>
+          <span class="he">רנטגן דיגיטלי, סורק תלת-ממדי ומערכות לייזר מהדור האחרון</span>
+          <span class="en">Digital X-ray, 3D scanner and latest generation laser systems</span>
+        </p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="why-text">
+        <h4>
+          <span class="he">גישה עדינה וסבלנית</span>
+          <span class="en">Gentle & Patient Approach</span>
+        </h4>
+        <p>
+          <span class="he">טיפולים ללא כאב עם הרדמה מקומית מתקדמת ויחס אישי לכל מטופל</span>
+          <span class="en">Pain-free treatments with advanced local anesthesia and personal attention</span>
+        </p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="why-text">
+        <h4>
+          <span class="he">מיקום נגיש במרכז תל אביב</span>
+          <span class="en">Accessible Location in Central Tel Aviv</span>
+        </h4>
+        <p>
+          <span class="he">ברחוב אבן גבירול עם חניה נוחה וקרבה לתחבורה ציבורית</span>
+          <span class="en">On Ibn Gvirol Street with convenient parking and close to public transit</span>
+        </p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="why-text">
+        <h4>
+          <span class="he">שעות פעילות מורחבות</span>
+          <span class="en">Extended Operating Hours</span>
+        </h4>
+        <p>
+          <span class="he">פתוח 6 ימים בשבוע כולל שעות ערב נוחות</span>
+          <span class="en">Open 6 days a week including convenient evening hours</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="section" id="team">
+  <div class="section-header">
+    <h2>
+      <span class="he">הצוות המקצועי</span>
+      <span class="en">Our Professional Team</span>
+    </h2>
+    <p>
+      <span class="he">רופאים מומחים עם ניסיון רב ומחויבות לטיפול מעולה</span>
+      <span class="en">Expert doctors with extensive experience and commitment to excellent care</span>
+    </p>
+  </div>
+
   <div class="team-grid">
-    <!-- Dr. Cohen -->
-    <div class="team-card rv">
-      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
-      <div class="en">
-        <h3>Dr. Daniel Cohen</h3>
-        <div class="team-role">Founder &amp; Lead Dentist</div>
-        <p class="team-cred">DMD, Hebrew University. Specialization in Implantology, NYU. 18 years of clinical experience.</p>
+    <div class="team-card">
+      <div class="team-photo">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="24" r="10"/><path d="M12 56c0-11 9-20 20-20s20 9 20 20"/></svg>
       </div>
-      <div class="he">
-        <h3>&#1491;"&#1512; &#1491;&#1504;&#1497;&#1488;&#1500; &#1499;&#1492;&#1503;</h3>
-        <div class="team-role">&#1502;&#1497;&#1497;&#1505;&#1491; &#1493;&#1512;&#1493;&#1508;&#1488; &#1512;&#1488;&#1513;&#1497;</div>
-        <p class="team-cred">DMD, &#1492;&#1488;&#1493;&#1504;&#1497;&#1489;&#1512;&#1505;&#1497;&#1496;&#1492; &#1492;&#1506;&#1489;&#1512;&#1497;&#1514;. &#1492;&#1514;&#1502;&#1495;&#1493;&#1514; &#1489;&#1492;&#1513;&#1514;&#1500;&#1493;&#1514;, NYU. 18 &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503; &#1511;&#1500;&#1497;&#1504;&#1497;.</p>
-      </div>
-    </div>
-    <!-- Dr. Levi -->
-    <div class="team-card rv">
-      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
-      <div class="en">
-        <h3>Dr. Maya Levi</h3>
-        <div class="team-role">Orthodontist</div>
-        <p class="team-cred">DMD, Tel Aviv University. Board certified orthodontist. Invisalign Diamond Provider.</p>
-      </div>
-      <div class="he">
-        <h3>&#1491;"&#1512; &#1502;&#1488;&#1497;&#1492; &#1500;&#1493;&#1497;</h3>
-        <div class="team-role">&#1488;&#1493;&#1512;&#1514;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497;&#1514;</div>
-        <p class="team-cred">DMD, &#1488;&#1493;&#1504;&#1497;&#1489;&#1512;&#1505;&#1497;&#1496;&#1514; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1502;&#1493;&#1502;&#1495;&#1497;&#1514; &#1502;&#1493;&#1505;&#1502;&#1499;&#1514; &#1489;&#1488;&#1493;&#1512;&#1514;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497;&#1492;. Invisalign Diamond Provider.</p>
+      <div class="team-info">
+        <h3>
+          <span class="he">ד"ר דניאל כהן</span>
+          <span class="en">Dr. Daniel Cohen</span>
+        </h3>
+        <div class="credentials">DMD, MSc</div>
+        <div class="specialty">
+          <span class="he">מנהל הקליניקה / שתלים וקוסמטיקה</span>
+          <span class="en">Clinic Director / Implants & Cosmetics</span>
+        </div>
       </div>
     </div>
-    <!-- Shira -->
-    <div class="team-card rv">
-      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
-      <div class="en">
-        <h3>Shira Mizrahi</h3>
-        <div class="team-role">Dental Hygienist</div>
-        <p class="team-cred">Certified dental hygienist with 10 years experience. Specialized in periodontal care and patient education.</p>
+    <div class="team-card">
+      <div class="team-photo">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="24" r="10"/><path d="M12 56c0-11 9-20 20-20s20 9 20 20"/></svg>
       </div>
-      <div class="he">
-        <h3>&#1513;&#1497;&#1512;&#1492; &#1502;&#1494;&#1512;&#1495;&#1497;</h3>
-        <div class="team-role">&#1513;&#1497;&#1504;&#1504;&#1497;&#1514;</div>
-        <p class="team-cred">&#1513;&#1497;&#1504;&#1504;&#1497;&#1514; &#1502;&#1493;&#1505;&#1502;&#1499;&#1514; &#1506;&#1501; 10 &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;. &#1492;&#1514;&#1502;&#1495;&#1493;&#1514; &#1489;&#1496;&#1497;&#1508;&#1493;&#1500; &#1495;&#1504;&#1497;&#1499;&#1497;&#1497;&#1501; &#1493;&#1495;&#1497;&#1504;&#1493;&#1498; &#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501;.</p>
+      <div class="team-info">
+        <h3>
+          <span class="he">ד"ר מיכל לוי</span>
+          <span class="en">Dr. Michal Levy</span>
+        </h3>
+        <div class="credentials">DMD</div>
+        <div class="specialty">
+          <span class="he">רפואת שיניים כללית וטיפולי שורש</span>
+          <span class="en">General Dentistry & Root Canal</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="24" r="10"/><path d="M12 56c0-11 9-20 20-20s20 9 20 20"/></svg>
+      </div>
+      <div class="team-info">
+        <h3>
+          <span class="he">ד"ר עומר בן דוד</span>
+          <span class="en">Dr. Omer Ben David</span>
+        </h3>
+        <div class="credentials">DMD, Orthodontist</div>
+        <div class="specialty">
+          <span class="he">יישור שיניים ואורתודונטיה</span>
+          <span class="en">Orthodontics & Alignment</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="sec">
-<div class="cx" style="text-align:center">
-  <div class="en"><div class="sl">Why Choose Us</div><h2 class="st">Dentistry you can <i>trust.</i></h2><p class="sd" style="margin:0 auto 48px">We combine advanced technology with a caring, patient-first approach.</p></div>
-  <div class="he"><div class="sl">&#1500;&#1502;&#1492; &#1500;&#1489;&#1495;&#1493;&#1512; &#1489;&#1504;&#1493;</div><h2 class="st">&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1513;&#1488;&#1508;&#1513;&#1512; <i>&#1500;&#1505;&#1502;&#1493;&#1498; &#1506;&#1500;&#1497;&#1492;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1513;&#1500;&#1489;&#1497;&#1501; &#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1492; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514; &#1506;&#1501; &#1490;&#1497;&#1513;&#1492; &#1488;&#1499;&#1508;&#1514;&#1497;&#1514; &#1513;&#1513;&#1502;&#1492; &#1488;&#1514; &#1492;&#1502;&#1496;&#1493;&#1508;&#1500; &#1489;&#1502;&#1512;&#1499;&#1494;.</p></div>
-  <div class="why-grid">
-    <div class="why-card rv">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v2H5zm0-4h14v2H5zm0-4h14v2H5z"/></svg></div>
-      <div class="en"><h3>Modern Equipment</h3><p>Digital X-rays, 3D scanning, laser treatments, and the latest sterilization technology.</p></div>
-      <div class="he"><h3>&#1510;&#1497;&#1493;&#1491; &#1502;&#1493;&#1491;&#1512;&#1504;&#1497;</h3><p>&#1510;&#1497;&#1500;&#1493;&#1502;&#1497; &#1512;&#1504;&#1496;&#1490;&#1503; &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1497;&#1501;, &#1505;&#1512;&#1497;&#1511;&#1492; &#1514;&#1500;&#1514;-&#1502;&#1497;&#1502;&#1491;&#1497;&#1514;, &#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1500;&#1497;&#1497;&#1494;&#1512; &#1493;&#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1497;&#1514; &#1506;&#1497;&#1511;&#1493;&#1512; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514;.</p></div>
+<!-- ===== REVIEWS ===== -->
+<section class="section" id="reviews" style="background:#F7FAFC">
+  <div class="section-header">
+    <h2>
+      <span class="he">מה המטופלים אומרים</span>
+      <span class="en">What Our Patients Say</span>
+    </h2>
+    <p>
+      <span class="he">ביקורות אמיתיות ממטופלים מרוצים</span>
+      <span class="en">Real reviews from satisfied patients</span>
+    </p>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="review-text">
+        <span class="he">קליניקה מדהימה! ד"ר כהן מקצועי ביותר, עדין ומסביר כל שלב. הצוות אדיב והמקום נקי ומודרני. ממליצה בחום!</span>
+        <span class="en">Amazing clinic! Dr. Cohen is highly professional, gentle and explains every step. The staff is kind and the place is clean and modern. Highly recommend!</span>
+      </div>
+      <div class="review-author">
+        <span class="he">שרה א.</span>
+        <span class="en">Sarah A.</span>
+      </div>
     </div>
-    <div class="why-card rv">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      <div class="en"><h3>15+ Years Experience</h3><p>A proven track record with thousands of successful treatments and satisfied patients.</p></div>
-      <div class="he"><h3>15+ &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;</h3><p>&#1512;&#1511;&#1493;&#1512;&#1491; &#1502;&#1493;&#1499;&#1495; &#1506;&#1501; &#1488;&#1500;&#1508;&#1497; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1502;&#1493;&#1510;&#1500;&#1495;&#1497;&#1501; &#1493;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1502;&#1512;&#1493;&#1510;&#1497;&#1501;.</p></div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="review-text">
+        <span class="he">עשיתי שתל אצל ד"ר כהן ואני מרוצה מהתוצאה. כל התהליך היה מקצועי, מהייעוץ הראשוני ועד לתוצאה הסופית. שירות מצוין.</span>
+        <span class="en">I had an implant with Dr. Cohen and I'm very happy with the result. The entire process was professional, from the initial consultation to the final result. Excellent service.</span>
+      </div>
+      <div class="review-author">
+        <span class="he">יוסי מ.</span>
+        <span class="en">Yossi M.</span>
+      </div>
     </div>
-    <div class="why-card rv">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-      <div class="en"><h3>Gentle Approach</h3><p>Anxiety-free dentistry with sedation options, calming environment, and attentive care for every patient.</p></div>
-      <div class="he"><h3>&#1490;&#1497;&#1513;&#1492; &#1506;&#1491;&#1497;&#1504;&#1492;</h3><p>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1500;&#1500;&#1488; &#1495;&#1512;&#1491;&#1492; &#1506;&#1501; &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1492;&#1512;&#1491;&#1502;&#1492;, &#1505;&#1489;&#1497;&#1489;&#1492; &#1502;&#1512;&#1490;&#1497;&#1506;&#1492; &#1493;&#1496;&#1497;&#1508;&#1493;&#1500; &#1511;&#1513;&#1493;&#1489; &#1500;&#1499;&#1500; &#1502;&#1496;&#1493;&#1508;&#1500;.</p></div>
-    </div>
-    <div class="why-card rv">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg></div>
-      <div class="en"><h3>Insurance Accepted</h3><p>We work with all major health funds and private insurance plans. Flexible payment options available.</p></div>
-      <div class="he"><h3>&#1511;&#1489;&#1500;&#1514; &#1489;&#1497;&#1496;&#1493;&#1495;</h3><p>&#1488;&#1504;&#1495;&#1504;&#1493; &#1506;&#1493;&#1489;&#1491;&#1497;&#1501; &#1506;&#1501; &#1499;&#1500; &#1511;&#1493;&#1508;&#1493;&#1514; &#1492;&#1495;&#1493;&#1500;&#1497;&#1501; &#1493;&#1489;&#1497;&#1496;&#1493;&#1495;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;. &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501; &#1490;&#1502;&#1497;&#1513;&#1493;&#1514;.</p></div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="review-text">
+        <span class="he">באתי עם פחד גדול מרופא שיניים וד"ר לוי הצליחה להרגיע אותי לגמרי. הטיפול היה נעים ומקצועי. כבר לא מפחד לבוא!</span>
+        <span class="en">I came with a big fear of dentists and Dr. Levy managed to completely calm me down. The treatment was pleasant and professional. No longer afraid to come!</span>
+      </div>
+      <div class="review-author">
+        <span class="he">רוני ק.</span>
+        <span class="en">Roni K.</span>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
-<!-- PATIENT REVIEWS -->
-<section class="sec" id="reviews" style="background:var(--white)">
-<div class="cx" style="text-align:center">
-  <div class="en"><div class="sl">Patient Reviews</div><h2 class="st">What our patients <i>say.</i></h2><p class="sd" style="margin:0 auto 48px">Real experiences from real people who trust us with their smiles.</p></div>
-  <div class="he"><div class="sl">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</div><h2 class="st">&#1502;&#1492; &#1492;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493; <i>&#1488;&#1493;&#1502;&#1512;&#1497;&#1501;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1495;&#1493;&#1493;&#1497;&#1493;&#1514; &#1488;&#1502;&#1497;&#1514;&#1497;&#1493;&#1514; &#1502;&#1488;&#1504;&#1513;&#1497;&#1501; &#1488;&#1502;&#1497;&#1514;&#1497;&#1497;&#1501; &#1513;&#1505;&#1493;&#1502;&#1499;&#1497;&#1501; &#1506;&#1500;&#1497;&#1504;&#1493; &#1506;&#1501; &#1492;&#1495;&#1497;&#1493;&#1498; &#1513;&#1500;&#1492;&#1501;.</p></div>
-  <div class="rev-grid" style="text-align:start">
-    <!-- Review 1 -->
-    <div class="rev-card rv">
-      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-      <div class="en"><blockquote>I was terrified of dentists my whole life, but Dr. Cohen and his team made me feel completely at ease. The results of my implant treatment exceeded all expectations. Truly life-changing.</blockquote></div>
-      <div class="he"><blockquote>&#1508;&#1495;&#1491;&#1514;&#1497; &#1502;&#1512;&#1493;&#1508;&#1488;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500; &#1492;&#1495;&#1497;&#1497;&#1501;, &#1488;&#1489;&#1500; &#1491;"&#1512; &#1499;&#1492;&#1503; &#1493;&#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1493; &#1490;&#1512;&#1502;&#1493; &#1500;&#1497; &#1500;&#1492;&#1512;&#1490;&#1497;&#1513; &#1489;&#1504;&#1493;&#1495; &#1500;&#1490;&#1502;&#1512;&#1497;. &#1492;&#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1513;&#1500; &#1496;&#1497;&#1508;&#1493;&#1500; &#1492;&#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1506;&#1500;&#1493; &#1506;&#1500; &#1499;&#1500; &#1492;&#1510;&#1497;&#1508;&#1497;&#1493;&#1514;. &#1502;&#1513;&#1504;&#1492; &#1495;&#1497;&#1497;&#1501; &#1489;&#1488;&#1502;&#1514;.</blockquote></div>
-      <div class="rev-author">
-        <div class="rev-dot">
-          <div class="en">R</div>
-          <div class="he">&#1512;</div>
-        </div>
-        <div>
-          <div class="en"><div class="rev-name">Rachel A.</div><div class="rev-date">Google Review, 2025</div></div>
-          <div class="he"><div class="rev-name">&#1512;&#1495;&#1500; &#1488;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2025</div></div>
-        </div>
-      </div>
+<!-- ===== INSURANCE ===== -->
+<section class="section insurance-section">
+  <div class="section-header">
+    <h2>
+      <span class="he">ביטוחים וקופות חולים</span>
+      <span class="en">Insurance & Health Funds</span>
+    </h2>
+    <p>
+      <span class="he">עובדים עם כל קופות החולים וחברות הביטוח המובילות</span>
+      <span class="en">We work with all major health funds and insurance providers</span>
+    </p>
+  </div>
+  <div class="insurance-list">
+    <div class="insurance-item">
+      <span class="he">כללית</span>
+      <span class="en">Clalit</span>
     </div>
-    <!-- Review 2 -->
-    <div class="rev-card rv">
-      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-      <div class="en"><blockquote>Dr. Levi straightened my teeth with Invisalign in just 8 months. The whole process was smooth and the clinic is spotless and welcoming. I recommend this place to everyone.</blockquote></div>
-      <div class="he"><blockquote>&#1491;"&#1512; &#1500;&#1493;&#1497; &#1497;&#1497;&#1513;&#1512;&#1492; &#1500;&#1497; &#1488;&#1514; &#1492;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1506;&#1501; Invisalign &#1514;&#1493;&#1498; 8 &#1495;&#1493;&#1491;&#1513;&#1497;&#1501; &#1489;&#1500;&#1489;&#1491;. &#1499;&#1500; &#1492;&#1514;&#1492;&#1500;&#1497;&#1498; &#1492;&#1497;&#1492; &#1495;&#1500;&#1511; &#1493;&#1492;&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1492; &#1504;&#1511;&#1497;&#1497;&#1492; &#1493;&#1502;&#1494;&#1502;&#1497;&#1504;&#1492;. &#1502;&#1502;&#1500;&#1497;&#1510;&#1492; &#1500;&#1499;&#1493;&#1500;&#1501;.</blockquote></div>
-      <div class="rev-author">
-        <div class="rev-dot">
-          <div class="en">T</div>
-          <div class="he">&#1514;</div>
-        </div>
-        <div>
-          <div class="en"><div class="rev-name">Tom B.</div><div class="rev-date">Google Review, 2025</div></div>
-          <div class="he"><div class="rev-name">&#1514;&#1493;&#1501; &#1489;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2025</div></div>
-        </div>
-      </div>
+    <div class="insurance-item">
+      <span class="he">מכבי</span>
+      <span class="en">Maccabi</span>
     </div>
-    <!-- Review 3 -->
-    <div class="rev-card rv">
-      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-      <div class="en"><blockquote>Brought my three kids here and every visit has been a positive experience. The staff is so patient with children, and the gentle approach makes all the difference. Our family dentist for life.</blockquote></div>
-      <div class="he"><blockquote>&#1492;&#1489;&#1488;&#1514;&#1497; &#1488;&#1514; &#1513;&#1500;&#1493;&#1513;&#1514; &#1492;&#1497;&#1500;&#1491;&#1497;&#1501; &#1500;&#1499;&#1488;&#1503; &#1493;&#1499;&#1500; &#1489;&#1497;&#1511;&#1493;&#1512; &#1492;&#1497;&#1492; &#1495;&#1493;&#1493;&#1497;&#1492; &#1495;&#1497;&#1493;&#1489;&#1497;&#1514;. &#1492;&#1510;&#1493;&#1493;&#1514; &#1499;&#1500; &#1499;&#1498; &#1505;&#1489;&#1500;&#1504;&#1497; &#1506;&#1501; &#1497;&#1500;&#1491;&#1497;&#1501;, &#1493;&#1492;&#1490;&#1497;&#1513;&#1492; &#1492;&#1506;&#1491;&#1497;&#1504;&#1492; &#1506;&#1493;&#1513;&#1492; &#1488;&#1514; &#1499;&#1500; &#1492;&#1492;&#1489;&#1491;&#1500;. &#1512;&#1493;&#1508;&#1488; &#1492;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1513;&#1500; &#1492;&#1502;&#1513;&#1508;&#1495;&#1492; &#1500;&#1514;&#1502;&#1497;&#1491;.</blockquote></div>
-      <div class="rev-author">
-        <div class="rev-dot">
-          <div class="en">N</div>
-          <div class="he">&#1504;</div>
-        </div>
-        <div>
-          <div class="en"><div class="rev-name">Noa S.</div><div class="rev-date">Google Review, 2024</div></div>
-          <div class="he"><div class="rev-name">&#1504;&#1493;&#1506;&#1492; &#1513;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2024</div></div>
-        </div>
-      </div>
+    <div class="insurance-item">
+      <span class="he">מאוחדת</span>
+      <span class="en">Meuhedet</span>
+    </div>
+    <div class="insurance-item">
+      <span class="he">לאומית</span>
+      <span class="en">Leumit</span>
+    </div>
+    <div class="insurance-item">
+      <span class="he">הראל</span>
+      <span class="en">Harel</span>
+    </div>
+    <div class="insurance-item">
+      <span class="he">מגדל</span>
+      <span class="en">Migdal</span>
+    </div>
+    <div class="insurance-item">
+      <span class="he">כלל</span>
+      <span class="en">Clal</span>
+    </div>
+    <div class="insurance-item">
+      <span class="he">פניקס</span>
+      <span class="en">Phoenix</span>
     </div>
   </div>
-</div>
 </section>
 
-<!-- INSURANCE & PAYMENT -->
-<section class="sec ins-section" id="insurance">
-<div class="cx">
-  <div class="en"><div class="sl">Insurance &amp; Payment</div><h2 class="st">Making care <i>accessible.</i></h2><p class="sd">We accept most insurance plans and offer flexible payment options to make quality dental care available to everyone.</p></div>
-  <div class="he"><div class="sl">&#1489;&#1497;&#1496;&#1493;&#1495; &#1493;&#1514;&#1513;&#1500;&#1493;&#1501;</div><h2 class="st">&#1496;&#1497;&#1508;&#1493;&#1500; &#1504;&#1490;&#1497;&#1513; <i>&#1500;&#1499;&#1493;&#1500;&#1501;.</i></h2><p class="sd">&#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1511;&#1489;&#1500;&#1497;&#1501; &#1488;&#1514; &#1512;&#1493;&#1489; &#1514;&#1493;&#1499;&#1504;&#1497;&#1493;&#1514; &#1492;&#1489;&#1497;&#1496;&#1493;&#1495; &#1493;&#1502;&#1510;&#1497;&#1506;&#1497;&#1501; &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501; &#1490;&#1502;&#1497;&#1513;&#1493;&#1514; &#1499;&#1491;&#1497; &#1500;&#1492;&#1504;&#1490;&#1497;&#1513; &#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1488;&#1497;&#1499;&#1493;&#1514;&#1497; &#1500;&#1499;&#1493;&#1500;&#1501;.</p></div>
-  <div class="ins-grid">
-    <div>
-      <div class="en">
-        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">Accepted Insurance Plans</h3>
-        <div class="ins-list">
-          <div class="ins-item"><span class="ins-check">+</span>Clalit Health Services (Clalit Mushlam / Platinum)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Maccabi Healthcare (Maccabi Zahav / Sheli)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Meuhedet (Meuhedet Adif / See)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Leumit Health Fund (Leumit Silver / Gold)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Private dental insurance plans</div>
-          <div class="ins-item"><span class="ins-check">+</span>International insurance accepted</div>
-        </div>
-      </div>
-      <div class="he">
-        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">&#1514;&#1493;&#1499;&#1504;&#1497;&#1493;&#1514; &#1489;&#1497;&#1496;&#1493;&#1495; &#1502;&#1514;&#1511;&#1489;&#1500;&#1493;&#1514;</h3>
-        <div class="ins-list">
-          <div class="ins-item"><span class="ins-check">+</span>&#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; &#1499;&#1500;&#1500;&#1497;&#1514; (&#1499;&#1500;&#1500;&#1497;&#1514; &#1502;&#1493;&#1513;&#1500;&#1501; / &#1508;&#1500;&#1496;&#1497;&#1504;&#1493;&#1501;)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1502;&#1499;&#1489;&#1497; &#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; (&#1502;&#1499;&#1489;&#1497; &#1494;&#1492;&#1489; / &#1513;&#1500;&#1497;)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1502;&#1488;&#1493;&#1495;&#1491;&#1514; (&#1502;&#1488;&#1493;&#1495;&#1491;&#1514; &#1506;&#1491;&#1497;&#1507; / &#1505;&#1497;)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1500;&#1488;&#1493;&#1502;&#1497;&#1514; (&#1500;&#1488;&#1493;&#1502;&#1497;&#1514; &#1499;&#1505;&#1507; / &#1494;&#1492;&#1489;)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1489;&#1497;&#1496;&#1493;&#1495;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1489;&#1497;&#1496;&#1493;&#1495;&#1497;&#1501; &#1489;&#1497;&#1504;&#1500;&#1488;&#1493;&#1502;&#1497;&#1497;&#1501; &#1502;&#1514;&#1511;&#1489;&#1500;&#1497;&#1501;</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="en">
-        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">Payment Options</h3>
-        <div class="ins-list" style="margin-bottom:24px">
-          <div class="ins-item"><span class="ins-check">+</span>Interest-free installment plans (up to 12 payments)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Credit cards (Visa, Mastercard, Amex)</div>
-          <div class="ins-item"><span class="ins-check">+</span>Bank transfer / Bit / PayBox</div>
-          <div class="ins-item"><span class="ins-check">+</span>Free initial consultation for new patients</div>
-        </div>
-        <div class="payment-methods">
-          <span class="pay-badge">Visa</span>
-          <span class="pay-badge">Mastercard</span>
-          <span class="pay-badge">Amex</span>
-          <span class="pay-badge">Bit</span>
-        </div>
-      </div>
-      <div class="he">
-        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">&#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501;</h3>
-        <div class="ins-list" style="margin-bottom:24px">
-          <div class="ins-item"><span class="ins-check">+</span>&#1514;&#1513;&#1500;&#1493;&#1502;&#1497;&#1501; &#1500;&#1500;&#1488; &#1512;&#1497;&#1489;&#1497;&#1514; (&#1506;&#1491; 12 &#1514;&#1513;&#1500;&#1493;&#1502;&#1497;&#1501;)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1499;&#1512;&#1496;&#1497;&#1505;&#1497; &#1488;&#1513;&#1512;&#1488;&#1497; (Visa, Mastercard, Amex)</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1492;&#1506;&#1489;&#1512;&#1492; &#1489;&#1504;&#1511;&#1488;&#1497;&#1514; / &#1489;&#1497;&#1496; / PayBox</div>
-          <div class="ins-item"><span class="ins-check">+</span>&#1497;&#1497;&#1506;&#1493;&#1509; &#1512;&#1488;&#1513;&#1493;&#1504;&#1497; &#1495;&#1497;&#1504;&#1501; &#1500;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1495;&#1491;&#1513;&#1497;&#1501;</div>
-        </div>
-        <div class="payment-methods">
-          <span class="pay-badge">Visa</span>
-          <span class="pay-badge">Mastercard</span>
-          <span class="pay-badge">Amex</span>
-          <span class="pay-badge">&#1489;&#1497;&#1496;</span>
-        </div>
-      </div>
-    </div>
+<!-- ===== CONTACT / SCHEDULE ===== -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <h2>
+      <span class="he">קביעת תור</span>
+      <span class="en">Schedule an Appointment</span>
+    </h2>
+    <p>
+      <span class="he">מלאו את הפרטים ונחזור אליכם בהקדם</span>
+      <span class="en">Fill in your details and we'll get back to you shortly</span>
+    </p>
   </div>
-</div>
-</section>
 
-<!-- CTA / CONTACT -->
-<section class="cta-band" id="contact">
-<div class="cx">
-  <div class="en">
-    <h2>Ready for a healthier <i>smile?</i></h2>
-    <p>Schedule your appointment today. New patients receive a free consultation.</p>
-    <a href="tel:+97236421850" class="phone-link">03-642-1850</a>
-    <div class="cta-btns">
-      <a href="tel:+97236421850" class="btn btn-p">Call to Schedule</a>
-      <a href="https://wa.me/97236421850" class="btn btn-o" style="border-color:var(--bddh);color:#fff">WhatsApp</a>
-    </div>
-  </div>
-  <div class="he">
-    <h2>&#1502;&#1493;&#1499;&#1504;&#1497;&#1501; &#1500;&#1495;&#1497;&#1493;&#1498; &#1489;&#1512;&#1497;&#1488; <i>&#1497;&#1493;&#1514;&#1512;?</i></h2>
-    <p>&#1511;&#1489;&#1506;&#1493; &#1514;&#1493;&#1512; &#1506;&#1493;&#1491; &#1492;&#1497;&#1493;&#1501;. &#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1495;&#1491;&#1513;&#1497;&#1501; &#1502;&#1511;&#1489;&#1500;&#1497;&#1501; &#1497;&#1497;&#1506;&#1493;&#1509; &#1512;&#1488;&#1513;&#1493;&#1504;&#1497; &#1495;&#1497;&#1504;&#1501;.</p>
-    <a href="tel:+97236421850" class="phone-link">03-642-1850</a>
-    <div class="cta-btns">
-      <a href="tel:+97236421850" class="btn btn-p">&#1495;&#1497;&#1497;&#1490;&#1493; &#1500;&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
-      <a href="https://wa.me/97236421850" class="btn btn-o" style="border-color:var(--bddh);color:#fff">&#1493;&#1493;&#1488;&#1496;&#1505;&#1488;&#1508;</a>
-    </div>
-  </div>
-</div>
-</section>
+  <div class="contact-wrap">
+    <!-- Form -->
+    <form class="contact-form" onsubmit="event.preventDefault()">
+      <div class="form-group">
+        <label>
+          <span class="he">שם מלא</span>
+          <span class="en">Full Name</span>
+        </label>
+        <input type="text" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label>
+          <span class="he">טלפון</span>
+          <span class="en">Phone</span>
+        </label>
+        <input type="tel" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label>
+          <span class="he">סוג טיפול</span>
+          <span class="en">Treatment Type</span>
+        </label>
+        <select required>
+          <option value="" disabled selected>
+            --
+          </option>
+          <option value="general">
+            General Checkup / בדיקה כללית
+          </option>
+          <option value="cosmetic">
+            Cosmetic / קוסמטיקה
+          </option>
+          <option value="implant">
+            Implants / שתלים
+          </option>
+          <option value="ortho">
+            Orthodontics / יישור
+          </option>
+          <option value="rootcanal">
+            Root Canal / טיפול שורש
+          </option>
+          <option value="pediatric">
+            Pediatric / ילדים
+          </option>
+          <option value="other">
+            Other / אחר
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">
+        <span class="he">שליחת בקשה</span>
+        <span class="en">Submit Request</span>
+      </button>
+    </form>
 
-<!-- HOURS & LOCATION -->
-<section class="sec">
-<div class="cx">
-  <div class="en"><div class="sl">Visit Us</div><h2 class="st">Hours &amp; <i>location.</i></h2><p class="sd">Conveniently located on Ibn Gvirol Street in the heart of Tel Aviv.</p></div>
-  <div class="he"><div class="sl">&#1489;&#1511;&#1512;&#1493; &#1488;&#1493;&#1514;&#1504;&#1493;</div><h2 class="st">&#1513;&#1506;&#1493;&#1514; &#1508;&#1514;&#1497;&#1495;&#1492; <i>&#1493;&#1502;&#1497;&#1511;&#1493;&#1501;.</i></h2><p class="sd">&#1502;&#1502;&#1493;&#1511;&#1502;&#1497;&#1501; &#1489;&#1504;&#1493;&#1495;&#1493;&#1514; &#1489;&#1512;&#1495;&#1493;&#1489; &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; &#1489;&#1500;&#1489; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;.</p></div>
-  <div class="info-grid">
-    <div>
-      <div class="en">
-        <table class="hours-table">
-          <tr><td>Sunday</td><td>08:00 - 19:00</td></tr>
-          <tr><td>Monday</td><td>08:00 - 19:00</td></tr>
-          <tr><td>Tuesday</td><td>08:00 - 20:00</td></tr>
-          <tr><td>Wednesday</td><td>08:00 - 19:00</td></tr>
-          <tr><td>Thursday</td><td>08:00 - 18:00</td></tr>
-          <tr><td>Friday</td><td>08:00 - 13:00</td></tr>
-          <tr><td>Saturday</td><td>Closed</td></tr>
-        </table>
-      </div>
-      <div class="he">
-        <table class="hours-table">
-          <tr><td>&#1497;&#1493;&#1501; &#1512;&#1488;&#1513;&#1493;&#1503;</td><td>08:00 - 19:00</td></tr>
-          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1504;&#1497;</td><td>08:00 - 19:00</td></tr>
-          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1500;&#1497;&#1513;&#1497;</td><td>08:00 - 20:00</td></tr>
-          <tr><td>&#1497;&#1493;&#1501; &#1512;&#1489;&#1497;&#1506;&#1497;</td><td>08:00 - 19:00</td></tr>
-          <tr><td>&#1497;&#1493;&#1501; &#1495;&#1502;&#1497;&#1513;&#1497;</td><td>08:00 - 18:00</td></tr>
-          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1497;&#1513;&#1497;</td><td>08:00 - 13:00</td></tr>
-          <tr><td>&#1513;&#1489;&#1514;</td><td>&#1505;&#1490;&#1493;&#1512;</td></tr>
-        </table>
-      </div>
-    </div>
-    <div class="location-card">
-      <div class="en">
-        <h3>Dr. Cohen Dental Clinic</h3>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span>78 Ibn Gvirol Street, Tel Aviv</span>
+    <!-- Info -->
+    <div class="contact-info">
+      <div class="info-block">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="he">שעות פעילות</span>
+          <span class="en">Opening Hours</span>
+        </h3>
+        <div class="info-row">
+          <span>
+            <span class="he">ראשון - חמישי</span>
+            <span class="en">Sun - Thu</span>
+          </span>
+          <span>08:00 - 20:00</span>
         </div>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <span dir="ltr">03-642-1850</span>
+        <div class="info-row">
+          <span>
+            <span class="he">שישי</span>
+            <span class="en">Friday</span>
+          </span>
+          <span>08:00 - 14:00</span>
         </div>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span>info@dr-cohen-dental.co.il</span>
+        <div class="info-row">
+          <span>
+            <span class="he">שבת</span>
+            <span class="en">Saturday</span>
+          </span>
+          <span>
+            <span class="he">סגור</span>
+            <span class="en">Closed</span>
+          </span>
         </div>
       </div>
-      <div class="he">
-        <h3>&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503;</h3>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span>&#1512;&#1495;&#1493;&#1489; &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; 78, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</span>
-        </div>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <span dir="ltr">03-642-1850</span>
-        </div>
-        <div class="location-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span>info@dr-cohen-dental.co.il</span>
+
+      <div class="info-block">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="he">כתובת</span>
+          <span class="en">Address</span>
+        </h3>
+        <div class="info-address">
+          <span class="he">רחוב אבן גבירול 120, תל אביב<br>קומה 3, משרד 305</span>
+          <span class="en">120 Ibn Gvirol Street, Tel Aviv<br>Floor 3, Office 305</span>
         </div>
       </div>
+
+      <div class="info-block">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span class="he">טלפון</span>
+          <span class="en">Phone</span>
+        </h3>
+        <a href="tel:03-1234567" style="font-size:.95rem;color:#2B6CB0;font-weight:600">03-123-4567</a>
+      </div>
+
       <div class="map-placeholder">
-        <span>Google Maps</span>
+        <span class="he">מפה - אבן גבירול 120, תל אביב</span>
+        <span class="en">Map - 120 Ibn Gvirol St, Tel Aviv</span>
       </div>
     </div>
   </div>
-</div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p style="font-family:var(--sf);font-size:1.15rem;color:var(--or);margin-bottom:3px;font-weight:600">
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">
+    <span class="he">קליניקת ד"ר כהן</span>
     <span class="en">Dr. Cohen Dental Clinic</span>
-    <span class="he">&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503;</span>
-  </p>
-  <div class="en"><p>General &amp; Cosmetic Dentistry. Ibn Gvirol 78, Tel Aviv.</p></div>
-  <div class="he"><p>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500;&#1500;&#1497;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;. &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; 78, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;.</p></div>
-  <div class="footer-links">
-    <div class="en"><a href="#services">Services</a> &middot; <a href="#team">Team</a> &middot; <a href="#reviews">Reviews</a> &middot; <a href="#insurance">Insurance</a> &middot; <a href="#contact">Contact</a></div>
-    <div class="he"><a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a> &middot; <a href="#team">&#1510;&#1493;&#1493;&#1514;</a> &middot; <a href="#reviews">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</a> &middot; <a href="#insurance">&#1489;&#1497;&#1496;&#1493;&#1495;</a> &middot; <a href="#contact">&#1510;&#1493;&#1512; &#1511;&#1513;&#1512;</a></div>
   </div>
-  <p>&copy; 2026 Dr. Cohen Dental Clinic. <span dir="ltr">03-642-1850</span></p>
-  <div class="footer-mizra">
-    <div class="en"><p>Website built by <a href="https://getmizra.com">Mizra</a></p></div>
-    <div class="he"><p>&#1492;&#1488;&#1514;&#1512; &#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; <a href="https://getmizra.com">Mizra</a></p></div>
+  <div class="footer-addr">
+    <span class="he">רחוב אבן גבירול 120, תל אביב</span>
+    <span class="en">120 Ibn Gvirol Street, Tel Aviv</span>
+  </div>
+  <div class="footer-links">
+    <a href="#services">
+      <span class="he">שירותים</span>
+      <span class="en">Services</span>
+    </a>
+    <a href="#team">
+      <span class="he">הצוות</span>
+      <span class="en">Team</span>
+    </a>
+    <a href="#reviews">
+      <span class="he">המלצות</span>
+      <span class="en">Reviews</span>
+    </a>
+    <a href="#contact">
+      <span class="he">צור קשר</span>
+      <span class="en">Contact</span>
+    </a>
+  </div>
+  <div class="footer-copy">
+    <span class="he">2025 קליניקת ד"ר כהן. כל הזכויות שמורות.</span>
+    <span class="en">2025 Dr. Cohen Dental Clinic. All rights reserved.</span>
   </div>
 </footer>
 
+<!-- ===== MOBILE STICKY BAR ===== -->
+<div class="mobile-sticky">
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <span class="he">קביעת תור</span>
+    <span class="en">Schedule Appointment</span>
+  </button>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
 <script>
 // Language toggle
-function setL(l) {
-  document.body.classList.toggle('lh', l === 'he');
-  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
-  document.documentElement.lang = l === 'he' ? 'he' : 'en';
-  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
-  if (event && event.target) event.target.classList.add('on');
-  try { localStorage.setItem('clinic_lang', l); } catch(e) {}
+function toggleLang(){
+  const body=document.body;
+  const html=document.documentElement;
+  const btn=document.querySelector('.lang-toggle');
+  if(body.classList.contains('lh')){
+    body.classList.remove('lh');
+    html.setAttribute('dir','ltr');
+    html.setAttribute('lang','en');
+    btn.textContent='HE';
+  }else{
+    body.classList.add('lh');
+    html.setAttribute('dir','rtl');
+    html.setAttribute('lang','he');
+    btn.textContent='EN';
+  }
 }
 
-// Restore language
-try {
-  var saved = localStorage.getItem('clinic_lang');
-  if (saved === 'en') {
-    document.body.classList.remove('lh');
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    setTimeout(function() {
-      document.querySelectorAll('.ls button').forEach(function(b) {
-        b.classList.toggle('on', b.textContent.trim() === 'EN');
-      });
-    }, 50);
-  }
-} catch(e) {}
-
 // Mobile menu
-document.addEventListener('DOMContentLoaded', function() {
-  var toggle = document.querySelector('.menu-toggle');
-  var nm = document.querySelector('.nm');
-  if (toggle && nm) {
-    toggle.addEventListener('click', function() {
-      this.classList.toggle('open');
-      nm.classList.toggle('open');
-      document.body.style.overflow = nm.classList.contains('open') ? 'hidden' : '';
-    });
-    nm.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        toggle.classList.remove('open');
-        nm.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Sticky nav with banner offset
+(function(){
+  const nav=document.getElementById('nav');
+  const banner=document.querySelector('.mizra-banner');
+  let bannerH=banner?banner.offsetHeight:0;
+  let lastScroll=0;
+
+  function updateNav(){
+    const st=window.scrollY;
+    if(st>bannerH){
+      nav.style.top='0';
+      nav.classList.add('scrolled');
+    }else{
+      nav.style.top=bannerH-st+'px';
+      nav.classList.remove('scrolled');
+    }
+    lastScroll=st;
   }
 
-  // Scroll reveal
-  var ob = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) entry.target.classList.add('vis');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv').forEach(function(el) { ob.observe(el); });
+  // Initial position
+  nav.style.top=bannerH+'px';
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+  window.addEventListener('scroll',updateNav,{passive:true});
+  window.addEventListener('resize',function(){
+    bannerH=banner?banner.offsetHeight:0;
+    updateNav();
   });
-
-  // Adjust nav position based on banner
-  var banner = document.querySelector('.mizra-banner');
-  var nav = document.querySelector('.nav');
-  if (banner && nav) {
-    var bannerHeight = banner.offsetHeight;
-    nav.style.top = bannerHeight + 'px';
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > bannerHeight) {
-        nav.style.top = '0';
-        banner.style.transform = 'translateY(-100%)';
-        banner.style.transition = 'transform .3s';
-      } else {
-        nav.style.top = (bannerHeight - window.scrollY) + 'px';
-        banner.style.transform = 'none';
-      }
-    });
-  }
-});
+})();
 </script>
 </body>
 </html>

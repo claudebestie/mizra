@@ -3,359 +3,450 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אבי שיפוצים | שיפוץ מקצועי, תוצאה מושלמת</title>
-<meta name="description" content="אבי שיפוצים - שיפוצי דירות, מטבחים, חדרי אמבטיה וקבלנות כללית בתל אביב והמרכז. 12+ שנות ניסיון, 200+ פרויקטים.">
+<title>אבי שיפוצים | בונים לכם בית חדש</title>
+<meta name="description" content="אבי שיפוצים - שיפוצי דירות, מטבחים, חדרי אמבטיה וקבלנות כללית בתל אביב והמרכז. 12+ שנות ניסיון, 200+ פרויקטים מוצלחים.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* --- VARIABLES --- */
+/* === VARIABLES === */
 :root{
-  --bg:#f6f3ee;--bg2:#edebe5;--bg3:#e3e0d8;
-  --navy:#0c1829;--navy2:#142236;
-  --white:#fff;--or:#d4643a;--or2:#e07a54;--ord:rgba(212,100,58,.08);
-  --grn:#3d8b5e;--grnd:rgba(61,139,94,.08);
-  --tx:#5a5750;--txl:#8a857c;
-  --bd:rgba(0,0,0,.07);
-  --sf:'Playfair Display',Georgia,serif;
-  --sn:'Outfit',system-ui,sans-serif;
+  --orange:#E8590C;--orange-hover:#d14f08;
+  --concrete:#D6D3CD;--concrete-light:#ECEAE6;
+  --asphalt:#1C1C1C;--asphalt-light:#2A2A2A;
+  --steel:#6B7280;--steel-light:#9CA3AF;
+  --blue:#1E40AF;
+  --white:#FFFFFF;--offwhite:#F9F8F6;
+  --heading:'Sora',sans-serif;
+  --body:'Work Sans',sans-serif;
 }
 
-/* --- RESET --- */
+/* === RESET === */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--or);color:#fff}
+body{font-family:var(--body);background:var(--white);color:var(--asphalt);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--orange);color:#fff}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
+ul{list-style:none}
 
-/* --- LANGUAGE --- */
+/* === LANGUAGE === */
 .he{display:none}
 body.lh .en{display:none}
 body.lh .he{display:block}
 body.lh{direction:rtl}
 
-/* --- MIZRA BANNER --- */
+/* === MIZRA BANNER === */
 .mizra-banner{
-  background:var(--navy);color:rgba(255,255,255,.85);
-  text-align:center;padding:10px 20px;font-size:.78rem;font-weight:400;
-  letter-spacing:.2px;
+  background:var(--orange);color:#fff;
+  text-align:center;padding:10px 20px;font-size:.8rem;
+  font-family:var(--body);font-weight:500;letter-spacing:.3px;
+  position:relative;z-index:1000;
 }
-.mizra-banner a{color:var(--or2);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-inline-start:4px}
-.mizra-banner a:hover{color:#fff}
+.mizra-banner a{color:#fff;text-decoration:underline;font-weight:700}
+.mizra-banner a:hover{opacity:.85}
 
-/* --- NAV --- */
+/* === DIAGONAL CAUTION STRIPE (decorative) === */
+.caution-stripe{
+  height:6px;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--orange),var(--orange) 10px,
+    var(--asphalt) 10px,var(--asphalt) 20px
+  );
+}
+
+/* === NAV === */
 .nav{
-  position:sticky;top:0;z-index:100;
-  padding:0 48px;height:64px;
+  background:var(--asphalt);padding:0 40px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(246,243,238,.94);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--bd);
+  height:70px;position:sticky;top:0;z-index:999;
 }
 .nav-logo{
-  font-family:var(--sf);font-size:1.35rem;color:var(--navy);
-  font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;
+  font-family:var(--heading);font-weight:800;font-size:1.5rem;color:var(--white);
+  letter-spacing:-.5px;
 }
-.nav-logo .logo-icon{width:28px;height:28px;fill:var(--or)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--tx);font-size:.82rem;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--navy)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.ls{display:flex;gap:4px}
-.ls button{border:none;background:none;font-family:var(--sn);font-size:.72rem;font-weight:600;cursor:pointer;padding:4px 8px;border-radius:4px;color:var(--txl);transition:.2s}
-.ls button.on{background:var(--navy);color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 24px;border-radius:8px;font-family:var(--sn);font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:.3s;text-decoration:none}
-.btn-p{background:var(--or);color:#fff}
-.btn-p:hover{background:var(--or2);transform:translateY(-1px)}
-.btn-o{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
-.btn-o:hover{background:var(--navy);color:#fff}
-.btn-w{background:#25d366;color:#fff}
-.btn-w:hover{background:#1fbd5a;transform:translateY(-1px)}
-.btn-sm{padding:7px 18px;font-size:.78rem}
-.btn-lg{padding:14px 36px;font-size:.95rem}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{
+  color:var(--steel-light);font-size:.88rem;font-weight:500;
+  transition:color .2s;font-family:var(--body);
+}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--orange);color:#fff;
+  padding:10px 26px;border-radius:50px;
+  font-family:var(--heading);font-weight:700;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:1px;
+  transition:background .2s;border:none;cursor:pointer;
+}
+.nav-cta:hover{background:var(--orange-hover)}
+.lang-toggle{
+  color:var(--steel-light);cursor:pointer;font-size:.82rem;
+  font-weight:600;padding:6px 14px;border:1px solid var(--steel);
+  border-radius:50px;transition:all .2s;font-family:var(--body);
+  background:transparent;
+}
+.lang-toggle:hover{border-color:var(--orange);color:var(--orange)}
+.mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.mobile-menu-btn span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:.3s}
 
-/* --- HAMBURGER --- */
-.menu-toggle{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;flex-direction:column;justify-content:space-between;padding:0}
-.menu-toggle span{display:block;width:100%;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
-
-/* --- HERO --- */
+/* === HERO === */
 .hero{
-  padding:100px 48px 80px;
-  text-align:center;
-  background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
-  position:relative;
+  position:relative;overflow:hidden;
+  min-height:600px;display:flex;
 }
-.hero::after{
-  content:'';position:absolute;bottom:0;left:5%;right:5%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--bd),transparent);
+.hero-left{
+  flex:1;background:var(--asphalt);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 60px 80px 80px;
+  position:relative;z-index:2;
+  clip-path:polygon(0 0, 100% 0, 82% 100%, 0% 100%);
 }
-.hero-tag{
-  display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:2px;color:var(--or);margin-bottom:16px;
+[dir="rtl"] .hero-left{
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 18% 100%);
+  padding:80px 80px 80px 60px;
+}
+.hero-right{
+  position:absolute;top:0;right:0;bottom:0;
+  width:50%;
+  background:var(--concrete);
+  display:flex;align-items:center;justify-content:center;
+}
+[dir="rtl"] .hero-right{right:auto;left:0}
+.hero-right-inner{
+  width:80%;height:70%;
+  background:linear-gradient(135deg,var(--concrete-light) 0%,#C4C0B8 100%);
+  border-radius:8px;position:relative;overflow:hidden;
+}
+.hero-right-inner::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,transparent,transparent 40px,rgba(0,0,0,.03) 40px,rgba(0,0,0,.03) 80px
+  );
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(232,89,12,.15);color:var(--orange);
+  padding:6px 18px;border-radius:50px;
+  font-family:var(--heading);font-weight:700;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:24px;
 }
 .hero h1{
-  font-family:var(--sf);font-size:3.2rem;color:var(--navy);
-  line-height:1.15;margin-bottom:20px;font-weight:700;
+  font-family:var(--heading);font-weight:800;
+  font-size:3.2rem;line-height:1.15;
+  color:var(--white);margin-bottom:20px;
+  letter-spacing:-.5px;
 }
-.hero h1 i{font-style:italic;color:var(--or)}
+.hero h1 span{color:var(--orange)}
 .hero-sub{
-  font-size:1.05rem;color:var(--tx);max-width:560px;margin:0 auto 32px;line-height:1.7;
+  color:var(--steel-light);font-size:1.1rem;
+  max-width:460px;margin-bottom:36px;line-height:1.7;
 }
-.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.hero-stats{
-  display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
-  padding-top:40px;
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--orange);color:#fff;
+  padding:14px 36px;border-radius:50px;
+  font-family:var(--heading);font-weight:700;font-size:.88rem;
+  text-transform:uppercase;letter-spacing:1.2px;
+  transition:all .25s;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
 }
-.hero-stat{text-align:center}
-.hero-stat h3{font-family:var(--sf);font-size:1.8rem;color:var(--navy);font-weight:700}
-.hero-stat p{font-size:.78rem;color:var(--txl);margin-top:2px}
+.btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 8px 25px rgba(232,89,12,.3)}
+.btn-secondary{
+  background:transparent;color:var(--white);
+  padding:14px 36px;border-radius:50px;
+  font-family:var(--heading);font-weight:700;font-size:.88rem;
+  text-transform:uppercase;letter-spacing:1.2px;
+  border:2px solid var(--steel);
+  transition:all .25s;cursor:pointer;
+}
+.btn-secondary:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
 
-/* --- SECTIONS --- */
-.section{padding:80px 48px}
-.section-alt{background:var(--bg2)}
-.section-dark{background:var(--navy);color:rgba(255,255,255,.85)}
-.section-tag{
-  display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:2px;color:var(--or);margin-bottom:10px;
+/* === SECTION UTILITIES === */
+.section-pad{padding:100px 40px}
+.section-concrete{background:var(--concrete-light)}
+.section-dark{background:var(--asphalt);color:var(--white)}
+.section-orange{background:var(--orange);color:var(--white)}
+.container{max-width:1200px;margin:0 auto}
+.section-label{
+  font-family:var(--heading);font-weight:700;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:3px;
+  color:var(--orange);margin-bottom:12px;
 }
+.section-dark .section-label{color:var(--orange)}
 .section-title{
-  font-family:var(--sf);font-size:2.1rem;color:var(--navy);
-  line-height:1.2;margin-bottom:14px;font-weight:700;
+  font-family:var(--heading);font-weight:800;
+  font-size:2.6rem;line-height:1.2;
+  margin-bottom:20px;letter-spacing:-.5px;
 }
-.section-dark .section-title{color:#fff}
 .section-subtitle{
-  font-size:.95rem;color:var(--tx);max-width:520px;line-height:1.7;margin-bottom:48px;
+  color:var(--steel);font-size:1.05rem;
+  max-width:560px;line-height:1.7;
 }
-.section-dark .section-subtitle{color:rgba(255,255,255,.6)}
-.text-center{text-align:center}
-.mx-auto{margin-left:auto;margin-right:auto}
+.section-dark .section-subtitle{color:var(--steel-light)}
 
-/* --- SERVICES GRID --- */
+/* === SERVICES === */
 .services-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:28px;margin-top:56px;
 }
 .service-card{
-  background:var(--white);border-radius:14px;padding:32px 28px;
-  border:1px solid var(--bd);transition:.3s;
+  background:var(--white);border-radius:10px;
+  padding:36px 30px;
+  border-top:5px solid var(--orange);
+  transition:transform .25s,box-shadow .25s;
 }
-.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
 .service-icon{
-  width:48px;height:48px;border-radius:12px;
-  background:var(--ord);display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;
-}
-.service-icon svg{width:22px;height:22px;fill:var(--or)}
-.service-card h3{
-  font-family:var(--sf);font-size:1.05rem;color:var(--navy);
-  margin-bottom:8px;font-weight:600;
-}
-.service-card p{font-size:.82rem;color:var(--txl);line-height:1.65}
-
-/* --- PROCESS TIMELINE --- */
-.process-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
-  max-width:960px;margin:0 auto;position:relative;
-}
-.process-grid::before{
-  content:'';position:absolute;top:32px;left:10%;right:10%;
-  height:2px;background:var(--bd);
-}
-.process-step{text-align:center;position:relative}
-.process-num{
-  width:64px;height:64px;border-radius:50%;
-  background:var(--white);border:2px solid var(--or);
+  width:64px;height:64px;
+  background:var(--concrete-light);border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--sf);font-size:1.3rem;font-weight:700;color:var(--or);
-  margin:0 auto 18px;position:relative;z-index:2;
+  margin-bottom:22px;
 }
-.process-step h3{
-  font-family:var(--sf);font-size:1rem;color:var(--navy);
-  margin-bottom:6px;font-weight:600;
+.service-icon svg{width:28px;height:28px;stroke:var(--orange);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.service-card h3{
+  font-family:var(--heading);font-weight:700;
+  font-size:1.15rem;margin-bottom:10px;color:var(--asphalt);
 }
-.process-step p{font-size:.8rem;color:var(--txl);line-height:1.6;max-width:200px;margin:0 auto}
+.service-card p{color:var(--steel);font-size:.92rem;line-height:1.65}
 
-/* --- PROJECTS GRID --- */
+/* === PROCESS TIMELINE === */
+.process-wrap{display:flex;gap:80px;margin-top:56px;align-items:flex-start}
+.process-line{
+  position:relative;display:flex;flex-direction:column;gap:0;
+  flex:1;
+}
+.process-step{
+  display:flex;gap:28px;align-items:flex-start;
+  position:relative;padding-bottom:52px;
+}
+.process-step:last-child{padding-bottom:0}
+.process-step::before{
+  content:'';position:absolute;
+  width:4px;background:var(--orange);
+  top:0;bottom:0;
+}
+[dir="rtl"] .process-step::before{right:27px}
+[dir="ltr"] .process-step::before{left:27px}
+.process-step:last-child::before{display:none}
+.process-num{
+  width:58px;height:58px;min-width:58px;
+  background:var(--orange);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--heading);font-weight:800;font-size:1.4rem;
+  color:var(--white);position:relative;z-index:2;
+}
+.process-content{padding-top:8px}
+.process-content h3{
+  font-family:var(--heading);font-weight:700;
+  font-size:1.2rem;margin-bottom:8px;
+}
+.process-content p{color:var(--steel);font-size:.92rem;line-height:1.65}
+.process-side{
+  flex:0 0 380px;
+  background:var(--concrete);border-radius:12px;
+  padding:40px;position:relative;overflow:hidden;
+}
+.process-side::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:6px;
+  background:repeating-linear-gradient(
+    -45deg,var(--orange),var(--orange) 8px,transparent 8px,transparent 16px
+  );
+}
+.before-after{display:flex;gap:4px;margin-top:20px;border-radius:8px;overflow:hidden}
+.before-after-box{
+  flex:1;height:160px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--heading);font-weight:700;font-size:.85rem;
+  text-transform:uppercase;letter-spacing:2px;
+}
+.before-box{background:#A39E94;color:rgba(255,255,255,.7)}
+.after-box{background:var(--orange);color:rgba(255,255,255,.9)}
+
+/* === PROJECTS === */
 .projects-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:32px;margin-top:56px;
 }
 .project-card{
-  background:var(--white);border-radius:14px;overflow:hidden;
-  border:1px solid var(--bd);transition:.3s;
+  border-radius:12px;overflow:hidden;
+  background:var(--white);
+  transition:transform .25s,box-shadow .25s;
 }
-.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
 .project-img{
-  height:200px;display:flex;align-items:center;justify-content:center;
-  position:relative;
+  height:280px;position:relative;overflow:hidden;
 }
-.project-img svg{width:48px;height:48px;opacity:.3}
-.project-info{padding:20px}
+.project-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.15) 100%);
+}
+.project-info{padding:24px 28px}
 .project-info h3{
-  font-family:var(--sf);font-size:.95rem;color:var(--navy);
-  margin-bottom:4px;font-weight:600;
+  font-family:var(--heading);font-weight:700;
+  font-size:1.15rem;margin-bottom:6px;
 }
-.project-info p{font-size:.78rem;color:var(--txl)}
+.project-info p{color:var(--steel);font-size:.85rem;font-weight:500}
 
-/* --- TRUST / STATS --- */
-.trust-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-  max-width:900px;margin:0 auto;
+/* === STATS === */
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:40px;text-align:center;
 }
-.trust-card{
-  text-align:center;padding:32px 20px;
-  background:rgba(255,255,255,.06);border-radius:14px;
-  border:1px solid rgba(255,255,255,.08);
+.stat-num{
+  font-family:var(--heading);font-weight:800;
+  font-size:3.8rem;color:var(--white);line-height:1;
+  margin-bottom:8px;
 }
-.trust-icon{
-  width:56px;height:56px;border-radius:50%;
-  background:rgba(212,100,58,.15);display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;
+.stat-label{
+  color:var(--orange);font-family:var(--heading);
+  font-weight:700;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:2px;
 }
-.trust-icon svg{width:24px;height:24px;fill:var(--or2)}
-.trust-card h3{
-  font-family:var(--sf);font-size:1.3rem;color:#fff;
-  margin-bottom:6px;font-weight:700;
-}
-.trust-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.5}
 
-/* --- TESTIMONIALS --- */
+/* === TESTIMONIALS === */
 .testimonials-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:28px;margin-top:56px;
 }
 .testimonial-card{
-  background:var(--white);border-radius:14px;padding:32px 28px;
-  border:1px solid var(--bd);position:relative;
+  background:var(--white);padding:36px;border-radius:10px;
+  position:relative;
 }
-.testimonial-card::before{
-  content:'';position:absolute;top:24px;
-  inset-inline-start:28px;
-  font-family:var(--sf);font-size:3rem;color:var(--or);opacity:.2;
-  line-height:1;
+[dir="rtl"] .testimonial-card{border-right:5px solid var(--orange)}
+[dir="ltr"] .testimonial-card{border-left:5px solid var(--orange)}
+.testimonial-card p{
+  font-size:1rem;line-height:1.75;color:var(--asphalt);
+  margin-bottom:20px;font-style:italic;
 }
-.testimonial-text{
-  font-size:.88rem;color:var(--tx);line-height:1.75;
-  margin-bottom:18px;font-style:italic;
+.testimonial-author{
+  font-family:var(--heading);font-weight:700;
+  font-size:.88rem;color:var(--asphalt);
 }
-.testimonial-author{display:flex;align-items:center;gap:12px}
-.testimonial-avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--bg2);display:flex;align-items:center;justify-content:center;
-  font-family:var(--sf);font-size:.85rem;font-weight:700;color:var(--navy);
+.testimonial-location{
+  color:var(--steel);font-size:.8rem;margin-top:2px;
 }
-.testimonial-name{font-size:.82rem;font-weight:600;color:var(--navy)}
-.testimonial-loc{font-size:.72rem;color:var(--txl)}
 
-/* --- CTA SECTION --- */
-.cta-section{
-  padding:80px 48px;text-align:center;
-  background:linear-gradient(135deg,var(--or) 0%,var(--or2) 100%);
-  color:#fff;
+/* === SERVICE AREAS === */
+.areas-chips{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;
+  justify-content:center;
 }
-.cta-section h2{
-  font-family:var(--sf);font-size:2.2rem;color:#fff;
-  margin-bottom:14px;font-weight:700;
+.area-chip{
+  padding:10px 24px;border-radius:50px;
+  border:2px solid var(--orange);
+  font-family:var(--heading);font-weight:600;font-size:.88rem;
+  color:var(--asphalt);transition:all .2s;
 }
-.cta-section p{
-  font-size:1rem;color:rgba(255,255,255,.85);
-  max-width:480px;margin:0 auto 32px;line-height:1.7;
-}
-.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-cta-w{background:#fff;color:var(--or);font-weight:700}
-.btn-cta-w:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
-.btn-cta-o{background:transparent;border:2px solid #fff;color:#fff}
-.btn-cta-o:hover{background:rgba(255,255,255,.15)}
-.cta-phone{
-  margin-top:24px;font-size:1.4rem;font-weight:700;
-  direction:ltr;display:inline-block;
-}
-.cta-phone a{color:#fff;text-decoration:none}
+.area-chip:hover{background:var(--orange);color:var(--white)}
 
-/* --- AREAS / CONTACT --- */
-.areas-contact{
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;
-  max-width:900px;margin:0 auto;
+/* === CONTACT CTA === */
+.cta-content{text-align:center;max-width:700px;margin:0 auto}
+.cta-content h2{
+  font-family:var(--heading);font-weight:800;
+  font-size:2.8rem;margin-bottom:16px;color:var(--white);
 }
-.area-list{
-  display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;
+.cta-content p{
+  font-size:1.1rem;color:rgba(255,255,255,.85);
+  margin-bottom:40px;
 }
-.area-tag{
-  display:inline-block;padding:6px 16px;background:var(--bg2);
-  border-radius:100px;font-size:.78rem;color:var(--tx);
-  border:1px solid var(--bd);
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-dark{
+  background:var(--asphalt);color:var(--white);
+  padding:16px 40px;border-radius:50px;
+  font-family:var(--heading);font-weight:700;font-size:.88rem;
+  text-transform:uppercase;letter-spacing:1.2px;
+  transition:all .25s;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
 }
-.contact-item{
-  display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;
-}
-.contact-icon{
-  width:36px;height:36px;border-radius:10px;
-  background:var(--ord);display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.contact-icon svg{width:16px;height:16px;fill:var(--or)}
-.contact-item p{font-size:.85rem;color:var(--tx)}
-.contact-item strong{color:var(--navy);font-weight:600}
+.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-dark svg{width:20px;height:20px;fill:currentColor}
 
-/* --- FOOTER --- */
+/* === FOOTER === */
 .footer{
-  background:var(--navy);color:rgba(255,255,255,.5);
-  padding:40px 48px;text-align:center;
+  background:var(--asphalt);
+  padding:48px 40px 32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-logo{
+  font-family:var(--heading);font-weight:800;font-size:1.3rem;
+  color:var(--white);
+}
+.footer-logo span{color:var(--orange)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:var(--steel-light);font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{
+  width:100%;text-align:center;
+  color:var(--steel);font-size:.78rem;
+  margin-top:32px;padding-top:24px;
   border-top:1px solid rgba(255,255,255,.06);
 }
-.footer p{font-size:.78rem;line-height:1.7}
-.footer a{color:var(--or2);text-decoration:underline;text-underline-offset:2px}
 
-/* --- WHATSAPP FAB --- */
-.wa-fab{
-  position:fixed;bottom:24px;right:24px;width:52px;height:52px;
-  background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 18px rgba(37,211,102,.3);z-index:90;transition:.3s;
-  text-decoration:none;
+/* === MOBILE MENU === */
+.mobile-nav{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:var(--asphalt);z-index:1001;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:28px;
 }
-.wa-fab:hover{transform:scale(1.08)}
-.wa-fab svg{width:24px;height:24px;fill:#fff}
-body.lh .wa-fab{right:auto;left:24px}
+.mobile-nav.active{display:flex}
+.mobile-nav a{
+  color:var(--white);font-family:var(--heading);
+  font-size:1.3rem;font-weight:700;
+}
+.mobile-nav .close-btn{
+  position:absolute;top:20px;right:20px;
+  background:none;border:none;cursor:pointer;
+  color:var(--white);font-size:2rem;
+}
+[dir="rtl"] .mobile-nav .close-btn{right:auto;left:20px}
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media(max-width:900px){
-  .nav{padding:0 20px}
-  .hero{padding:70px 20px 60px}
-  .hero h1{font-size:2.2rem}
-  .section{padding:60px 20px}
-  .cta-section{padding:60px 20px}
-  .services-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .process-grid{grid-template-columns:repeat(2,1fr);gap:24px}
-  .process-grid::before{display:none}
-  .projects-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .trust-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .testimonials-grid{grid-template-columns:1fr;gap:16px}
-  .areas-contact{grid-template-columns:1fr;gap:32px}
-  .hero-stats{gap:24px}
-  .footer{padding:30px 20px}
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .process-wrap{flex-direction:column;gap:48px}
+  .process-side{flex:none}
+  .hero h1{font-size:2.6rem}
+  .hero-left{padding:60px 40px}
+  .section-title{font-size:2.2rem}
 }
-@media(max-width:640px){
+@media(max-width:768px){
   .nav-links{display:none}
-  .menu-toggle{display:flex}
-  .nav-links.open{
-    display:flex;flex-direction:column;
-    position:fixed;top:64px;left:0;right:0;bottom:0;
-    background:var(--bg);padding:40px 20px;gap:16px;
-    align-items:center;z-index:99;
+  .mobile-menu-btn{display:block}
+  .hero{flex-direction:column;min-height:auto}
+  .hero-left{
+    clip-path:none;padding:60px 24px;
+    width:100%;
   }
-  .nav-links.open a{font-size:1.2rem;color:var(--navy)}
-  .hero{padding:50px 16px 48px}
-  .hero h1{font-size:1.8rem}
-  .hero-sub{font-size:.92rem}
-  .section{padding:48px 16px}
-  .section-title{font-size:1.6rem}
-  .cta-section{padding:48px 16px}
-  .cta-section h2{font-size:1.6rem}
+  [dir="rtl"] .hero-left{clip-path:none;padding:60px 24px}
+  .hero-right{display:none}
+  .hero h1{font-size:2.2rem}
+  .hero-sub{font-size:1rem}
+  .section-pad{padding:64px 20px}
   .services-grid{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr;gap:20px}
   .projects-grid{grid-template-columns:1fr}
-  .trust-grid{grid-template-columns:1fr}
-  .hero-stats{flex-direction:column;gap:16px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .stat-num{font-size:2.8rem}
+  .testimonials-grid{grid-template-columns:1fr}
+  .section-title{font-size:1.9rem}
+  .cta-content h2{font-size:2rem}
+  .footer-inner{flex-direction:column;text-align:center}
+  .nav{padding:0 20px}
+  .process-step{gap:20px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.8rem}
+  .btn-primary,.btn-secondary,.btn-dark{padding:12px 28px;font-size:.82rem}
+  .stat-num{font-size:2.2rem}
+  .nav-logo{font-size:1.2rem}
 }
 </style>
 </head>
@@ -363,582 +454,631 @@ body.lh .wa-fab{right:auto;left:24px}
 
 <!-- MIZRA BANNER -->
 <div class="mizra-banner">
-  <div class="he">זו דוגמה לאתר שנבנה על ידי Mizra. רוצים אתר כזה? <a href="/free-audit/">לחצו כאן</a></div>
-  <div class="en">This is an example site built by Mizra. Want one like this? <a href="/free-audit/">Click here</a></div>
+  <div class="he">
+    דף נחיתה לדוגמה נבנה ע״י <strong>Mizra</strong> --
+    <a href="/free-audit/">בדיקת אתר חינמית</a>
+  </div>
+  <div class="en">
+    Example landing page built by <strong>Mizra</strong> --
+    <a href="/free-audit/">Get a free site audit</a>
+  </div>
 </div>
+
+<!-- CAUTION STRIPE -->
+<div class="caution-stripe"></div>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo">
-    <svg class="logo-icon" viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14H3zm2-2h14V8l-7-3.1L5 8v11zm3-2h8v-2H8v2zm0-4h8v-2H8v2z"/></svg>
-    <div class="he">אבי שיפוצים</div>
-    <div class="en">Avi Renovations</div>
-  </a>
-  <div class="nav-links" id="navLinks">
+  <div class="he nav-logo">אבי <span>שיפוצים</span></div>
+  <div class="en nav-logo">Avi <span>Renovations</span></div>
+
+  <div class="nav-links">
     <div class="he">
       <a href="#services">שירותים</a>
-      <a href="#process">תהליך העבודה</a>
-      <a href="#projects">פרויקטים</a>
-      <a href="#testimonials">המלצות</a>
-      <a href="#contact">צור קשר</a>
     </div>
     <div class="en">
       <a href="#services">Services</a>
-      <a href="#process">Our Process</a>
+    </div>
+    <div class="he">
+      <a href="#process">תהליך עבודה</a>
+    </div>
+    <div class="en">
+      <a href="#process">Process</a>
+    </div>
+    <div class="he">
+      <a href="#projects">פרויקטים</a>
+    </div>
+    <div class="en">
       <a href="#projects">Projects</a>
-      <a href="#testimonials">Testimonials</a>
+    </div>
+    <div class="he">
+      <a href="#testimonials">המלצות</a>
+    </div>
+    <div class="en">
+      <a href="#testimonials">Reviews</a>
+    </div>
+    <div class="he">
+      <a href="#contact">צור קשר</a>
+    </div>
+    <div class="en">
       <a href="#contact">Contact</a>
     </div>
-  </div>
-  <div class="nav-right">
-    <div class="ls">
-      <button onclick="setL('en')">EN</button>
-      <button class="on" onclick="setL('he')">HE</button>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span class="he">EN</span>
+      <span class="en">HE</span>
+    </button>
+    <div class="he">
+      <a href="#contact" class="nav-cta">קבל הצעת מחיר</a>
     </div>
-    <a href="#quote" class="btn btn-p btn-sm">
-      <span class="he">הצעת מחיר</span>
-      <span class="en">Get Quote</span>
-    </a>
+    <div class="en">
+      <a href="#contact" class="nav-cta">Get Quote</a>
+    </div>
   </div>
-  <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+
+  <button class="mobile-menu-btn" onclick="toggleMobile()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" onclick="toggleMobile()">&times;</button>
   <div class="he">
-    <div class="hero-tag">קבלן שיפוצים מורשה</div>
-    <h1>שיפוץ מקצועי,<br>תוצאה <i>מושלמת.</i></h1>
-    <p class="hero-sub">אבי שיפוצים מתמחה בשיפוצי דירות, מטבחים וחדרי אמבטיה בתל אביב והמרכז. 12 שנות ניסיון, מאות לקוחות מרוצים, ואחריות מלאה על כל עבודה.</p>
-    <div class="hero-actions">
-      <a href="#quote" class="btn btn-p btn-lg">קבלו הצעת מחיר חינם</a>
-      <a href="#projects" class="btn btn-o btn-lg">לפרויקטים שלנו</a>
-    </div>
+    <a href="#services" onclick="toggleMobile()">שירותים</a>
   </div>
   <div class="en">
-    <div class="hero-tag">Licensed Renovation Contractor</div>
-    <h1>Professional renovation,<br>perfect <i>results.</i></h1>
-    <p class="hero-sub">Avi Renovations specializes in apartment, kitchen and bathroom renovations across Tel Aviv and Central Israel. 12 years of experience, hundreds of satisfied clients, and full warranty on every project.</p>
-    <div class="hero-actions">
-      <a href="#quote" class="btn btn-p btn-lg">Get a Free Quote</a>
-      <a href="#projects" class="btn btn-o btn-lg">View Projects</a>
+    <a href="#services" onclick="toggleMobile()">Services</a>
+  </div>
+  <div class="he">
+    <a href="#process" onclick="toggleMobile()">תהליך עבודה</a>
+  </div>
+  <div class="en">
+    <a href="#process" onclick="toggleMobile()">Process</a>
+  </div>
+  <div class="he">
+    <a href="#projects" onclick="toggleMobile()">פרויקטים</a>
+  </div>
+  <div class="en">
+    <a href="#projects" onclick="toggleMobile()">Projects</a>
+  </div>
+  <div class="he">
+    <a href="#testimonials" onclick="toggleMobile()">המלצות</a>
+  </div>
+  <div class="en">
+    <a href="#testimonials" onclick="toggleMobile()">Reviews</a>
+  </div>
+  <div class="he">
+    <a href="#contact" onclick="toggleMobile()">צור קשר</a>
+  </div>
+  <div class="en">
+    <a href="#contact" onclick="toggleMobile()">Contact</a>
+  </div>
+  <button class="lang-toggle" onclick="toggleLang()" style="margin-top:12px">
+    <span class="he">EN</span>
+    <span class="en">HE</span>
+  </button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="he hero-badge">12+ שנות ניסיון</div>
+    <div class="en hero-badge">12+ Years Experience</div>
+
+    <div class="he">
+      <h1>בונים לכם<br><span>בית חדש</span></h1>
+    </div>
+    <div class="en">
+      <h1>Building Your<br><span>Dream Home</span></h1>
+    </div>
+
+    <div class="he">
+      <p class="hero-sub">שיפוצים מקצועיים מהיסוד. מטבחים, חדרי אמבטיה, דירות שלמות. עבודה מדויקת, לוחות זמנים ברורים, תוצאות שמדברות.</p>
+    </div>
+    <div class="en">
+      <p class="hero-sub">Professional renovations from the ground up. Kitchens, bathrooms, full apartments. Precise work, clear timelines, results that speak for themselves.</p>
+    </div>
+
+    <div class="hero-buttons">
+      <div class="he">
+        <a href="#contact" class="btn-primary">דברו איתנו</a>
+        <a href="#projects" class="btn-secondary">ראו פרויקטים</a>
+      </div>
+      <div class="en">
+        <a href="#contact" class="btn-primary">Talk To Us</a>
+        <a href="#projects" class="btn-secondary">See Projects</a>
+      </div>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <h3>12+</h3>
-      <div class="he"><p>שנות ניסיון</p></div>
-      <div class="en"><p>Years Experience</p></div>
-    </div>
-    <div class="hero-stat">
-      <h3>200+</h3>
-      <div class="he"><p>פרויקטים</p></div>
-      <div class="en"><p>Projects</p></div>
-    </div>
-    <div class="hero-stat">
-      <h3>100%</h3>
-      <div class="he"><p>מורשה ומבוטח</p></div>
-      <div class="en"><p>Licensed & Insured</p></div>
-    </div>
-    <div class="hero-stat">
-      <h3>5</h3>
-      <div class="he"><p>שנות אחריות</p></div>
-      <div class="en"><p>Year Warranty</p></div>
-    </div>
+  <div class="hero-right">
+    <div class="hero-right-inner"></div>
   </div>
 </section>
 
+<!-- CAUTION STRIPE -->
+<div class="caution-stripe"></div>
+
 <!-- SERVICES -->
-<section class="section" id="services">
-  <div class="text-center">
-    <div class="section-tag">
-      <span class="he">השירותים שלנו</span>
-      <span class="en">Our Services</span>
+<section id="services" class="section-pad section-concrete">
+  <div class="container">
+    <div class="he">
+      <div class="section-label">מה אנחנו עושים</div>
+      <h2 class="section-title">שירותי שיפוץ ובנייה</h2>
+      <p class="section-subtitle">מגוון רחב של שירותי שיפוץ מקצועיים תחת קורת גג אחת. מהתכנון ועד למפתח.</p>
     </div>
-    <h2 class="section-title">
-      <span class="he">כל מה שצריך תחת קורת גג אחת</span>
-      <span class="en">Everything you need under one roof</span>
-    </h2>
-    <p class="section-subtitle mx-auto">
-      <span class="he">מצוות מקצועית של בעלי מלאכה מנוסים, אנחנו מספקים שירות שלם מהתכנון ועד למסירה.</span>
-      <span class="en">With a professional team of experienced tradespeople, we deliver complete service from planning through handover.</span>
-    </p>
-  </div>
-  <div class="services-grid">
-    <!-- Kitchen -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16zm-3-8H9v-2h6v2zm-3 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/></svg>
-      </div>
-      <h3><span class="he">שיפוץ מטבחים</span><span class="en">Kitchen Renovation</span></h3>
-      <p>
-        <span class="he">עיצוב ושיפוץ מטבחים מודרניים כולל ארונות, משטחי עבודה, אינסטלציה וחשמל. התאמה אישית לכל תקציב.</span>
-        <span class="en">Design and renovation of modern kitchens including cabinets, countertops, plumbing and electrical. Custom-fitted to every budget.</span>
-      </p>
+    <div class="en">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Renovation & Construction Services</h2>
+      <p class="section-subtitle">A wide range of professional renovation services under one roof. From planning to handover.</p>
     </div>
-    <!-- Bathroom -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM20 13H4c-.55 0-1 .45-1 1v2c0 2.76 2.24 5 5 5h8c2.76 0 5-2.24 5-5v-2c0-.55-.45-1-1-1zm-1-3H7V5.5a.5.5 0 0 1 1 0V7h2V5.5C10 4.12 8.88 3 7.5 3S5 4.12 5 5.5V11H4c-.55 0-1 .45-1 1h18c0-.55-.45-1-1-1z"/></svg>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="he">
+          <h3>שיפוץ דירות</h3>
+          <p>שיפוץ כללי של דירות מגורים, כולל הריסה, בנייה, חשמל, אינסטלציה וגמרים.</p>
+        </div>
+        <div class="en">
+          <h3>Apartment Renovation</h3>
+          <p>Complete residential renovation including demolition, construction, electrical, plumbing and finishing.</p>
+        </div>
       </div>
-      <h3><span class="he">שיפוץ חדרי אמבטיה</span><span class="en">Bathroom Renovation</span></h3>
-      <p>
-        <span class="he">חדרי אמבטיה חדשים מהיסוד. ריצוף, חיפוי, כלים סניטריים, מקלחון ואיטום מקצועי.</span>
-        <span class="en">Complete bathroom rebuilds from scratch. Tiling, fixtures, sanitaryware, shower enclosures and professional waterproofing.</span>
-      </p>
-    </div>
-    <!-- Full Apartment -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+        </div>
+        <div class="he">
+          <h3>מטבחים</h3>
+          <p>עיצוב והתקנה של מטבחים מודרניים. ארונות, משטחים, חיפויים ומכשירי חשמל.</p>
+        </div>
+        <div class="en">
+          <h3>Kitchens</h3>
+          <p>Design and installation of modern kitchens. Cabinets, countertops, tiling and appliances.</p>
+        </div>
       </div>
-      <h3><span class="he">שיפוץ דירה מלא</span><span class="en">Full Apartment Renovation</span></h3>
-      <p>
-        <span class="he">שיפוץ כללי של דירה מא' ועד ת'. הריסה, בנייה, חשמל, אינסטלציה, ריצוף, צביעה וגמר.</span>
-        <span class="en">Complete apartment overhaul from A to Z. Demolition, construction, electrical, plumbing, tiling, painting and finishing.</span>
-      </p>
-    </div>
-    <!-- Painting -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z"/></svg>
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <div class="he">
+          <h3>חדרי אמבטיה</h3>
+          <p>חידוש חדרי רחצה מלא. איטום, ריצוף, סניטריה מודרנית ועיצוב נקי.</p>
+        </div>
+        <div class="en">
+          <h3>Bathrooms</h3>
+          <p>Full bathroom renovation. Waterproofing, tiling, modern sanitary ware and clean design.</p>
+        </div>
       </div>
-      <h3><span class="he">צביעה וגמר</span><span class="en">Painting & Finishing</span></h3>
-      <p>
-        <span class="he">צביעה מקצועית פנים וחוץ, שפכטל, ניקוי קירות, טפטים וציפויים דקורטיביים.</span>
-        <span class="en">Professional interior and exterior painting, plastering, wall preparation, wallpaper and decorative coatings.</span>
-      </p>
-    </div>
-    <!-- Flooring -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"/></svg>
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="he">
+          <h3>ריצוף וחיפוי</h3>
+          <p>ריצוף ברמה גבוהה, חיפוי קירות, פורצלן, שיש ואבן טבעית בכל מידה וסגנון.</p>
+        </div>
+        <div class="en">
+          <h3>Tiling & Cladding</h3>
+          <p>High-quality floor and wall tiling. Porcelain, marble and natural stone in any size and style.</p>
+        </div>
       </div>
-      <h3><span class="he">ריצוף ופרקט</span><span class="en">Flooring</span></h3>
-      <p>
-        <span class="he">התקנת ריצוף פורצלן, שיש, פרקט ולמינציה. הכנת משטח, פילוס והנחה מקצועית.</span>
-        <span class="en">Porcelain tile, marble, hardwood and laminate installation. Surface preparation, leveling and professional laying.</span>
-      </p>
-    </div>
-    <!-- Electrical & Plumbing -->
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8H7z"/></svg>
+      <!-- Service 5 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <div class="he">
+          <h3>חשמל ותאורה</h3>
+          <p>עבודות חשמל מקיפות, החלפת לוחות, תאורה מודרנית ופתרונות חכמים לבית.</p>
+        </div>
+        <div class="en">
+          <h3>Electrical & Lighting</h3>
+          <p>Comprehensive electrical work, panel upgrades, modern lighting and smart home solutions.</p>
+        </div>
       </div>
-      <h3><span class="he">חשמל ואינסטלציה</span><span class="en">Electrical & Plumbing</span></h3>
-      <p>
-        <span class="he">עבודות חשמל ואינסטלציה מורשות. חיבורים חדשים, החלפת תשתיות, תיקונים ושדרוגים.</span>
-        <span class="en">Licensed electrical and plumbing work. New connections, infrastructure replacement, repairs and upgrades.</span>
-      </p>
+      <!-- Service 6 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="he">
+          <h3>קבלנות כללית</h3>
+          <p>ניהול פרויקט מא׳ עד ת׳. תיאום בעלי מקצוע, פיקוח צמוד ועמידה בלוחות זמנים.</p>
+        </div>
+        <div class="en">
+          <h3>General Contracting</h3>
+          <p>End-to-end project management. Coordinating trades, close supervision and meeting deadlines.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="section section-alt" id="process">
-  <div class="text-center">
-    <div class="section-tag">
-      <span class="he">תהליך העבודה</span>
-      <span class="en">Our Process</span>
+<section id="process" class="section-pad">
+  <div class="container">
+    <div class="he">
+      <div class="section-label">איך זה עובד</div>
+      <h2 class="section-title">תהליך העבודה שלנו</h2>
+      <p class="section-subtitle">ארבעה שלבים ברורים מהפגישה הראשונה ועד למסירת המפתח. בלי הפתעות.</p>
     </div>
-    <h2 class="section-title">
-      <span class="he">ארבעה שלבים לשיפוץ מושלם</span>
-      <span class="en">Four steps to a perfect renovation</span>
-    </h2>
-    <p class="section-subtitle mx-auto">
-      <span class="he">גישה מסודרת ושקופה מהרגע הראשון ועד המסירה. ככה אנחנו עובדים.</span>
-      <span class="en">An organized and transparent approach from day one through handover. This is how we work.</span>
-    </p>
-  </div>
-  <div class="process-grid">
-    <div class="process-step">
-      <div class="process-num">1</div>
-      <h3><span class="he">פגישת ייעוץ</span><span class="en">Consultation</span></h3>
-      <p>
-        <span class="he">ביקור באתר, הבנת הצרכים, מדידות ראשוניות והצעת מחיר מפורטת ללא התחייבות.</span>
-        <span class="en">Site visit, needs assessment, initial measurements and a detailed no-obligation quote.</span>
-      </p>
+    <div class="en">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Our Work Process</h2>
+      <p class="section-subtitle">Four clear steps from the first meeting to handing over the keys. No surprises.</p>
     </div>
-    <div class="process-step">
-      <div class="process-num">2</div>
-      <h3><span class="he">תכנון ועיצוב</span><span class="en">Planning & Design</span></h3>
-      <p>
-        <span class="he">תכנון מפורט, בחירת חומרים, לוח זמנים מחייב ואישור סופי לפני תחילת העבודה.</span>
-        <span class="en">Detailed planning, material selection, binding timeline and final approval before work begins.</span>
-      </p>
-    </div>
-    <div class="process-step">
-      <div class="process-num">3</div>
-      <h3><span class="he">ביצוע ובנייה</span><span class="en">Construction</span></h3>
-      <p>
-        <span class="he">ביצוע מקצועי עם עדכונים שוטפים. פיקוח צמוד, עמידה בלוחות זמנים ובתקציב.</span>
-        <span class="en">Professional execution with regular updates. Close supervision, on time and on budget.</span>
-      </p>
-    </div>
-    <div class="process-step">
-      <div class="process-num">4</div>
-      <h3><span class="he">סיור מסירה</span><span class="en">Final Walkthrough</span></h3>
-      <p>
-        <span class="he">סיור משותף, בדיקת כל הפרטים, תיקונים במקום ומסירת מפתח עם תעודת אחריות.</span>
-        <span class="en">Joint walkthrough, every detail checked, on-the-spot fixes and handover with warranty certificate.</span>
-      </p>
-    </div>
-  </div>
-</section>
 
-<!-- RECENT PROJECTS -->
-<section class="section" id="projects">
-  <div class="text-center">
-    <div class="section-tag">
-      <span class="he">פרויקטים אחרונים</span>
-      <span class="en">Recent Projects</span>
-    </div>
-    <h2 class="section-title">
-      <span class="he">עבודות שביצענו לאחרונה</span>
-      <span class="en">Our latest completed work</span>
-    </h2>
-    <p class="section-subtitle mx-auto">
-      <span class="he">כל פרויקט מבוצע באותה רמת מקצועיות ותשומת לב לפרטים.</span>
-      <span class="en">Every project delivered with the same professionalism and attention to detail.</span>
-    </p>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-img" style="background:#c9b99a">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+    <div class="process-wrap">
+      <div class="process-line">
+        <!-- Step 1 -->
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <div class="process-content">
+            <div class="he">
+              <h3>פגישת ייעוץ</h3>
+              <p>מגיעים אליכם, בודקים את השטח, מבינים את הצרכים והחזון שלכם. הכל מתחיל בשיחה.</p>
+            </div>
+            <div class="en">
+              <h3>Consultation</h3>
+              <p>We come to you, survey the space, understand your needs and vision. Everything starts with a conversation.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <div class="process-content">
+            <div class="he">
+              <h3>תכנון והצעת מחיר</h3>
+              <p>מכינים תוכנית עבודה מפורטת עם לוח זמנים ברור והצעת מחיר שקופה ללא הפתעות.</p>
+            </div>
+            <div class="en">
+              <h3>Planning & Quote</h3>
+              <p>We prepare a detailed work plan with a clear timeline and transparent quote with no hidden costs.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <div class="process-content">
+            <div class="he">
+              <h3>ביצוע הפרויקט</h3>
+              <p>צוות מקצועי בשטח, פיקוח צמוד, עדכונים שוטפים. עובדים נקי ובזמן.</p>
+            </div>
+            <div class="en">
+              <h3>Project Build</h3>
+              <p>Professional crew on-site, close supervision, regular updates. Clean work, on schedule.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <div class="process-content">
+            <div class="he">
+              <h3>מסירה ואחריות</h3>
+              <p>סיור מסירה משותף, בדיקה של כל פרט. אחריות מלאה על העבודה גם אחרי שסיימנו.</p>
+            </div>
+            <div class="en">
+              <h3>Handover & Warranty</h3>
+              <p>Joint walkthrough, checking every detail. Full warranty on our work even after completion.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-info">
-        <h3><span class="he">שיפוץ דירה מלא</span><span class="en">Full Apartment Renovation</span></h3>
-        <p><span class="he">תל אביב, רוטשילד</span><span class="en">Tel Aviv, Rothschild</span></p>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-img" style="background:#8fa89b">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16zm-3-8H9v-2h6v2z"/></svg>
-      </div>
-      <div class="project-info">
-        <h3><span class="he">מטבח מודרני</span><span class="en">Modern Kitchen</span></h3>
-        <p><span class="he">רמת גן, הרצל</span><span class="en">Ramat Gan, Herzl</span></p>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-img" style="background:#a0937d">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM20 13H4c-.55 0-1 .45-1 1v2c0 2.76 2.24 5 5 5h8c2.76 0 5-2.24 5-5v-2c0-.55-.45-1-1-1z"/></svg>
-      </div>
-      <div class="project-info">
-        <h3><span class="he">חדר אמבטיה יוקרתי</span><span class="en">Luxury Bathroom</span></h3>
-        <p><span class="he">הרצליה פיתוח</span><span class="en">Herzliya Pituach</span></p>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-img" style="background:#7d8fa0">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"/></svg>
-      </div>
-      <div class="project-info">
-        <h3><span class="he">ריצוף פורצלן</span><span class="en">Porcelain Tiling</span></h3>
-        <p><span class="he">גבעתיים, ויצמן</span><span class="en">Givatayim, Weizmann</span></p>
+
+      <div class="process-side">
+        <div class="he">
+          <div class="section-label">התמחות</div>
+          <h3 style="font-family:var(--heading);font-weight:700;font-size:1.2rem;margin-bottom:8px;">לפני ואחרי</h3>
+          <p style="color:var(--steel);font-size:.88rem;margin-bottom:20px;">כל פרויקט עובר מהפך מלא. מהישן לחדש, מהרעיון למציאות.</p>
+        </div>
+        <div class="en">
+          <div class="section-label">Specialization</div>
+          <h3 style="font-family:var(--heading);font-weight:700;font-size:1.2rem;margin-bottom:8px;">Before & After</h3>
+          <p style="color:var(--steel);font-size:.88rem;margin-bottom:20px;">Every project goes through a complete transformation. From old to new, from idea to reality.</p>
+        </div>
+        <div class="before-after">
+          <div class="before-after-box before-box">
+            <span class="he">לפני</span>
+            <span class="en">Before</span>
+          </div>
+          <div class="before-after-box after-box">
+            <span class="he">אחרי</span>
+            <span class="en">After</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="section section-dark" id="why">
-  <div class="text-center">
-    <div class="section-tag">
-      <span class="he">למה דווקא אנחנו</span>
-      <span class="en">Why Choose Us</span>
+<!-- PROJECTS -->
+<section id="projects" class="section-pad section-concrete">
+  <div class="container">
+    <div class="he">
+      <div class="section-label">מהעבודות שלנו</div>
+      <h2 class="section-title">פרויקטים אחרונים</h2>
+      <p class="section-subtitle">מבחר עבודות שיפוץ שהשלמנו לאחרונה באזור תל אביב והמרכז.</p>
     </div>
-    <h2 class="section-title">
-      <span class="he">סיבות טובות לעבוד איתנו</span>
-      <span class="en">Good reasons to work with us</span>
-    </h2>
-    <p class="section-subtitle mx-auto">
-      <span class="he">אנחנו לא סתם קבלנים. אנחנו שותפים שלכם לדרך, עם המקצועיות והאמינות שמגיעות לכם.</span>
-      <span class="en">We are not just contractors. We are your partners, with the professionalism and reliability you deserve.</span>
-    </p>
-  </div>
-  <div class="trust-grid">
-    <div class="trust-card">
-      <div class="trust-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-      </div>
-      <h3><span class="he">מורשה ומבוטח</span><span class="en">Licensed & Insured</span></h3>
-      <p>
-        <span class="he">קבלן רשום עם כל הרישיונות הנדרשים וביטוח צד שלישי מלא.</span>
-        <span class="en">Registered contractor with all required licenses and full third-party insurance.</span>
-      </p>
+    <div class="en">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Recent Projects</h2>
+      <p class="section-subtitle">A selection of renovation projects we recently completed in Tel Aviv and Central Israel.</p>
     </div>
-    <div class="trust-card">
-      <div class="trust-icon">
-        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#8B7355 0%,#A0896C 50%,#6B5B45 100%)"></div>
+        <div class="project-info">
+          <div class="he">
+            <h3>שיפוץ כללי דירת 4 חדרים</h3>
+            <p>תל אביב, שכונת נווה שאנן</p>
+          </div>
+          <div class="en">
+            <h3>Full 4-Room Apartment Renovation</h3>
+            <p>Tel Aviv, Neve Sha'anan</p>
+          </div>
+        </div>
       </div>
-      <h3><span class="he">12+ שנות ניסיון</span><span class="en">12+ Years</span></h3>
-      <p>
-        <span class="he">יותר מעשור של ניסיון בשיפוצים למגוון רחב של פרויקטים.</span>
-        <span class="en">Over a decade of renovation experience across a wide range of projects.</span>
-      </p>
-    </div>
-    <div class="trust-card">
-      <div class="trust-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#5C7A6B 0%,#7A9988 50%,#4A6358 100%)"></div>
+        <div class="project-info">
+          <div class="he">
+            <h3>מטבח מודרני + פינת אוכל</h3>
+            <p>רמת גן, רמת עמידר</p>
+          </div>
+          <div class="en">
+            <h3>Modern Kitchen + Dining Area</h3>
+            <p>Ramat Gan, Ramat Amidar</p>
+          </div>
+        </div>
       </div>
-      <h3><span class="he">200+ פרויקטים</span><span class="en">200+ Projects</span></h3>
-      <p>
-        <span class="he">מאות פרויקטים מוצלחים ולקוחות מרוצים בכל רחבי המרכז.</span>
-        <span class="en">Hundreds of successful projects and satisfied clients across the central region.</span>
-      </p>
-    </div>
-    <div class="trust-card">
-      <div class="trust-icon">
-        <svg viewBox="0 0 24 24"><path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.8 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.34z"/></svg>
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#7A6B5C 0%,#998877 50%,#645646 100%)"></div>
+        <div class="project-info">
+          <div class="he">
+            <h3>שני חדרי אמבטיה + שירותים</h3>
+            <p>הרצליה פיתוח</p>
+          </div>
+          <div class="en">
+            <h3>Two Bathrooms + Guest WC</h3>
+            <p>Herzliya Pituach</p>
+          </div>
+        </div>
       </div>
-      <h3><span class="he">אחריות מלאה</span><span class="en">Warranty Included</span></h3>
-      <p>
-        <span class="he">אחריות של 5 שנים על כל עבודה. שקט נפשי מלא אחרי המסירה.</span>
-        <span class="en">5-year warranty on every project. Complete peace of mind after handover.</span>
-      </p>
     </div>
   </div>
 </section>
+
+<!-- STATS -->
+<section class="section-pad section-dark">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="he stat-label">שנות ניסיון</div>
+        <div class="en stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="he stat-label">פרויקטים</div>
+        <div class="en stat-label">Projects Done</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="he stat-label">שביעות רצון</div>
+        <div class="en stat-label">Satisfaction</div>
+      </div>
+      <div>
+        <div class="stat-num">15</div>
+        <div class="he stat-label">אנשי צוות</div>
+        <div class="en stat-label">Team Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAUTION STRIPE -->
+<div class="caution-stripe"></div>
 
 <!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="text-center">
-    <div class="section-tag">
-      <span class="he">מה הלקוחות אומרים</span>
-      <span class="en">Client Testimonials</span>
+<section id="testimonials" class="section-pad section-concrete">
+  <div class="container">
+    <div class="he">
+      <div class="section-label">מה אומרים עלינו</div>
+      <h2 class="section-title">לקוחות ממליצים</h2>
+      <p class="section-subtitle">המילה הכי חזקה שלנו היא של הלקוחות עצמם.</p>
     </div>
-    <h2 class="section-title">
-      <span class="he">לקוחות ממליצים</span>
-      <span class="en">What our clients say</span>
-    </h2>
-    <p class="section-subtitle mx-auto">
-      <span class="he">השיפוץ הוא לא רק עבודה - הוא מערכת יחסים. הנה מה שאומרים עלינו.</span>
-      <span class="en">A renovation is not just a job - it is a relationship. Here is what they say about us.</span>
-    </p>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-text">
-        <span class="he">שיפצנו דירה שלמה עם אבי והתוצאה עלתה על כל הציפיות. עבודה נקייה, עמידה בזמנים, ותקשורת מעולה לאורך כל הדרך. ממליצים בחום.</span>
-        <span class="en">We renovated our entire apartment with Avi and the result exceeded all expectations. Clean work, on schedule, and excellent communication throughout. Highly recommended.</span>
-      </div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">ד.כ</div>
-        <div>
-          <div class="testimonial-name"><span class="he">דנה כהן</span><span class="en">Dana Cohen</span></div>
-          <div class="testimonial-loc"><span class="he">תל אביב</span><span class="en">Tel Aviv</span></div>
+    <div class="en">
+      <div class="section-label">What They Say</div>
+      <h2 class="section-title">Client Testimonials</h2>
+      <p class="section-subtitle">Our strongest word comes from our clients themselves.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="he">
+          <p>״אבי והצוות שלו שיפצו לנו את הדירה מהיסוד. עבודה מקצועית, נקייה ובזמן. התוצאה מדהימה. ממליצים בחום.״</p>
+          <div class="testimonial-author">דנה ויואב כהן</div>
+          <div class="testimonial-location">תל אביב</div>
+        </div>
+        <div class="en">
+          <p>"Avi and his team renovated our apartment from scratch. Professional, clean, and on time. The result is amazing. Highly recommend."</p>
+          <div class="testimonial-author">Dana & Yoav Cohen</div>
+          <div class="testimonial-location">Tel Aviv</div>
         </div>
       </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-text">
-        <span class="he">המטבח החדש שלנו הוא בדיוק מה שחלמנו עליו. אבי הבין את הצרכים שלנו מהרגע הראשון והוציא את זה לפועל בצורה מושלמת. מקצוענים אמיתיים.</span>
-        <span class="en">Our new kitchen is exactly what we dreamed of. Avi understood our needs from day one and delivered perfectly. True professionals.</span>
-      </div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">מ.ל</div>
-        <div>
-          <div class="testimonial-name"><span class="he">מיכאל לוי</span><span class="en">Michael Levi</span></div>
-          <div class="testimonial-loc"><span class="he">רמת גן</span><span class="en">Ramat Gan</span></div>
+      <div class="testimonial-card">
+        <div class="he">
+          <p>״הפכו לנו את המטבח הישן למטבח חלומות. תשומת לב לכל פרט, חומרים איכותיים ושירות מעולה מההתחלה ועד הסוף.״</p>
+          <div class="testimonial-author">מיכל לוי</div>
+          <div class="testimonial-location">רמת גן</div>
+        </div>
+        <div class="en">
+          <p>"They turned our old kitchen into a dream kitchen. Attention to every detail, quality materials and excellent service from start to finish."</p>
+          <div class="testimonial-author">Michal Levy</div>
+          <div class="testimonial-location">Ramat Gan</div>
         </div>
       </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-text">
-        <span class="he">אחרי שקיבלנו הצעות מכמה קבלנים, בחרנו באבי ולא התחרטנו לרגע. המחיר היה הוגן, העבודה יסודית, והצוות אדיב ומקצועי. תודה רבה.</span>
-        <span class="en">After getting quotes from several contractors, we chose Avi and never regretted it for a moment. Fair price, thorough work, and a polite, professional team. Thank you.</span>
+      <div class="testimonial-card">
+        <div class="he">
+          <p>״שיפצנו שני חדרי אמבטיה ושירותי אורחים. העבודה הייתה מדויקת, הצוות אדיב והמחיר הוגן. תודה רבה!״</p>
+          <div class="testimonial-author">רון ושירה ברק</div>
+          <div class="testimonial-location">הרצליה</div>
+        </div>
+        <div class="en">
+          <p>"We renovated two bathrooms and a guest WC. The work was precise, the team was courteous and the price was fair. Thank you!"</p>
+          <div class="testimonial-author">Ron & Shira Barak</div>
+          <div class="testimonial-location">Herzliya</div>
+        </div>
       </div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">ר.א</div>
-        <div>
-          <div class="testimonial-name"><span class="he">רונית אברהם</span><span class="en">Ronit Avraham</span></div>
-          <div class="testimonial-loc"><span class="he">הרצליה</span><span class="en">Herzliya</span></div>
+      <div class="testimonial-card">
+        <div class="he">
+          <p>״פרויקט שיפוץ מורכב שכלל הריסה ובנייה מחדש. אבי ניהל את הפרויקט ביד רמה, תמיד זמין ותמיד עם פתרונות.״</p>
+          <div class="testimonial-author">אילן מזרחי</div>
+          <div class="testimonial-location">גבעתיים</div>
+        </div>
+        <div class="en">
+          <p>"A complex renovation project that included demolition and rebuild. Avi managed the project expertly, always available and always with solutions."</p>
+          <div class="testimonial-author">Ilan Mizrachi</div>
+          <div class="testimonial-location">Givatayim</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FREE QUOTE CTA -->
-<section class="cta-section" id="quote">
-  <div class="he">
-    <h2>מוכנים להתחיל את השיפוץ?</h2>
-    <p>צרו קשר עוד היום לפגישת ייעוץ והצעת מחיר חינם ללא התחייבות. נשמח להגשים את החלום שלכם.</p>
-    <div class="cta-actions">
-      <a href="https://wa.me/972501234567" class="btn btn-lg btn-cta-w">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="tel:050-123-4567" class="btn btn-lg btn-cta-o">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        050-123-4567
-      </a>
+<!-- SERVICE AREAS -->
+<section class="section-pad" style="text-align:center">
+  <div class="container">
+    <div class="he">
+      <div class="section-label">אזורי שירות</div>
+      <h2 class="section-title">איפה אנחנו עובדים</h2>
+      <p class="section-subtitle" style="margin:0 auto 0">מכסים את כל אזור תל אביב והמרכז. הגיעו מרחוק? דברו איתנו.</p>
     </div>
-  </div>
-  <div class="en">
-    <h2>Ready to start your renovation?</h2>
-    <p>Get in touch today for a free consultation and no-obligation quote. Let us bring your vision to life.</p>
-    <div class="cta-actions">
-      <a href="https://wa.me/972501234567" class="btn btn-lg btn-cta-w">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="tel:050-123-4567" class="btn btn-lg btn-cta-o">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        050-123-4567
-      </a>
+    <div class="en">
+      <div class="section-label">Service Areas</div>
+      <h2 class="section-title">Where We Work</h2>
+      <p class="section-subtitle" style="margin:0 auto 0">Covering all of Tel Aviv and Central Israel. Coming from far? Talk to us.</p>
+    </div>
+
+    <div class="areas-chips">
+      <div class="he">
+        <span class="area-chip">תל אביב</span>
+        <span class="area-chip">רמת גן</span>
+        <span class="area-chip">גבעתיים</span>
+        <span class="area-chip">הרצליה</span>
+        <span class="area-chip">רעננה</span>
+        <span class="area-chip">כפר סבא</span>
+        <span class="area-chip">פתח תקווה</span>
+        <span class="area-chip">ראשון לציון</span>
+        <span class="area-chip">חולון</span>
+        <span class="area-chip">בת ים</span>
+        <span class="area-chip">בני ברק</span>
+        <span class="area-chip">הוד השרון</span>
+      </div>
+      <div class="en">
+        <span class="area-chip">Tel Aviv</span>
+        <span class="area-chip">Ramat Gan</span>
+        <span class="area-chip">Givatayim</span>
+        <span class="area-chip">Herzliya</span>
+        <span class="area-chip">Ra'anana</span>
+        <span class="area-chip">Kfar Saba</span>
+        <span class="area-chip">Petah Tikva</span>
+        <span class="area-chip">Rishon LeZion</span>
+        <span class="area-chip">Holon</span>
+        <span class="area-chip">Bat Yam</span>
+        <span class="area-chip">Bnei Brak</span>
+        <span class="area-chip">Hod HaSharon</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE AREAS + CONTACT -->
-<section class="section section-alt" id="contact">
-  <div class="areas-contact">
-    <div>
-      <div class="section-tag">
-        <span class="he">אזורי שירות</span>
-        <span class="en">Service Areas</span>
+<!-- CONTACT CTA -->
+<section id="contact" class="section-pad section-orange">
+  <div class="container">
+    <div class="cta-content">
+      <div class="he">
+        <h2>מוכנים להתחיל?</h2>
+        <p>התקשרו עכשיו לייעוץ ראשוני ללא עלות. נשמח להגיע, לראות את השטח ולתת הצעת מחיר מפורטת.</p>
       </div>
-      <h2 class="section-title" style="font-size:1.5rem">
-        <span class="he">פועלים בכל המרכז</span>
-        <span class="en">Serving all of Central Israel</span>
-      </h2>
-      <div class="area-list">
-        <span class="area-tag"><span class="he">תל אביב</span><span class="en">Tel Aviv</span></span>
-        <span class="area-tag"><span class="he">רמת גן</span><span class="en">Ramat Gan</span></span>
-        <span class="area-tag"><span class="he">גבעתיים</span><span class="en">Givatayim</span></span>
-        <span class="area-tag"><span class="he">הרצליה</span><span class="en">Herzliya</span></span>
-        <span class="area-tag"><span class="he">רעננה</span><span class="en">Ra'anana</span></span>
-        <span class="area-tag"><span class="he">כפר סבא</span><span class="en">Kfar Saba</span></span>
-        <span class="area-tag"><span class="he">פתח תקווה</span><span class="en">Petah Tikva</span></span>
-        <span class="area-tag"><span class="he">ראשון לציון</span><span class="en">Rishon LeZion</span></span>
-        <span class="area-tag"><span class="he">חולון</span><span class="en">Holon</span></span>
-        <span class="area-tag"><span class="he">בת ים</span><span class="en">Bat Yam</span></span>
-        <span class="area-tag"><span class="he">נתניה</span><span class="en">Netanya</span></span>
-        <span class="area-tag"><span class="he">הוד השרון</span><span class="en">Hod HaSharon</span></span>
+      <div class="en">
+        <h2>Ready to Start?</h2>
+        <p>Call now for a free initial consultation. We'll come to you, survey the space and provide a detailed quote.</p>
       </div>
-    </div>
-    <div>
-      <div class="section-tag">
-        <span class="he">יצירת קשר</span>
-        <span class="en">Contact Us</span>
-      </div>
-      <h2 class="section-title" style="font-size:1.5rem">
-        <span class="he">דברו איתנו</span>
-        <span class="en">Get in touch</span>
-      </h2>
-      <div style="margin-top:16px">
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div>
-            <p><strong><span class="he">טלפון</span><span class="en">Phone</span></strong></p>
-            <p style="direction:ltr;display:inline-block">050-123-4567</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <div>
-            <p><strong><span class="he">אימייל</span><span class="en">Email</span></strong></p>
-            <p>info@avi-renovations.co.il</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div>
-            <p><strong><span class="he">כתובת</span><span class="en">Address</span></strong></p>
-            <p><span class="he">תל אביב, רח' הרצל 50</span><span class="en">50 Herzl St, Tel Aviv</span></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-          </div>
-          <div>
-            <p><strong><span class="he">שעות פעילות</span><span class="en">Working Hours</span></strong></p>
-            <p><span class="he">א'-ה' 07:00-18:00 | ו' 07:00-13:00</span><span class="en">Sun-Thu 07:00-18:00 | Fri 07:00-13:00</span></p>
-          </div>
-        </div>
+      <div class="cta-buttons">
+        <a href="tel:+972501234567" class="btn-dark">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="he">050-123-4567</span>
+          <span class="en">050-123-4567</span>
+        </a>
+        <a href="https://wa.me/972501234567" class="btn-dark" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.554 4.122 1.524 5.857L0 24l6.335-1.652A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.88 0-3.63-.5-5.14-1.37l-.37-.22-3.82.998.978-3.57-.24-.38A9.78 9.78 0 0 1 2.18 12C2.18 6.58 6.58 2.18 12 2.18c2.61 0 5.06 1.02 6.9 2.86a9.72 9.72 0 0 1 2.92 6.96c0 5.42-4.4 9.82-9.82 9.82z"/></svg>
+          <span class="he">WhatsApp</span>
+          <span class="en">WhatsApp</span>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
+<div class="caution-stripe"></div>
 <footer class="footer">
-  <p>
-    <span class="he">
-      &copy; 2025 אבי שיפוצים. כל הזכויות שמורות.
-      <br>זהו אתר לדוגמה שנבנה על ידי <a href="https://getmizra.com">Mizra</a>. המידע המופיע כאן הוא פיקטיבי.
-    </span>
-    <span class="en">
-      &copy; 2025 Avi Renovations. All rights reserved.
-      <br>This is a demo site built by <a href="https://getmizra.com">Mizra</a>. All information shown is fictional.
-    </span>
-  </p>
+  <div class="footer-inner">
+    <div class="he footer-logo">אבי <span>שיפוצים</span></div>
+    <div class="en footer-logo">Avi <span>Renovations</span></div>
+
+    <div class="footer-links">
+      <div class="he">
+        <a href="#services">שירותים</a>
+        <a href="#projects">פרויקטים</a>
+        <a href="#testimonials">המלצות</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="en">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <span class="he">&copy; 2024 אבי שיפוצים. כל הזכויות שמורות.</span>
+      <span class="en">&copy; 2024 Avi Renovations. All rights reserved.</span>
+    </div>
+  </div>
 </footer>
 
-<!-- WHATSAPP FAB -->
-<a href="https://wa.me/972501234567" class="wa-fab" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
 <script>
-function setL(l){
-  document.body.classList.toggle('lh', l==='he');
-  document.documentElement.dir = l==='he' ? 'rtl' : 'ltr';
-  document.documentElement.lang = l==='he' ? 'he' : 'en';
-  document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
-  if(event && event.target) event.target.classList.add('on');
-  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
-}
-
-// Restore language
-try {
-  const saved = localStorage.getItem('mizra_lang');
-  if (saved === 'en') {
-    document.body.classList.remove('lh');
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    setTimeout(() => {
-      document.querySelectorAll('.ls button').forEach(b => {
-        b.classList.toggle('on', b.textContent.trim() === 'EN');
-      });
-    }, 50);
+function toggleLang(){
+  document.body.classList.toggle('lh');
+  const html=document.documentElement;
+  if(document.body.classList.contains('lh')){
+    html.setAttribute('dir','rtl');
+    html.setAttribute('lang','he');
+  }else{
+    html.setAttribute('dir','ltr');
+    html.setAttribute('lang','en');
   }
-} catch(e) {}
-
-// Mobile menu toggle
-document.querySelector('.menu-toggle').addEventListener('click', function(){
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  });
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e){
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      target.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  });
-});
+}
+function toggleMobile(){
+  document.getElementById('mobileNav').classList.toggle('active');
+}
 </script>
-
 </body>
 </html>

@@ -11,8 +11,34 @@ function renderNav() {
 <a href="/" class="nav-logo">mizra<span>.</span></a>
 <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 <div class="nm">
-  <div class="en"><a href="/services/restaurants/">Restaurants</a><a href="/services/cafes/">Cafés</a><a href="/services/beauty-salons/">Salons</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a></div>
-  <div class="he"><a href="/services/restaurants/">מסעדות</a><a href="/services/cafes/">בתי קפה</a><a href="/services/beauty-salons/">מכוני יופי</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a></div>
+  <div class="en">
+    <div class="nd"><span class="nd-label">Services</span>
+      <div class="nd-drop">
+        <a href="/services/restaurants/"><strong>Restaurants</strong><small>See example</small></a>
+        <a href="/services/cafes/"><strong>Cafes</strong><small>See example</small></a>
+        <a href="/services/beauty-salons/"><strong>Beauty Salons</strong><small>See example</small></a>
+        <a href="/services/barbershops/"><strong>Barbershops</strong><small>See example</small></a>
+        <a href="/services/clinics/"><strong>Clinics</strong><small>See example</small></a>
+        <a href="/services/lawyers/"><strong>Lawyers</strong><small>See example</small></a>
+        <a href="/services/contractors/"><strong>Contractors</strong><small>See example</small></a>
+      </div>
+    </div>
+    <a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+  </div>
+  <div class="he">
+    <div class="nd"><span class="nd-label">שירותים</span>
+      <div class="nd-drop">
+        <a href="/services/restaurants/"><strong>מסעדות</strong><small>ראו דוגמה</small></a>
+        <a href="/services/cafes/"><strong>בתי קפה</strong><small>ראו דוגמה</small></a>
+        <a href="/services/beauty-salons/"><strong>מכוני יופי</strong><small>ראו דוגמה</small></a>
+        <a href="/services/barbershops/"><strong>מספרות</strong><small>ראו דוגמה</small></a>
+        <a href="/services/clinics/"><strong>קליניקות</strong><small>ראו דוגמה</small></a>
+        <a href="/services/lawyers/"><strong>עורכי דין</strong><small>ראו דוגמה</small></a>
+        <a href="/services/contractors/"><strong>קבלנים</strong><small>ראו דוגמה</small></a>
+      </div>
+    </div>
+    <a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a>
+  </div>
 </div>
 <div class="nr">
   <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>

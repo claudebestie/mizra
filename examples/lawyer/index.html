@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Levi, Shapira & Partners | Commercial & Real Estate Law</title>
+<meta name="description" content="Levi, Shapira & Partners - Commercial and Real Estate Law. Tel Aviv, Rothschild Tower. Over 20 years of legal excellence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- VARIABLES --- */
+:root{
+  --bg:#f6f3ee;--bg2:#edebe5;--bg3:#e3e0d8;
+  --navy:#0c1829;--navy2:#142236;--navy3:#1b2d45;
+  --white:#fff;--or:#d4643a;--or2:#e07a54;--ord:rgba(212,100,58,.08);
+  --grn:#3d8b5e;--grnd:rgba(61,139,94,.08);
+  --tx:#5a5750;--txl:#8a857c;--txd:#a3aab8;--txd2:#6b7485;
+  --bd:rgba(0,0,0,.07);--bdd:rgba(255,255,255,.07);--bddh:rgba(255,255,255,.12);
+  --sf:'Playfair Display',Georgia,serif;--sn:'Outfit',system-ui,sans-serif;
+  --gold:#c9a84c;--gold2:#b8943f;
+}
+
+/* --- RESET --- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--or);color:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none}
+
+/* --- LANGUAGE --- */
+.he{display:none}body.lh .en{display:none}body.lh .he{display:block}body.lh{direction:rtl}
+
+/* --- MIZRA DEMO BANNER --- */
+.demo-banner{
+  background:var(--or);color:#fff;text-align:center;padding:10px 24px;font-size:.82rem;font-weight:500;
+  position:relative;z-index:200;
+}
+.demo-banner a{color:#fff;font-weight:700;text-decoration:underline;margin-inline-start:6px}
+.demo-banner a:hover{opacity:.85}
+
+/* --- NAVIGATION --- */
+.nav{
+  position:sticky;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(12,24,41,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{font-family:var(--sf);font-size:1.1rem;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+.nav-logo .logo-sep{color:var(--gold);font-weight:300;font-size:1.3rem}
+.nav-logo .logo-sub{font-family:var(--sn);font-size:.62rem;color:var(--txd);text-transform:uppercase;letter-spacing:2px;font-weight:500}
+.nm{display:flex;gap:28px}.nm>.en,.nm>.he{display:flex;gap:28px;align-items:center}
+.nm>.he{display:none}body.lh .nm>.en{display:none}body.lh .nm>.he{display:flex;gap:28px;align-items:center}
+.nm a{color:var(--txd);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .3s;letter-spacing:.2px}.nm a:hover{color:#fff}
+.nr{display:flex;align-items:center;gap:14px}
+.ls{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px}
+.ls button{padding:4px 10px;border:none;background:0;color:var(--txd2);font-size:.72rem;font-weight:700;cursor:pointer;border-radius:4px;transition:.3s;font-family:var(--sn)}.ls button.on{background:var(--or);color:#fff}
+.btn-nav{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:6px;font-size:.8rem;font-weight:600;background:var(--gold);color:var(--navy);font-family:var(--sn);transition:.3s;border:none;cursor:pointer}
+.btn-nav:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* Mobile burger toggle */
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:110}
+.menu-toggle span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;transition:.3s;border-radius:2px}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/* --- HERO --- */
+.hero{
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding:100px 48px 80px;
+  background:var(--navy);position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,24,41,.4) 0%,rgba(12,24,41,.95) 100%),
+    radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.08) 0%,transparent 60%),
+    radial-gradient(ellipse at 70% 80%,rgba(212,100,58,.04) 0%,transparent 50%);
+  z-index:1;
+}
+.hero>*{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 16px;
+  border:1px solid rgba(201,168,76,.25);border-radius:100px;
+  color:var(--gold);font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:32px;background:rgba(201,168,76,.06);
+}
+.hero-badge::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;animation:bl 2.5s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-family:var(--sf);font-size:clamp(2.4rem,5vw,4.2rem);color:#fff;line-height:1.08;
+  letter-spacing:-1.5px;margin-bottom:20px;max-width:750px;
+}
+.hero h1 i{color:var(--gold);font-style:italic}
+.hero-sub{font-size:1.05rem;max-width:540px;line-height:1.75;margin-bottom:40px;color:var(--txd)}
+.hero-actions{display:flex;gap:14px;margin-bottom:72px;justify-content:center;flex-wrap:wrap}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;
+  font-size:.92rem;font-weight:600;cursor:pointer;border:none;font-family:var(--sn);transition:.3s;
+}
+.btn-hero-p{background:var(--gold);color:var(--navy)}.btn-hero-p:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.2)}
+.btn-hero-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.15)}.btn-hero-o:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-stat h3{font-family:var(--sf);font-size:2rem;color:#fff;line-height:1;font-weight:600}
+.hero-stat p{font-size:.68rem;color:var(--txd);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:6px}
+
+/* --- SECTIONS --- */
+.cx{max-width:1140px;margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+.sl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--or);margin-bottom:12px}
+.st{font-family:var(--sf);font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--navy);line-height:1.14;letter-spacing:-.5px;margin-bottom:12px}
+.st i{color:var(--or);font-style:italic}
+.sd{font-size:.98rem;max-width:520px;line-height:1.7;margin-bottom:48px}
+
+/* --- PRACTICE AREAS --- */
+.pa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pa-card{
+  background:#fff;border:1px solid var(--bd);border-radius:12px;padding:36px 28px;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.pa-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.06);border-color:rgba(201,168,76,.2)}
+.pa-card::before{
+  content:'';position:absolute;top:0;right:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--or));opacity:0;transition:.3s;
+}
+.pa-card:hover::before{opacity:1}
+.pa-icon{
+  width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(12,24,41,.04);margin-bottom:20px;
+}
+.pa-icon svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pa-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:8px;font-weight:600}
+.pa-card p{font-size:.88rem;color:var(--tx);line-height:1.65}
+
+/* --- ATTORNEYS --- */
+.att-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.att-card{
+  background:#fff;border:1px solid var(--bd);border-radius:14px;padding:40px 28px;text-align:center;
+  transition:.3s;
+}
+.att-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.06)}
+.att-avatar{
+  width:100px;height:100px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--bg);box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+.att-avatar svg{width:40px;height:40px;stroke:var(--txl);fill:none;stroke-width:1.2}
+.att-card h3{font-family:var(--sf);font-size:1.1rem;color:var(--navy);margin-bottom:4px;font-weight:600}
+.att-card .att-title{font-size:.82rem;color:var(--or);font-weight:600;margin-bottom:6px}
+.att-card .att-meta{font-size:.76rem;color:var(--txl);line-height:1.6}
+
+/* --- TRACK RECORD --- */
+.track{background:var(--navy);padding:80px 0}
+.track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.track-item h3{font-family:var(--sf);font-size:clamp(2rem,3.5vw,3rem);color:#fff;line-height:1;font-weight:700;margin-bottom:8px}
+.track-item h3 span{color:var(--gold)}
+.track-item p{font-size:.78rem;color:var(--txd);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+
+/* --- TESTIMONIALS --- */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.test-card{
+  background:#fff;border:1px solid var(--bd);border-radius:12px;padding:32px 28px;
+  transition:.3s;position:relative;
+}
+.test-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.05)}
+.test-quote{font-size:.92rem;color:var(--tx);line-height:1.75;margin-bottom:20px;font-style:italic}
+.test-quote::before{
+  content:'\201D';font-family:var(--sf);font-size:3.5rem;color:var(--gold);line-height:1;
+  display:block;margin-bottom:8px;opacity:.5;
+}
+[dir="rtl"] .test-quote::before{content:'\201C'}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-dot{width:36px;height:36px;border-radius:50%;background:var(--bg2);flex-shrink:0}
+.test-author strong{font-size:.82rem;color:var(--navy);display:block}
+.test-author span{font-size:.72rem;color:var(--txl)}
+
+/* --- RECOGNITIONS --- */
+.rec-bar{
+  display:flex;align-items:center;justify-content:center;gap:56px;flex-wrap:wrap;
+  padding:48px 0;
+}
+.rec-item{
+  font-family:var(--sf);font-size:1rem;color:var(--navy);opacity:.22;font-weight:500;
+  transition:opacity .3s;white-space:nowrap;
+}
+.rec-item:hover{opacity:.55}
+
+/* --- CTA SECTION --- */
+.cta-sec{
+  background:var(--navy);padding:80px 0;text-align:center;position:relative;overflow:hidden;
+}
+.cta-sec::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.06) 0%,transparent 70%);
+}
+.cta-sec>*{position:relative;z-index:2}
+.cta-sec h2{font-family:var(--sf);font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;line-height:1.18;margin-bottom:12px}
+.cta-sec h2 i{color:var(--gold);font-style:italic}
+.cta-sec p{font-size:1rem;color:var(--txd);margin-bottom:32px}
+.cta-phone{
+  font-family:var(--sf);font-size:1.8rem;color:var(--gold);font-weight:600;
+  display:block;margin-bottom:24px;direction:ltr;
+}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* --- CONTACT --- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-info h3{font-family:var(--sf);font-size:1.2rem;color:var(--navy);margin-bottom:16px;font-weight:600}
+.contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.contact-icon{
+  width:40px;height:40px;border-radius:10px;background:rgba(12,24,41,.04);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:1.5}
+.contact-item strong{font-size:.88rem;color:var(--navy);display:block;margin-bottom:2px}
+.contact-item span{font-size:.84rem;color:var(--txl)}
+.contact-form{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:36px}
+.contact-form h3{font-family:var(--sf);font-size:1.2rem;color:var(--navy);margin-bottom:4px;font-weight:600}
+.contact-form .sub{color:var(--or);font-size:.76rem;font-weight:600;margin-bottom:22px}
+.f{margin-bottom:12px}.f label{display:block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txl);margin-bottom:4px}
+.f input,.f select,.f textarea{
+  width:100%;padding:11px 14px;background:var(--bg);border:1px solid var(--bd);
+  border-radius:7px;color:var(--navy);font-size:.88rem;font-family:var(--sn);outline:none;transition:border .3s;
+}
+.f input::placeholder,.f textarea::placeholder{color:var(--txl)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--or)}
+.f select option{background:var(--white)}
+.f textarea{resize:vertical;min-height:80px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bsub{
+  width:100%;padding:13px;background:var(--or);color:#fff;border:none;border-radius:8px;
+  font-size:.9rem;font-weight:700;font-family:var(--sn);cursor:pointer;transition:.3s;margin-top:4px;
+}
+.bsub:hover{background:var(--or2);transform:translateY(-1px)}
+.fn{text-align:center;color:var(--txl);font-size:.7rem;margin-top:10px}
+
+/* --- MAP PLACEHOLDER --- */
+.map-placeholder{
+  width:100%;height:220px;border-radius:12px;background:var(--bg2);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;margin-top:24px;
+}
+.map-placeholder span{font-size:.82rem;color:var(--txl);font-weight:500}
+
+/* --- FOOTER --- */
+footer{
+  background:var(--navy);padding:48px;border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:40px;gap:40px;flex-wrap:wrap}
+.footer-brand p{font-family:var(--sf);font-size:1.1rem;color:#fff;margin-bottom:4px;font-weight:600}
+.footer-brand .footer-sub{font-size:.82rem;color:var(--txd);max-width:280px;line-height:1.6}
+.footer-links-col h4{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);margin-bottom:12px}
+.footer-links-col a{display:block;font-size:.84rem;color:rgba(255,255,255,.5);margin-bottom:8px;transition:color .3s}.footer-links-col a:hover{color:#fff}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin-bottom:24px}
+.footer-disclaimer{font-size:.72rem;color:var(--txd2);line-height:1.7;max-width:800px;margin-bottom:16px}
+.footer-bottom{font-size:.72rem;color:var(--txd2)}
+.footer-bottom a{color:var(--or);text-decoration:none}
+
+/* --- SCROLL REVEAL --- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.rv.vis{opacity:1;transform:none}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media(max-width:1024px){
+  .pa-grid{grid-template-columns:repeat(2,1fr)}
+  .track-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  .test-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:768px){
+  .nav{padding:0 20px;height:60px}
+  .nm{
+    display:none;position:fixed;top:60px;left:0;right:0;bottom:0;
+    background:rgba(12,24,41,.98);flex-direction:column;align-items:center;justify-content:center;gap:0;
+    padding:40px 20px;z-index:99;
+  }
+  .nm.open{display:flex}
+  .nm>.en,.nm>.he{flex-direction:column;gap:20px}.nm a{font-size:1.1rem;color:#fff}
+  body.lh .nm>.he{flex-direction:column;gap:20px}
+  .menu-toggle{display:block}
+  .nr{gap:10px}.btn-nav{padding:8px 14px;font-size:.75rem}
+
+  .hero{min-height:auto;padding:72px 24px 64px}
+  .hero h1{font-size:clamp(2rem,7vw,2.8rem)}
+  .hero-stats{flex-wrap:wrap;gap:24px 40px;justify-content:center}
+  .hero-actions{flex-direction:column;align-items:center}
+
+  .cx{padding:0 20px}.sec{padding:64px 0}
+
+  .pa-grid{grid-template-columns:1fr}
+  .att-grid{grid-template-columns:1fr}
+  .track-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .track{padding:56px 0}
+
+  .footer-top{flex-direction:column;gap:24px}
+  .rec-bar{gap:32px}
+  .fr{grid-template-columns:1fr}
+  .contact-form{padding:24px}
+
+  .cta-phone{font-size:1.4rem}
+}
+</style>
+</head>
+<body class="lh">
+
+<!-- MIZRA DEMO BANNER -->
+<div class="demo-banner">
+  <div class="he">
+    <span>&#x2B22;</span>
+    <span>זו דוגמה לאתר שנבנה על ידי Mizra. רוצים אתר כזה?</span>
+    <a href="/free-audit/">לחצו כאן</a>
+  </div>
+  <div class="en">
+    <span>&#x2B22;</span>
+    <span>This is an example site built by Mizra. Want one like this?</span>
+    <a href="/free-audit/">Click here</a>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="he">לוי, שפירא ושות'</div>
+    <div class="en">Levi, Shapira & Partners</div>
+  </a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nm">
+    <div class="en">
+      <a href="#areas">Practice Areas</a>
+      <a href="#team">Our Attorneys</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="he">
+      <a href="#areas">תחומי עיסוק</a>
+      <a href="#team">עורכי הדין שלנו</a>
+      <a href="#testimonials">המלצות</a>
+      <a href="#contact">צור קשר</a>
+    </div>
+  </div>
+  <div class="nr">
+    <div class="ls">
+      <button onclick="setL('en')">EN</button>
+      <button class="on" onclick="setL('he')">HE</button>
+    </div>
+    <a href="#contact" class="btn-nav">
+      <span class="en">Free Consultation</span>
+      <span class="he">ייעוץ חינם</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="he">
+    <div class="hero-badge">משפט מסחרי ומקרקעין</div>
+    <h1>לוי, שפירא ושות'</h1>
+    <p class="hero-sub">הגנה משפטית ברמה הגבוהה ביותר. למעלה מ-20 שנות ניסיון בליווי עסקאות מסחריות, נדל"ן והתדיינות משפטית.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-hero btn-hero-p">ייעוץ ראשוני חינם</a>
+      <a href="tel:+97236123456" class="btn-hero btn-hero-o">03-612-3456</a>
+    </div>
+  </div>
+  <div class="en">
+    <div class="hero-badge">Commercial & Real Estate Law</div>
+    <h1>Levi, Shapira <i>& Partners</i></h1>
+    <p class="hero-sub">Legal protection at the highest level. Over 20 years of experience in commercial transactions, real estate, and litigation.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-hero btn-hero-p">Free Consultation</a>
+      <a href="tel:+97236123456" class="btn-hero btn-hero-o">03-612-3456</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <h3>500+</h3>
+      <div class="en"><p>Cases Won</p></div>
+      <div class="he"><p>תיקים שטופלו</p></div>
+    </div>
+    <div class="hero-stat">
+      <h3>20+</h3>
+      <div class="en"><p>Years Experience</p></div>
+      <div class="he"><p>שנות ניסיון</p></div>
+    </div>
+    <div class="hero-stat">
+      <h3>98%</h3>
+      <div class="en"><p>Success Rate</p></div>
+      <div class="he"><p>אחוז הצלחה</p></div>
+    </div>
+    <div class="hero-stat">
+      <h3>3</h3>
+      <div class="en"><p>Offices</p></div>
+      <div class="he"><p>משרדים</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRACTICE AREAS ==================== -->
+<section class="sec" id="areas">
+<div class="cx">
+  <div class="en"><div class="sl">Practice Areas</div><h2 class="st">Comprehensive legal <i>expertise.</i></h2><p class="sd">Our attorneys bring decades of experience across commercial and real estate law, offering strategic counsel tailored to your needs.</p></div>
+  <div class="he"><div class="sl">תחומי עיסוק</div><h2 class="st">מומחיות משפטית <i>מקיפה.</i></h2><p class="sd">עורכי הדין שלנו מביאים עשרות שנים של ניסיון בדיני מסחר ומקרקעין, עם ייעוץ אסטרטגי מותאם לצרכים שלכם.</p></div>
+  <div class="pa-grid">
+
+    <!-- Commercial Law -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14h6m-6-4h6m-6 8h4"/></svg>
+      </div>
+      <div class="en"><h3>Commercial Law</h3><p>Contract drafting, mergers and acquisitions, joint ventures, and comprehensive commercial dispute resolution for businesses of all sizes.</p></div>
+      <div class="he"><h3>משפט מסחרי</h3><p>ניסוח חוזים, מיזוגים ורכישות, מיזמים משותפים ויישוב סכסוכים מסחריים מקיפים לעסקים בכל גודל.</p></div>
+    </div>
+
+    <!-- Real Estate -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v4m4-4v4m4-4v4"/></svg>
+      </div>
+      <div class="en"><h3>Real Estate Law</h3><p>Residential and commercial property transactions, land use planning, construction agreements, and real estate dispute resolution.</p></div>
+      <div class="he"><h3>דיני מקרקעין</h3><p>עסקאות נדל"ן למגורים ומסחר, תכנון שימושי קרקע, הסכמי בנייה ויישוב סכסוכי מקרקעין.</p></div>
+    </div>
+
+    <!-- Corporate -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg>
+      </div>
+      <div class="en"><h3>Corporate Law</h3><p>Company formation, shareholder agreements, corporate governance, regulatory compliance, and board advisory services.</p></div>
+      <div class="he"><h3>דיני תאגידים</h3><p>הקמת חברות, הסכמי בעלי מניות, ממשל תאגידי, ציות לרגולציה וייעוץ לדירקטוריונים.</p></div>
+    </div>
+
+    <!-- Litigation -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="en"><h3>Litigation</h3><p>Civil and commercial litigation, arbitration, mediation, and appellate advocacy across all Israeli courts and tribunals.</p></div>
+      <div class="he"><h3>ליטיגציה</h3><p>תביעות אזרחיות ומסחריות, בוררות, גישור וייצוג בערעורים בכל בתי המשפט והערכאות בישראל.</p></div>
+    </div>
+
+    <!-- Employment Law -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="en"><h3>Employment Law</h3><p>Employment contracts, workplace disputes, collective bargaining, executive compensation, and regulatory compliance.</p></div>
+      <div class="he"><h3>דיני עבודה</h3><p>חוזי עבודה, סכסוכי עבודה, משא ומתן קיבוצי, תגמול בכירים וציות לרגולציית עבודה.</p></div>
+    </div>
+
+    <!-- Startup & Tech -->
+    <div class="pa-card rv">
+      <div class="pa-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="en"><h3>Startup & Tech</h3><p>Venture capital transactions, intellectual property protection, technology licensing, ESOP plans, and startup legal frameworks.</p></div>
+      <div class="he"><h3>סטארטאפ וטכנולוגיה</h3><p>עסקאות הון סיכון, הגנת קניין רוחני, רישוי טכנולוגיה, תוכניות ESOP ומסגרות משפטיות לסטארטאפים.</p></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ==================== ATTORNEYS ==================== -->
+<section class="sec" style="background:#fff" id="team">
+<div class="cx">
+  <div class="en"><div class="sl">Our Team</div><h2 class="st">Meet our <i>attorneys.</i></h2><p class="sd">Our team combines academic distinction, courtroom experience, and commercial acumen to deliver results.</p></div>
+  <div class="he"><div class="sl">הצוות שלנו</div><h2 class="st">הכירו את <i>עורכי הדין.</i></h2><p class="sd">הצוות שלנו משלב מצוינות אקדמית, ניסיון בבתי משפט וחוש מסחרי כדי להשיג תוצאות.</p></div>
+  <div class="att-grid">
+
+    <!-- Attorney 1 -->
+    <div class="att-card rv">
+      <div class="att-avatar">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="en">
+        <h3>Adv. Daniel Levi</h3>
+        <div class="att-title">Managing Partner</div>
+        <div class="att-meta">Bar Admission: 2002<br>Hebrew University, LL.B. Magna Cum Laude<br>Specialization: Commercial Law, M&A</div>
+      </div>
+      <div class="he">
+        <h3>עו"ד דניאל לוי</h3>
+        <div class="att-title">שותף מנהל</div>
+        <div class="att-meta">רישיון עריכת דין: 2002<br>האוניברסיטה העברית, LL.B. בהצטיינות יתרה<br>התמחות: משפט מסחרי, מיזוגים ורכישות</div>
+      </div>
+    </div>
+
+    <!-- Attorney 2 -->
+    <div class="att-card rv">
+      <div class="att-avatar">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="en">
+        <h3>Adv. Noa Shapira</h3>
+        <div class="att-title">Senior Partner</div>
+        <div class="att-meta">Bar Admission: 2004<br>Tel Aviv University, LL.B., LL.M.<br>Specialization: Real Estate, Urban Planning</div>
+      </div>
+      <div class="he">
+        <h3>עו"ד נועה שפירא</h3>
+        <div class="att-title">שותפה בכירה</div>
+        <div class="att-meta">רישיון עריכת דין: 2004<br>אוניברסיטת תל אביב, LL.B., LL.M.<br>התמחות: מקרקעין, תכנון ובנייה</div>
+      </div>
+    </div>
+
+    <!-- Attorney 3 -->
+    <div class="att-card rv">
+      <div class="att-avatar">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="en">
+        <h3>Adv. Yonatan Raz</h3>
+        <div class="att-title">Partner, Head of Litigation</div>
+        <div class="att-meta">Bar Admission: 2007<br>Interdisciplinary Center Herzliya, LL.B.<br>Specialization: Litigation, Employment Law</div>
+      </div>
+      <div class="he">
+        <h3>עו"ד יונתן רז</h3>
+        <div class="att-title">שותף, ראש מחלקת ליטיגציה</div>
+        <div class="att-meta">רישיון עריכת דין: 2007<br>המרכז הבינתחומי הרצליה, LL.B.<br>התמחות: ליטיגציה, דיני עבודה</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ==================== TRACK RECORD ==================== -->
+<section class="track">
+<div class="cx">
+  <div class="track-grid">
+    <div class="track-item rv">
+      <h3>500<span>+</span></h3>
+      <div class="en"><p>Cases Handled</p></div>
+      <div class="he"><p>תיקים שטופלו</p></div>
+    </div>
+    <div class="track-item rv">
+      <h3>20<span>+</span></h3>
+      <div class="en"><p>Years of Practice</p></div>
+      <div class="he"><p>שנות ניסיון</p></div>
+    </div>
+    <div class="track-item rv">
+      <h3>98<span>%</span></h3>
+      <div class="en"><p>Client Satisfaction</p></div>
+      <div class="he"><p>שביעות רצון לקוחות</p></div>
+    </div>
+    <div class="track-item rv">
+      <h3>3</h3>
+      <div class="en"><p>Office Locations</p></div>
+      <div class="he"><p>סניפים</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="sec" id="testimonials">
+<div class="cx">
+  <div class="en"><div class="sl">Client Testimonials</div><h2 class="st">What our clients <i>say.</i></h2><p class="sd">Our reputation is built on the trust and success of the businesses and individuals we represent.</p></div>
+  <div class="he"><div class="sl">המלצות לקוחות</div><h2 class="st">מה הלקוחות שלנו <i>אומרים.</i></h2><p class="sd">המוניטין שלנו נבנה על אמון והצלחה של העסקים והאנשים שאנחנו מייצגים.</p></div>
+  <div class="test-grid">
+
+    <!-- Testimonial 1 -->
+    <div class="test-card rv">
+      <div class="en">
+        <div class="test-quote">Levi, Shapira handled our company acquisition seamlessly. Their attention to every clause and their negotiation skills saved us significant costs. Truly outstanding legal counsel.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>Avi Goldstein</strong><span>CEO, TechVentures Ltd.</span></div></div>
+      </div>
+      <div class="he">
+        <div class="test-quote">לוי, שפירא טיפלו ברכישת החברה שלנו בצורה חלקה. תשומת הלב שלהם לכל סעיף וכישורי המשא ומתן חסכו לנו עלויות משמעותיות. ייעוץ משפטי יוצא מן הכלל.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>אבי גולדשטיין</strong><span>מנכ"ל, TechVentures Ltd.</span></div></div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="test-card rv">
+      <div class="en">
+        <div class="test-quote">We needed expert guidance on a complex real estate deal in Tel Aviv. Adv. Shapira navigated the regulatory landscape masterfully and closed the transaction ahead of schedule.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>Rachel Mizrahi</strong><span>Director, Meridian Properties</span></div></div>
+      </div>
+      <div class="he">
+        <div class="test-quote">היינו צריכים ליווי מומחה בעסקת נדל"ן מורכבת בתל אביב. עו"ד שפירא ניווטה בנוף הרגולטורי במיומנות וסגרה את העסקה לפני המועד.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>רחל מזרחי</strong><span>מנהלת, Meridian Properties</span></div></div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="test-card rv">
+      <div class="en">
+        <div class="test-quote">After years of working with different firms, we finally found a legal team that understands the startup ecosystem. Their advice on our Series B was invaluable.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>Oren Katz</strong><span>Founder, InnovateTech</span></div></div>
+      </div>
+      <div class="he">
+        <div class="test-quote">אחרי שנים של עבודה עם משרדים שונים, סוף סוף מצאנו צוות משפטי שמבין את עולם הסטארטאפים. הייעוץ שלהם בסבב B שלנו היה בלתי יסולא בפז.</div>
+        <div class="test-author"><div class="test-dot"></div><div><strong>אורן כץ</strong><span>מייסד, InnovateTech</span></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ==================== RECOGNITIONS ==================== -->
+<section class="sec" style="background:#fff;padding:60px 0">
+<div class="cx" style="text-align:center">
+  <div class="en"><div class="sl">Recognitions & Media</div><h2 class="st" style="margin-bottom:40px">Featured <i>in.</i></h2></div>
+  <div class="he"><div class="sl">הכרה ותקשורת</div><h2 class="st" style="margin-bottom:40px">מוזכרים <i>ב.</i></h2></div>
+  <div class="rec-bar rv">
+    <span class="rec-item">The Marker</span>
+    <span class="rec-item">Globes</span>
+    <span class="rec-item">Calcalist</span>
+    <span class="rec-item">Israel Bar Association</span>
+    <span class="rec-item">BDI Code</span>
+    <span class="rec-item">Dun's 100</span>
+  </div>
+</div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta-sec">
+<div class="cx">
+  <div class="en">
+    <h2>Schedule your free <i>consultation.</i></h2>
+    <p>Speak directly with a senior attorney. No obligation.</p>
+    <a href="tel:+97236123456" class="cta-phone">03-612-3456</a>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-hero btn-hero-p">Book a Consultation</a>
+      <a href="https://wa.me/97236123456" class="btn-hero btn-hero-o" target="_blank">Send a WhatsApp</a>
+    </div>
+  </div>
+  <div class="he">
+    <h2>קבעו ייעוץ <i>ראשוני חינם.</i></h2>
+    <p>שיחה ישירה עם עורך דין בכיר. ללא התחייבות.</p>
+    <a href="tel:+97236123456" class="cta-phone">03-612-3456</a>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-hero btn-hero-p">לקביעת ייעוץ</a>
+      <a href="https://wa.me/97236123456" class="btn-hero btn-hero-o" target="_blank">שלחו וואטסאפ</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="sec" id="contact">
+<div class="cx">
+  <div class="en"><div class="sl">Contact Us</div><h2 class="st">Get in <i>touch.</i></h2><p class="sd">Our offices are located in Rothschild Tower, Tel Aviv. Reach out for a free initial consultation.</p></div>
+  <div class="he"><div class="sl">צור קשר</div><h2 class="st">דברו <i>איתנו.</i></h2><p class="sd">המשרדים שלנו ממוקמים במגדל רוטשילד, תל אביב. פנו אלינו לייעוץ ראשוני חינם.</p></div>
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <div class="en"><h3>Office Information</h3></div>
+      <div class="he"><h3>פרטי המשרד</h3></div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="en"><strong>Rothschild Tower, 22nd Floor</strong><span>Rothschild Blvd 45, Tel Aviv 6578401</span></div>
+          <div class="he"><strong>מגדל רוטשילד, קומה 22</strong><span>שדרות רוטשילד 45, תל אביב 6578401</span></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <strong style="direction:ltr;display:inline-block">03-612-3456</strong>
+          <div class="en"><span>Sun-Thu 8:30 - 18:00</span></div>
+          <div class="he"><span>א'-ה' 8:30 - 18:00</span></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <strong>info@levi-shapira.co.il</strong>
+          <div class="en"><span>We respond within 24 hours</span></div>
+          <div class="he"><span>אנחנו מגיבים תוך 24 שעות</span></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div>
+          <div class="en"><strong>Additional Offices</strong><span>Jerusalem | Haifa</span></div>
+          <div class="he"><strong>סניפים נוספים</strong><span>ירושלים | חיפה</span></div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <span>Google Maps</span>
+      </div>
+    </div>
+
+    <div class="contact-form rv">
+      <div class="en">
+        <h3>Request a Free Consultation</h3>
+        <div class="sub">A senior attorney will contact you within 24 hours</div>
+        <form onsubmit="return false">
+          <div class="fr">
+            <div class="f"><label>Full Name</label><input placeholder="Israel Israeli" required></div>
+            <div class="f"><label>Phone</label><input type="tel" placeholder="054-000-0000" required></div>
+          </div>
+          <div class="f"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+          <div class="f"><label>Legal Area</label>
+            <select>
+              <option value="">Select...</option>
+              <option>Commercial Law</option>
+              <option>Real Estate</option>
+              <option>Corporate Law</option>
+              <option>Litigation</option>
+              <option>Employment Law</option>
+              <option>Startup & Tech</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="f"><label>Brief Description</label><textarea placeholder="Describe your legal matter briefly..."></textarea></div>
+          <button type="submit" class="bsub">Send Request</button>
+          <p class="fn">All inquiries are treated with strict confidentiality.</p>
+        </form>
+      </div>
+      <div class="he">
+        <h3>בקשו ייעוץ ראשוני חינם</h3>
+        <div class="sub">עורך דין בכיר יחזור אליכם תוך 24 שעות</div>
+        <form onsubmit="return false">
+          <div class="fr">
+            <div class="f"><label>שם מלא</label><input placeholder="ישראל ישראלי" required></div>
+            <div class="f"><label>טלפון</label><input type="tel" placeholder="054-000-0000" required></div>
+          </div>
+          <div class="f"><label>אימייל</label><input type="email" placeholder="you@email.com"></div>
+          <div class="f"><label>תחום משפטי</label>
+            <select>
+              <option value="">בחרו...</option>
+              <option>משפט מסחרי</option>
+              <option>מקרקעין</option>
+              <option>דיני תאגידים</option>
+              <option>ליטיגציה</option>
+              <option>דיני עבודה</option>
+              <option>סטארטאפ וטכנולוגיה</option>
+              <option>אחר</option>
+            </select>
+          </div>
+          <div class="f"><label>תיאור קצר</label><textarea placeholder="תארו בקצרה את הנושא המשפטי..."></textarea></div>
+          <button type="submit" class="bsub">שליחת בקשה</button>
+          <p class="fn">כל הפניות מטופלות בסודיות מוחלטת.</p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="en">
+        <p>Levi, Shapira & Partners</p>
+        <div class="footer-sub">Commercial and real estate law. Serving businesses and individuals across Israel since 2002.</div>
+      </div>
+      <div class="he">
+        <p>לוי, שפירא ושות'</p>
+        <div class="footer-sub">משפט מסחרי ומקרקעין. משרתים עסקים ופרטיים ברחבי ישראל משנת 2002.</div>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <div class="en"><h4>Practice Areas</h4></div>
+      <div class="he"><h4>תחומי עיסוק</h4></div>
+      <div class="en"><a href="#areas">Commercial Law</a><a href="#areas">Real Estate</a><a href="#areas">Corporate</a><a href="#areas">Litigation</a></div>
+      <div class="he"><a href="#areas">משפט מסחרי</a><a href="#areas">מקרקעין</a><a href="#areas">תאגידים</a><a href="#areas">ליטיגציה</a></div>
+    </div>
+    <div class="footer-links-col">
+      <div class="en"><h4>Contact</h4></div>
+      <div class="he"><h4>צור קשר</h4></div>
+      <a href="tel:+97236123456">03-612-3456</a>
+      <a href="mailto:info@levi-shapira.co.il">info@levi-shapira.co.il</a>
+      <div class="en"><a href="#contact">Rothschild Tower, Tel Aviv</a></div>
+      <div class="he"><a href="#contact">מגדל רוטשילד, תל אביב</a></div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="en"><p class="footer-disclaimer">Disclaimer: This website and its contents are for informational purposes only and do not constitute legal advice. No attorney-client relationship is established by use of this website. Past results do not guarantee future outcomes. Every legal matter is different and results depend on the specific facts and circumstances of each case. Levi, Shapira & Partners is a fictional law firm created for demonstration purposes.</p></div>
+  <div class="he"><p class="footer-disclaimer">הבהרה: אתר זה ותכניו מיועדים למטרות מידע בלבד ואינם מהווים ייעוץ משפטי. שימוש באתר אינו יוצר יחסי עורך דין-לקוח. תוצאות עבר אינן מבטיחות תוצאות עתידיות. כל עניין משפטי שונה והתוצאות תלויות בעובדות ובנסיבות הספציפיות של כל מקרה. לוי, שפירא ושות' הוא משרד עורכי דין בדיוני שנוצר למטרות הדגמה.</p></div>
+  <p class="footer-bottom">
+    <span class="en">&copy; 2026 Levi, Shapira & Partners. All rights reserved.</span>
+    <span class="he">&copy; 2026 לוי, שפירא ושות'. כל הזכויות שמורות.</span>
+    &nbsp;&middot;&nbsp;
+    <span class="en">Demo site by</span>
+    <span class="he">אתר לדוגמה מאת</span>
+    <a href="https://getmizra.com" target="_blank">Mizra</a>
+  </p>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// Language toggle
+function setL(l) {
+  document.body.classList.toggle('lh', l === 'he');
+  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = l === 'he' ? 'he' : 'en';
+  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
+  if (event && event.target) event.target.classList.add('on');
+  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
+}
+
+// Restore saved language
+try {
+  var saved = localStorage.getItem('mizra_lang');
+  if (saved === 'en') {
+    document.body.classList.remove('lh');
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = 'en';
+    setTimeout(function() {
+      document.querySelectorAll('.ls button').forEach(function(b) {
+        b.classList.toggle('on', b.textContent.trim() === 'EN');
+      });
+    }, 50);
+  }
+} catch(e) {}
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.menu-toggle');
+  var nm = document.querySelector('.nm');
+  if (toggle && nm) {
+    toggle.addEventListener('click', function() {
+      this.classList.toggle('open');
+      nm.classList.toggle('open');
+      document.body.style.overflow = nm.classList.contains('open') ? 'hidden' : '';
+    });
+    nm.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        toggle.classList.remove('open');
+        nm.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Scroll reveal
+  var ob = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('vis');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(function(el) { ob.observe(el); });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Lilac | סטודיו לילך - Hair, Nails, Skincare, Makeup in Tel Aviv</title>
+<meta name="description" content="סטודיו לילך - מכון יופי מוביל בתל אביב. שיער, ציפורניים, טיפולי פנים, איפור כלות. רחוב בזל, תל אביב.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- VARIABLES --- */
+:root{
+  --bg:#f6f3ee;--bg2:#edebe5;--bg3:#e3e0d8;
+  --navy:#0c1829;--navy2:#142236;
+  --white:#fff;--or:#d4643a;--or2:#e07a54;--ord:rgba(212,100,58,.08);
+  --grn:#3d8b5e;--grnd:rgba(61,139,94,.08);
+  --tx:#5a5750;--txl:#8a857c;
+  --bd:rgba(0,0,0,.07);
+  --sf:'Playfair Display',Georgia,serif;
+  --sn:'Outfit',system-ui,sans-serif;
+  --lilac:#b8a9c9;--lilac-light:#e8e0f0;--lilac-soft:#f3eff8;
+  --rose:#d4a0a0;--rose-light:#f0dede;
+  --sage:#a8bfa0;--sage-light:#e0ead8;
+  --blush:#e8c4b8;--blush-light:#f5e6df;
+  --cream:#f0e6d3;--cream-light:#f8f2e8;
+  --lavender:#c4b8d4;--lavender-light:#ebe4f2;
+}
+
+/* --- RESET --- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--lilac);color:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* --- LANGUAGE --- */
+.he{display:none}
+body.lh .en{display:none}
+body.lh .he{display:block}
+body.lh{direction:rtl}
+
+/* --- MIZRA BANNER --- */
+.mizra-banner{background:var(--navy);color:#fff;text-align:center;padding:10px 20px;font-size:.78rem;font-weight:500;letter-spacing:.2px}
+.mizra-banner a{color:var(--or);font-weight:600;text-decoration:underline;text-underline-offset:2px;transition:color .3s}
+.mizra-banner a:hover{color:var(--or2)}
+
+/* --- NAVIGATION --- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(246,243,238,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:top .3s}
+.nav-logo{font-family:var(--sf);font-size:1.35rem;color:var(--navy);text-decoration:none;font-weight:600}
+.nav-logo span{color:var(--lilac)}
+.nm{display:flex;gap:28px;align-items:center}
+.nm a{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .3s}
+.nm a:hover{color:var(--navy)}
+.nr{display:flex;align-items:center;gap:14px}
+.ls{display:flex;gap:2px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px}
+.ls button{padding:4px 10px;border:none;background:0;color:var(--txl);font-size:.72rem;font-weight:700;cursor:pointer;border-radius:4px;transition:.3s;font-family:var(--sn)}
+.ls button.on{background:var(--navy);color:#fff}
+
+/* Mobile burger */
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:110}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0;transition:.3s;border-radius:2px}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/* --- BUTTONS --- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--sn);transition:.3s}
+.btn-p{background:var(--lilac);color:#fff}
+.btn-p:hover{background:#a393b8;transform:translateY(-1px);box-shadow:0 8px 24px rgba(184,169,201,.35)}
+.btn-o{background:0;color:var(--navy);border:1.5px solid rgba(12,24,41,.15)}
+.btn-o:hover{border-color:var(--lilac);color:var(--lilac)}
+.btn-wa{background:#25d366;color:#fff}
+.btn-wa:hover{background:#20bd5a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.25)}
+.btn-sm{padding:10px 18px;font-size:.82rem}
+
+/* --- HERO --- */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:100%;background:radial-gradient(ellipse,rgba(184,169,201,.12) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-20%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(212,160,160,.08) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.htag{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:rgba(184,169,201,.1);border:1px solid rgba(184,169,201,.18);border-radius:100px;color:var(--lilac);font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px}
+.htag::before{content:'';width:5px;height:5px;background:var(--lilac);border-radius:50%;animation:bl 2s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--sf);font-size:clamp(2.6rem,5.5vw,4.4rem);color:var(--navy);line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px;max-width:700px}
+.hero h1 i{color:var(--lilac);font-style:italic}
+.hero-sub{font-size:1.08rem;max-width:480px;line-height:1.7;margin-bottom:36px;color:var(--tx);margin-left:auto;margin-right:auto}
+.ha{display:flex;gap:12px;margin-bottom:48px;justify-content:center;flex-wrap:wrap}
+.hero-info{display:flex;gap:36px;padding-top:36px;border-top:1px solid var(--bd);justify-content:center;flex-wrap:wrap}
+.hero-info-item{text-align:center}
+.hero-info-item h3{font-family:var(--sf);font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:2px}
+.hero-info-item p{font-size:.72rem;color:var(--txl);letter-spacing:.5px}
+
+/* --- SECTIONS --- */
+.cx{max-width:1140px;margin:0 auto;padding:0 48px}
+.sec{padding:90px 0}
+.sec-header{text-align:center;margin-bottom:56px}
+.sl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--lilac);margin-bottom:10px}
+.st{font-family:var(--sf);font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--navy);line-height:1.14;letter-spacing:-.5px;margin-bottom:10px}
+.st i{color:var(--lilac);font-style:italic}
+.sd{font-size:.95rem;max-width:480px;line-height:1.7;color:var(--txl);margin-left:auto;margin-right:auto}
+
+/* --- SERVICES --- */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{background:var(--white);border:1px solid var(--bd);border-radius:14px;padding:32px 28px;transition:.3s;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06);border-color:rgba(184,169,201,.25)}
+.service-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.1rem}
+.service-icon.ic-hair{background:var(--lilac-soft);color:var(--lilac)}
+.service-icon.ic-color{background:var(--rose-light);color:var(--rose)}
+.service-icon.ic-nails{background:var(--blush-light);color:var(--blush)}
+.service-icon.ic-facial{background:var(--sage-light);color:var(--sage)}
+.service-icon.ic-bridal{background:var(--cream-light);color:#c4a882}
+.service-icon.ic-lash{background:var(--lavender-light);color:var(--lavender)}
+.service-card h3{font-family:var(--sf);font-size:1.12rem;color:var(--navy);margin-bottom:8px;font-weight:600}
+.service-card p{font-size:.85rem;color:var(--txl);line-height:1.6;margin-bottom:16px}
+.service-price{font-size:.82rem;font-weight:600;color:var(--lilac);background:rgba(184,169,201,.08);display:inline-block;padding:4px 12px;border-radius:6px}
+
+/* --- TEAM --- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.team-card{text-align:center;background:var(--white);border:1px solid var(--bd);border-radius:14px;padding:36px 24px;transition:.3s}
+.team-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+.team-avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:1.6rem;color:#fff;font-weight:600}
+.team-avatar.av1{background:linear-gradient(135deg,var(--lilac),#9b8ab8)}
+.team-avatar.av2{background:linear-gradient(135deg,var(--rose),#c08888)}
+.team-avatar.av3{background:linear-gradient(135deg,var(--sage),#8ba880)}
+.team-card h3{font-family:var(--sf);font-size:1.08rem;color:var(--navy);margin-bottom:4px;font-weight:600}
+.team-card .team-role{font-size:.8rem;color:var(--lilac);font-weight:600;margin-bottom:10px;letter-spacing:.3px}
+.team-card p{font-size:.84rem;color:var(--txl);line-height:1.6}
+
+/* --- GALLERY --- */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-rows:180px}
+.gallery-item{border-radius:12px;overflow:hidden;position:relative;transition:.3s;cursor:pointer}
+.gallery-item:hover{transform:scale(1.02);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.gallery-item:nth-child(1){grid-row:span 2;background:var(--lilac-soft)}
+.gallery-item:nth-child(2){background:var(--rose-light)}
+.gallery-item:nth-child(3){background:var(--blush-light)}
+.gallery-item:nth-child(4){background:var(--sage-light)}
+.gallery-item:nth-child(5){grid-row:span 2;background:var(--cream-light)}
+.gallery-item:nth-child(6){background:var(--lavender-light)}
+.gallery-label{position:absolute;bottom:12px;left:12px;right:12px;font-size:.72rem;color:var(--tx);font-weight:500;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);padding:6px 12px;border-radius:6px;text-align:center}
+body.lh .gallery-label{left:12px;right:12px}
+
+/* --- TESTIMONIALS --- */
+.sec-testi{background:var(--bg2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:var(--white);border:1px solid var(--bd);border-radius:14px;padding:32px 28px;position:relative}
+.testi-card::before{content:'\201D';position:absolute;top:16px;right:24px;font-family:var(--sf);font-size:3.5rem;color:var(--lilac-light);line-height:1}
+html[dir="rtl"] .testi-card::before{right:auto;left:24px}
+body:not(.lh) .testi-card::before{right:24px;left:auto}
+.testi-card p{font-size:.9rem;line-height:1.7;color:var(--tx);margin-bottom:20px;position:relative;z-index:1}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff}
+.testi-dot.td1{background:var(--lilac)}
+.testi-dot.td2{background:var(--rose)}
+.testi-dot.td3{background:var(--sage)}
+.testi-name{font-size:.82rem;font-weight:600;color:var(--navy)}
+.testi-since{font-size:.72rem;color:var(--txl)}
+
+/* --- CTA --- */
+.sec-cta{background:var(--navy);text-align:center}
+.sec-cta .sl{color:var(--lilac-light)}
+.sec-cta .st{color:#fff}
+.sec-cta .sd{color:rgba(255,255,255,.55)}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.cta-phone{font-size:.88rem;color:rgba(255,255,255,.5);margin-top:16px}
+.cta-phone a{color:rgba(255,255,255,.7);text-decoration:underline;text-underline-offset:3px;transition:color .3s}
+.cta-phone a:hover{color:#fff}
+
+/* --- HOURS & LOCATION --- */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.info-card{background:var(--white);border:1px solid var(--bd);border-radius:14px;padding:36px 32px}
+.info-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:20px;font-weight:600}
+.hours-table{width:100%}
+.hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd);font-size:.86rem}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:var(--navy);font-weight:500}
+.hours-time{color:var(--txl)}
+.location-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.loc-icon{width:32px;height:32px;border-radius:8px;background:var(--lilac-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;font-weight:700;color:var(--lilac)}
+.location-detail p{font-size:.88rem;color:var(--tx);line-height:1.5}
+.location-detail p strong{color:var(--navy);font-weight:600}
+
+/* --- FOOTER --- */
+.footer{background:var(--navy);padding:48px 0 28px;color:rgba(255,255,255,.4)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;gap:40px;flex-wrap:wrap}
+.footer-brand .nav-logo{color:#fff;font-size:1.3rem;display:block;margin-bottom:8px}
+.footer-brand .nav-logo span{color:var(--lilac)}
+.footer-brand p{font-size:.82rem;max-width:280px;line-height:1.6}
+.footer-links h4{color:rgba(255,255,255,.7);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.footer-links a{display:block;font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:8px;transition:color .3s}
+.footer-links a:hover{color:var(--lilac-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.74rem;flex-wrap:wrap;gap:12px}
+.footer-bottom a{color:rgba(255,255,255,.5);transition:color .3s}
+.footer-bottom a:hover{color:var(--lilac-light)}
+.mizra-credit{color:rgba(255,255,255,.3);font-size:.72rem}
+.mizra-credit a{color:var(--or);font-weight:600}
+
+/* --- MOBILE --- */
+@media(max-width:900px){
+  .services-grid,.team-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .gallery-item:nth-child(1),.gallery-item:nth-child(5){grid-row:span 1}
+  .info-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:680px){
+  .nav{padding:0 20px;height:56px}
+  .nm{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:99}
+  .nm.show{display:flex}
+  .nm .en,.nm .he{flex-direction:column;align-items:center;gap:20px}
+  .nm a{font-size:1rem}
+  .menu-toggle{display:block}
+  .cx{padding:0 20px}
+  .hero{padding:100px 20px 60px}
+  .hero h1{font-size:clamp(2rem,8vw,2.8rem)}
+  .hero-sub{font-size:.95rem}
+  .hero-info{gap:20px}
+  .ha{flex-direction:column;align-items:center}
+  .sec{padding:64px 0}
+  .services-grid,.team-grid,.testi-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .info-grid{grid-template-columns:1fr}
+  .footer-top{flex-direction:column;gap:28px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .cta-btns{flex-direction:column;align-items:center}
+  .sec-header{margin-bottom:40px}
+}
+</style>
+</head>
+<body class="lh">
+
+<!-- MIZRA BANNER -->
+<div class="mizra-banner">
+  <div class="en">This is an example site built by <strong>Mizra</strong>. Want one like this? <a href="/free-audit/">Get your free audit</a></div>
+  <div class="he">&#1494;&#1493; &#1491;&#1493;&#1490;&#1502;&#1492; &#1500;&#1488;&#1514;&#1512; &#1513;&#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; <strong>Mizra</strong>. &#1512;&#1493;&#1510;&#1497;&#1501; &#1488;&#1514;&#1512; &#1499;&#1494;&#1492;? <a href="/free-audit/">&#1500;&#1489;&#1491;&#1497;&#1511;&#1492; &#1495;&#1497;&#1504;&#1502;&#1497;&#1514;</a></div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" style="top:36px">
+  <a href="#" class="nav-logo">
+    <span class="en">Studio <span>Lilac</span></span>
+    <span class="he" style="display:none">&#1505;&#1496;&#1493;&#1491;&#1497;&#1493; <span>&#1500;&#1497;&#1500;&#1498;</span></span>
+  </a>
+  <button class="menu-toggle" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nm').classList.toggle('show')"><span></span><span></span><span></span></button>
+  <div class="nm">
+    <div class="en">
+      <a href="#services">Services</a>
+      <a href="#team">Our Team</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#info">Hours</a>
+    </div>
+    <div class="he">
+      <a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a>
+      <a href="#team">&#1492;&#1510;&#1493;&#1493;&#1514;</a>
+      <a href="#gallery">&#1490;&#1500;&#1512;&#1497;&#1492;</a>
+      <a href="#reviews">&#1492;&#1502;&#1500;&#1510;&#1493;&#1514;</a>
+      <a href="#info">&#1513;&#1506;&#1493;&#1514;</a>
+    </div>
+  </div>
+  <div class="nr">
+    <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
+    <a href="#book" class="btn btn-p btn-sm">
+      <span class="en">Book Now</span>
+      <span class="he" style="display:none">&#1500;&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="en">
+      <div class="htag">Premium beauty studio in Tel Aviv</div>
+      <h1>Beauty you<br>can <i>feel.</i></h1>
+      <p class="hero-sub">A boutique beauty experience in the heart of Tel Aviv. Hair, nails, skincare, and makeup by a team that truly cares about how you look and feel.</p>
+      <div class="ha">
+        <a href="#book" class="btn btn-p">Book an Appointment</a>
+        <a href="#services" class="btn btn-o">Our Services</a>
+      </div>
+    </div>
+    <div class="he">
+      <div class="htag">&#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1497;&#1493;&#1508;&#1497; &#1508;&#1512;&#1497;&#1502;&#1497;&#1493;&#1501; &#1489;&#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</div>
+      <h1>&#1497;&#1493;&#1508;&#1497; &#1513;&#1502;&#1512;&#1490;&#1497;&#1513;&#1497;&#1501;<br><i>&#1502;&#1489;&#1508;&#1504;&#1497;&#1501;.</i></h1>
+      <p class="hero-sub">&#1495;&#1493;&#1493;&#1497;&#1497;&#1514; &#1497;&#1493;&#1508;&#1497; &#1489;&#1493;&#1496;&#1497;&#1511;&#1497;&#1514; &#1489;&#1500;&#1489; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1513;&#1497;&#1506;&#1512;, &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501;, &#1496;&#1497;&#1508;&#1493;&#1495;&#1497; &#1506;&#1493;&#1512; &#1493;&#1488;&#1497;&#1508;&#1493;&#1512; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497; &#1506;&#1500; &#1497;&#1491;&#1497; &#1510;&#1493;&#1493;&#1514; &#1513;&#1488;&#1499;&#1508;&#1514; &#1500;&#1493; &#1488;&#1497;&#1498; &#1488;&#1514; &#1504;&#1512;&#1488;&#1497;&#1514; &#1493;&#1502;&#1512;&#1490;&#1497;&#1513;&#1492;.</p>
+      <div class="ha">
+        <a href="#book" class="btn btn-p">&#1500;&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
+        <a href="#services" class="btn btn-o">&#1492;&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493;</a>
+      </div>
+    </div>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <h3>Basel St.</h3>
+        <div class="en"><p>Tel Aviv</p></div>
+        <div class="he"><p>&#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</p></div>
+      </div>
+      <div class="hero-info-item">
+        <h3>8+</h3>
+        <div class="en"><p>Years of experience</p></div>
+        <div class="he"><p>&#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;</p></div>
+      </div>
+      <div class="hero-info-item">
+        <h3>2,500+</h3>
+        <div class="en"><p>Happy clients</p></div>
+        <div class="he"><p>&#1500;&#1511;&#1493;&#1495;&#1493;&#1514; &#1502;&#1512;&#1493;&#1510;&#1493;&#1514;</p></div>
+      </div>
+      <div class="hero-info-item">
+        <h3>5.0</h3>
+        <div class="en"><p>Google rating</p></div>
+        <div class="he"><p>&#1491;&#1497;&#1512;&#1493;&#1490; &#1490;&#1493;&#1490;&#1500;</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="cx">
+    <div class="sec-header">
+      <div class="en">
+        <div class="sl">Our Services</div>
+        <div class="st">Everything you need to feel <i>beautiful</i></div>
+        <p class="sd">From a fresh cut to bridal glam, our expert team delivers premium beauty services tailored to you.</p>
+      </div>
+      <div class="he">
+        <div class="sl">&#1492;&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493;</div>
+        <div class="st">&#1499;&#1500; &#1502;&#1492; &#1513;&#1510;&#1512;&#1497;&#1498; &#1499;&#1491;&#1497; &#1500;&#1492;&#1512;&#1490;&#1497;&#1513; <i>&#1497;&#1508;&#1492;</i></div>
+        <p class="sd">&#1502;&#1514;&#1505;&#1508;&#1493;&#1512;&#1514; &#1512;&#1506;&#1504;&#1504;&#1492; &#1493;&#1506;&#1491; &#1488;&#1497;&#1508;&#1493;&#1512; &#1499;&#1500;&#1493;&#1514; &#1502;&#1500;&#1488;, &#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1504;&#1493; &#1502;&#1506;&#1504;&#1497;&#1511; &#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1497;&#1493;&#1508;&#1497; &#1508;&#1512;&#1497;&#1502;&#1497;&#1493;&#1501; &#1513;&#1502;&#1493;&#1514;&#1488;&#1502;&#1497;&#1501; &#1488;&#1500;&#1497;&#1498;.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <!-- Service 1: Haircut & Styling -->
+      <div class="service-card">
+        <div class="service-icon ic-hair">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12L12 12"/><path d="M20 4L8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8L20 20"/></svg>
+        </div>
+        <div class="en">
+          <h3>Haircut &amp; Styling</h3>
+          <p>Precision cuts and blowouts tailored to your face shape and lifestyle. From classic bobs to modern layers.</p>
+        </div>
+        <div class="he">
+          <h3>&#1514;&#1505;&#1508;&#1493;&#1512;&#1514; &#1493;&#1506;&#1497;&#1510;&#1493;&#1489;</h3>
+          <p>&#1514;&#1505;&#1508;&#1493;&#1512;&#1514; &#1502;&#1491;&#1493;&#1497;&#1511;&#1514; &#1493;&#1508;&#1503; &#1502;&#1493;&#1514;&#1488;&#1502;&#1497;&#1501; &#1500;&#1510;&#1493;&#1512;&#1514; &#1492;&#1508;&#1504;&#1497;&#1501; &#1493;&#1488;&#1493;&#1512;&#1495; &#1492;&#1495;&#1497;&#1497;&#1501; &#1513;&#1500;&#1498;.</p>
+        </div>
+        <span class="service-price">120-250 &#8362;</span>
+      </div>
+
+      <!-- Service 2: Hair Coloring -->
+      <div class="service-card">
+        <div class="service-icon ic-color">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        </div>
+        <div class="en">
+          <h3>Hair Coloring</h3>
+          <p>Full color, highlights, balayage, and ombre. We use premium products for vibrant, long-lasting results.</p>
+        </div>
+        <div class="he">
+          <h3>&#1510;&#1489;&#1497;&#1506;&#1514; &#1513;&#1497;&#1506;&#1512;</h3>
+          <p>&#1510;&#1489;&#1497;&#1506;&#1492; &#1502;&#1500;&#1488;&#1492;, &#1492;&#1497;&#1497;&#1500;&#1497;&#1497;&#1496;&#1505;, &#1489;&#1500;&#1488;&#1497;&#1488;&#1494;' &#1493;&#1488;&#1493;&#1502;&#1489;&#1512;&#1492;. &#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1513;&#1514;&#1502;&#1513;&#1497;&#1501; &#1489;&#1502;&#1493;&#1510;&#1512;&#1497;&#1501; &#1508;&#1512;&#1497;&#1502;&#1497;&#1493;&#1501; &#1500;&#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1506;&#1502;&#1497;&#1491;&#1493;&#1514;.</p>
+        </div>
+        <span class="service-price">350-750 &#8362;</span>
+      </div>
+
+      <!-- Service 3: Manicure & Pedicure -->
+      <div class="service-card">
+        <div class="service-icon ic-nails">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5.5 6.5L12 3l6.5 3.5"/><path d="M3 12h18"/><path d="M5.5 17.5L12 21l6.5-3.5"/></svg>
+        </div>
+        <div class="en">
+          <h3>Manicure &amp; Pedicure</h3>
+          <p>Classic, gel, and art manicures plus relaxing pedicure treatments. Let your hands and feet shine.</p>
+        </div>
+        <div class="he">
+          <h3>&#1502;&#1504;&#1497;&#1511;&#1493;&#1512; &#1493;&#1508;&#1491;&#1497;&#1511;&#1493;&#1512;</h3>
+          <p>&#1502;&#1504;&#1497;&#1511;&#1493;&#1512; &#1511;&#1500;&#1488;&#1505;&#1497;, &#1490;'&#1500;, &#1493;&#1488;&#1512;&#1496; &#1489;&#1513;&#1497;&#1500;&#1493;&#1489; &#1506;&#1501; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1508;&#1491;&#1497;&#1511;&#1493;&#1512; &#1502;&#1508;&#1504;&#1511;&#1497;&#1501;. &#1500;&#1494;&#1512;&#1493;&#1495; &#1502;&#1499;&#1507; &#1512;&#1490;&#1500;.</p>
+        </div>
+        <span class="service-price">80-180 &#8362;</span>
+      </div>
+
+      <!-- Service 4: Facials -->
+      <div class="service-card">
+        <div class="service-icon ic-facial">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="en">
+          <h3>Facial Treatments</h3>
+          <p>Deep cleansing, hydration, anti-aging, and glow facials. Customized to your unique skin needs.</p>
+        </div>
+        <div class="he">
+          <h3>&#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1508;&#1504;&#1497;&#1501;</h3>
+          <p>&#1504;&#1497;&#1511;&#1493;&#1497; &#1506;&#1502;&#1493;&#1511;, &#1500;&#1495;&#1493;&#1514;, &#1488;&#1504;&#1496;&#1497;-&#1488;&#1497;&#1497;&#1490;'&#1497;&#1504;&#1490; &#1493;&#1494;&#1493;&#1492;&#1512;. &#1502;&#1493;&#1514;&#1488;&#1501; &#1488;&#1497;&#1513;&#1497;&#1514; &#1500;&#1510;&#1512;&#1499;&#1497; &#1492;&#1506;&#1493;&#1512; &#1513;&#1500;&#1498;.</p>
+        </div>
+        <span class="service-price">200-400 &#8362;</span>
+      </div>
+
+      <!-- Service 5: Bridal Makeup -->
+      <div class="service-card">
+        <div class="service-icon ic-bridal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="en">
+          <h3>Bridal Makeup</h3>
+          <p>Your dream wedding look, from trial to the big day. We create timeless bridal beauty that photographs perfectly.</p>
+        </div>
+        <div class="he">
+          <h3>&#1488;&#1497;&#1508;&#1493;&#1512; &#1499;&#1500;&#1493;&#1514;</h3>
+          <p>&#1492;&#1502;&#1512;&#1488;&#1492; &#1492;&#1502;&#1493;&#1513;&#1500;&#1501; &#1500;&#1497;&#1493;&#1501; &#1492;&#1490;&#1491;&#1493;&#1500;, &#1502;&#1504;&#1497;&#1505;&#1497;&#1493;&#1503; &#1493;&#1506;&#1491; &#1492;&#1495;&#1514;&#1493;&#1504;&#1492;. &#1488;&#1497;&#1508;&#1493;&#1512; &#1504;&#1510;&#1495;&#1497; &#1513;&#1497;&#1493;&#1510;&#1488; &#1502;&#1491;&#1492;&#1497;&#1501; &#1489;&#1514;&#1502;&#1493;&#1504;&#1493;&#1514;.</p>
+        </div>
+        <span class="service-price">600-1,200 &#8362;</span>
+      </div>
+
+      <!-- Service 6: Lash Extensions -->
+      <div class="service-card">
+        <div class="service-icon ic-lash">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="en">
+          <h3>Lash Extensions</h3>
+          <p>Classic, volume, and hybrid lash sets. Wake up every morning with effortlessly gorgeous eyes.</p>
+        </div>
+        <div class="he">
+          <h3>&#1492;&#1500;&#1495;&#1502;&#1514; &#1512;&#1497;&#1505;&#1497;&#1501;</h3>
+          <p>&#1511;&#1500;&#1488;&#1505;&#1497;, &#1493;&#1493;&#1500;&#1497;&#1493;&#1501; &#1493;&#1492;&#1497;&#1489;&#1512;&#1497;&#1491;. &#1500;&#1511;&#1493;&#1501; &#1499;&#1500; &#1489;&#1493;&#1511;&#1512; &#1506;&#1501; &#1506;&#1497;&#1504;&#1497;&#1497;&#1501; &#1502;&#1491;&#1492;&#1497;&#1502;&#1493;&#1514; &#1489;&#1500;&#1497; &#1502;&#1488;&#1502;&#1509;.</p>
+        </div>
+        <span class="service-price">250-450 &#8362;</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team" style="background:var(--bg2)">
+  <div class="cx">
+    <div class="sec-header">
+      <div class="en">
+        <div class="sl">Our Team</div>
+        <div class="st">Meet the <i>artists</i> behind the magic</div>
+        <p class="sd">Our talented team brings years of training and passion to every appointment.</p>
+      </div>
+      <div class="he">
+        <div class="sl">&#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1504;&#1493;</div>
+        <div class="st">&#1492;&#1499;&#1497;&#1512;&#1493; &#1488;&#1514; <i>&#1492;&#1488;&#1502;&#1504;&#1497;&#1493;&#1514;</i> &#1513;&#1502;&#1488;&#1495;&#1493;&#1512;&#1497; &#1492;&#1511;&#1505;&#1501;</div>
+        <p class="sd">&#1492;&#1510;&#1493;&#1493;&#1514; &#1492;&#1502;&#1493;&#1499;&#1513;&#1512; &#1513;&#1500;&#1504;&#1493; &#1502;&#1489;&#1497;&#1488; &#1513;&#1504;&#1497;&#1501; &#1513;&#1500; &#1492;&#1499;&#1513;&#1512;&#1492; &#1493;&#1514;&#1513;&#1493;&#1511;&#1492; &#1500;&#1499;&#1500; &#1514;&#1493;&#1512;.</p>
+      </div>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-avatar av1">&#1500;&#1499;</div>
+        <div class="en">
+          <h3>Lilac Cohen</h3>
+          <div class="team-role">Owner &amp; Senior Stylist</div>
+          <p>Founder of Studio Lilac with 12 years of experience. Specializes in color corrections and bridal hair.</p>
+        </div>
+        <div class="he">
+          <h3>&#1500;&#1497;&#1500;&#1498; &#1499;&#1492;&#1503;</h3>
+          <div class="team-role">&#1489;&#1506;&#1500;&#1497;&#1501; &#1493;&#1505;&#1496;&#1497;&#1497;&#1500;&#1497;&#1505;&#1496;&#1497;&#1514; &#1489;&#1499;&#1497;&#1512;&#1492;</div>
+          <p>&#1502;&#1497;&#1497;&#1505;&#1491;&#1514; &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1500;&#1497;&#1500;&#1498; &#1506;&#1501; 12 &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;. &#1502;&#1514;&#1502;&#1495;&#1492; &#1489;&#1514;&#1497;&#1511;&#1493;&#1504;&#1497; &#1510;&#1489;&#1506; &#1493;&#1513;&#1497;&#1506;&#1512; &#1499;&#1500;&#1493;&#1514;.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar av2">&#1504;&#1506;</div>
+        <div class="en">
+          <h3>Noa Mizrahi</h3>
+          <div class="team-role">Nail Artist &amp; Skincare</div>
+          <p>Certified nail technician and esthetician. Known for intricate nail art and rejuvenating facials.</p>
+        </div>
+        <div class="he">
+          <h3>&#1504;&#1493;&#1506;&#1492; &#1502;&#1494;&#1512;&#1495;&#1497;</h3>
+          <div class="team-role">&#1502;&#1504;&#1497;&#1511;&#1493;&#1512;&#1497;&#1505;&#1496;&#1497;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1511;&#1488;&#1497;&#1514;</div>
+          <p>&#1502;&#1504;&#1497;&#1511;&#1493;&#1512;&#1497;&#1505;&#1496;&#1497;&#1514; &#1502;&#1493;&#1505;&#1502;&#1499;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1511;&#1488;&#1497;&#1514;. &#1497;&#1491;&#1493;&#1506;&#1492; &#1489;&#1506;&#1497;&#1510;&#1493;&#1489;&#1497; &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501; &#1502;&#1497;&#1493;&#1495;&#1491;&#1497;&#1501; &#1493;&#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1508;&#1504;&#1497;&#1501; &#1502;&#1508;&#1504;&#1511;&#1497;&#1501;.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar av3">&#1513;&#1500;</div>
+        <div class="en">
+          <h3>Sheli Avraham</h3>
+          <div class="team-role">Makeup Artist &amp; Lash Specialist</div>
+          <p>Professional makeup artist with fashion week experience. Expert in lash extensions and bridal makeup.</p>
+        </div>
+        <div class="he">
+          <h3>&#1513;&#1500;&#1497; &#1488;&#1489;&#1512;&#1492;&#1501;</h3>
+          <div class="team-role">&#1502;&#1488;&#1508;&#1512;&#1514; &#1493;&#1502;&#1500;&#1495;&#1497;&#1502;&#1514; &#1512;&#1497;&#1505;&#1497;&#1501;</div>
+          <p>&#1502;&#1488;&#1508;&#1512;&#1514; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497;&#1514; &#1506;&#1501; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503; &#1489;&#1513;&#1489;&#1493;&#1506;&#1493;&#1514; &#1488;&#1493;&#1508;&#1504;&#1492;. &#1502;&#1493;&#1502;&#1495;&#1497;&#1514; &#1489;&#1492;&#1500;&#1495;&#1502;&#1514; &#1512;&#1497;&#1505;&#1497;&#1501; &#1493;&#1488;&#1497;&#1508;&#1493;&#1512; &#1499;&#1500;&#1493;&#1514;.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="cx">
+    <div class="sec-header">
+      <div class="en">
+        <div class="sl">Gallery</div>
+        <div class="st">Our latest <i>work</i></div>
+        <p class="sd">A glimpse into the beauty transformations we create every day at the studio.</p>
+      </div>
+      <div class="he">
+        <div class="sl">&#1490;&#1500;&#1512;&#1497;&#1492;</div>
+        <div class="st">&#1492;&#1506;&#1489;&#1493;&#1491;&#1493;&#1514; &#1492;&#1488;&#1495;&#1512;&#1493;&#1504;&#1493;&#1514; <i>&#1513;&#1500;&#1504;&#1493;</i></div>
+        <p class="sd">&#1492;&#1510;&#1510;&#1492; &#1500;&#1514;&#1493;&#1498; &#1513;&#1497;&#1504;&#1493;&#1497;&#1497; &#1492;&#1497;&#1493;&#1508;&#1497; &#1513;&#1488;&#1504;&#1495;&#1504;&#1493; &#1497;&#1493;&#1510;&#1512;&#1497;&#1501; &#1499;&#1500; &#1497;&#1493;&#1501; &#1489;&#1505;&#1496;&#1493;&#1491;&#1497;&#1493;.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Balayage &amp; Waves</span>
+          <span class="he">&#1489;&#1500;&#1488;&#1497;&#1488;&#1494;' &#1493;&#1490;&#1500;&#1497;&#1501;</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Gel Nail Art</span>
+          <span class="he">&#1488;&#1512;&#1496; &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501;</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Bridal Glam</span>
+          <span class="he">&#1488;&#1497;&#1508;&#1493;&#1512; &#1499;&#1500;&#1492;</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Hydration Facial</span>
+          <span class="he">&#1496;&#1497;&#1508;&#1493;&#1500; &#1500;&#1495;&#1493;&#1514;</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Volume Lashes</span>
+          <span class="he">&#1512;&#1497;&#1505;&#1497;&#1501; &#1493;&#1493;&#1500;&#1497;&#1493;&#1501;</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-label">
+          <span class="en">Copper Highlights</span>
+          <span class="he">&#1492;&#1497;&#1497;&#1500;&#1497;&#1497;&#1496;&#1505; &#1504;&#1495;&#1493;&#1513;&#1514;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec sec-testi" id="reviews">
+  <div class="cx">
+    <div class="sec-header">
+      <div class="en">
+        <div class="sl">Testimonials</div>
+        <div class="st">What our clients <i>say</i></div>
+        <p class="sd">Real words from real clients who trust us with their beauty.</p>
+      </div>
+      <div class="he">
+        <div class="sl">&#1492;&#1502;&#1500;&#1510;&#1493;&#1514;</div>
+        <div class="st">&#1502;&#1492; &#1492;&#1500;&#1511;&#1493;&#1495;&#1493;&#1514; <i>&#1488;&#1493;&#1502;&#1512;&#1493;&#1514;</i></div>
+        <p class="sd">&#1502;&#1497;&#1500;&#1497;&#1501; &#1488;&#1502;&#1497;&#1514;&#1497;&#1493;&#1514; &#1502;&#1500;&#1511;&#1493;&#1495;&#1493;&#1514; &#1513;&#1505;&#1493;&#1502;&#1499;&#1493;&#1514; &#1506;&#1500;&#1497;&#1504;&#1493; &#1506;&#1501; &#1492;&#1497;&#1493;&#1508;&#1497; &#1513;&#1500;&#1492;&#1503;.</p>
+      </div>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="en">
+          <p>Lilac completely transformed my hair. I came in with damaged color and left with the most beautiful balayage. The studio atmosphere is so calming and luxurious. Highly recommend!</p>
+        </div>
+        <div class="he">
+          <p>&#1500;&#1497;&#1500;&#1498; &#1513;&#1497;&#1504;&#1514;&#1492; &#1500;&#1497; &#1488;&#1514; &#1492;&#1513;&#1497;&#1506;&#1512; &#1500;&#1490;&#1502;&#1512;&#1497;. &#1492;&#1490;&#1506;&#1514;&#1497; &#1506;&#1501; &#1510;&#1489;&#1506; &#1508;&#1490;&#1493;&#1501; &#1493;&#1497;&#1510;&#1488;&#1514;&#1497; &#1506;&#1501; &#1492;&#1489;&#1500;&#1488;&#1497;&#1488;&#1494;' &#1492;&#1499;&#1497; &#1497;&#1508;&#1492;. &#1492;&#1488;&#1493;&#1493;&#1497;&#1512;&#1492; &#1489;&#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1499;&#1500; &#1499;&#1498; &#1512;&#1490;&#1493;&#1506;&#1492; &#1493;&#1502;&#1508;&#1504;&#1511;&#1514;. &#1502;&#1502;&#1500;&#1497;&#1510;&#1492; &#1489;&#1495;&#1493;&#1501;!</p>
+        </div>
+        <div class="testi-author">
+          <div class="testi-dot td1">&#1502;&#1500;</div>
+          <div>
+            <div class="testi-name"><span class="en">Michal L.</span><span class="he">&#1502;&#1497;&#1499;&#1500; &#1500;.</span></div>
+            <div class="testi-since"><span class="en">Client since 2021</span><span class="he">&#1500;&#1511;&#1493;&#1495;&#1492; &#1502;&#1488;&#1494; 2021</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="en">
+          <p>Noa is a true nail artist. Every time I visit, I get the most creative and beautiful designs. My friends always ask where I get my nails done. Studio Lilac is the best in Tel Aviv!</p>
+        </div>
+        <div class="he">
+          <p>&#1504;&#1493;&#1506;&#1492; &#1492;&#1497;&#1488; &#1488;&#1502;&#1504;&#1497;&#1514; &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501; &#1488;&#1502;&#1497;&#1514;&#1497;&#1514;. &#1499;&#1500; &#1508;&#1506;&#1501; &#1513;&#1488;&#1504;&#1497; &#1502;&#1490;&#1497;&#1506;&#1492; &#1488;&#1504;&#1497; &#1502;&#1511;&#1489;&#1500;&#1514; &#1488;&#1514; &#1492;&#1506;&#1497;&#1510;&#1493;&#1489;&#1497;&#1501; &#1492;&#1499;&#1497; &#1497;&#1510;&#1497;&#1512;&#1514;&#1497;&#1497;&#1501;. &#1495;&#1489;&#1512;&#1493;&#1514; &#1514;&#1502;&#1497;&#1491; &#1513;&#1493;&#1488;&#1500;&#1493;&#1514; &#1488;&#1497;&#1508;&#1492; &#1488;&#1504;&#1497; &#1506;&#1493;&#1513;&#1492; &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501;. &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1500;&#1497;&#1500;&#1498; &#1492;&#1499;&#1497; &#1496;&#1493;&#1489; &#1489;&#1514;&#1500; &#1488;&#1489;&#1497;&#1489;!</p>
+        </div>
+        <div class="testi-author">
+          <div class="testi-dot td2">&#1491;&#1504;</div>
+          <div>
+            <div class="testi-name"><span class="en">Dana S.</span><span class="he">&#1491;&#1504;&#1492; &#1513;.</span></div>
+            <div class="testi-since"><span class="en">Client since 2022</span><span class="he">&#1500;&#1511;&#1493;&#1495;&#1492; &#1502;&#1488;&#1494; 2022</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="en">
+          <p>Sheli did my wedding makeup and I have never felt more beautiful in my life. She understood exactly what I wanted and the results were absolutely stunning. Thank you Studio Lilac!</p>
+        </div>
+        <div class="he">
+          <p>&#1513;&#1500;&#1497; &#1506;&#1513;&#1514;&#1492; &#1500;&#1497; &#1488;&#1514; &#1488;&#1497;&#1508;&#1493;&#1512; &#1492;&#1495;&#1514;&#1493;&#1504;&#1492; &#1493;&#1502;&#1506;&#1493;&#1500;&#1501; &#1500;&#1488; &#1492;&#1512;&#1490;&#1513;&#1514;&#1497; &#1497;&#1508;&#1492; &#1497;&#1493;&#1514;&#1512;. &#1492;&#1497;&#1488; &#1492;&#1489;&#1497;&#1504;&#1492; &#1489;&#1491;&#1497;&#1493;&#1511; &#1502;&#1492; &#1512;&#1510;&#1497;&#1514;&#1497; &#1493;&#1492;&#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1492;&#1497;&#1493; &#1502;&#1491;&#1492;&#1497;&#1502;&#1493;&#1514;. &#1514;&#1493;&#1491;&#1492; &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1500;&#1497;&#1500;&#1498;!</p>
+        </div>
+        <div class="testi-author">
+          <div class="testi-dot td3">&#1512;&#1504;</div>
+          <div>
+            <div class="testi-name"><span class="en">Ronit N.</span><span class="he">&#1512;&#1493;&#1504;&#1497;&#1514; &#1504;.</span></div>
+            <div class="testi-since"><span class="en">Client since 2023</span><span class="he">&#1500;&#1511;&#1493;&#1495;&#1492; &#1502;&#1488;&#1494; 2023</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOK APPOINTMENT CTA -->
+<section class="sec sec-cta" id="book">
+  <div class="cx">
+    <div class="en">
+      <div class="sl">Book Now</div>
+      <div class="st" style="color:#fff">Ready to feel <i>beautiful</i>?</div>
+      <p class="sd" style="color:rgba(255,255,255,.55)">Book your appointment today by phone or WhatsApp. We would love to see you at the studio.</p>
+    </div>
+    <div class="he">
+      <div class="sl">&#1511;&#1489;&#1506;&#1497; &#1514;&#1493;&#1512;</div>
+      <div class="st" style="color:#fff">&#1502;&#1493;&#1499;&#1504;&#1492; &#1500;&#1492;&#1512;&#1490;&#1497;&#1513; <i>&#1497;&#1508;&#1492;</i>?</div>
+      <p class="sd" style="color:rgba(255,255,255,.55)">&#1511;&#1489;&#1506;&#1497; &#1514;&#1493;&#1512; &#1506;&#1493;&#1491; &#1492;&#1497;&#1493;&#1501; &#1489;&#1496;&#1500;&#1508;&#1493;&#1503; &#1488;&#1493; &#1489;&#1493;&#1493;&#1488;&#1496;&#1505;&#1488;&#1508;. &#1504;&#1513;&#1502;&#1495; &#1500;&#1512;&#1488;&#1493;&#1514; &#1488;&#1493;&#1514;&#1498; &#1489;&#1505;&#1496;&#1493;&#1491;&#1497;&#1493;.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="tel:+97235551234" class="btn btn-p">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="en">Call Us</span>
+        <span class="he" style="display:none">&#1492;&#1514;&#1511;&#1513;&#1512;&#1497;</span>
+      </a>
+      <a href="https://wa.me/97235551234" target="_blank" class="btn btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="en">WhatsApp</span>
+        <span class="he" style="display:none">&#1493;&#1493;&#1488;&#1496;&#1505;&#1488;&#1508;</span>
+      </a>
+    </div>
+    <div class="cta-phone">
+      <span class="en">Or call directly: <a href="tel:+97235551234">03-555-1234</a></span>
+      <span class="he" style="display:none">&#1488;&#1493; &#1492;&#1514;&#1511;&#1513;&#1512;&#1497; &#1497;&#1513;&#1497;&#1512;&#1493;&#1514;: <a href="tel:+97235551234">03-555-1234</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section class="sec" id="info">
+  <div class="cx">
+    <div class="sec-header">
+      <div class="en">
+        <div class="sl">Visit Us</div>
+        <div class="st">Hours &amp; <i>Location</i></div>
+      </div>
+      <div class="he">
+        <div class="sl">&#1489;&#1511;&#1512;&#1497; &#1488;&#1493;&#1514;&#1504;&#1493;</div>
+        <div class="st">&#1513;&#1506;&#1493;&#1514; &#1508;&#1506;&#1497;&#1500;&#1493;&#1514; <i>&#1493;&#1502;&#1497;&#1511;&#1493;&#1501;</i></div>
+      </div>
+    </div>
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="en">
+          <h3>Opening Hours</h3>
+          <div class="hours-table">
+            <div class="hours-row"><span class="hours-day">Sunday - Thursday</span><span class="hours-time">09:00 - 20:00</span></div>
+            <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">09:00 - 15:00</span></div>
+            <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">Closed</span></div>
+          </div>
+        </div>
+        <div class="he">
+          <h3>&#1513;&#1506;&#1493;&#1514; &#1508;&#1514;&#1497;&#1495;&#1492;</h3>
+          <div class="hours-table">
+            <div class="hours-row"><span class="hours-day">&#1512;&#1488;&#1513;&#1493;&#1503; - &#1495;&#1502;&#1497;&#1513;&#1497;</span><span class="hours-time">09:00 - 20:00</span></div>
+            <div class="hours-row"><span class="hours-day">&#1513;&#1497;&#1513;&#1497;</span><span class="hours-time">09:00 - 15:00</span></div>
+            <div class="hours-row"><span class="hours-day">&#1513;&#1489;&#1514;</span><span class="hours-time">&#1505;&#1490;&#1493;&#1512;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="en">
+          <h3>Our Location</h3>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <p><strong>42 Basel Street</strong><br>Tel Aviv-Yafo, Israel</p>
+          </div>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <p><strong>03-555-1234</strong><br>info@studiolilac.co.il</p>
+          </div>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <p><strong>@studiolilac_tlv</strong><br>Follow us on Instagram</p>
+          </div>
+        </div>
+        <div class="he">
+          <h3>&#1492;&#1502;&#1497;&#1511;&#1493;&#1501; &#1513;&#1500;&#1504;&#1493;</h3>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <p><strong>&#1512;&#1495;&#1493;&#1489; &#1489;&#1494;&#1500; 42</strong><br>&#1514;&#1500; &#1488;&#1489;&#1497;&#1489;-&#1497;&#1508;&#1493;</p>
+          </div>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <p><strong>03-555-1234</strong><br>info@studiolilac.co.il</p>
+          </div>
+          <div class="location-detail">
+            <div class="loc-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <p><strong>@studiolilac_tlv</strong><br>&#1506;&#1511;&#1489;&#1493; &#1488;&#1495;&#1512;&#1497;&#1504;&#1493; &#1489;&#1488;&#1497;&#1504;&#1505;&#1496;&#1490;&#1512;&#1501;</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="cx">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span class="en">Studio <span>Lilac</span></span>
+          <span class="he">&#1505;&#1496;&#1493;&#1491;&#1497;&#1493; <span>&#1500;&#1497;&#1500;&#1498;</span></span>
+        </a>
+        <div class="en"><p>A boutique beauty studio in the heart of Tel Aviv. Hair, nails, skincare, and makeup.</p></div>
+        <div class="he"><p>&#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1497;&#1493;&#1508;&#1497; &#1489;&#1493;&#1496;&#1497;&#1511;&#1497; &#1489;&#1500;&#1489; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1513;&#1497;&#1506;&#1512;, &#1510;&#1497;&#1508;&#1493;&#1512;&#1504;&#1497;&#1497;&#1501;, &#1496;&#1497;&#1508;&#1493;&#1495;&#1497; &#1506;&#1493;&#1512; &#1493;&#1488;&#1497;&#1508;&#1493;&#1512;.</p></div>
+      </div>
+      <div class="footer-links">
+        <div class="en">
+          <h4>Quick Links</h4>
+          <a href="#services">Services</a>
+          <a href="#team">Our Team</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#book">Book Now</a>
+        </div>
+        <div class="he">
+          <h4>&#1511;&#1497;&#1513;&#1493;&#1512;&#1497;&#1501; &#1502;&#1492;&#1497;&#1512;&#1497;&#1501;</h4>
+          <a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a>
+          <a href="#team">&#1492;&#1510;&#1493;&#1493;&#1514;</a>
+          <a href="#gallery">&#1490;&#1500;&#1512;&#1497;&#1492;</a>
+          <a href="#reviews">&#1492;&#1502;&#1500;&#1510;&#1493;&#1514;</a>
+          <a href="#book">&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="en">
+          <h4>Services</h4>
+          <a href="#services">Haircut &amp; Styling</a>
+          <a href="#services">Hair Coloring</a>
+          <a href="#services">Manicure &amp; Pedicure</a>
+          <a href="#services">Facials</a>
+          <a href="#services">Bridal Makeup</a>
+          <a href="#services">Lash Extensions</a>
+        </div>
+        <div class="he">
+          <h4>&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</h4>
+          <a href="#services">&#1514;&#1505;&#1508;&#1493;&#1512;&#1514; &#1493;&#1506;&#1497;&#1510;&#1493;&#1489;</a>
+          <a href="#services">&#1510;&#1489;&#1497;&#1506;&#1514; &#1513;&#1497;&#1506;&#1512;</a>
+          <a href="#services">&#1502;&#1504;&#1497;&#1511;&#1493;&#1512; &#1493;&#1508;&#1491;&#1497;&#1511;&#1493;&#1512;</a>
+          <a href="#services">&#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1508;&#1504;&#1497;&#1501;</a>
+          <a href="#services">&#1488;&#1497;&#1508;&#1493;&#1512; &#1499;&#1500;&#1493;&#1514;</a>
+          <a href="#services">&#1492;&#1500;&#1495;&#1502;&#1514; &#1512;&#1497;&#1505;&#1497;&#1501;</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="en"><span>2025 Studio Lilac. All rights reserved.</span></div>
+      <div class="he"><span>2025 &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1500;&#1497;&#1500;&#1498;. &#1499;&#1500; &#1492;&#1494;&#1499;&#1493;&#1497;&#1493;&#1514; &#1513;&#1502;&#1493;&#1512;&#1493;&#1514;.</span></div>
+      <div class="mizra-credit">
+        <span class="en">Website by <a href="https://getmizra.com" target="_blank">Mizra</a></span>
+        <span class="he">&#1488;&#1514;&#1512; &#1506;&#1500; &#1497;&#1491;&#1497; <a href="https://getmizra.com" target="_blank">Mizra</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Language switcher
+function setL(lang){
+  const b=document.body;
+  if(lang==='he'){b.classList.add('lh');document.documentElement.dir='rtl';document.documentElement.lang='he'}
+  else{b.classList.remove('lh');document.documentElement.dir='ltr';document.documentElement.lang='en'}
+  document.querySelectorAll('.ls button').forEach(btn=>{btn.classList.remove('on');if(btn.textContent===lang.toUpperCase())btn.classList.add('on')});
+
+  // Fix inline style visibility for elements that need it
+  document.querySelectorAll('.nav-logo .he, .nav-logo .en').forEach(el=>{
+    if(lang==='he'){
+      if(el.classList.contains('he'))el.style.display='inline';
+      if(el.classList.contains('en'))el.style.display='none';
+    }else{
+      if(el.classList.contains('en'))el.style.display='inline';
+      if(el.classList.contains('he'))el.style.display='none';
+    }
+  });
+
+  // Fix btn inner spans
+  document.querySelectorAll('.btn .he, .btn .en, .cta-phone .he, .cta-phone .en').forEach(el=>{
+    if(lang==='he'){
+      if(el.classList.contains('he'))el.style.display='inline';
+      if(el.classList.contains('en'))el.style.display='none';
+    }else{
+      if(el.classList.contains('en'))el.style.display='inline';
+      if(el.classList.contains('he'))el.style.display='none';
+    }
+  });
+}
+
+// Adjust nav position based on banner
+window.addEventListener('scroll',function(){
+  const banner=document.querySelector('.mizra-banner');
+  const nav=document.querySelector('.nav');
+  if(banner){
+    const bh=banner.offsetHeight;
+    const scroll=window.scrollY;
+    if(scroll>=bh){nav.style.top='0'}
+    else{nav.style.top=bh-scroll+'px'}
+  }
+});
+
+// Initialize banner height for nav
+window.addEventListener('DOMContentLoaded',function(){
+  const banner=document.querySelector('.mizra-banner');
+  const nav=document.querySelector('.nav');
+  if(banner){nav.style.top=banner.offsetHeight+'px'}
+});
+</script>
+
+</body>
+</html>

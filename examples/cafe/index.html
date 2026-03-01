@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Nechama | Tel Aviv</title>
+<meta name="description" content="Specialty coffee and pastries on Dizengoff Street, Tel Aviv. Third wave coffee, first-class pastries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- VARIABLES --- */
+:root {
+  --bg: #f6f3ee; --bg2: #edebe5; --bg3: #e3e0d8;
+  --navy: #0c1829; --navy2: #142236;
+  --white: #fff; --or: #d4643a; --or2: #e07a54; --ord: rgba(212,100,58,.08);
+  --grn: #3d8b5e; --grnd: rgba(61,139,94,.08);
+  --tx: #5a5750; --txl: #8a857c;
+  --bd: rgba(0,0,0,.07);
+  --sf: 'Playfair Display', Georgia, serif;
+  --sn: 'Outfit', system-ui, sans-serif;
+  --warm: #c9a882; --cream: #f0e6d6; --espresso: #3b2314;
+}
+
+/* --- RESET --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sn); background: var(--bg); color: var(--tx); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--or); color: #fff; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; }
+
+/* --- LANGUAGE --- */
+.he { display: none; }
+body.lh .en { display: none; }
+body.lh .he { display: block; }
+body.lh { direction: rtl; }
+
+/* --- MIZRA BANNER --- */
+.mizra-banner {
+  background: var(--navy);
+  color: rgba(255,255,255,.7);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .3px;
+  position: relative;
+  z-index: 110;
+}
+.mizra-banner a {
+  color: var(--or2);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-inline-start: 6px;
+}
+.mizra-banner a:hover { color: #fff; }
+
+/* --- NAV --- */
+.nav {
+  position: sticky;
+  top: 0;
+  left: 0; right: 0;
+  z-index: 100;
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(246,243,238,.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--bd);
+}
+.nav-logo {
+  font-family: var(--sf);
+  font-size: 1.3rem;
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+.nav-logo span { color: var(--or); }
+.nm { display: flex; gap: 28px; align-items: center; }
+.nm > .en, .nm > .he { display: flex; gap: 28px; align-items: center; }
+.nm > .he { display: none; }
+body.lh .nm > .en { display: none; }
+body.lh .nm > .he { display: flex; }
+.nm a { color: var(--tx); font-size: .82rem; font-weight: 500; transition: color .3s; }
+.nm a:hover { color: var(--navy); }
+.nr { display: flex; align-items: center; gap: 14px; }
+.ls { display: flex; gap: 2px; background: rgba(0,0,0,.04); border-radius: 6px; padding: 2px; }
+.ls button {
+  padding: 4px 10px; border: none; background: 0;
+  color: var(--txl); font-size: .72rem; font-weight: 700;
+  cursor: pointer; border-radius: 4px; transition: .3s; font-family: var(--sn);
+}
+.ls button.on { background: var(--navy); color: #fff; }
+
+/* Mobile burger */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; z-index: 110; }
+.menu-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 4px 0; transition: .3s; border-radius: 2px; }
+.menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px;
+  border-radius: 8px; font-size: .88rem; font-weight: 600;
+  cursor: pointer; border: none; font-family: var(--sn); transition: .3s;
+}
+.btn-p { background: var(--or); color: #fff; }
+.btn-p:hover { background: var(--or2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,100,58,.2); }
+.btn-o { background: 0; color: var(--navy); border: 1.5px solid rgba(12,24,41,.15); }
+.btn-o:hover { border-color: var(--or); color: var(--or); }
+.btn-sm { padding: 10px 18px; font-size: .82rem; }
+
+/* --- LAYOUT --- */
+.cx { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.sec { padding: 100px 0; }
+.sl {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2.5px; color: var(--or); margin-bottom: 12px;
+}
+.st {
+  font-family: var(--sf); font-size: clamp(1.9rem,3.6vw,2.8rem);
+  color: var(--navy); line-height: 1.14; letter-spacing: -.5px; margin-bottom: 14px;
+}
+.st i { color: var(--or); font-style: italic; }
+.sd { font-size: .98rem; max-width: 480px; line-height: 1.7; margin-bottom: 40px; }
+
+/* --- SCROLL REVEAL --- */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+.rv.vis { opacity: 1; transform: translateY(0); }
+
+/* ====================================================
+   HERO
+   ==================================================== */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 48px 70px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,100,58,.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(61,139,94,.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.htag {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 16px;
+  background: var(--ord); border: 1px solid rgba(212,100,58,.12);
+  border-radius: 100px; color: var(--or);
+  font-size: .72rem; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.htag::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--or); border-radius: 50%;
+  animation: bl 2s infinite;
+}
+@keyframes bl { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+.hero h1 {
+  font-family: var(--sf);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  color: var(--navy); line-height: 1.08;
+  letter-spacing: -1.5px; margin-bottom: 20px;
+  max-width: 680px;
+}
+.hero h1 i { color: var(--or); font-style: italic; }
+.hero-sub {
+  font-size: 1.08rem; max-width: 500px;
+  line-height: 1.72; margin-bottom: 38px; color: var(--tx);
+}
+.ha { display: flex; gap: 12px; justify-content: center; }
+
+/* --- HERO METRICS --- */
+.hm {
+  display: flex; gap: 48px;
+  padding-top: 48px; margin-top: 48px;
+  border-top: 1px solid var(--bd);
+}
+.mt h3 { font-family: var(--sf); font-size: 2rem; color: var(--navy); line-height: 1; font-weight: 600; }
+.mt p { font-size: .68rem; color: var(--txl); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; margin-top: 4px; }
+
+/* ====================================================
+   ABOUT
+   ==================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-img {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--bg2), var(--cream));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.about-img::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212,100,58,.12);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.about-img-label {
+  font-family: var(--sf);
+  font-size: .82rem;
+  color: var(--txl);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.about-text .sd { margin-bottom: 24px; }
+.about-values {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+.about-val {
+  text-align: center;
+}
+.about-val h4 {
+  font-family: var(--sf);
+  font-size: 1.8rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+.about-val p {
+  font-size: .7rem;
+  color: var(--txl);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ====================================================
+   MENU
+   ==================================================== */
+.menu-sec { background: var(--bg2); }
+.menu-cats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.menu-cat-btn {
+  padding: 9px 22px;
+  border-radius: 100px;
+  border: 1.5px solid var(--bd);
+  background: var(--white);
+  color: var(--tx);
+  font-family: var(--sn);
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+.menu-cat-btn:hover,
+.menu-cat-btn.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.menu-card {
+  background: var(--white);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: .3s;
+}
+.menu-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.05);
+  transform: translateY(-2px);
+}
+.menu-card h4 {
+  font-family: var(--sf);
+  font-size: 1.05rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.menu-card p {
+  font-size: .82rem;
+  color: var(--txl);
+  line-height: 1.6;
+}
+.menu-price {
+  font-family: var(--sf);
+  font-size: 1.1rem;
+  color: var(--or);
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.menu-group { display: none; }
+.menu-group.active { display: grid; }
+
+/* ====================================================
+   ATMOSPHERE
+   ==================================================== */
+.atmos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.atmos-card {
+  aspect-ratio: 3/4;
+  border-radius: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px 16px;
+  position: relative;
+  overflow: hidden;
+}
+.atmos-card:nth-child(1) { background: linear-gradient(160deg, #d4b896, #a67c52); }
+.atmos-card:nth-child(2) { background: linear-gradient(160deg, #c4a882, #7a5c3e); }
+.atmos-card:nth-child(3) { background: linear-gradient(160deg, #b8a090, #8b6d54); }
+.atmos-card:nth-child(4) { background: linear-gradient(160deg, #caab8a, #6b4d32); }
+.atmos-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.35), transparent 60%);
+}
+.atmos-label {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ====================================================
+   EVENTS
+   ==================================================== */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 36px 32px;
+  transition: .3s;
+}
+.event-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.05);
+  transform: translateY(-2px);
+}
+.event-icon {
+  width: 48px; height: 48px;
+  background: var(--ord);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.event-icon svg { width: 22px; height: 22px; color: var(--or); }
+.event-card h3 {
+  font-family: var(--sf);
+  font-size: 1.2rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.event-card p {
+  font-size: .88rem;
+  color: var(--txl);
+  line-height: 1.7;
+}
+
+/* ====================================================
+   HOURS & LOCATION
+   ==================================================== */
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.hours-card {
+  background: var(--white);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  padding: 40px 36px;
+}
+.hours-card h3 {
+  font-family: var(--sf);
+  font-size: 1.3rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bd);
+  font-size: .9rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--navy); font-weight: 500; }
+.hours-time { color: var(--txl); font-weight: 500; }
+.location-address {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bd);
+}
+.location-address p {
+  font-size: .9rem;
+  color: var(--tx);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.location-address a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--or);
+  font-weight: 600;
+  font-size: .88rem;
+  margin-top: 8px;
+}
+.location-address a:hover { color: var(--or2); }
+.map-placeholder {
+  aspect-ratio: 1/1;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border-radius: 14px;
+  border: 1px solid var(--bd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.map-placeholder svg { width: 40px; height: 40px; color: var(--txl); opacity: .4; }
+.map-placeholder span { font-size: .78rem; color: var(--txl); font-weight: 500; }
+
+/* ====================================================
+   INSTAGRAM / SOCIAL
+   ==================================================== */
+.insta-sec {
+  background: var(--navy);
+  text-align: center;
+}
+.insta-sec .sl { color: var(--or2); }
+.insta-sec .st { color: #fff; }
+.insta-sec .sd { color: rgba(255,255,255,.55); margin: 0 auto 48px; }
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.insta-card {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.insta-card:nth-child(1) { background: linear-gradient(135deg, #c4a882, #8b6d54); }
+.insta-card:nth-child(2) { background: linear-gradient(135deg, #d4b896, #a67c52); }
+.insta-card:nth-child(3) { background: linear-gradient(135deg, #b8a090, #7a5c3e); }
+.insta-card:nth-child(4) { background: linear-gradient(135deg, #caab8a, #6b4d32); }
+.insta-handle {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+.insta-handle:hover { color: var(--or2); }
+
+/* ====================================================
+   FOOTER
+   ==================================================== */
+.footer {
+  padding: 60px 0 32px;
+  border-top: 1px solid var(--bd);
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+.footer-brand .nav-logo {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.footer-brand p {
+  font-size: .86rem;
+  color: var(--txl);
+  max-width: 260px;
+  line-height: 1.6;
+}
+.footer-links { display: flex; gap: 60px; }
+.footer-col h4 {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  color: var(--txl);
+  font-size: .86rem;
+  margin-bottom: 10px;
+  transition: color .3s;
+}
+.footer-col a:hover { color: var(--or); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--bd);
+  font-size: .76rem;
+  color: var(--txl);
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  color: var(--txl);
+  transition: color .3s;
+}
+.footer-social a:hover { color: var(--or); }
+.footer-social svg { width: 18px; height: 18px; }
+
+/* ====================================================
+   RESPONSIVE
+   ==================================================== */
+@media (max-width: 900px) {
+  .nav { padding: 0 24px; }
+  .cx { padding: 0 24px; }
+  .hero { padding: 80px 24px 60px; min-height: 80vh; }
+  .hm { gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-img { aspect-ratio: 16/9; }
+  .atmos-grid { grid-template-columns: repeat(2, 1fr); }
+  .events-grid { grid-template-columns: 1fr; }
+  .hours-grid { grid-template-columns: 1fr; gap: 24px; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { flex-direction: column; gap: 40px; }
+  .footer-links { gap: 40px; }
+  .sec { padding: 72px 0; }
+}
+
+@media (max-width: 640px) {
+  .menu-toggle { display: block; }
+  .nm {
+    position: fixed;
+    top: 0; right: 0;
+    width: 280px; height: 100vh;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 80px 32px 32px;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform .35s ease;
+    border-inline-start: 1px solid var(--bd);
+    box-shadow: -8px 0 32px rgba(0,0,0,.06);
+  }
+  [dir="ltr"] .nm { right: auto; left: 0; transform: translateX(-100%); }
+  .nm.open { transform: translateX(0); }
+  .nm > .en, .nm > .he { flex-direction: column; gap: 0; }
+  body.lh .nm > .he { flex-direction: column; gap: 0; }
+  .nm a { padding: 14px 0; border-bottom: 1px solid var(--bd); font-size: .92rem; display: block; }
+  .hero { min-height: auto; padding: 60px 20px 48px; }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .hm { gap: 20px; }
+  .mt h3 { font-size: 1.5rem; }
+  .ha { flex-direction: column; align-items: center; }
+  .about-values { gap: 20px; }
+  .about-val h4 { font-size: 1.4rem; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .atmos-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .footer-links { flex-direction: column; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav { padding: 0 16px; }
+  .cx { padding: 0 16px; }
+}
+</style>
+</head>
+<body class="lh">
+
+<!-- MIZRA DEMO BANNER -->
+<div class="mizra-banner">
+  <div class="en">This is an example site built by Mizra. Want one like this? <a href="/free-audit/">Get a free audit</a></div>
+  <div class="he">&#1494;&#1493; &#1491;&#1493;&#1490;&#1502;&#1492; &#1500;&#1488;&#1514;&#1512; &#1513;&#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; Mizra. &#1512;&#1493;&#1510;&#1497;&#1501; &#1488;&#1514;&#1512; &#1499;&#1494;&#1492;? <a href="/free-audit/">&#1489;&#1491;&#1497;&#1511;&#1492; &#1495;&#1497;&#1504;&#1502;&#1497;&#1514;</a></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo">
+    <div class="en">Cafe Nechama</div>
+    <div class="he">&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;</div>
+  </a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nm">
+    <div class="en"><a href="#about">About</a><a href="#menu">Menu</a><a href="#atmosphere">Gallery</a><a href="#events">Events</a><a href="#hours">Hours</a></div>
+    <div class="he"><a href="#about">&#1506;&#1500;&#1497;&#1504;&#1493;</a><a href="#menu">&#1514;&#1508;&#1512;&#1497;&#1496;</a><a href="#atmosphere">&#1490;&#1500;&#1512;&#1497;&#1492;</a><a href="#events">&#1488;&#1497;&#1512;&#1493;&#1506;&#1497;&#1501;</a><a href="#hours">&#1513;&#1506;&#1493;&#1514; &#1508;&#1514;&#1497;&#1495;&#1492;</a></div>
+  </div>
+  <div class="nr">
+    <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
+    <a href="#menu" class="btn btn-p btn-sm">
+      <span class="en">Our Menu</span>
+      <span class="he">&#1514;&#1508;&#1512;&#1497;&#1496;</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="en">
+    <div class="htag">Dizengoff Street, Tel Aviv</div>
+    <h1>Third wave coffee,<br>first-class <i>pastries.</i></h1>
+    <p class="hero-sub">Specialty coffee roasted with care, pastries baked fresh every morning, and a space that feels like home. Welcome to Cafe Nechama.</p>
+    <div class="ha"><a href="#menu" class="btn btn-p">Explore Our Menu</a><a href="#hours" class="btn btn-o">Visit Us</a></div>
+  </div>
+  <div class="he">
+    <div class="htag">&#1512;&#1495;&#1493;&#1489; &#1491;&#1497;&#1494;&#1504;&#1490;&#1493;&#1507;, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</div>
+    <h1>&#1511;&#1508;&#1492; &#1513;&#1500;&#1497;&#1513;&#1497;,<br>&#1506;&#1493;&#1490;&#1492; <i>&#1512;&#1488;&#1513;&#1493;&#1504;&#1492;.</i></h1>
+    <p class="hero-sub">&#1511;&#1508;&#1492; &#1505;&#1508;&#1513;&#1497;&#1488;&#1500;&#1497;&#1496;&#1497; &#1513;&#1504;&#1511;&#1500;&#1492; &#1489;&#1511;&#1508;&#1497;&#1491;&#1492;, &#1502;&#1488;&#1508;&#1497;&#1501; &#1496;&#1512;&#1497;&#1497;&#1501; &#1502;&#1499;&#1500; &#1489;&#1493;&#1511;&#1512;, &#1493;&#1502;&#1511;&#1493;&#1501; &#1513;&#1502;&#1512;&#1490;&#1497;&#1513; &#1499;&#1502;&#1493; &#1489;&#1497;&#1514;. &#1489;&#1512;&#1493;&#1499;&#1497;&#1501; &#1492;&#1489;&#1488;&#1497;&#1501; &#1500;&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;.</p>
+    <div class="ha"><a href="#menu" class="btn btn-p">&#1500;&#1514;&#1508;&#1512;&#1497;&#1496; &#1513;&#1500;&#1504;&#1493;</a><a href="#hours" class="btn btn-o">&#1489;&#1493;&#1488;&#1493; &#1500;&#1489;&#1511;&#1512;</a></div>
+  </div>
+  <div class="hm">
+    <div class="mt"><h3>2018</h3><div class="en"><p>Established</p></div><div class="he"><p>&#1504;&#1493;&#1505;&#1491;&#1504;&#1493;</p></div></div>
+    <div class="mt"><h3>100%</h3><div class="en"><p>Specialty Grade</p></div><div class="he"><p>&#1511;&#1508;&#1492; &#1505;&#1508;&#1513;&#1497;&#1488;&#1500;&#1497;&#1496;&#1497;</p></div></div>
+    <div class="mt"><h3>6:30</h3><div class="en"><p>We Open Daily</p></div><div class="he"><p>&#1508;&#1514;&#1493;&#1495;&#1497;&#1501; &#1502;&#1497;&#1491;&#1497; &#1497;&#1493;&#1501;</p></div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="cx">
+    <div class="about-grid">
+      <div class="about-img rv">
+        <span class="about-img-label">Photo</span>
+      </div>
+      <div class="about-text">
+        <div class="en rv">
+          <div class="sl">Our Story</div>
+          <h2 class="st">Where every cup tells <i>a story.</i></h2>
+          <p class="sd">Cafe Nechama was born from a simple dream: to bring the world's finest specialty coffee to the heart of Tel Aviv. Founded by Noa and Daniel in 2018, we source single-origin beans from Ethiopia, Colombia, and Guatemala, and roast them in small batches right here in the city.</p>
+          <p class="sd">Our pastries are baked fresh every morning by our in-house pastry chef, using locally sourced ingredients and traditional recipes with a modern twist. Every detail, from the pour to the plate, is crafted with intention.</p>
+        </div>
+        <div class="he rv">
+          <div class="sl">&#1492;&#1505;&#1497;&#1508;&#1493;&#1512; &#1513;&#1500;&#1504;&#1493;</div>
+          <h2 class="st">&#1499;&#1500; &#1505;&#1508;&#1500; &#1502;&#1505;&#1508;&#1512; <i>&#1505;&#1497;&#1508;&#1493;&#1512;.</i></h2>
+          <p class="sd">&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492; &#1504;&#1493;&#1500;&#1491; &#1502;&#1495;&#1500;&#1493;&#1501; &#1508;&#1513;&#1493;&#1496;: &#1500;&#1492;&#1489;&#1497;&#1488; &#1488;&#1514; &#1492;&#1511;&#1508;&#1492; &#1492;&#1505;&#1508;&#1513;&#1497;&#1488;&#1500;&#1497;&#1496;&#1497; &#1492;&#1496;&#1493;&#1489; &#1489;&#1506;&#1493;&#1500;&#1501; &#1500;&#1500;&#1489; &#1513;&#1500; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1504;&#1493;&#1506;&#1492; &#1493;&#1491;&#1504;&#1497;&#1488;&#1500; &#1497;&#1505;&#1491;&#1493; &#1488;&#1514; &#1489;&#1497;&#1514; &#1492;&#1511;&#1508;&#1492; &#1489;-2018, &#1506;&#1501; &#1508;&#1493;&#1500;&#1497; &#1511;&#1508;&#1492; &#1502;&#1502;&#1511;&#1493;&#1512; &#1497;&#1495;&#1497;&#1491; &#1502;&#1488;&#1514;&#1497;&#1493;&#1508;&#1497;&#1492;, &#1511;&#1493;&#1500;&#1493;&#1502;&#1489;&#1497;&#1492; &#1493;&#1490;&#1493;&#1488;&#1496;&#1502;&#1500;&#1492;, &#1513;&#1504;&#1511;&#1500;&#1497;&#1501; &#1489;&#1502;&#1504;&#1493;&#1514; &#1511;&#1496;&#1504;&#1493;&#1514; &#1499;&#1488;&#1503; &#1489;&#1506;&#1497;&#1512;.</p>
+          <p class="sd">&#1492;&#1502;&#1488;&#1508;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493; &#1504;&#1488;&#1508;&#1497;&#1501; &#1496;&#1512;&#1497;&#1497;&#1501; &#1499;&#1500; &#1489;&#1493;&#1511;&#1512; &#1506;&#1500; &#1497;&#1491;&#1497; &#1492;&#1511;&#1493;&#1504;&#1491;&#1497;&#1496;&#1493;&#1512;&#1497;&#1514; &#1513;&#1500;&#1504;&#1493;, &#1502;&#1495;&#1493;&#1502;&#1512;&#1497; &#1490;&#1500;&#1501; &#1502;&#1511;&#1493;&#1502;&#1497;&#1497;&#1501; &#1493;&#1502;&#1514;&#1499;&#1493;&#1504;&#1497;&#1501; &#1502;&#1505;&#1493;&#1512;&#1514;&#1497;&#1497;&#1501; &#1506;&#1501; &#1496;&#1493;&#1493;&#1497;&#1505;&#1496; &#1502;&#1493;&#1491;&#1512;&#1504;&#1497;. &#1499;&#1500; &#1508;&#1512;&#1496;, &#1502;&#1492;&#1502;&#1494;&#1497;&#1490;&#1492; &#1493;&#1506;&#1491; &#1492;&#1510;&#1500;&#1495;&#1514;, &#1504;&#1506;&#1513;&#1492; &#1489;&#1499;&#1493;&#1493;&#1504;&#1492;.</p>
+        </div>
+        <div class="about-values rv">
+          <div class="about-val"><h4>7+</h4><div class="en"><p>Years Open</p></div><div class="he"><p>&#1513;&#1504;&#1497;&#1501;</p></div></div>
+          <div class="about-val"><h4>12</h4><div class="en"><p>Coffee Origins</p></div><div class="he"><p>&#1502;&#1511;&#1493;&#1512;&#1493;&#1514; &#1511;&#1508;&#1492;</p></div></div>
+          <div class="about-val"><h4>4.9</h4><div class="en"><p>Google Rating</p></div><div class="he"><p>&#1491;&#1497;&#1512;&#1493;&#1490; &#1490;&#1493;&#1490;&#1500;</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu-sec" id="menu">
+  <div class="cx">
+    <div style="text-align:center">
+      <div class="en rv"><div class="sl">Our Menu</div><h2 class="st">Crafted with <i>passion.</i></h2><p class="sd" style="margin:0 auto 20px">From single-origin espresso to freshly baked pastries and wholesome light meals.</p></div>
+      <div class="he rv"><div class="sl">&#1514;&#1508;&#1512;&#1497;&#1496;</div><h2 class="st">&#1502;&#1493;&#1499;&#1503; &#1489;&#1488;&#1492;&#1489;&#1492; <i>&#1493;&#1502;&#1511;&#1510;&#1493;&#1506;&#1497;&#1493;&#1514;.</i></h2><p class="sd" style="margin:0 auto 20px">&#1502;&#1488;&#1505;&#1508;&#1512;&#1505;&#1493; &#1502;&#1502;&#1511;&#1493;&#1512; &#1497;&#1495;&#1497;&#1491; &#1493;&#1506;&#1491; &#1502;&#1488;&#1508;&#1497;&#1501; &#1496;&#1512;&#1497;&#1497;&#1501; &#1493;&#1488;&#1512;&#1493;&#1495;&#1493;&#1514; &#1511;&#1500;&#1493;&#1514;.</p></div>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="menu-cats" style="justify-content:center">
+      <div class="en">
+        <button class="menu-cat-btn active" onclick="showCat('coffee')">Coffee</button>
+        <button class="menu-cat-btn" onclick="showCat('pastries')">Pastries</button>
+        <button class="menu-cat-btn" onclick="showCat('meals')">Light Meals</button>
+      </div>
+      <div class="he">
+        <button class="menu-cat-btn active" onclick="showCat('coffee')">&#1511;&#1508;&#1492;</button>
+        <button class="menu-cat-btn" onclick="showCat('pastries')">&#1502;&#1488;&#1508;&#1497;&#1501;</button>
+        <button class="menu-cat-btn" onclick="showCat('meals')">&#1488;&#1512;&#1493;&#1495;&#1493;&#1514; &#1511;&#1500;&#1493;&#1514;</button>
+      </div>
+    </div>
+
+    <!-- Coffee -->
+    <div class="menu-grid menu-group active" id="cat-coffee">
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Espresso</span><span class="he">&#1488;&#1505;&#1508;&#1512;&#1505;&#1493;</span></h4>
+          <p><span class="en">Single or double shot, single-origin Ethiopian Yirgacheffe</span><span class="he">&#1513;&#1493;&#1496; &#1489;&#1493;&#1491;&#1491; &#1488;&#1493; &#1499;&#1508;&#1493;&#1500;, &#1502;&#1502;&#1511;&#1493;&#1512; &#1497;&#1495;&#1497;&#1491; &#1488;&#1514;&#1497;&#1493;&#1508;&#1497; &#1497;&#1512;&#1490;&#1488;&#1510;'&#1508;&#1492;</span></p>
+        </div>
+        <div class="menu-price">14 / 18</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Flat White</span><span class="he">&#1508;&#1500;&#1488;&#1496; &#1493;&#1493;&#1497;&#1497;&#1496;</span></h4>
+          <p><span class="en">Velvety microfoam with a rich double ristretto base</span><span class="he">&#1502;&#1497;&#1511;&#1512;&#1493;&#1508;&#1493;&#1501; &#1511;&#1496;&#1497;&#1508;&#1514;&#1497; &#1506;&#1500; &#1489;&#1505;&#1497;&#1505; &#1512;&#1497;&#1505;&#1496;&#1512;&#1496;&#1493; &#1499;&#1508;&#1493;&#1500; &#1506;&#1513;&#1497;&#1512;</span></p>
+        </div>
+        <div class="menu-price">22</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">V60 Pour-Over</span><span class="he">V60 &#1508;&#1497;&#1500;&#1496;&#1512;</span></h4>
+          <p><span class="en">Hand-brewed to order. Ask about today's single origin.</span><span class="he">&#1504;&#1495;&#1500;&#1496; &#1497;&#1491;&#1504;&#1497;&#1514; &#1500;&#1492;&#1494;&#1502;&#1504;&#1492;. &#1513;&#1488;&#1500;&#1493; &#1506;&#1500; &#1492;&#1502;&#1511;&#1493;&#1512; &#1513;&#1500; &#1492;&#1497;&#1493;&#1501;.</span></p>
+        </div>
+        <div class="menu-price">28</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Iced Matcha Latte</span><span class="he">&#1502;&#1488;&#1510;'&#1492; &#1500;&#1488;&#1496;&#1492; &#1511;&#1512;</span></h4>
+          <p><span class="en">Ceremonial grade matcha with oat milk, served over ice</span><span class="he">&#1502;&#1488;&#1510;'&#1492; &#1488;&#1497;&#1499;&#1493;&#1514; &#1496;&#1511;&#1505;&#1497;&#1514; &#1506;&#1501; &#1495;&#1500;&#1489; &#1513;&#1497;&#1489;&#1493;&#1500;&#1514; &#1513;&#1493;&#1506;&#1500;, &#1502;&#1493;&#1490;&#1513; &#1506;&#1500; &#1511;&#1512;&#1495;</span></p>
+        </div>
+        <div class="menu-price">26</div>
+      </div>
+    </div>
+
+    <!-- Pastries -->
+    <div class="menu-grid menu-group" id="cat-pastries">
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Almond Croissant</span><span class="he">&#1511;&#1512;&#1493;&#1488;&#1505;&#1493;&#1503; &#1513;&#1511;&#1491;&#1497;&#1501;</span></h4>
+          <p><span class="en">Flaky, butter-rich, filled with almond cream and toasted almonds</span><span class="he">&#1508;&#1512;&#1497;&#1498;, &#1506;&#1513;&#1497;&#1512; &#1489;&#1495;&#1502;&#1488;&#1492;, &#1502;&#1502;&#1493;&#1500;&#1488; &#1511;&#1512;&#1501; &#1513;&#1511;&#1491;&#1497;&#1501; &#1493;&#1513;&#1511;&#1491;&#1497;&#1501; &#1511;&#1500;&#1493;&#1497;&#1497;&#1501;</span></p>
+        </div>
+        <div class="menu-price">24</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Pistachio Babka</span><span class="he">&#1489;&#1488;&#1489;&#1511;&#1492; &#1508;&#1497;&#1505;&#1496;&#1493;&#1511;</span></h4>
+          <p><span class="en">Our signature. Swirled pistachio paste in soft brioche dough.</span><span class="he">&#1492;&#1502;&#1504;&#1510;&#1495;&#1514; &#1513;&#1500;&#1504;&#1493;. &#1502;&#1502;&#1512;&#1495; &#1508;&#1497;&#1505;&#1496;&#1493;&#1511; &#1489;&#1489;&#1510;&#1511; &#1489;&#1512;&#1497;&#1493;&#1513; &#1512;&#1498;.</span></p>
+        </div>
+        <div class="menu-price">28</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Seasonal Tart</span><span class="he">&#1496;&#1488;&#1512;&#1496; &#1506;&#1493;&#1504;&#1514;&#1497;</span></h4>
+          <p><span class="en">Changes weekly. Currently: blood orange and tahini.</span><span class="he">&#1502;&#1514;&#1495;&#1500;&#1507; &#1502;&#1491;&#1497; &#1513;&#1489;&#1493;&#1506;. &#1499;&#1512;&#1490;&#1506;: &#1514;&#1508;&#1493;&#1494; &#1491;&#1501; &#1493;&#1496;&#1495;&#1497;&#1504;&#1492;.</span></p>
+        </div>
+        <div class="menu-price">32</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Cardamom Cookie</span><span class="he">&#1506;&#1493;&#1490;&#1497;&#1497;&#1514; &#1492;&#1500;</span></h4>
+          <p><span class="en">Crispy edges, chewy center, with a hint of cardamom and orange zest</span><span class="he">&#1511;&#1510;&#1493;&#1493;&#1514; &#1508;&#1512;&#1497;&#1499;&#1497;&#1501;, &#1502;&#1512;&#1499;&#1494; &#1512;&#1498;, &#1506;&#1501; &#1504;&#1490;&#1497;&#1506;&#1492; &#1513;&#1500; &#1492;&#1500; &#1493;&#1490;&#1512;&#1497;&#1491;&#1514; &#1514;&#1508;&#1493;&#1494;</span></p>
+        </div>
+        <div class="menu-price">16</div>
+      </div>
+    </div>
+
+    <!-- Light Meals -->
+    <div class="menu-grid menu-group" id="cat-meals">
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Shakshuka Toast</span><span class="he">&#1496;&#1493;&#1505;&#1496; &#1513;&#1511;&#1513;&#1493;&#1511;&#1492;</span></h4>
+          <p><span class="en">Sourdough toast topped with spiced tomato, soft egg, labneh and za'atar</span><span class="he">&#1496;&#1493;&#1505;&#1496; &#1502;&#1495;&#1502;&#1510;&#1514; &#1506;&#1501; &#1506;&#1490;&#1489;&#1504;&#1497;&#1493;&#1514; &#1502;&#1514;&#1493;&#1489;&#1500;&#1493;&#1514;, &#1489;&#1497;&#1510;&#1492; &#1512;&#1499;&#1492;, &#1500;&#1489;&#1504;&#1492; &#1493;&#1494;&#1506;&#1514;&#1512;</span></p>
+        </div>
+        <div class="menu-price">42</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Green Bowl</span><span class="he">&#1489;&#1493;&#1500; &#1497;&#1512;&#1493;&#1511;</span></h4>
+          <p><span class="en">Quinoa, avocado, edamame, pickled radish, tahini-lemon dressing</span><span class="he">&#1511;&#1497;&#1504;&#1493;&#1488;&#1492;, &#1488;&#1489;&#1493;&#1511;&#1491;&#1493;, &#1488;&#1491;&#1502;&#1502;&#1492;, &#1510;&#1504;&#1493;&#1503; &#1499;&#1489;&#1493;&#1513;, &#1512;&#1493;&#1496;&#1489; &#1496;&#1495;&#1497;&#1504;&#1492;-&#1500;&#1497;&#1502;&#1493;&#1503;</span></p>
+        </div>
+        <div class="menu-price">48</div>
+      </div>
+      <div class="menu-card rv">
+        <div>
+          <h4><span class="en">Focaccia Sandwich</span><span class="he">&#1505;&#1504;&#1491;&#1493;&#1493;&#1497;&#1509; &#1508;&#1493;&#1511;&#1488;&#1510;'&#1492;</span></h4>
+          <p><span class="en">House-baked focaccia with mozzarella, roasted peppers and basil pesto</span><span class="he">&#1508;&#1493;&#1511;&#1488;&#1510;'&#1492; &#1488;&#1508;&#1497;&#1497;&#1492; &#1489;&#1497;&#1514;&#1497;&#1514; &#1506;&#1501; &#1502;&#1493;&#1510;&#1512;&#1500;&#1492;, &#1508;&#1500;&#1508;&#1500; &#1511;&#1500;&#1493;&#1497; &#1493;&#1508;&#1505;&#1496;&#1493; &#1489;&#1494;&#1497;&#1500;&#1497;&#1511;&#1493;&#1501;</span></p>
+        </div>
+        <div class="menu-price">44</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:32px;font-size:.82rem;color:var(--txl)">
+      <span class="en">All prices in NIS. Ask about our dairy-free and gluten-free options.</span>
+      <span class="he">&#1499;&#1500; &#1492;&#1502;&#1495;&#1497;&#1512;&#1497;&#1501; &#1489;&#1513;&#1511;&#1500;&#1497;&#1501;. &#1513;&#1488;&#1500;&#1493; &#1506;&#1500; &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1500;&#1500;&#1488; &#1495;&#1500;&#1489; &#1493;&#1500;&#1500;&#1488; &#1490;&#1500;&#1493;&#1496;&#1503;.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ATMOSPHERE -->
+<section class="sec" id="atmosphere">
+  <div class="cx">
+    <div style="text-align:center">
+      <div class="en rv"><div class="sl">Atmosphere</div><h2 class="st">A space that feels like <i>home.</i></h2><p class="sd" style="margin:0 auto 48px">Warm wood, natural light, and a carefully curated aesthetic. Every corner was designed for comfort.</p></div>
+      <div class="he rv"><div class="sl">&#1488;&#1493;&#1493;&#1497;&#1512;&#1492;</div><h2 class="st">&#1502;&#1511;&#1493;&#1501; &#1513;&#1502;&#1512;&#1490;&#1497;&#1513; &#1499;&#1502;&#1493; <i>&#1489;&#1497;&#1514;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1506;&#1509; &#1495;&#1501;, &#1488;&#1493;&#1512; &#1496;&#1489;&#1506;&#1497;, &#1493;&#1488;&#1505;&#1514;&#1496;&#1497;&#1511;&#1492; &#1502;&#1511;&#1508;&#1497;&#1491;&#1492;. &#1499;&#1500; &#1508;&#1497;&#1504;&#1492; &#1506;&#1493;&#1510;&#1489;&#1492; &#1500;&#1504;&#1493;&#1495;&#1493;&#1514;.</p></div>
+    </div>
+    <div class="atmos-grid">
+      <div class="atmos-card rv">
+        <span class="atmos-label"><span class="en">The Bar</span><span class="he">&#1492;&#1489;&#1512;</span></span>
+      </div>
+      <div class="atmos-card rv">
+        <span class="atmos-label"><span class="en">Morning Light</span><span class="he">&#1488;&#1493;&#1512; &#1489;&#1493;&#1511;&#1512;</span></span>
+      </div>
+      <div class="atmos-card rv">
+        <span class="atmos-label"><span class="en">The Patio</span><span class="he">&#1492;&#1508;&#1496;&#1497;&#1493;</span></span>
+      </div>
+      <div class="atmos-card rv">
+        <span class="atmos-label"><span class="en">Details</span><span class="he">&#1508;&#1512;&#1496;&#1497;&#1501;</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="sec" id="events" style="background:var(--bg2)">
+  <div class="cx">
+    <div style="text-align:center">
+      <div class="en rv"><div class="sl">Events</div><h2 class="st">More than just <i>coffee.</i></h2><p class="sd" style="margin:0 auto 48px">Private events, weekly gatherings, and a community that feels like family.</p></div>
+      <div class="he rv"><div class="sl">&#1488;&#1497;&#1512;&#1493;&#1506;&#1497;&#1501;</div><h2 class="st">&#1497;&#1493;&#1514;&#1512; &#1502;&#1505;&#1514;&#1501; <i>&#1511;&#1508;&#1492;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1488;&#1497;&#1512;&#1493;&#1506;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;, &#1502;&#1508;&#1490;&#1513;&#1497;&#1501; &#1513;&#1489;&#1493;&#1506;&#1497;&#1497;&#1501;, &#1493;&#1511;&#1492;&#1497;&#1500;&#1492; &#1513;&#1502;&#1512;&#1490;&#1497;&#1513;&#1492; &#1499;&#1502;&#1493; &#1502;&#1513;&#1508;&#1495;&#1492;.</p></div>
+    </div>
+    <div class="events-grid">
+      <div class="event-card rv">
+        <div class="event-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+        </div>
+        <div class="en">
+          <h3>Book Club Evenings</h3>
+          <p>Every other Thursday at 20:00. Bring your latest read, grab a coffee, and join the conversation. Hebrew and English groups available.</p>
+        </div>
+        <div class="he">
+          <h3>&#1506;&#1512;&#1489;&#1497; &#1502;&#1493;&#1506;&#1491;&#1493;&#1503; &#1505;&#1508;&#1512;</h3>
+          <p>&#1499;&#1500; &#1497;&#1493;&#1501; &#1495;&#1502;&#1497;&#1513;&#1497; &#1513;&#1504;&#1497; &#1489;-20:00. &#1511;&#1495;&#1493; &#1488;&#1514; &#1492;&#1505;&#1508;&#1512; &#1513;&#1500;&#1499;&#1501;, &#1492;&#1494;&#1502;&#1497;&#1504;&#1493; &#1511;&#1508;&#1492;, &#1493;&#1492;&#1510;&#1496;&#1512;&#1508;&#1493; &#1500;&#1513;&#1497;&#1495;&#1492;. &#1511;&#1489;&#1493;&#1510;&#1493;&#1514; &#1489;&#1506;&#1489;&#1512;&#1497;&#1514; &#1493;&#1489;&#1488;&#1504;&#1490;&#1500;&#1497;&#1514;.</p>
+        </div>
+      </div>
+      <div class="event-card rv">
+        <div class="event-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+        </div>
+        <div class="en">
+          <h3>Private Events</h3>
+          <p>Host your birthday, team gathering, or celebration at Cafe Nechama. We offer a dedicated space for groups of 15-40, with custom menus.</p>
+        </div>
+        <div class="he">
+          <h3>&#1488;&#1497;&#1512;&#1493;&#1506;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;</h3>
+          <p>&#1488;&#1512;&#1495;&#1493; &#1497;&#1493;&#1501; &#1492;&#1493;&#1500;&#1491;&#1514;, &#1502;&#1508;&#1490;&#1513; &#1510;&#1493;&#1493;&#1514;, &#1488;&#1493; &#1495;&#1490;&#1497;&#1490;&#1492; &#1489;&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;. &#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1510;&#1497;&#1506;&#1497;&#1501; &#1495;&#1500;&#1500; &#1497;&#1497;&#1506;&#1493;&#1491;&#1497; &#1500;&#1511;&#1489;&#1493;&#1510;&#1493;&#1514; &#1513;&#1500; 15-40 &#1488;&#1504;&#1513;&#1497;&#1501;, &#1506;&#1501; &#1514;&#1508;&#1512;&#1497;&#1496;&#1497;&#1501; &#1502;&#1493;&#1514;&#1488;&#1502;&#1497;&#1501;.</p>
+        </div>
+      </div>
+      <div class="event-card rv">
+        <div class="event-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" /></svg>
+        </div>
+        <div class="en">
+          <h3>Cupping Sessions</h3>
+          <p>Join our roaster for a monthly cupping session. Taste coffees from around the world and learn about flavor profiles, origins, and brewing methods.</p>
+        </div>
+        <div class="he">
+          <h3>&#1502;&#1508;&#1490;&#1513;&#1497; &#1496;&#1506;&#1497;&#1502;&#1493;&#1514;</h3>
+          <p>&#1492;&#1510;&#1496;&#1512;&#1508;&#1493; &#1500;&#1511;&#1493;&#1500;&#1492; &#1513;&#1500;&#1504;&#1493; &#1500;&#1502;&#1508;&#1490;&#1513; &#1496;&#1506;&#1497;&#1502;&#1493;&#1514; &#1495;&#1493;&#1491;&#1513;&#1497;. &#1496;&#1506;&#1502;&#1493; &#1511;&#1508;&#1492; &#1502;&#1499;&#1500; &#1492;&#1506;&#1493;&#1500;&#1501; &#1493;&#1500;&#1502;&#1491;&#1493; &#1506;&#1500; &#1508;&#1512;&#1493;&#1508;&#1497;&#1500;&#1497; &#1496;&#1506;&#1501;, &#1502;&#1511;&#1493;&#1512;&#1493;&#1514; &#1493;&#1513;&#1497;&#1496;&#1493;&#1514; &#1495;&#1500;&#1497;&#1496;&#1492;.</p>
+        </div>
+      </div>
+      <div class="event-card rv">
+        <div class="event-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" /></svg>
+        </div>
+        <div class="en">
+          <h3>Live Acoustic Fridays</h3>
+          <p>Local artists play mellow acoustic sets every Friday afternoon from 16:00 to 18:00. The perfect soundtrack to your weekend start.</p>
+        </div>
+        <div class="he">
+          <h3>&#1502;&#1493;&#1508;&#1506;&#1497;&#1501; &#1489;&#1497;&#1493;&#1501; &#1513;&#1497;&#1513;&#1497;</h3>
+          <p>&#1488;&#1502;&#1504;&#1497;&#1501; &#1502;&#1511;&#1493;&#1502;&#1497;&#1497;&#1501; &#1502;&#1504;&#1490;&#1504;&#1497;&#1501; &#1488;&#1511;&#1493;&#1505;&#1496;&#1497;&#1511;&#1492; &#1512;&#1490;&#1493;&#1506;&#1492; &#1499;&#1500; &#1497;&#1493;&#1501; &#1513;&#1497;&#1513;&#1497; &#1488;&#1495;&#1512; &#1492;&#1510;&#1492;&#1512;&#1497;&#1497;&#1501; &#1502;-16:00 &#1506;&#1491; 18:00. &#1508;&#1505;&#1511;&#1493;&#1500; &#1502;&#1493;&#1513;&#1500;&#1501; &#1500;&#1514;&#1495;&#1497;&#1500;&#1514; &#1505;&#1493;&#1508;&#1513;.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section class="sec" id="hours">
+  <div class="cx">
+    <div style="text-align:center">
+      <div class="en rv"><div class="sl">Visit Us</div><h2 class="st">Come say <i>hello.</i></h2><p class="sd" style="margin:0 auto 48px">Find us on Dizengoff, in the heart of Tel Aviv.</p></div>
+      <div class="he rv"><div class="sl">&#1489;&#1493;&#1488;&#1493; &#1500;&#1489;&#1511;&#1512;</div><h2 class="st">&#1489;&#1493;&#1488;&#1493; &#1500;&#1492;&#1490;&#1497;&#1491; <i>&#1513;&#1500;&#1493;&#1501;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1502;&#1510;&#1488;&#1493; &#1488;&#1493;&#1514;&#1504;&#1493; &#1489;&#1491;&#1497;&#1494;&#1504;&#1490;&#1493;&#1507;, &#1489;&#1500;&#1489; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;.</p></div>
+    </div>
+    <div class="hours-grid">
+      <div class="hours-card rv">
+        <div class="en">
+          <h3>Opening Hours</h3>
+          <div class="hours-row"><span class="hours-day">Sunday - Thursday</span><span class="hours-time">06:30 - 22:00</span></div>
+          <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">06:30 - 16:00</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">08:00 - 23:00</span></div>
+        </div>
+        <div class="he">
+          <h3>&#1513;&#1506;&#1493;&#1514; &#1508;&#1514;&#1497;&#1495;&#1492;</h3>
+          <div class="hours-row"><span class="hours-day">&#1512;&#1488;&#1513;&#1493;&#1503; - &#1495;&#1502;&#1497;&#1513;&#1497;</span><span class="hours-time">06:30 - 22:00</span></div>
+          <div class="hours-row"><span class="hours-day">&#1513;&#1497;&#1513;&#1497;</span><span class="hours-time">06:30 - 16:00</span></div>
+          <div class="hours-row"><span class="hours-day">&#1513;&#1489;&#1514;</span><span class="hours-time">08:00 - 23:00</span></div>
+        </div>
+        <div class="location-address">
+          <div class="en">
+            <p><strong>Cafe Nechama</strong></p>
+            <p>142 Dizengoff Street, Tel Aviv</p>
+            <p>03-555-1234</p>
+            <a href="#">Get Directions <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg></a>
+          </div>
+          <div class="he">
+            <p><strong>&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;</strong></p>
+            <p>&#1491;&#1497;&#1494;&#1504;&#1490;&#1493;&#1507; 142, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</p>
+            <p>03-555-1234</p>
+            <a href="#">&#1492;&#1493;&#1512;&#1488;&#1493;&#1514; &#1492;&#1490;&#1506;&#1492; <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder rv">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+        <span><span class="en">Map Placeholder</span><span class="he">&#1502;&#1508;&#1492;</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM / SOCIAL -->
+<section class="sec insta-sec">
+  <div class="cx">
+    <div class="en rv"><div class="sl">Follow Along</div><h2 class="st">See what's <i>brewing.</i></h2><p class="sd">Follow us on Instagram for daily specials, behind-the-scenes roasting, and latte art you'll want to screenshot.</p></div>
+    <div class="he rv"><div class="sl">&#1506;&#1511;&#1489;&#1493; &#1488;&#1495;&#1512;&#1497;&#1504;&#1493;</div><h2 class="st">&#1512;&#1488;&#1493; &#1502;&#1492; <i>&#1502;&#1514;&#1489;&#1513;&#1500;.</i></h2><p class="sd">&#1506;&#1511;&#1489;&#1493; &#1488;&#1495;&#1512;&#1497;&#1504;&#1493; &#1489;&#1488;&#1497;&#1504;&#1505;&#1496;&#1490;&#1512;&#1501; &#1500;&#1502;&#1489;&#1510;&#1506;&#1497;&#1501; &#1497;&#1493;&#1502;&#1497;&#1497;&#1501;, &#1502;&#1488;&#1495;&#1493;&#1512;&#1497; &#1492;&#1511;&#1500;&#1506;&#1497;&#1501; &#1513;&#1500; &#1492;&#1511;&#1500;&#1497;&#1497;&#1492;, &#1493;&#1500;&#1488;&#1496;&#1492; &#1488;&#1512;&#1496; &#1513;&#1514;&#1512;&#1510;&#1493; &#1500;&#1513;&#1502;&#1493;&#1512;.</p></div>
+    <div class="insta-grid">
+      <div class="insta-card rv"></div>
+      <div class="insta-card rv"></div>
+      <div class="insta-card rv"></div>
+      <div class="insta-card rv"></div>
+    </div>
+    <a href="#" class="insta-handle">@cafenechama</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="cx">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="en">Cafe Nechama</div>
+          <div class="he">&#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;</div>
+        </div>
+        <p>
+          <span class="en">Specialty coffee and pastries on Dizengoff Street, Tel Aviv. Since 2018.</span>
+          <span class="he">&#1511;&#1508;&#1492; &#1505;&#1508;&#1513;&#1497;&#1488;&#1500;&#1497;&#1496;&#1497; &#1493;&#1502;&#1488;&#1508;&#1497;&#1501; &#1489;&#1512;&#1495;&#1493;&#1489; &#1491;&#1497;&#1494;&#1504;&#1490;&#1493;&#1507;, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1502;&#1488;&#1494; 2018.</span>
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="en"><h4>Menu</h4></div>
+          <div class="he"><h4>&#1514;&#1508;&#1512;&#1497;&#1496;</h4></div>
+          <div class="en"><a href="#menu">Coffee</a><a href="#menu">Pastries</a><a href="#menu">Light Meals</a></div>
+          <div class="he"><a href="#menu">&#1511;&#1508;&#1492;</a><a href="#menu">&#1502;&#1488;&#1508;&#1497;&#1501;</a><a href="#menu">&#1488;&#1512;&#1493;&#1495;&#1493;&#1514; &#1511;&#1500;&#1493;&#1514;</a></div>
+        </div>
+        <div class="footer-col">
+          <div class="en"><h4>Visit</h4></div>
+          <div class="he"><h4>&#1489;&#1497;&#1511;&#1493;&#1512;</h4></div>
+          <div class="en"><a href="#hours">Hours</a><a href="#hours">Location</a><a href="#events">Events</a></div>
+          <div class="he"><a href="#hours">&#1513;&#1506;&#1493;&#1514;</a><a href="#hours">&#1502;&#1497;&#1511;&#1493;&#1501;</a><a href="#events">&#1488;&#1497;&#1512;&#1493;&#1506;&#1497;&#1501;</a></div>
+        </div>
+        <div class="footer-col">
+          <div class="en"><h4>Contact</h4></div>
+          <div class="he"><h4>&#1497;&#1510;&#1497;&#1512;&#1514; &#1511;&#1513;&#1512;</h4></div>
+          <a href="#">03-555-1234</a>
+          <a href="#">hello@cafenechama.co.il</a>
+          <a href="#">@cafenechama</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>
+        <span class="en">2025 Cafe Nechama. All rights reserved.</span>
+        <span class="he">2025 &#1511;&#1508;&#1492; &#1504;&#1495;&#1502;&#1492;. &#1499;&#1500; &#1492;&#1494;&#1499;&#1493;&#1497;&#1493;&#1514; &#1513;&#1502;&#1493;&#1512;&#1493;&#1514;.</span>
+      </span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" /></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+function setL(l) {
+  document.body.classList.toggle('lh', l === 'he');
+  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = l === 'he' ? 'he' : 'en';
+  document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
+  if (event && event.target) event.target.classList.add('on');
+  try { localStorage.setItem('mizra_lang', l); } catch(e) {}
+}
+
+// Restore saved language
+try {
+  const saved = localStorage.getItem('mizra_lang');
+  if (saved === 'en') {
+    document.body.classList.remove('lh');
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = 'en';
+    document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
+    document.querySelector('.ls button:first-child').classList.add('on');
+  }
+} catch(e) {}
+
+// Scroll reveal
+const ob = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
+}, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(el => ob.observe(el));
+
+// Mobile menu
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nm');
+menuToggle.addEventListener('click', function() {
+  this.classList.toggle('open');
+  navMenu.classList.toggle('open');
+  document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+});
+navMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    navMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Menu category tabs
+function showCat(cat) {
+  document.querySelectorAll('.menu-group').forEach(g => g.classList.remove('active'));
+  document.getElementById('cat-' + cat).classList.add('active');
+  document.querySelectorAll('.menu-cat-btn').forEach(b => b.classList.remove('active'));
+  if (event && event.target) event.target.classList.add('active');
+
+  // Re-observe new items for scroll reveal
+  document.querySelectorAll('#cat-' + cat + ' .rv').forEach(el => {
+    el.classList.remove('vis');
+    ob.observe(el);
+  });
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>

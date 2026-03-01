@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Cohen Dental Clinic | Tel Aviv</title>
+<meta name="description" content="General & cosmetic dentistry in Tel Aviv. Dr. Cohen Dental Clinic - modern equipment, gentle approach, 15+ years experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- VARIABLES --- */
+:root{
+  --bg:#f6f3ee;--bg2:#edebe5;--bg3:#e3e0d8;
+  --navy:#0c1829;--navy2:#142236;--navy3:#1b2d45;
+  --white:#fff;--or:#d4643a;--or2:#e07a54;--ord:rgba(212,100,58,.08);
+  --grn:#3d8b5e;--grnd:rgba(61,139,94,.08);
+  --tx:#5a5750;--txl:#8a857c;--txd:#a3aab8;--txd2:#6b7485;
+  --bd:rgba(0,0,0,.07);--bdd:rgba(255,255,255,.07);--bddh:rgba(255,255,255,.12);
+  --sf:'Playfair Display',Georgia,serif;--sn:'Outfit',system-ui,sans-serif;
+}
+
+/* --- RESET --- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--or);color:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none}
+
+/* --- LANGUAGE --- */
+.he{display:none}
+body.lh .en{display:none}
+body.lh .he{display:block}
+body.lh{direction:rtl}
+
+/* --- MIZRA BANNER --- */
+.mizra-banner{background:var(--navy);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--txd);position:relative;z-index:110}
+.mizra-banner a{color:var(--or);font-weight:600;text-decoration:underline;text-underline-offset:2px;transition:color .3s}
+.mizra-banner a:hover{color:var(--or2)}
+
+/* --- NAVIGATION --- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(246,243,238,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:top .3s}
+.nav-logo{font-family:var(--sf);font-size:1.3rem;color:var(--navy);text-decoration:none;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:6px}
+.nav-logo .logo-icon{width:28px;height:28px;background:var(--or);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.nav-logo .logo-icon svg{width:16px;height:16px;fill:var(--white)}
+.nm{display:flex;gap:28px}
+.nm>.en,.nm>.he{display:flex;gap:28px;align-items:center}
+.nm>.he{display:none}
+body.lh .nm>.en{display:none}
+body.lh .nm>.he{display:flex;gap:28px;align-items:center}
+.nm a{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .3s}
+.nm a:hover{color:var(--or)}
+.nr{display:flex;align-items:center;gap:14px}
+.ls{display:flex;gap:2px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px}
+.ls button{padding:4px 10px;border:none;background:0;color:var(--txl);font-size:.72rem;font-weight:700;cursor:pointer;border-radius:4px;transition:.3s;font-family:var(--sn)}
+.ls button.on{background:var(--navy);color:#fff}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:8px;font-size:.82rem;font-weight:600;background:var(--or);color:#fff;border:none;font-family:var(--sn);transition:.3s;cursor:pointer;text-decoration:none}
+.nav-cta:hover{background:var(--or2);transform:translateY(-1px)}
+
+/* Mobile burger */
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:110}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0;transition:.3s;border-radius:2px}
+.menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/* --- BUTTONS --- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;font-size:.92rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--sn);transition:.3s}
+.btn-p{background:var(--or);color:#fff}
+.btn-p:hover{background:var(--or2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,100,58,.2)}
+.btn-o{background:0;color:var(--navy);border:1.5px solid rgba(12,24,41,.15)}
+.btn-o:hover{border-color:var(--or);color:var(--or)}
+
+/* --- HERO --- */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 48px 80px;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(246,243,238,0) 60%,var(--bg) 100%);pointer-events:none;z-index:1}
+.hero>*{position:relative;z-index:2}
+.htag{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:var(--grnd);border:1px solid rgba(61,139,94,.15);border-radius:100px;color:var(--grn);font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px}
+.htag::before{content:'';width:5px;height:5px;background:var(--grn);border-radius:50%;animation:bl 2s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--sf);font-size:clamp(2.6rem,5vw,4.2rem);color:var(--navy);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px;max-width:700px}
+.hero h1 i{color:var(--or);font-style:italic}
+.hero-sub{font-size:1.05rem;max-width:500px;line-height:1.7;margin-bottom:36px;color:var(--tx)}
+.hero-btns{display:flex;gap:12px;margin-bottom:64px;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;padding-top:44px;border-top:1px solid var(--bd)}
+.hero-stat h3{font-family:var(--sf);font-size:2.2rem;color:var(--navy);line-height:1;font-weight:600}
+.hero-stat p{font-size:.7rem;color:var(--txl);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-top:4px}
+
+/* --- SECTIONS --- */
+.cx{max-width:1140px;margin:0 auto;padding:0 48px}
+.sec{padding:100px 0}
+.sl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--or);margin-bottom:12px}
+.st{font-family:var(--sf);font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--navy);line-height:1.14;letter-spacing:-.5px;margin-bottom:12px}
+.st i{color:var(--or);font-style:italic}
+.sd{font-size:.98rem;max-width:520px;line-height:1.7;margin-bottom:48px}
+
+/* --- SERVICES GRID --- */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.srv-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:32px 26px;transition:.3s}
+.srv-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06);border-color:rgba(212,100,58,.15)}
+.srv-icon{width:48px;height:48px;border-radius:10px;background:var(--grnd);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.srv-icon svg{width:22px;height:22px;fill:var(--grn)}
+.srv-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:8px;font-weight:600}
+.srv-card p{font-size:.86rem;color:var(--txl);line-height:1.6}
+
+/* --- TEAM --- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.team-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:36px 28px;text-align:center;transition:.3s}
+.team-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.team-avatar{width:90px;height:90px;border-radius:50%;background:var(--bg2);border:3px solid var(--bd);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.team-avatar svg{width:40px;height:40px;fill:var(--txl)}
+.team-card h3{font-family:var(--sf);font-size:1.1rem;color:var(--navy);margin-bottom:4px;font-weight:600}
+.team-card .team-role{font-size:.78rem;color:var(--or);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.team-card .team-cred{font-size:.82rem;color:var(--txl);line-height:1.5}
+
+/* --- WHY US --- */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:28px 22px;text-align:center;transition:.3s}
+.why-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.why-icon{width:52px;height:52px;border-radius:50%;background:var(--ord);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.why-icon svg{width:22px;height:22px;fill:var(--or)}
+.why-card h3{font-family:var(--sf);font-size:1.02rem;color:var(--navy);margin-bottom:6px;font-weight:600}
+.why-card p{font-size:.82rem;color:var(--txl);line-height:1.55}
+
+/* --- REVIEWS --- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:30px 26px;transition:.3s}
+.rev-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.rev-stars{display:flex;gap:3px;margin-bottom:14px}
+.rev-stars svg{width:16px;height:16px;fill:var(--or)}
+.rev-card blockquote{font-size:.9rem;color:var(--tx);line-height:1.7;margin-bottom:18px;font-style:italic}
+.rev-author{display:flex;align-items:center;gap:12px}
+.rev-dot{width:36px;height:36px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--sf);font-size:.82rem;color:var(--navy);font-weight:600}
+.rev-name{font-size:.82rem;font-weight:600;color:var(--navy)}
+.rev-date{font-size:.72rem;color:var(--txl)}
+
+/* --- INSURANCE --- */
+.ins-section{background:var(--white)}
+.ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.ins-list{display:flex;flex-direction:column;gap:12px}
+.ins-item{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--tx)}
+.ins-check{width:22px;height:22px;border-radius:6px;background:var(--grnd);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--grn);font-size:.65rem;font-weight:800}
+.payment-methods{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+.pay-badge{padding:8px 16px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;font-size:.8rem;font-weight:500;color:var(--navy)}
+
+/* --- CTA BAND --- */
+.cta-band{background:var(--navy);padding:80px 0;text-align:center}
+.cta-band h2{font-family:var(--sf);font-size:clamp(1.8rem,3.2vw,2.5rem);color:var(--white);line-height:1.14;letter-spacing:-.5px;margin-bottom:10px}
+.cta-band h2 i{color:var(--or);font-style:italic}
+.cta-band p{color:var(--txd);font-size:.98rem;margin-bottom:28px}
+.cta-band .phone-link{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-family:var(--sf);font-size:1.5rem;font-weight:600;margin-bottom:28px;text-decoration:none;direction:ltr}
+.cta-band .phone-link:hover{color:var(--or)}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* --- HOURS & LOCATION --- */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid var(--bd)}
+.hours-table td{padding:12px 0;font-size:.88rem}
+.hours-table td:first-child{font-weight:600;color:var(--navy)}
+.hours-table td:last-child{color:var(--txl);text-align:left}
+body.lh .hours-table td:last-child{text-align:right}
+.location-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:32px;height:100%}
+.location-card h3{font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:16px;font-weight:600}
+.location-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.88rem;color:var(--tx)}
+.location-detail svg{width:18px;height:18px;fill:var(--or);flex-shrink:0;margin-top:2px}
+.map-placeholder{width:100%;height:180px;background:var(--bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:18px;border:1px solid var(--bd)}
+.map-placeholder span{font-size:.78rem;color:var(--txl);font-weight:500}
+
+/* --- FOOTER --- */
+footer{background:var(--navy);padding:48px;text-align:center;color:var(--txd2);font-size:.78rem;line-height:1.7;border-top:1px solid var(--bdd)}
+footer p{margin-bottom:6px}
+footer a{color:var(--txd);text-decoration:none;transition:color .3s}
+footer a:hover{color:var(--or)}
+.footer-links{margin:12px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.footer-links a{color:var(--txd2);font-size:.76rem}
+.footer-mizra{margin-top:18px;padding-top:18px;border-top:1px solid var(--bdd)}
+.footer-mizra a{color:var(--or);font-weight:600}
+
+/* --- SCROLL REVEAL --- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.rv.vis{opacity:1;transform:none}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:1024px){
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{gap:32px}
+}
+@media(max-width:768px){
+  .cx{padding:0 24px}
+  .sec{padding:64px 0}
+  .nav{padding:0 20px;height:56px}
+  .nm{position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:24px;display:none;z-index:99}
+  .nm.open{display:flex}
+  .nm>.en,.nm>.he{flex-direction:column;gap:18px;font-size:1.1rem}
+  body.lh .nm>.he{flex-direction:column;gap:18px}
+  .menu-toggle{display:block}
+  .nav-cta.desktop-only{display:none}
+  .hero{padding:120px 24px 60px;min-height:auto}
+  .hero h1{font-size:clamp(2rem,7vw,2.8rem)}
+  .hero-stats{flex-wrap:wrap;gap:20px;justify-content:center}
+  .hero-stat{flex:0 0 calc(50% - 10px);text-align:center}
+  .srv-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .ins-grid{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  footer{padding:32px 24px}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .why-grid{grid-template-columns:1fr}
+  .hero-stats{gap:16px}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body class="lh">
+
+<!-- MIZRA DEMO BANNER -->
+<div class="mizra-banner">
+  <div class="en">This is an example site built by <strong>Mizra</strong>. Want one like this? <a href="/free-audit/">Get your free audit</a></div>
+  <div class="he">&#1494;&#1493; &#1491;&#1493;&#1490;&#1502;&#1492; &#1500;&#1488;&#1514;&#1512; &#1513;&#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; <strong>Mizra</strong>. &#1512;&#1493;&#1510;&#1497;&#1501; &#1488;&#1514;&#1512; &#1499;&#1494;&#1492;? <a href="/free-audit/">&#1500;&#1489;&#1491;&#1497;&#1511;&#1492; &#1495;&#1497;&#1504;&#1502;&#1497;&#1514;</a></div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <span class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 5.5 4 4 7c-.4.8-.7 1.7-.9 2.6C3 10.4 3 11.2 3 12c0 1 .1 1.9.4 2.8.5 1.7 1.5 3.2 2.8 4.3C7.8 20.3 9.8 21 12 21s4.2-.7 5.8-1.9c1.3-1.1 2.3-2.6 2.8-4.3.3-.9.4-1.8.4-2.8 0-.8 0-1.6-.1-2.4-.2-.9-.5-1.8-.9-2.6C18.5 4 15.5 2 12 2zm0 4c.8 0 1.5.3 2 .9.3.3.5.6.6 1 .2.5.2 1 0 1.5-.1.3-.3.6-.5.8l-1.5 1.5c-.3.3-.6.3-.9.1l-.6-.3c-.5-.3-.9-.8-1-1.4-.1-.4 0-.9.2-1.3.2-.3.5-.6.8-.8.3-.4.6-.8.9-1z"/></svg></span>
+    <div class="en">Dr. Cohen</div>
+    <div class="he">&#1491;"&#1512; &#1499;&#1492;&#1503;</div>
+  </a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nm">
+    <div class="en"><a href="#services">Services</a><a href="#team">Our Team</a><a href="#reviews">Reviews</a><a href="#insurance">Insurance</a><a href="#contact">Contact</a></div>
+    <div class="he"><a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a><a href="#team">&#1492;&#1510;&#1493;&#1493;&#1514;</a><a href="#reviews">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</a><a href="#insurance">&#1489;&#1497;&#1496;&#1493;&#1495;</a><a href="#contact">&#1510;&#1493;&#1512; &#1511;&#1513;&#1512;</a></div>
+  </div>
+  <div class="nr">
+    <div class="ls">
+      <button onclick="setL('en')">EN</button>
+      <button class="on" onclick="setL('he')">HE</button>
+    </div>
+    <a href="#contact" class="nav-cta desktop-only">
+      <span class="en">Schedule Appointment</span>
+      <span class="he">&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="en">
+    <div class="htag">General &amp; Cosmetic Dentistry</div>
+    <h1>A smile that speaks<br>for <i>itself.</i></h1>
+    <p class="hero-sub">Dr. Cohen Dental Clinic in Tel Aviv offers a full range of dental treatments in a comfortable, modern environment with a gentle personal approach.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-p">Schedule Appointment</a>
+      <a href="tel:+97236421850" class="btn btn-o">Call: 03-642-1850</a>
+    </div>
+  </div>
+  <div class="he">
+    <div class="htag">&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500;&#1500;&#1497;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;</div>
+    <h1>&#1495;&#1497;&#1493;&#1498; &#1513;&#1502;&#1491;&#1489;&#1512;<br>&#1489;&#1506;&#1491; <i>&#1506;&#1510;&#1502;&#1493;.</i></h1>
+    <p class="hero-sub">&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503; &#1489;&#1514;&#1500; &#1488;&#1489;&#1497;&#1489; &#1502;&#1510;&#1497;&#1506;&#1492; &#1502;&#1490;&#1493;&#1493;&#1503; &#1502;&#1500;&#1488; &#1513;&#1500; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1489;&#1505;&#1489;&#1497;&#1489;&#1492; &#1504;&#1493;&#1495;&#1492; &#1493;&#1502;&#1493;&#1491;&#1512;&#1504;&#1497;&#1514;, &#1506;&#1501; &#1490;&#1497;&#1513;&#1492; &#1488;&#1497;&#1513;&#1497;&#1514; &#1493;&#1506;&#1491;&#1497;&#1504;&#1492;.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-p">&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
+      <a href="tel:+97236421850" class="btn btn-o">&#1495;&#1497;&#1497;&#1490;&#1493;: 03-642-1850</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><h3>15+</h3><div class="en"><p>Years Experience</p></div><div class="he"><p>&#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;</p></div></div>
+    <div class="hero-stat"><h3>8,000+</h3><div class="en"><p>Happy Patients</p></div><div class="he"><p>&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1502;&#1512;&#1493;&#1510;&#1497;&#1501;</p></div></div>
+    <div class="hero-stat"><h3>6</h3><div class="en"><p>Days a Week</p></div><div class="he"><p>&#1497;&#1502;&#1497;&#1501; &#1489;&#1513;&#1489;&#1493;&#1506;</p></div></div>
+    <div class="hero-stat"><h3>4.9</h3><div class="en"><p>Google Rating</p></div><div class="he"><p>&#1491;&#1497;&#1512;&#1493;&#1490; &#1490;&#1493;&#1490;&#1500;</p></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+<div class="cx" style="text-align:center">
+  <div class="en"><div class="sl">Our Services</div><h2 class="st">Comprehensive dental <i>care.</i></h2><p class="sd" style="margin:0 auto 48px">From routine checkups to advanced cosmetic treatments, all under one roof.</p></div>
+  <div class="he"><div class="sl">&#1492;&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493;</div><h2 class="st">&#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; <i>&#1502;&#1511;&#1497;&#1507;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1502;&#1489;&#1491;&#1497;&#1511;&#1493;&#1514; &#1513;&#1490;&#1512;&#1514;&#1497;&#1493;&#1514; &#1493;&#1506;&#1491; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1497;&#1501; &#1502;&#1514;&#1511;&#1491;&#1502;&#1497;&#1501;, &#1492;&#1499;&#1500; &#1514;&#1495;&#1514; &#1511;&#1493;&#1512;&#1514; &#1490;&#1490; &#1488;&#1495;&#1514;.</p></div>
+  <div class="srv-grid">
+    <!-- Routine Checkup -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M9 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7h1v6h4v-6h1c3.87 0 7-3.13 7-7a7 7 0 0 0-7-7h-1V0H10v2H9zm0 2h6c2.76 0 5 2.24 5 5s-2.24 5-5 5H9c-2.76 0-5-2.24-5-5s2.24-5 5-5z"/></svg></div>
+      <div class="en"><h3>Routine Checkup</h3><p>Comprehensive examination, professional cleaning, and digital X-rays to maintain your oral health and catch issues early.</p></div>
+      <div class="he"><h3>&#1489;&#1491;&#1497;&#1511;&#1492; &#1513;&#1490;&#1512;&#1514;&#1497;&#1514;</h3><p>&#1489;&#1491;&#1497;&#1511;&#1492; &#1502;&#1511;&#1497;&#1508;&#1492;, &#1504;&#1497;&#1511;&#1493;&#1497; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497; &#1493;&#1510;&#1497;&#1500;&#1493;&#1502;&#1497; &#1512;&#1504;&#1496;&#1490;&#1503; &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1497;&#1501; &#1500;&#1513;&#1502;&#1497;&#1512;&#1492; &#1506;&#1500; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; &#1492;&#1508;&#1492; &#1493;&#1488;&#1497;&#1514;&#1493;&#1512; &#1502;&#1493;&#1511;&#1491;&#1501; &#1513;&#1500; &#1489;&#1506;&#1497;&#1493;&#1514;.</p></div>
+    </div>
+    <!-- Teeth Whitening -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+      <div class="en"><h3>Teeth Whitening</h3><p>Professional in-office and take-home whitening solutions for a brighter, more confident smile in just one visit.</p></div>
+      <div class="he"><h3>&#1492;&#1500;&#1489;&#1504;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1508;&#1514;&#1512;&#1493;&#1504;&#1493;&#1514; &#1492;&#1500;&#1489;&#1504;&#1492; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497;&#1497;&#1501; &#1489;&#1502;&#1512;&#1508;&#1488;&#1492; &#1493;&#1500;&#1513;&#1497;&#1502;&#1493;&#1513; &#1489;&#1497;&#1514;&#1497; &#1500;&#1495;&#1497;&#1493;&#1498; &#1489;&#1492;&#1497;&#1512; &#1493;&#1489;&#1496;&#1493;&#1495; &#1497;&#1493;&#1514;&#1512;.</p></div>
+    </div>
+    <!-- Dental Implants -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></div>
+      <div class="en"><h3>Dental Implants</h3><p>State-of-the-art implant solutions for missing teeth. Permanent, natural-looking results that restore function and aesthetics.</p></div>
+      <div class="he"><h3>&#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1508;&#1514;&#1512;&#1493;&#1504;&#1493;&#1514; &#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1502;&#1514;&#1511;&#1491;&#1502;&#1497;&#1501; &#1500;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1495;&#1505;&#1512;&#1493;&#1514;. &#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1511;&#1489;&#1493;&#1506;&#1493;&#1514; &#1493;&#1496;&#1489;&#1506;&#1497;&#1493;&#1514; &#1500;&#1513;&#1497;&#1511;&#1493;&#1501; &#1514;&#1508;&#1511;&#1493;&#1491; &#1493;&#1488;&#1505;&#1514;&#1496;&#1497;&#1511;&#1492;.</p></div>
+    </div>
+    <!-- Orthodontics -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
+      <div class="en"><h3>Orthodontics</h3><p>Traditional braces and clear aligner systems, including Invisalign, tailored to your alignment goals and lifestyle.</p></div>
+      <div class="he"><h3>&#1497;&#1497;&#1513;&#1493;&#1512; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501;</h3><p>&#1490;&#1513;&#1512;&#1497;&#1493;&#1514; &#1502;&#1505;&#1493;&#1512;&#1514;&#1497;&#1493;&#1514; &#1493;&#1502;&#1506;&#1512;&#1499;&#1493;&#1514; &#1497;&#1497;&#1513;&#1493;&#1512; &#1513;&#1511;&#1493;&#1508;&#1493;&#1514;, &#1499;&#1493;&#1500;&#1500; Invisalign, &#1502;&#1493;&#1514;&#1488;&#1502;&#1493;&#1514; &#1500;&#1497;&#1506;&#1491;&#1497;&#1501; &#1493;&#1500;&#1488;&#1493;&#1512;&#1495; &#1492;&#1495;&#1497;&#1497;&#1501; &#1513;&#1500;&#1499;&#1501;.</p></div>
+    </div>
+    <!-- Root Canal -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg></div>
+      <div class="en"><h3>Root Canal Treatment</h3><p>Painless endodontic therapy using advanced technology to save damaged teeth and relieve discomfort quickly.</p></div>
+      <div class="he"><h3>&#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1493;&#1512;&#1513;</h3><p>&#1496;&#1497;&#1508;&#1493;&#1500; &#1488;&#1504;&#1491;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497; &#1500;&#1500;&#1488; &#1499;&#1488;&#1489; &#1489;&#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1492; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514; &#1500;&#1492;&#1510;&#1500;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1508;&#1490;&#1493;&#1502;&#1493;&#1514; &#1493;&#1492;&#1511;&#1500;&#1492; &#1502;&#1492;&#1497;&#1512;&#1492; &#1506;&#1500; &#1488;&#1497; &#1504;&#1493;&#1495;&#1493;&#1514;.</p></div>
+    </div>
+    <!-- Cosmetic Dentistry -->
+    <div class="srv-card rv" style="text-align:start">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+      <div class="en"><h3>Cosmetic Dentistry</h3><p>Veneers, bonding, smile makeovers, and aesthetic treatments designed to give you the smile you have always wanted.</p></div>
+      <div class="he"><h3>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;</h3><p>&#1510;&#1497;&#1508;&#1493;&#1497;&#1497;&#1501;, &#1489;&#1493;&#1504;&#1491;&#1497;&#1504;&#1490;, &#1506;&#1497;&#1510;&#1493;&#1489; &#1495;&#1497;&#1493;&#1498; &#1493;&#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1488;&#1505;&#1514;&#1496;&#1497;&#1497;&#1501; &#1513;&#1504;&#1493;&#1506;&#1491;&#1493; &#1500;&#1514;&#1514; &#1500;&#1499;&#1501; &#1488;&#1514; &#1492;&#1495;&#1497;&#1493;&#1498; &#1513;&#1514;&#1502;&#1497;&#1491; &#1512;&#1510;&#1497;&#1514;&#1501;.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team" style="background:var(--white)">
+<div class="cx" style="text-align:center">
+  <div class="en"><div class="sl">Our Team</div><h2 class="st">Meet the <i>professionals.</i></h2><p class="sd" style="margin:0 auto 48px">Experienced, certified, and dedicated to your comfort and wellbeing.</p></div>
+  <div class="he"><div class="sl">&#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1504;&#1493;</div><h2 class="st">&#1492;&#1499;&#1497;&#1512;&#1493; &#1488;&#1514; <i>&#1492;&#1502;&#1511;&#1510;&#1493;&#1506;&#1504;&#1497;&#1501;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1502;&#1504;&#1493;&#1505;&#1497;&#1501;, &#1502;&#1493;&#1505;&#1502;&#1499;&#1497;&#1501; &#1493;&#1502;&#1495;&#1493;&#1497;&#1489;&#1497;&#1501; &#1500;&#1504;&#1493;&#1495;&#1493;&#1514; &#1493;&#1500;&#1512;&#1493;&#1493;&#1495;&#1514;&#1499;&#1501;.</p></div>
+  <div class="team-grid">
+    <!-- Dr. Cohen -->
+    <div class="team-card rv">
+      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+      <div class="en">
+        <h3>Dr. Daniel Cohen</h3>
+        <div class="team-role">Founder &amp; Lead Dentist</div>
+        <p class="team-cred">DMD, Hebrew University. Specialization in Implantology, NYU. 18 years of clinical experience.</p>
+      </div>
+      <div class="he">
+        <h3>&#1491;"&#1512; &#1491;&#1504;&#1497;&#1488;&#1500; &#1499;&#1492;&#1503;</h3>
+        <div class="team-role">&#1502;&#1497;&#1497;&#1505;&#1491; &#1493;&#1512;&#1493;&#1508;&#1488; &#1512;&#1488;&#1513;&#1497;</div>
+        <p class="team-cred">DMD, &#1492;&#1488;&#1493;&#1504;&#1497;&#1489;&#1512;&#1505;&#1497;&#1496;&#1492; &#1492;&#1506;&#1489;&#1512;&#1497;&#1514;. &#1492;&#1514;&#1502;&#1495;&#1493;&#1514; &#1489;&#1492;&#1513;&#1514;&#1500;&#1493;&#1514;, NYU. 18 &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503; &#1511;&#1500;&#1497;&#1504;&#1497;.</p>
+      </div>
+    </div>
+    <!-- Dr. Levi -->
+    <div class="team-card rv">
+      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+      <div class="en">
+        <h3>Dr. Maya Levi</h3>
+        <div class="team-role">Orthodontist</div>
+        <p class="team-cred">DMD, Tel Aviv University. Board certified orthodontist. Invisalign Diamond Provider.</p>
+      </div>
+      <div class="he">
+        <h3>&#1491;"&#1512; &#1502;&#1488;&#1497;&#1492; &#1500;&#1493;&#1497;</h3>
+        <div class="team-role">&#1488;&#1493;&#1512;&#1514;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497;&#1514;</div>
+        <p class="team-cred">DMD, &#1488;&#1493;&#1504;&#1497;&#1489;&#1512;&#1505;&#1497;&#1496;&#1514; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;. &#1502;&#1493;&#1502;&#1495;&#1497;&#1514; &#1502;&#1493;&#1505;&#1502;&#1499;&#1514; &#1489;&#1488;&#1493;&#1512;&#1514;&#1493;&#1491;&#1493;&#1504;&#1496;&#1497;&#1492;. Invisalign Diamond Provider.</p>
+      </div>
+    </div>
+    <!-- Shira -->
+    <div class="team-card rv">
+      <div class="team-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+      <div class="en">
+        <h3>Shira Mizrahi</h3>
+        <div class="team-role">Dental Hygienist</div>
+        <p class="team-cred">Certified dental hygienist with 10 years experience. Specialized in periodontal care and patient education.</p>
+      </div>
+      <div class="he">
+        <h3>&#1513;&#1497;&#1512;&#1492; &#1502;&#1494;&#1512;&#1495;&#1497;</h3>
+        <div class="team-role">&#1513;&#1497;&#1504;&#1504;&#1497;&#1514;</div>
+        <p class="team-cred">&#1513;&#1497;&#1504;&#1504;&#1497;&#1514; &#1502;&#1493;&#1505;&#1502;&#1499;&#1514; &#1506;&#1501; 10 &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;. &#1492;&#1514;&#1502;&#1495;&#1493;&#1514; &#1489;&#1496;&#1497;&#1508;&#1493;&#1500; &#1495;&#1504;&#1497;&#1499;&#1497;&#1497;&#1501; &#1493;&#1495;&#1497;&#1504;&#1493;&#1498; &#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501;.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="sec">
+<div class="cx" style="text-align:center">
+  <div class="en"><div class="sl">Why Choose Us</div><h2 class="st">Dentistry you can <i>trust.</i></h2><p class="sd" style="margin:0 auto 48px">We combine advanced technology with a caring, patient-first approach.</p></div>
+  <div class="he"><div class="sl">&#1500;&#1502;&#1492; &#1500;&#1489;&#1495;&#1493;&#1512; &#1489;&#1504;&#1493;</div><h2 class="st">&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1513;&#1488;&#1508;&#1513;&#1512; <i>&#1500;&#1505;&#1502;&#1493;&#1498; &#1506;&#1500;&#1497;&#1492;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1513;&#1500;&#1489;&#1497;&#1501; &#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1492; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514; &#1506;&#1501; &#1490;&#1497;&#1513;&#1492; &#1488;&#1499;&#1508;&#1514;&#1497;&#1514; &#1513;&#1513;&#1502;&#1492; &#1488;&#1514; &#1492;&#1502;&#1496;&#1493;&#1508;&#1500; &#1489;&#1502;&#1512;&#1499;&#1494;.</p></div>
+  <div class="why-grid">
+    <div class="why-card rv">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v2H5zm0-4h14v2H5zm0-4h14v2H5z"/></svg></div>
+      <div class="en"><h3>Modern Equipment</h3><p>Digital X-rays, 3D scanning, laser treatments, and the latest sterilization technology.</p></div>
+      <div class="he"><h3>&#1510;&#1497;&#1493;&#1491; &#1502;&#1493;&#1491;&#1512;&#1504;&#1497;</h3><p>&#1510;&#1497;&#1500;&#1493;&#1502;&#1497; &#1512;&#1504;&#1496;&#1490;&#1503; &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1497;&#1501;, &#1505;&#1512;&#1497;&#1511;&#1492; &#1514;&#1500;&#1514;-&#1502;&#1497;&#1502;&#1491;&#1497;&#1514;, &#1496;&#1497;&#1508;&#1493;&#1500;&#1497; &#1500;&#1497;&#1497;&#1494;&#1512; &#1493;&#1496;&#1499;&#1504;&#1493;&#1500;&#1493;&#1490;&#1497;&#1497;&#1514; &#1506;&#1497;&#1511;&#1493;&#1512; &#1502;&#1514;&#1511;&#1491;&#1502;&#1514;.</p></div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+      <div class="en"><h3>15+ Years Experience</h3><p>A proven track record with thousands of successful treatments and satisfied patients.</p></div>
+      <div class="he"><h3>15+ &#1513;&#1504;&#1493;&#1514; &#1504;&#1497;&#1505;&#1497;&#1493;&#1503;</h3><p>&#1512;&#1511;&#1493;&#1512;&#1491; &#1502;&#1493;&#1499;&#1495; &#1506;&#1501; &#1488;&#1500;&#1508;&#1497; &#1496;&#1497;&#1508;&#1493;&#1500;&#1497;&#1501; &#1502;&#1493;&#1510;&#1500;&#1495;&#1497;&#1501; &#1493;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1502;&#1512;&#1493;&#1510;&#1497;&#1501;.</p></div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+      <div class="en"><h3>Gentle Approach</h3><p>Anxiety-free dentistry with sedation options, calming environment, and attentive care for every patient.</p></div>
+      <div class="he"><h3>&#1490;&#1497;&#1513;&#1492; &#1506;&#1491;&#1497;&#1504;&#1492;</h3><p>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1500;&#1500;&#1488; &#1495;&#1512;&#1491;&#1492; &#1506;&#1501; &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1492;&#1512;&#1491;&#1502;&#1492;, &#1505;&#1489;&#1497;&#1489;&#1492; &#1502;&#1512;&#1490;&#1497;&#1506;&#1492; &#1493;&#1496;&#1497;&#1508;&#1493;&#1500; &#1511;&#1513;&#1493;&#1489; &#1500;&#1499;&#1500; &#1502;&#1496;&#1493;&#1508;&#1500;.</p></div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg></div>
+      <div class="en"><h3>Insurance Accepted</h3><p>We work with all major health funds and private insurance plans. Flexible payment options available.</p></div>
+      <div class="he"><h3>&#1511;&#1489;&#1500;&#1514; &#1489;&#1497;&#1496;&#1493;&#1495;</h3><p>&#1488;&#1504;&#1495;&#1504;&#1493; &#1506;&#1493;&#1489;&#1491;&#1497;&#1501; &#1506;&#1501; &#1499;&#1500; &#1511;&#1493;&#1508;&#1493;&#1514; &#1492;&#1495;&#1493;&#1500;&#1497;&#1501; &#1493;&#1489;&#1497;&#1496;&#1493;&#1495;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;. &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501; &#1490;&#1502;&#1497;&#1513;&#1493;&#1514;.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PATIENT REVIEWS -->
+<section class="sec" id="reviews" style="background:var(--white)">
+<div class="cx" style="text-align:center">
+  <div class="en"><div class="sl">Patient Reviews</div><h2 class="st">What our patients <i>say.</i></h2><p class="sd" style="margin:0 auto 48px">Real experiences from real people who trust us with their smiles.</p></div>
+  <div class="he"><div class="sl">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</div><h2 class="st">&#1502;&#1492; &#1492;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1513;&#1500;&#1504;&#1493; <i>&#1488;&#1493;&#1502;&#1512;&#1497;&#1501;.</i></h2><p class="sd" style="margin:0 auto 48px">&#1495;&#1493;&#1493;&#1497;&#1493;&#1514; &#1488;&#1502;&#1497;&#1514;&#1497;&#1493;&#1514; &#1502;&#1488;&#1504;&#1513;&#1497;&#1501; &#1488;&#1502;&#1497;&#1514;&#1497;&#1497;&#1501; &#1513;&#1505;&#1493;&#1502;&#1499;&#1497;&#1501; &#1506;&#1500;&#1497;&#1504;&#1493; &#1506;&#1501; &#1492;&#1495;&#1497;&#1493;&#1498; &#1513;&#1500;&#1492;&#1501;.</p></div>
+  <div class="rev-grid" style="text-align:start">
+    <!-- Review 1 -->
+    <div class="rev-card rv">
+      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+      <div class="en"><blockquote>I was terrified of dentists my whole life, but Dr. Cohen and his team made me feel completely at ease. The results of my implant treatment exceeded all expectations. Truly life-changing.</blockquote></div>
+      <div class="he"><blockquote>&#1508;&#1495;&#1491;&#1514;&#1497; &#1502;&#1512;&#1493;&#1508;&#1488;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500; &#1492;&#1495;&#1497;&#1497;&#1501;, &#1488;&#1489;&#1500; &#1491;"&#1512; &#1499;&#1492;&#1503; &#1493;&#1492;&#1510;&#1493;&#1493;&#1514; &#1513;&#1500;&#1493; &#1490;&#1512;&#1502;&#1493; &#1500;&#1497; &#1500;&#1492;&#1512;&#1490;&#1497;&#1513; &#1489;&#1504;&#1493;&#1495; &#1500;&#1490;&#1502;&#1512;&#1497;. &#1492;&#1514;&#1493;&#1510;&#1488;&#1493;&#1514; &#1513;&#1500; &#1496;&#1497;&#1508;&#1493;&#1500; &#1492;&#1492;&#1513;&#1514;&#1500;&#1493;&#1514; &#1506;&#1500;&#1493; &#1506;&#1500; &#1499;&#1500; &#1492;&#1510;&#1497;&#1508;&#1497;&#1493;&#1514;. &#1502;&#1513;&#1504;&#1492; &#1495;&#1497;&#1497;&#1501; &#1489;&#1488;&#1502;&#1514;.</blockquote></div>
+      <div class="rev-author">
+        <div class="rev-dot">
+          <div class="en">R</div>
+          <div class="he">&#1512;</div>
+        </div>
+        <div>
+          <div class="en"><div class="rev-name">Rachel A.</div><div class="rev-date">Google Review, 2025</div></div>
+          <div class="he"><div class="rev-name">&#1512;&#1495;&#1500; &#1488;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2025</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Review 2 -->
+    <div class="rev-card rv">
+      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+      <div class="en"><blockquote>Dr. Levi straightened my teeth with Invisalign in just 8 months. The whole process was smooth and the clinic is spotless and welcoming. I recommend this place to everyone.</blockquote></div>
+      <div class="he"><blockquote>&#1491;"&#1512; &#1500;&#1493;&#1497; &#1497;&#1497;&#1513;&#1512;&#1492; &#1500;&#1497; &#1488;&#1514; &#1492;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1506;&#1501; Invisalign &#1514;&#1493;&#1498; 8 &#1495;&#1493;&#1491;&#1513;&#1497;&#1501; &#1489;&#1500;&#1489;&#1491;. &#1499;&#1500; &#1492;&#1514;&#1492;&#1500;&#1497;&#1498; &#1492;&#1497;&#1492; &#1495;&#1500;&#1511; &#1493;&#1492;&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1492; &#1504;&#1511;&#1497;&#1497;&#1492; &#1493;&#1502;&#1494;&#1502;&#1497;&#1504;&#1492;. &#1502;&#1502;&#1500;&#1497;&#1510;&#1492; &#1500;&#1499;&#1493;&#1500;&#1501;.</blockquote></div>
+      <div class="rev-author">
+        <div class="rev-dot">
+          <div class="en">T</div>
+          <div class="he">&#1514;</div>
+        </div>
+        <div>
+          <div class="en"><div class="rev-name">Tom B.</div><div class="rev-date">Google Review, 2025</div></div>
+          <div class="he"><div class="rev-name">&#1514;&#1493;&#1501; &#1489;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2025</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Review 3 -->
+    <div class="rev-card rv">
+      <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+      <div class="en"><blockquote>Brought my three kids here and every visit has been a positive experience. The staff is so patient with children, and the gentle approach makes all the difference. Our family dentist for life.</blockquote></div>
+      <div class="he"><blockquote>&#1492;&#1489;&#1488;&#1514;&#1497; &#1488;&#1514; &#1513;&#1500;&#1493;&#1513;&#1514; &#1492;&#1497;&#1500;&#1491;&#1497;&#1501; &#1500;&#1499;&#1488;&#1503; &#1493;&#1499;&#1500; &#1489;&#1497;&#1511;&#1493;&#1512; &#1492;&#1497;&#1492; &#1495;&#1493;&#1493;&#1497;&#1492; &#1495;&#1497;&#1493;&#1489;&#1497;&#1514;. &#1492;&#1510;&#1493;&#1493;&#1514; &#1499;&#1500; &#1499;&#1498; &#1505;&#1489;&#1500;&#1504;&#1497; &#1506;&#1501; &#1497;&#1500;&#1491;&#1497;&#1501;, &#1493;&#1492;&#1490;&#1497;&#1513;&#1492; &#1492;&#1506;&#1491;&#1497;&#1504;&#1492; &#1506;&#1493;&#1513;&#1492; &#1488;&#1514; &#1499;&#1500; &#1492;&#1492;&#1489;&#1491;&#1500;. &#1512;&#1493;&#1508;&#1488; &#1492;&#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1513;&#1500; &#1492;&#1502;&#1513;&#1508;&#1495;&#1492; &#1500;&#1514;&#1502;&#1497;&#1491;.</blockquote></div>
+      <div class="rev-author">
+        <div class="rev-dot">
+          <div class="en">N</div>
+          <div class="he">&#1504;</div>
+        </div>
+        <div>
+          <div class="en"><div class="rev-name">Noa S.</div><div class="rev-date">Google Review, 2024</div></div>
+          <div class="he"><div class="rev-name">&#1504;&#1493;&#1506;&#1492; &#1513;.</div><div class="rev-date">&#1489;&#1497;&#1511;&#1493;&#1512;&#1514; &#1490;&#1493;&#1490;&#1500;, 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- INSURANCE & PAYMENT -->
+<section class="sec ins-section" id="insurance">
+<div class="cx">
+  <div class="en"><div class="sl">Insurance &amp; Payment</div><h2 class="st">Making care <i>accessible.</i></h2><p class="sd">We accept most insurance plans and offer flexible payment options to make quality dental care available to everyone.</p></div>
+  <div class="he"><div class="sl">&#1489;&#1497;&#1496;&#1493;&#1495; &#1493;&#1514;&#1513;&#1500;&#1493;&#1501;</div><h2 class="st">&#1496;&#1497;&#1508;&#1493;&#1500; &#1504;&#1490;&#1497;&#1513; <i>&#1500;&#1499;&#1493;&#1500;&#1501;.</i></h2><p class="sd">&#1488;&#1504;&#1495;&#1504;&#1493; &#1502;&#1511;&#1489;&#1500;&#1497;&#1501; &#1488;&#1514; &#1512;&#1493;&#1489; &#1514;&#1493;&#1499;&#1504;&#1497;&#1493;&#1514; &#1492;&#1489;&#1497;&#1496;&#1493;&#1495; &#1493;&#1502;&#1510;&#1497;&#1506;&#1497;&#1501; &#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501; &#1490;&#1502;&#1497;&#1513;&#1493;&#1514; &#1499;&#1491;&#1497; &#1500;&#1492;&#1504;&#1490;&#1497;&#1513; &#1496;&#1497;&#1508;&#1493;&#1500; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1488;&#1497;&#1499;&#1493;&#1514;&#1497; &#1500;&#1499;&#1493;&#1500;&#1501;.</p></div>
+  <div class="ins-grid">
+    <div>
+      <div class="en">
+        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">Accepted Insurance Plans</h3>
+        <div class="ins-list">
+          <div class="ins-item"><span class="ins-check">+</span>Clalit Health Services (Clalit Mushlam / Platinum)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Maccabi Healthcare (Maccabi Zahav / Sheli)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Meuhedet (Meuhedet Adif / See)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Leumit Health Fund (Leumit Silver / Gold)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Private dental insurance plans</div>
+          <div class="ins-item"><span class="ins-check">+</span>International insurance accepted</div>
+        </div>
+      </div>
+      <div class="he">
+        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">&#1514;&#1493;&#1499;&#1504;&#1497;&#1493;&#1514; &#1489;&#1497;&#1496;&#1493;&#1495; &#1502;&#1514;&#1511;&#1489;&#1500;&#1493;&#1514;</h3>
+        <div class="ins-list">
+          <div class="ins-item"><span class="ins-check">+</span>&#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; &#1499;&#1500;&#1500;&#1497;&#1514; (&#1499;&#1500;&#1500;&#1497;&#1514; &#1502;&#1493;&#1513;&#1500;&#1501; / &#1508;&#1500;&#1496;&#1497;&#1504;&#1493;&#1501;)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1502;&#1499;&#1489;&#1497; &#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1489;&#1512;&#1497;&#1488;&#1493;&#1514; (&#1502;&#1499;&#1489;&#1497; &#1494;&#1492;&#1489; / &#1513;&#1500;&#1497;)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1502;&#1488;&#1493;&#1495;&#1491;&#1514; (&#1502;&#1488;&#1493;&#1495;&#1491;&#1514; &#1506;&#1491;&#1497;&#1507; / &#1505;&#1497;)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1500;&#1488;&#1493;&#1502;&#1497;&#1514; (&#1500;&#1488;&#1493;&#1502;&#1497;&#1514; &#1499;&#1505;&#1507; / &#1494;&#1492;&#1489;)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1489;&#1497;&#1496;&#1493;&#1495;&#1497; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1508;&#1512;&#1496;&#1497;&#1497;&#1501;</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1489;&#1497;&#1496;&#1493;&#1495;&#1497;&#1501; &#1489;&#1497;&#1504;&#1500;&#1488;&#1493;&#1502;&#1497;&#1497;&#1501; &#1502;&#1514;&#1511;&#1489;&#1500;&#1497;&#1501;</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="en">
+        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">Payment Options</h3>
+        <div class="ins-list" style="margin-bottom:24px">
+          <div class="ins-item"><span class="ins-check">+</span>Interest-free installment plans (up to 12 payments)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Credit cards (Visa, Mastercard, Amex)</div>
+          <div class="ins-item"><span class="ins-check">+</span>Bank transfer / Bit / PayBox</div>
+          <div class="ins-item"><span class="ins-check">+</span>Free initial consultation for new patients</div>
+        </div>
+        <div class="payment-methods">
+          <span class="pay-badge">Visa</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">Bit</span>
+        </div>
+      </div>
+      <div class="he">
+        <h3 style="font-family:var(--sf);font-size:1.15rem;color:var(--navy);margin-bottom:18px">&#1488;&#1508;&#1513;&#1512;&#1493;&#1497;&#1493;&#1514; &#1514;&#1513;&#1500;&#1493;&#1501;</h3>
+        <div class="ins-list" style="margin-bottom:24px">
+          <div class="ins-item"><span class="ins-check">+</span>&#1514;&#1513;&#1500;&#1493;&#1502;&#1497;&#1501; &#1500;&#1500;&#1488; &#1512;&#1497;&#1489;&#1497;&#1514; (&#1506;&#1491; 12 &#1514;&#1513;&#1500;&#1493;&#1502;&#1497;&#1501;)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1499;&#1512;&#1496;&#1497;&#1505;&#1497; &#1488;&#1513;&#1512;&#1488;&#1497; (Visa, Mastercard, Amex)</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1492;&#1506;&#1489;&#1512;&#1492; &#1489;&#1504;&#1511;&#1488;&#1497;&#1514; / &#1489;&#1497;&#1496; / PayBox</div>
+          <div class="ins-item"><span class="ins-check">+</span>&#1497;&#1497;&#1506;&#1493;&#1509; &#1512;&#1488;&#1513;&#1493;&#1504;&#1497; &#1495;&#1497;&#1504;&#1501; &#1500;&#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1495;&#1491;&#1513;&#1497;&#1501;</div>
+        </div>
+        <div class="payment-methods">
+          <span class="pay-badge">Visa</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">&#1489;&#1497;&#1496;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-band" id="contact">
+<div class="cx">
+  <div class="en">
+    <h2>Ready for a healthier <i>smile?</i></h2>
+    <p>Schedule your appointment today. New patients receive a free consultation.</p>
+    <a href="tel:+97236421850" class="phone-link">03-642-1850</a>
+    <div class="cta-btns">
+      <a href="tel:+97236421850" class="btn btn-p">Call to Schedule</a>
+      <a href="https://wa.me/97236421850" class="btn btn-o" style="border-color:var(--bddh);color:#fff">WhatsApp</a>
+    </div>
+  </div>
+  <div class="he">
+    <h2>&#1502;&#1493;&#1499;&#1504;&#1497;&#1501; &#1500;&#1495;&#1497;&#1493;&#1498; &#1489;&#1512;&#1497;&#1488; <i>&#1497;&#1493;&#1514;&#1512;?</i></h2>
+    <p>&#1511;&#1489;&#1506;&#1493; &#1514;&#1493;&#1512; &#1506;&#1493;&#1491; &#1492;&#1497;&#1493;&#1501;. &#1502;&#1496;&#1493;&#1508;&#1500;&#1497;&#1501; &#1495;&#1491;&#1513;&#1497;&#1501; &#1502;&#1511;&#1489;&#1500;&#1497;&#1501; &#1497;&#1497;&#1506;&#1493;&#1509; &#1512;&#1488;&#1513;&#1493;&#1504;&#1497; &#1495;&#1497;&#1504;&#1501;.</p>
+    <a href="tel:+97236421850" class="phone-link">03-642-1850</a>
+    <div class="cta-btns">
+      <a href="tel:+97236421850" class="btn btn-p">&#1495;&#1497;&#1497;&#1490;&#1493; &#1500;&#1511;&#1489;&#1497;&#1506;&#1514; &#1514;&#1493;&#1512;</a>
+      <a href="https://wa.me/97236421850" class="btn btn-o" style="border-color:var(--bddh);color:#fff">&#1493;&#1493;&#1488;&#1496;&#1505;&#1488;&#1508;</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section class="sec">
+<div class="cx">
+  <div class="en"><div class="sl">Visit Us</div><h2 class="st">Hours &amp; <i>location.</i></h2><p class="sd">Conveniently located on Ibn Gvirol Street in the heart of Tel Aviv.</p></div>
+  <div class="he"><div class="sl">&#1489;&#1511;&#1512;&#1493; &#1488;&#1493;&#1514;&#1504;&#1493;</div><h2 class="st">&#1513;&#1506;&#1493;&#1514; &#1508;&#1514;&#1497;&#1495;&#1492; <i>&#1493;&#1502;&#1497;&#1511;&#1493;&#1501;.</i></h2><p class="sd">&#1502;&#1502;&#1493;&#1511;&#1502;&#1497;&#1501; &#1489;&#1504;&#1493;&#1495;&#1493;&#1514; &#1489;&#1512;&#1495;&#1493;&#1489; &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; &#1489;&#1500;&#1489; &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;.</p></div>
+  <div class="info-grid">
+    <div>
+      <div class="en">
+        <table class="hours-table">
+          <tr><td>Sunday</td><td>08:00 - 19:00</td></tr>
+          <tr><td>Monday</td><td>08:00 - 19:00</td></tr>
+          <tr><td>Tuesday</td><td>08:00 - 20:00</td></tr>
+          <tr><td>Wednesday</td><td>08:00 - 19:00</td></tr>
+          <tr><td>Thursday</td><td>08:00 - 18:00</td></tr>
+          <tr><td>Friday</td><td>08:00 - 13:00</td></tr>
+          <tr><td>Saturday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div class="he">
+        <table class="hours-table">
+          <tr><td>&#1497;&#1493;&#1501; &#1512;&#1488;&#1513;&#1493;&#1503;</td><td>08:00 - 19:00</td></tr>
+          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1504;&#1497;</td><td>08:00 - 19:00</td></tr>
+          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1500;&#1497;&#1513;&#1497;</td><td>08:00 - 20:00</td></tr>
+          <tr><td>&#1497;&#1493;&#1501; &#1512;&#1489;&#1497;&#1506;&#1497;</td><td>08:00 - 19:00</td></tr>
+          <tr><td>&#1497;&#1493;&#1501; &#1495;&#1502;&#1497;&#1513;&#1497;</td><td>08:00 - 18:00</td></tr>
+          <tr><td>&#1497;&#1493;&#1501; &#1513;&#1497;&#1513;&#1497;</td><td>08:00 - 13:00</td></tr>
+          <tr><td>&#1513;&#1489;&#1514;</td><td>&#1505;&#1490;&#1493;&#1512;</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="location-card">
+      <div class="en">
+        <h3>Dr. Cohen Dental Clinic</h3>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>78 Ibn Gvirol Street, Tel Aviv</span>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span dir="ltr">03-642-1850</span>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@dr-cohen-dental.co.il</span>
+        </div>
+      </div>
+      <div class="he">
+        <h3>&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503;</h3>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>&#1512;&#1495;&#1493;&#1489; &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; 78, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;</span>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span dir="ltr">03-642-1850</span>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@dr-cohen-dental.co.il</span>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>Google Maps</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-family:var(--sf);font-size:1.15rem;color:var(--or);margin-bottom:3px;font-weight:600">
+    <span class="en">Dr. Cohen Dental Clinic</span>
+    <span class="he">&#1511;&#1500;&#1497;&#1504;&#1497;&#1511;&#1514; &#1491;"&#1512; &#1499;&#1492;&#1503;</span>
+  </p>
+  <div class="en"><p>General &amp; Cosmetic Dentistry. Ibn Gvirol 78, Tel Aviv.</p></div>
+  <div class="he"><p>&#1512;&#1508;&#1493;&#1488;&#1514; &#1513;&#1497;&#1504;&#1497;&#1497;&#1501; &#1499;&#1500;&#1500;&#1497;&#1514; &#1493;&#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1514;. &#1488;&#1489;&#1503; &#1490;&#1489;&#1497;&#1512;&#1493;&#1500; 78, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;.</p></div>
+  <div class="footer-links">
+    <div class="en"><a href="#services">Services</a> &middot; <a href="#team">Team</a> &middot; <a href="#reviews">Reviews</a> &middot; <a href="#insurance">Insurance</a> &middot; <a href="#contact">Contact</a></div>
+    <div class="he"><a href="#services">&#1513;&#1497;&#1512;&#1493;&#1514;&#1497;&#1501;</a> &middot; <a href="#team">&#1510;&#1493;&#1493;&#1514;</a> &middot; <a href="#reviews">&#1495;&#1493;&#1493;&#1514; &#1491;&#1506;&#1514;</a> &middot; <a href="#insurance">&#1489;&#1497;&#1496;&#1493;&#1495;</a> &middot; <a href="#contact">&#1510;&#1493;&#1512; &#1511;&#1513;&#1512;</a></div>
+  </div>
+  <p>&copy; 2026 Dr. Cohen Dental Clinic. <span dir="ltr">03-642-1850</span></p>
+  <div class="footer-mizra">
+    <div class="en"><p>Website built by <a href="https://getmizra.com">Mizra</a></p></div>
+    <div class="he"><p>&#1492;&#1488;&#1514;&#1512; &#1504;&#1489;&#1504;&#1492; &#1506;&#1500; &#1497;&#1491;&#1497; <a href="https://getmizra.com">Mizra</a></p></div>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+function setL(l) {
+  document.body.classList.toggle('lh', l === 'he');
+  document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = l === 'he' ? 'he' : 'en';
+  document.querySelectorAll('.ls button').forEach(function(b) { b.classList.remove('on'); });
+  if (event && event.target) event.target.classList.add('on');
+  try { localStorage.setItem('clinic_lang', l); } catch(e) {}
+}
+
+// Restore language
+try {
+  var saved = localStorage.getItem('clinic_lang');
+  if (saved === 'en') {
+    document.body.classList.remove('lh');
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = 'en';
+    setTimeout(function() {
+      document.querySelectorAll('.ls button').forEach(function(b) {
+        b.classList.toggle('on', b.textContent.trim() === 'EN');
+      });
+    }, 50);
+  }
+} catch(e) {}
+
+// Mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.menu-toggle');
+  var nm = document.querySelector('.nm');
+  if (toggle && nm) {
+    toggle.addEventListener('click', function() {
+      this.classList.toggle('open');
+      nm.classList.toggle('open');
+      document.body.style.overflow = nm.classList.contains('open') ? 'hidden' : '';
+    });
+    nm.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        toggle.classList.remove('open');
+        nm.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Scroll reveal
+  var ob = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('vis');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(function(el) { ob.observe(el); });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Adjust nav position based on banner
+  var banner = document.querySelector('.mizra-banner');
+  var nav = document.querySelector('.nav');
+  if (banner && nav) {
+    var bannerHeight = banner.offsetHeight;
+    nav.style.top = bannerHeight + 'px';
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > bannerHeight) {
+        nav.style.top = '0';
+        banner.style.transform = 'translateY(-100%)';
+        banner.style.transition = 'transform .3s';
+      } else {
+        nav.style.top = (bannerHeight - window.scrollY) + 'px';
+        banner.style.transform = 'none';
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

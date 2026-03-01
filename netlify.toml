@@ -82,6 +82,41 @@
   to = "/blog/ai-biniyat-atarim/"
   status = 301
 
+[[redirects]]
+  from = "/examples/restaurant"
+  to = "/examples/restaurant/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/cafe"
+  to = "/examples/cafe/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/beauty-salon"
+  to = "/examples/beauty-salon/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/barbershop"
+  to = "/examples/barbershop/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/clinic"
+  to = "/examples/clinic/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/lawyer"
+  to = "/examples/lawyer/"
+  status = 301
+
+[[redirects]]
+  from = "/examples/contractor"
+  to = "/examples/contractor/"
+  status = 301
+
 # Cache headers
 [[headers]]
   for = "/style.css"

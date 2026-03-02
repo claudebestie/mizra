@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>ד״ר שירה לוי | Dr. Shira Levi — Psychotherapy</title>
+<meta name="description" content="ד״ר שירה לוי - פסיכותרפיסטית קלינית ברמת אביב, תל אביב. טיפול CBT, טיפול זוגי, חרדה וטראומה. Dr. Shira Levi - Clinical Psychotherapist in Ramat Aviv, Tel Aviv.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#FAF8F5;color:#3D3528;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+::selection{background:#7B8F6B;color:#FAF8F5}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ========== LANGUAGE TOGGLE ========== */
+.he{display:block}
+.en{display:none}
+body.lang-en .he{display:none}
+body.lang-en .en{display:block}
+body.lang-en{direction:ltr}
+
+/* Inline spans */
+span.he,a.he{display:inline}
+span.en,a.en{display:none}
+body.lang-en span.he,body.lang-en a.he{display:none}
+body.lang-en span.en,body.lang-en a.en{display:inline}
+
+/* Nav link containers */
+.nav-links .he,.nav-links .en{display:flex;gap:28px;align-items:center}
+.nav-links .en{display:none}
+body.lang-en .nav-links .he{display:none}
+body.lang-en .nav-links .en{display:flex}
+
+/* ========== DEMO BANNER ========== */
+.demo-banner{background:#FAF8F5;padding:10px 24px;text-align:center;font-size:.8rem;color:#3D3528;border-bottom:1px solid #E8E2D9;position:relative;z-index:200}
+.demo-banner a{color:#7B8F6B;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo-banner a:hover{color:#3D3528}
+
+/* ========== NAVIGATION ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,245,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:all .35s ease}
+.nav.scrolled{border-bottom:1px solid rgba(232,226,217,.6);box-shadow:0 2px 20px rgba(61,53,40,.04)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:#3D3528;letter-spacing:-.2px}
+.nav-logo svg{flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:#3D3528;opacity:.6;transition:opacity .25s;padding:4px 0}
+.nav-links a:hover{opacity:1}
+.lang-toggle{font-size:.8rem;font-weight:600;color:#7B8F6B;cursor:pointer;border:1.5px solid rgba(123,143,107,.25);padding:6px 16px;border-radius:8px;background:transparent;transition:all .25s;letter-spacing:.3px}
+.lang-toggle:hover{background:rgba(123,143,107,.08);border-color:rgba(123,143,107,.4)}
+.nav-cta{background:#7B8F6B;color:#FAF8F5;font-size:.88rem;font-weight:600;padding:10px 24px;border-radius:12px;border:none;transition:all .25s;white-space:nowrap;letter-spacing:.2px}
+.nav-cta:hover{background:#6a7d5c;transform:translateY(-1px);box-shadow:0 6px 20px rgba(123,143,107,.25)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-burger span{display:block;width:22px;height:2px;background:#3D3528;border-radius:2px;transition:all .3s}
+
+/* ========== HERO ========== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#FAF8F5}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1140px;margin:0 auto;padding:120px 48px 80px;align-items:center}
+.hero-text{max-width:520px}
+.hero-label{display:inline-block;font-size:.75rem;font-weight:600;color:#7B8F6B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;background:rgba(123,143,107,.1);padding:8px 20px;border-radius:24px}
+.hero h1{font-size:3rem;font-weight:700;color:#3D3528;line-height:1.2;letter-spacing:-.5px;margin-bottom:20px}
+.hero p{font-size:1.05rem;color:#3D3528;opacity:.6;line-height:1.85;margin-bottom:36px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:#7B8F6B;color:#FAF8F5;font-size:.95rem;font-weight:600;padding:15px 36px;border-radius:12px;border:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover{background:#6a7d5c;transform:translateY(-2px);box-shadow:0 8px 28px rgba(123,143,107,.25)}
+.btn-secondary{background:transparent;color:#3D3528;font-size:.95rem;font-weight:500;padding:15px 36px;border-radius:12px;border:1.5px solid rgba(61,53,40,.2);transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-secondary:hover{border-color:rgba(61,53,40,.4);background:rgba(61,53,40,.03)}
+.hero-img{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-height:560px}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img::after{content:'';position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(123,143,107,.1)}
+.hero-accent{position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(123,143,107,.08);z-index:-1}
+
+/* ========== SECTIONS ========== */
+.section{padding:100px 48px}
+.section-header{text-align:center;max-width:580px;margin:0 auto 56px}
+.section-label{display:inline-block;font-size:.75rem;font-weight:600;color:#7B8F6B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.section-header h2{font-size:2.2rem;font-weight:700;color:#3D3528;letter-spacing:-.3px;margin-bottom:14px;line-height:1.25}
+.section-header p{font-size:1rem;color:#3D3528;opacity:.55;font-weight:400;line-height:1.75}
+
+/* ========== SPECIALTIES ========== */
+.specialties-section{background:#fff}
+.specialties-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.specialty-card{background:#FAF8F5;border:1px solid rgba(232,226,217,.5);border-radius:16px;padding:36px 28px;transition:all .3s ease;text-align:center}
+.specialty-card:hover{border-color:#E8E2D9;box-shadow:0 8px 32px rgba(61,53,40,.06);transform:translateY(-3px)}
+.specialty-icon{width:60px;height:60px;border-radius:16px;background:rgba(123,143,107,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.specialty-icon svg{width:28px;height:28px;stroke:#7B8F6B;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.specialty-card h3{font-size:1.05rem;font-weight:700;color:#3D3528;margin-bottom:10px}
+.specialty-card p{font-size:.88rem;color:#3D3528;opacity:.55;line-height:1.7}
+
+/* ========== ABOUT ========== */
+.about-section{background:#FAF8F5}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;align-items:center}
+.about-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img::after{content:'';position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(61,53,40,.06)}
+.about-text{max-width:480px}
+.about-text .section-label{text-align:start}
+.about-text h2{font-size:2rem;font-weight:700;color:#3D3528;letter-spacing:-.3px;margin-bottom:20px;line-height:1.3}
+.about-text p{font-size:.95rem;color:#3D3528;opacity:.6;line-height:1.85;margin-bottom:16px}
+.about-credentials{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.about-credential{display:flex;align-items:center;gap:14px;font-size:.92rem;font-weight:500;color:#3D3528}
+.about-dot{width:8px;height:8px;border-radius:50%;background:#7B8F6B;flex-shrink:0}
+
+/* ========== APPROACH ========== */
+.approach-section{background:#fff}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;align-items:center}
+.approach-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.approach-img img{width:100%;height:100%;object-fit:cover}
+.approach-img::after{content:'';position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(61,53,40,.06)}
+.approach-text{max-width:480px}
+.approach-text .section-label{text-align:start}
+.approach-text h2{font-size:2rem;font-weight:700;color:#3D3528;letter-spacing:-.3px;margin-bottom:20px;line-height:1.3}
+.approach-text p{font-size:.95rem;color:#3D3528;opacity:.6;line-height:1.85;margin-bottom:16px}
+.approach-pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.approach-pillar{background:#FAF8F5;border:1px solid rgba(232,226,217,.4);border-radius:12px;padding:20px;text-align:center}
+.approach-pillar h4{font-size:.88rem;font-weight:700;color:#3D3528;margin-bottom:4px}
+.approach-pillar p{font-size:.8rem;color:#3D3528;opacity:.5;line-height:1.6}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-section{background:#FAF8F5}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:900px;margin:0 auto}
+.testimonial-card{background:#fff;border:1px solid rgba(232,226,217,.4);border-radius:16px;padding:36px 28px;transition:all .3s ease}
+.testimonial-card:hover{box-shadow:0 8px 28px rgba(61,53,40,.06);transform:translateY(-2px)}
+.testimonial-quote{font-size:2rem;color:#7B8F6B;line-height:1;margin-bottom:16px;font-family:Georgia,serif}
+.testimonial-text{font-size:.92rem;color:#3D3528;opacity:.65;line-height:1.85;margin-bottom:20px;font-style:italic}
+.testimonial-author{font-size:.85rem;font-weight:600;color:#3D3528;opacity:.45}
+
+/* ========== CTA SECTION ========== */
+.cta-section{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,143,107,.8) 0%,rgba(61,53,40,.75) 100%);z-index:1}
+.cta-content{position:relative;z-index:2;text-align:center;max-width:600px;padding:0 32px}
+.cta-content h2{font-size:2.4rem;font-weight:700;color:#FAF8F5;margin-bottom:16px;letter-spacing:-.3px;line-height:1.25}
+.cta-content p{font-size:1.05rem;color:rgba(250,248,245,.75);margin-bottom:36px;line-height:1.75}
+.btn-cta-white{background:#FAF8F5;color:#3D3528;font-size:.95rem;font-weight:600;padding:16px 40px;border-radius:12px;border:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+
+/* ========== CONTACT ========== */
+.contact-section{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;max-width:960px;margin:0 auto}
+.contact-card{background:#FAF8F5;border:1px solid rgba(232,226,217,.4);border-radius:16px;padding:32px 24px;text-align:center;transition:all .3s ease}
+.contact-card:hover{box-shadow:0 6px 24px rgba(61,53,40,.06);transform:translateY(-2px)}
+.contact-card-icon{width:52px;height:52px;border-radius:14px;background:rgba(123,143,107,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.contact-card-icon svg{width:24px;height:24px;stroke:#7B8F6B;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.contact-card h3{font-size:.95rem;font-weight:700;color:#3D3528;margin-bottom:8px}
+.contact-card p{font-size:.88rem;color:#3D3528;opacity:.55;line-height:1.7}
+.contact-card a{color:#7B8F6B;font-weight:600;font-size:.92rem}
+
+/* ========== FOOTER ========== */
+.footer{background:#3D3528;color:#FAF8F5;padding:48px 48px 32px}
+.footer-inner{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:.85rem;color:rgba(250,248,245,.45)}
+.footer-mizra{font-size:.85rem;color:rgba(250,248,245,.45)}
+.footer-mizra a{color:rgba(250,248,245,.65);font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.footer-mizra a:hover{color:#FAF8F5}
+
+/* ========== MOBILE STICKY BAR ========== */
+.mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(250,248,245,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid #E8E2D9;padding:12px 20px;z-index:150}
+.mobile-sticky button{width:100%;background:#7B8F6B;color:#FAF8F5;font-size:.95rem;font-weight:600;padding:14px 0;border-radius:12px;border:none;font-family:inherit}
+
+/* ========== SCROLL REVEAL ========== */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.rv.visible{opacity:1;transform:translateY(0)}
+.rv-d1{transition-delay:.1s}
+.rv-d2{transition-delay:.2s}
+.rv-d3{transition-delay:.3s}
+.rv-d4{transition-delay:.4s}
+
+/* ========== MOBILE MENU ========== */
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(250,248,245,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:32px 24px;z-index:99;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:16px 0;font-size:1.1rem;font-weight:500;color:#3D3528;border-bottom:1px solid rgba(232,226,217,.4);transition:opacity .2s}
+.mobile-menu a:hover{opacity:.6}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){
+  .nav{padding:0 24px}
+  .section{padding:80px 24px}
+  .hero-inner{padding:100px 24px 60px;gap:32px}
+  .hero h1{font-size:2.5rem}
+  .specialties-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{gap:40px}
+  .approach-grid{gap:40px}
+}
+@media(max-width:900px){
+  .nav{padding:0 20px;height:64px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .mobile-menu{top:64px}
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding:100px 20px 60px}
+  .hero-text{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-img{max-height:400px;aspect-ratio:3/2;margin:0 auto;max-width:480px}
+  .hero-accent{display:none}
+  .specialties-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .about-text{max-width:100%}
+  .approach-grid{grid-template-columns:1fr;gap:32px}
+  .approach-text{max-width:100%}
+  .testimonials-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .mobile-sticky{display:block}
+  body{padding-bottom:68px}
+  .footer{padding:32px 20px 90px}
+}
+@media(max-width:600px){
+  .nav-logo{font-size:.82rem;gap:6px}
+  .nav-logo svg{width:24px;height:24px}
+  .nav-cta{padding:8px 14px;font-size:.75rem}
+  .hero-inner{padding:88px 16px 48px}
+  .hero h1{font-size:2rem}
+  .hero p{font-size:.95rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  .section{padding:64px 16px}
+  .section-header h2{font-size:1.7rem}
+  .specialties-grid{grid-template-columns:1fr}
+  .approach-pillars{grid-template-columns:1fr}
+  .cta-content h2{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. MIZRA DEMO BANNER ===== -->
+<div class="demo-banner">
+  <span class="he">זהו אתר לדוגמה שנבנה ע"י <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">קבלו אתר לעסק שלכם</a></span>
+  <span class="en">This is a demo site built by <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">Get a site for your business</a></span>
+</div>
+
+<!-- ===== 2. NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="30" rx="10" fill="#7B8F6B"/>
+      <path d="M15 8c-1.5 0-2.7.6-3.5 1.5-.8.9-1.2 2-1.2 3.2 0 1.2.5 2.3 1.2 3.2.7.9 1.2 1.5 1.2 2.3v2.3c0 .3.1.5.3.7.2.2.5.3.7.3h2.6c.3 0 .5-.1.7-.3.2-.2.3-.4.3-.7v-2.3c0-.8.5-1.4 1.2-2.3.7-.9 1.2-2 1.2-3.2 0-1.2-.4-2.3-1.2-3.2C17.7 8.6 16.5 8 15 8z" fill="#FAF8F5"/>
+      <path d="M13 22h4M13.5 24h3" stroke="#FAF8F5" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <span class="he">ד״ר שירה לוי</span>
+    <span class="en">Dr. Shira Levi</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <div class="he">
+        <a href="#specialties">התמחויות</a>
+        <a href="#about">אודות</a>
+        <a href="#approach">גישה טיפולית</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="en">
+        <a href="#specialties">Specialties</a>
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <button class="lang-toggle" onclick="toggleLang()">EN</button>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <span class="he">קבעו פגישה</span>
+      <span class="en">Book Session</span>
+    </button>
+    <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#specialties" onclick="closeMenu()" class="he">התמחויות</a>
+  <a href="#about" onclick="closeMenu()" class="he">אודות</a>
+  <a href="#approach" onclick="closeMenu()" class="he">גישה טיפולית</a>
+  <a href="#contact" onclick="closeMenu()" class="he">צור קשר</a>
+  <a href="#specialties" onclick="closeMenu()" class="en">Specialties</a>
+  <a href="#about" onclick="closeMenu()" class="en">About</a>
+  <a href="#approach" onclick="closeMenu()" class="en">Approach</a>
+  <a href="#contact" onclick="closeMenu()" class="en">Contact</a>
+</div>
+
+<!-- ===== 3. HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text rv">
+      <div class="hero-label">
+        <span class="he">פסיכותרפיה קלינית</span>
+        <span class="en">Clinical Psychotherapy</span>
+      </div>
+      <h1>
+        <span class="he">מרחב בטוח<br>לצמיחה אישית</span>
+        <span class="en">A Safe Space<br>for Personal Growth</span>
+      </h1>
+      <p>
+        <span class="he">ד״ר שירה לוי מציעה טיפול פסיכולוגי מקצועי, חם ומבוסס מחקר בסביבה תומכת ומכילה. יחד נמצא את הדרך להתמודדות טובה יותר.</span>
+        <span class="en">Dr. Shira Levi offers professional, warm, and evidence-based psychological treatment in a supportive environment. Together, we'll find a better way to cope.</span>
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="he">קבעו פגישה</span>
+          <span class="en">Book a Session</span>
+        </button>
+        <a href="tel:03-6401234" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span class="he">03-640-1234</span>
+          <span class="en">03-640-1234</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-img rv rv-d1">
+      <img src="img/therapist1.jpg" alt="Therapy session room with warm, inviting atmosphere" loading="eager">
+      <div class="hero-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. SPECIALTIES ===== -->
+<section class="section specialties-section" id="specialties">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">תחומי התמחות</span>
+      <span class="en">Specialties</span>
+    </div>
+    <h2>
+      <span class="he">כיצד אוכל לעזור</span>
+      <span class="en">How I Can Help</span>
+    </h2>
+    <p>
+      <span class="he">טיפול מותאם אישית במגוון תחומים, מבוסס על גישות מוכחות מחקרית</span>
+      <span class="en">Personalized treatment across a range of areas, grounded in evidence-based approaches</span>
+    </p>
+  </div>
+  <div class="specialties-grid">
+    <!-- CBT -->
+    <div class="specialty-card rv rv-d1">
+      <div class="specialty-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1h-6a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="10" y1="24" x2="14" y2="24"/></svg>
+      </div>
+      <h3>
+        <span class="he">טיפול קוגניטיבי-התנהגותי (CBT)</span>
+        <span class="en">Cognitive Behavioral Therapy (CBT)</span>
+      </h3>
+      <p>
+        <span class="he">גישה מובנית ומוכחת מחקרית לשינוי דפוסי חשיבה והתנהגות שמגבילים אתכם ביומיום</span>
+        <span class="en">A structured, evidence-based approach to changing thought and behavior patterns that limit your daily life</span>
+      </p>
+    </div>
+    <!-- Couples -->
+    <div class="specialty-card rv rv-d2">
+      <div class="specialty-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <h3>
+        <span class="he">טיפול זוגי</span>
+        <span class="en">Couples Therapy</span>
+      </h3>
+      <p>
+        <span class="he">חיזוק התקשורת, פתרון קונפליקטים והעמקת הקשר הזוגי בסביבה בטוחה ומכילה</span>
+        <span class="en">Strengthening communication, resolving conflicts, and deepening your relationship in a safe, supportive space</span>
+      </p>
+    </div>
+    <!-- Anxiety -->
+    <div class="specialty-card rv rv-d3">
+      <div class="specialty-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v.01"/><path d="M12 8v4"/></svg>
+      </div>
+      <h3>
+        <span class="he">חרדה ולחץ</span>
+        <span class="en">Anxiety & Stress</span>
+      </h3>
+      <p>
+        <span class="he">כלים מעשיים להפחתת חרדה, התמודדות עם מתח ובניית חוסן נפשי לטווח ארוך</span>
+        <span class="en">Practical tools for reducing anxiety, managing stress, and building long-term emotional resilience</span>
+      </p>
+    </div>
+    <!-- Trauma -->
+    <div class="specialty-card rv rv-d4">
+      <div class="specialty-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>
+        <span class="he">טראומה</span>
+        <span class="en">Trauma</span>
+      </h3>
+      <p>
+        <span class="he">ליווי רגיש ומקצועי בעיבוד חוויות טראומטיות, עם כלים מותאמים להחלמה ושיקום</span>
+        <span class="en">Sensitive, professional support in processing traumatic experiences, with tailored tools for healing and recovery</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. ABOUT ===== -->
+<section class="section about-section" id="about">
+  <div class="about-grid">
+    <div class="about-img rv">
+      <img src="img/therapist4.jpg" alt="Dr. Shira Levi in a therapy session setting" loading="lazy">
+    </div>
+    <div class="about-text rv rv-d1">
+      <div class="section-label">
+        <span class="he">אודות</span>
+        <span class="en">About</span>
+      </div>
+      <h2>
+        <span class="he">ד״ר שירה לוי</span>
+        <span class="en">Dr. Shira Levi</span>
+      </h2>
+      <p>
+        <span class="he">פסיכולוגית קלינית עם למעלה מ-12 שנות ניסיון בטיפול במבוגרים וזוגות. בוגרת החוג לפסיכולוגיה באוניברסיטת תל אביב, עם התמחות בטיפול קוגניטיבי-התנהגותי.</span>
+        <span class="en">A clinical psychologist with over 12 years of experience treating adults and couples. Graduate of Tel Aviv University's Psychology Department, specializing in cognitive-behavioral therapy.</span>
+      </p>
+      <p>
+        <span class="he">אני מאמינה שכל אדם נושא בתוכו את הכוח לשינוי. התפקיד שלי הוא ללוות אתכם בדרך — להקשיב, לשקף, ולספק כלים מעשיים שמאפשרים צמיחה אמיתית.</span>
+        <span class="en">I believe every person carries the power for change within. My role is to accompany you on the journey — to listen, reflect, and provide practical tools that enable real growth.</span>
+      </p>
+      <div class="about-credentials">
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">תואר דוקטור בפסיכולוגיה קלינית, אוניברסיטת תל אביב</span>
+          <span class="en">Ph.D. in Clinical Psychology, Tel Aviv University</span>
+        </div>
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">חברה באיגוד הפסיכולוגים בישראל</span>
+          <span class="en">Member of the Israel Psychological Association</span>
+        </div>
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">הסמכה בטיפול CBT ובטיפול זוגי</span>
+          <span class="en">Certified in CBT and Couples Therapy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. APPROACH ===== -->
+<section class="section approach-section" id="approach">
+  <div class="approach-grid">
+    <div class="approach-text rv">
+      <div class="section-label">
+        <span class="he">הגישה הטיפולית</span>
+        <span class="en">Therapeutic Approach</span>
+      </div>
+      <h2>
+        <span class="he">טיפול חם, מבוסס מחקר</span>
+        <span class="en">Warm, Evidence-Based Care</span>
+      </h2>
+      <p>
+        <span class="he">הגישה הטיפולית שלי משלבת חמימות אנושית עם כלים מקצועיים מבוססי מחקר. כל מטופל מקבל תוכנית טיפול מותאמת אישית, תוך הקשבה עמוקה לצרכים הייחודיים שלו.</span>
+        <span class="en">My therapeutic approach combines human warmth with professional, research-based tools. Each client receives a personalized treatment plan, with deep attention to their unique needs.</span>
+      </p>
+      <p>
+        <span class="he">אני מלווה את המטופלים שלי ביצירת שינוי משמעותי — מתוך כבוד, אמפתיה ומחויבות לתהליך.</span>
+        <span class="en">I guide my clients in creating meaningful change — with respect, empathy, and commitment to the process.</span>
+      </p>
+      <div class="approach-pillars">
+        <div class="approach-pillar">
+          <h4>
+            <span class="he">הקשבה</span>
+            <span class="en">Listening</span>
+          </h4>
+          <p>
+            <span class="he">תשומת לב מלאה לסיפור שלכם</span>
+            <span class="en">Full attention to your story</span>
+          </p>
+        </div>
+        <div class="approach-pillar">
+          <h4>
+            <span class="he">אמפתיה</span>
+            <span class="en">Empathy</span>
+          </h4>
+          <p>
+            <span class="he">הבנה עמוקה ללא שיפוט</span>
+            <span class="en">Deep understanding without judgment</span>
+          </p>
+        </div>
+        <div class="approach-pillar">
+          <h4>
+            <span class="he">כלים מעשיים</span>
+            <span class="en">Practical Tools</span>
+          </h4>
+          <p>
+            <span class="he">טכניקות מוכחות ליומיום</span>
+            <span class="en">Proven techniques for daily life</span>
+          </p>
+        </div>
+        <div class="approach-pillar">
+          <h4>
+            <span class="he">צמיחה</span>
+            <span class="en">Growth</span>
+          </h4>
+          <p>
+            <span class="he">תהליך של שינוי אמיתי</span>
+            <span class="en">A process of real change</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="approach-img rv rv-d1">
+      <img src="img/therapist2.jpg" alt="Warm, compassionate hands symbolizing therapeutic support" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. TESTIMONIALS ===== -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">המלצות</span>
+      <span class="en">Testimonials</span>
+    </div>
+    <h2>
+      <span class="he">מה אומרים המטופלים</span>
+      <span class="en">What Clients Say</span>
+    </h2>
+    <p>
+      <span class="he">מילים מלב מי שעברו את התהליך</span>
+      <span class="en">Words from those who have been through the process</span>
+    </p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card rv rv-d1">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">
+        <span class="he">הגעתי לד״ר לוי בתקופה קשה מאוד בחיי. הרגשתי שאני לא מצליחה להתמודד לבד. היא יצרה עבורי מרחב בטוח ונתנה לי כלים שאני משתמשת בהם עד היום. אני אסירת תודה על הדרך שעשינו יחד.</span>
+        <span class="en">I came to Dr. Levi during a very difficult time in my life. I felt I couldn't cope alone. She created a safe space for me and gave me tools I still use today. I'm deeply grateful for the journey we took together.</span>
+      </div>
+      <div class="testimonial-author">
+        <span class="he">— מ.ר, בת 34</span>
+        <span class="en">— M.R., age 34</span>
+      </div>
+    </div>
+    <div class="testimonial-card rv rv-d2">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">
+        <span class="he">בזכות הטיפול הזוגי אצל ד״ר לוי, אנחנו מתקשרים היום בצורה אחרת לגמרי. היא ידעה להקשיב לשנינו בלי לשפוט, ולעזור לנו למצוא את הדרך חזרה אחד לשנייה.</span>
+        <span class="en">Thanks to couples therapy with Dr. Levi, we communicate in a completely different way today. She knew how to listen to both of us without judgment, and helped us find our way back to each other.</span>
+      </div>
+      <div class="testimonial-author">
+        <span class="he">— ד. וא., בני 40</span>
+        <span class="en">— D. & A., age 40</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. CTA SECTION ===== -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="img/therapist3.jpg" alt="Two women embracing, symbolizing support and connection" loading="lazy">
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content rv">
+    <h2>
+      <span class="he">עשו את הצעד הראשון</span>
+      <span class="en">Take the First Step</span>
+    </h2>
+    <p>
+      <span class="he">הפגישה הראשונה היא הזדמנות להכיר, לשתף ולהבין אם הדרך הזו מתאימה לכם. אני כאן בשבילכם.</span>
+      <span class="en">The first session is an opportunity to meet, share, and see if this path is right for you. I'm here for you.</span>
+    </p>
+    <button class="btn-cta-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="he">קבעו פגישה</span>
+      <span class="en">Book a Session</span>
+    </button>
+  </div>
+</section>
+
+<!-- ===== 9. CONTACT ===== -->
+<section class="section contact-section" id="contact">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">צרו קשר</span>
+      <span class="en">Contact</span>
+    </div>
+    <h2>
+      <span class="he">בואו נדבר</span>
+      <span class="en">Let's Talk</span>
+    </h2>
+    <p>
+      <span class="he">מוזמנים לפנות בכל שאלה או לקבוע פגישת היכרות ראשונית</span>
+      <span class="en">Feel free to reach out with any question or to schedule an initial consultation</span>
+    </p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card rv rv-d1">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3>
+        <span class="he">כתובת</span>
+        <span class="en">Address</span>
+      </h3>
+      <p>
+        <span class="he">רחוב אינשטיין 15, רמת אביב<br>תל אביב, קומה 4</span>
+        <span class="en">15 Einstein St, Ramat Aviv<br>Tel Aviv, 4th Floor</span>
+      </p>
+    </div>
+    <div class="contact-card rv rv-d2">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <h3>
+        <span class="he">טלפון</span>
+        <span class="en">Phone</span>
+      </h3>
+      <p><a href="tel:03-6401234">03-640-1234</a></p>
+    </div>
+    <div class="contact-card rv rv-d3">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>
+        <span class="he">שעות קבלה</span>
+        <span class="en">Working Hours</span>
+      </h3>
+      <p>
+        <span class="he">ראשון - חמישי: 09:00 - 20:00<br>שישי: 09:00 - 13:00</span>
+        <span class="en">Sun - Thu: 09:00 - 20:00<br>Fri: 09:00 - 13:00</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-copy">
+      <span class="he">&copy; 2026 ד״ר שירה לוי. כל הזכויות שמורות.</span>
+      <span class="en">&copy; 2026 Dr. Shira Levi. All rights reserved.</span>
+    </div>
+    <div class="footer-mizra">
+      <span class="he">נבנה ע"י <a href="https://getmizra.com">Mizra</a></span>
+      <span class="en">Built by <a href="https://getmizra.com">Mizra</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile sticky bar -->
+<div class="mobile-sticky">
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <span class="he">קבעו פגישה</span>
+    <span class="en">Book Session</span>
+  </button>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Language toggle
+function toggleLang(){
+  var body=document.body;
+  var html=document.documentElement;
+  var btn=document.querySelector('.lang-toggle');
+  if(body.classList.contains('lang-en')){
+    body.classList.remove('lang-en');
+    html.setAttribute('dir','rtl');
+    html.setAttribute('lang','he');
+    btn.textContent='EN';
+  }else{
+    body.classList.add('lang-en');
+    html.setAttribute('dir','ltr');
+    html.setAttribute('lang','en');
+    btn.textContent='HE';
+  }
+}
+
+// Mobile menu
+function toggleMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var burger=document.querySelector('.nav-burger');
+  menu.classList.toggle('open');
+  if(menu.classList.contains('open')){
+    burger.children[0].style.transform='rotate(45deg) translate(5px,5px)';
+    burger.children[1].style.opacity='0';
+    burger.children[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  }else{
+    burger.children[0].style.transform='';
+    burger.children[1].style.opacity='';
+    burger.children[2].style.transform='';
+  }
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  var burger=document.querySelector('.nav-burger');
+  burger.children[0].style.transform='';
+  burger.children[1].style.opacity='';
+  burger.children[2].style.transform='';
+}
+
+// Sticky nav with banner offset
+(function(){
+  var nav=document.getElementById('nav');
+  var banner=document.querySelector('.demo-banner');
+  var bannerH=banner?banner.offsetHeight:0;
+
+  function updateNav(){
+    var st=window.scrollY;
+    if(st>bannerH){
+      nav.style.top='0';
+      nav.classList.add('scrolled');
+    }else{
+      nav.style.top=(bannerH-st)+'px';
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  nav.style.top=bannerH+'px';
+  window.addEventListener('scroll',updateNav,{passive:true});
+  window.addEventListener('resize',function(){
+    bannerH=banner?banner.offsetHeight:0;
+    updateNav();
+  });
+})();
+
+// Scroll reveal animations (.rv class with IntersectionObserver)
+(function(){
+  var els=document.querySelectorAll('.rv');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+
+  els.forEach(function(el){
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

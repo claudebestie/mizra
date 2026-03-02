@@ -135,7 +135,7 @@
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
-    "exampleSlug": null,
+    "exampleSlug": "sports-coach",
     "serviceSlug": null
   },
   {
@@ -158,7 +158,7 @@
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
-    "exampleSlug": null,
+    "exampleSlug": "therapist",
     "serviceSlug": null
   },
   {
@@ -181,7 +181,7 @@
       { "q": { "en": "Can I update listings myself?", "he": "אפשר לעדכן נכסים בעצמי?" }, "a": { "en": "You can request listing updates anytime after launch.", "he": "אפשר לבקש עדכוני נכסים בכל עת לאחר ההשקה." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
-    "exampleSlug": null,
+    "exampleSlug": "real-estate",
     "serviceSlug": null
   },
   {
@@ -204,7 +204,7 @@
       { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 2,990 for a complete freelancer website with all features.", "he": "מ-₪2,990 לאתר פרילנסר מלא עם כל הפיצ'רים." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
-    "exampleSlug": null,
+    "exampleSlug": "freelancer",
     "serviceSlug": null
   },
   {
@@ -227,7 +227,7 @@
       { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 2,990 — a fraction of what agencies charge, with faster delivery.", "he": "מ-₪2,990 — חלק קטן ממה שסוכנויות גובות, עם אספקה מהירה יותר." } }
     ],
     "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
-    "exampleSlug": null,
+    "exampleSlug": "startup",
     "serviceSlug": null
   }
 ]

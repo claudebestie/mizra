@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>סטודיו מאיה | עיצוב פנים</title>
+<meta name="description" content="סטודיו מאיה - עיצוב פנים ביפו, תל אביב. עיצוב דירות, חללים מסחריים וייעוץ עיצובי. 10+ שנות ניסיון, עיצוב בר-קיימא.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   VARIABLES
+   ============================================ */
+:root {
+  --terracotta: #C4725A;
+  --terracotta-dark: #A85D48;
+  --terracotta-light: rgba(196, 114, 90, 0.12);
+  --black: #1A1A1A;
+  --black-light: #2E2E2E;
+  --gray: #6B6B6B;
+  --gray-light: #9A9A9A;
+  --gray-border: #E5E5E5;
+  --off-white: #F7F5F3;
+  --white: #FFFFFF;
+  --heading: 'Syne', 'Space Grotesk', sans-serif;
+  --body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  font-weight: 400;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+::selection { background: var(--terracotta); color: var(--white); }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================
+   BILINGUAL: Hebrew default, English toggle
+   ============================================ */
+.he { display: block; }
+.en { display: none; }
+span.he { display: inline; }
+span.en { display: none; }
+body.lang-en .he { display: none !important; }
+body.lang-en .en { display: block !important; }
+body.lang-en span.en { display: inline !important; }
+body.lang-en { direction: ltr; }
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.rv {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rv.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rv-d1 { transition-delay: 0.1s; }
+.rv-d2 { transition-delay: 0.2s; }
+.rv-d3 { transition-delay: 0.3s; }
+.rv-d4 { transition-delay: 0.4s; }
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-pad {
+  padding: 100px 48px;
+}
+
+/* ============================================
+   1. MIZRA DEMO BANNER
+   ============================================ */
+.demo-banner {
+  background: var(--off-white);
+  color: var(--gray);
+  text-align: center;
+  padding: 11px 20px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 200;
+  border-bottom: 1px solid var(--gray-border);
+}
+.demo-banner strong {
+  color: var(--black);
+  font-weight: 600;
+}
+.demo-banner a {
+  color: var(--terracotta);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s;
+}
+.demo-banner a:hover { color: var(--terracotta-dark); }
+
+/* ============================================
+   2. NAVIGATION
+   ============================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-border);
+}
+.nav-logo {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--black);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray);
+  transition: color 0.25s;
+  letter-spacing: 0.3px;
+}
+.nav-links a:hover { color: var(--black); }
+.lang-toggle {
+  background: none;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-family: var(--body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--black);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.lang-toggle:hover {
+  border-color: var(--terracotta);
+  background: var(--terracotta-light);
+}
+.nav-cta {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.3s, transform 0.2s;
+}
+.nav-cta:hover {
+  background: var(--terracotta);
+  transform: translateY(-1px);
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--black);
+  transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--terracotta); }
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  right: auto;
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  color: var(--black);
+  cursor: pointer;
+  line-height: 1;
+}
+[dir="rtl"] .close-btn { left: auto; right: 24px; }
+
+/* ============================================
+   3. HERO
+   ============================================ */
+.hero {
+  padding: 80px 48px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+.hero-text { position: relative; }
+.hero-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--terracotta);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 3.8rem;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-img {
+  position: relative;
+}
+.hero-img img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.hero-img::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  width: 120px;
+  height: 120px;
+  background: var(--terracotta);
+  border-radius: 8px;
+  opacity: 0.15;
+  z-index: -1;
+}
+[dir="rtl"] .hero-img::after { left: -16px; }
+[dir="ltr"] .hero-img::after { right: -16px; }
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: var(--terracotta);
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--black);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-border);
+  transition: border-color 0.3s, color 0.3s, transform 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  transform: translateY(-2px);
+}
+.btn-terracotta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-terracotta:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+}
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-whatsapp:hover {
+  background: #1fbe59;
+  transform: translateY(-2px);
+}
+.btn-whatsapp svg,
+.btn-terracotta svg,
+.btn-primary svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ============================================
+   SECTION COMMON
+   ============================================ */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--terracotta);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+.section-off-white { background: var(--off-white); }
+.section-dark { background: var(--black); }
+.section-terracotta { background: var(--terracotta); }
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--terracotta);
+  margin: 0 0 24px;
+}
+
+/* ============================================
+   4. PORTFOLIO
+   ============================================ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.portfolio-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+}
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+.portfolio-card-img {
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.portfolio-card:hover .portfolio-card-img {
+  transform: scale(1.05);
+}
+.portfolio-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 28px 28px;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.92) 0%, transparent 100%);
+}
+.portfolio-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--terracotta);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+.portfolio-card-overlay h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.portfolio-card-overlay p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   5. ABOUT
+   ============================================ */
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-img img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.about-text .section-title {
+  margin-bottom: 24px;
+}
+.about-text p {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--gray-border);
+}
+.about-stat-num {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.about-stat-label {
+  font-size: 0.82rem;
+  color: var(--gray-light);
+  font-weight: 500;
+}
+
+/* ============================================
+   6. SERVICES
+   ============================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.service-card {
+  background: var(--white);
+  padding: 40px 28px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-border);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+  border-color: var(--terracotta);
+}
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--terracotta-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.service-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--terracotta);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.service-card h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.service-card p {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ============================================
+   7. PROCESS
+   ============================================ */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 16px;
+  position: relative;
+}
+.process-step {
+  text-align: center;
+  position: relative;
+}
+.process-num {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--white);
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 2;
+}
+.process-step::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  height: 2px;
+  background: var(--gray-border);
+  z-index: 1;
+}
+[dir="rtl"] .process-step::before { left: 0; right: 55%; width: 45%; }
+[dir="ltr"] .process-step::before { right: 0; left: 55%; width: 45%; }
+.process-step:last-child::before { display: none; }
+.process-step h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.process-step p {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.process-arrow {
+  color: var(--terracotta);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* ============================================
+   8. TESTIMONIALS
+   ============================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+.testimonial-card {
+  background: var(--white);
+  padding: 40px 36px;
+  border-radius: 8px;
+  position: relative;
+  border: 1px solid var(--gray-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+.testimonial-quote {
+  font-size: 3rem;
+  color: var(--terracotta);
+  font-family: var(--heading);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+.testimonial-card .quote-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--black);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.testimonial-author {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--black);
+}
+.testimonial-role {
+  color: var(--gray-light);
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+/* ============================================
+   9. CTA
+   ============================================ */
+.cta-section {
+  background: var(--black);
+  text-align: center;
+}
+.cta-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cta-content h2 {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.cta-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   10. FOOTER
+   ============================================ */
+.footer {
+  background: var(--black);
+  padding: 40px 48px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  transition: color 0.25s;
+  font-weight: 500;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.78rem;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.footer-copy a {
+  color: var(--terracotta);
+  font-weight: 600;
+  transition: color 0.25s;
+}
+.footer-copy a:hover { color: var(--white); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding: 60px 32px 80px; }
+  .hero h1 { font-size: 3rem; }
+  .hero-img img { height: 400px; }
+  .section-pad { padding: 80px 32px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-wrap { gap: 48px; }
+  .section-title { font-size: 2.3rem; }
+  .nav { padding: 0 28px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .hero { padding: 40px 20px 60px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-desc { font-size: 1rem; }
+  .hero-img img { height: 340px; }
+  .section-pad { padding: 72px 20px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-card-img { height: 300px; }
+  .about-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .about-img img { height: 360px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; gap: 32px; }
+  .process-step::before { display: none; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+  .cta-content h2 { font-size: 2.2rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+  .nav { padding: 0 20px; }
+  .demo-banner { font-size: 0.7rem; padding: 8px 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-desc { font-size: 0.95rem; }
+  .hero-img img { height: 280px; }
+  .btn-primary, .btn-secondary, .btn-terracotta, .btn-whatsapp {
+    padding: 14px 28px;
+    font-size: 0.82rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .about-stats { flex-direction: column; gap: 24px; }
+  .section-title { font-size: 1.75rem; }
+  .cta-content h2 { font-size: 1.8rem; }
+  .nav-logo { font-size: 1rem; letter-spacing: 1px; }
+  .demo-banner { font-size: 0.65rem; padding: 7px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     1. MIZRA DEMO BANNER
+     ============================================ -->
+<div class="demo-banner">
+  <span class="he">זהו אתר לדוגמה שנבנה ע"י <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">קבלו אתר לעסק שלכם</a></span>
+  <span class="en">This is a demo site built by <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">Get a site for your business</a></span>
+</div>
+
+<!-- ============================================
+     2. NAVIGATION
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="he">STUDIO MAYA</span>
+    <span class="en">STUDIO MAYA</span>
+  </div>
+
+  <div class="nav-links">
+    <span class="he"><a href="#portfolio">תיק עבודות</a></span>
+    <span class="en"><a href="#portfolio">Portfolio</a></span>
+    <span class="he"><a href="#about">אודות</a></span>
+    <span class="en"><a href="#about">About</a></span>
+    <span class="he"><a href="#services">שירותים</a></span>
+    <span class="en"><a href="#services">Services</a></span>
+    <span class="he"><a href="#contact">צור קשר</a></span>
+    <span class="en"><a href="#contact">Contact</a></span>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span class="he">EN</span>
+      <span class="en">HE</span>
+    </button>
+    <span class="he"><a href="#contact" class="nav-cta">בואו נדבר</a></span>
+    <span class="en"><a href="#contact" class="nav-cta">Let's Talk</a></span>
+  </div>
+
+  <button class="mobile-menu-btn" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <span class="he"><a href="#portfolio" onclick="toggleMobile()">תיק עבודות</a></span>
+  <span class="en"><a href="#portfolio" onclick="toggleMobile()">Portfolio</a></span>
+  <span class="he"><a href="#about" onclick="toggleMobile()">אודות</a></span>
+  <span class="en"><a href="#about" onclick="toggleMobile()">About</a></span>
+  <span class="he"><a href="#services" onclick="toggleMobile()">שירותים</a></span>
+  <span class="en"><a href="#services" onclick="toggleMobile()">Services</a></span>
+  <span class="he"><a href="#contact" onclick="toggleMobile()">צור קשר</a></span>
+  <span class="en"><a href="#contact" onclick="toggleMobile()">Contact</a></span>
+  <button class="lang-toggle" onclick="toggleLang()" style="margin-top:16px">
+    <span class="he">EN</span>
+    <span class="en">HE</span>
+  </button>
+</div>
+
+<!-- ============================================
+     3. HERO
+     ============================================ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-label rv">
+      <span class="he">עיצוב פנים · יפו, תל אביב</span>
+      <span class="en">Interior Design · Jaffa, Tel Aviv</span>
+    </div>
+    <div class="he">
+      <h1 class="rv rv-d1">עיצוב פנים שמספר<br>את <em>הסיפור שלכם</em></h1>
+    </div>
+    <div class="en">
+      <h1 class="rv rv-d1">Interior Design That<br>Tells <em>Your Story</em></h1>
+    </div>
+    <div class="he">
+      <p class="hero-desc rv rv-d2">אני מאיה אלון, מעצבת פנים עם תשוקה ליצירת חללים שמשקפים את האישיות שלכם. כל פרויקט מתחיל בהקשבה ומסתיים בבית שמרגיש בדיוק נכון.</p>
+    </div>
+    <div class="en">
+      <p class="hero-desc rv rv-d2">I'm Maya Alon, an interior designer with a passion for creating spaces that reflect your personality. Every project begins with listening and ends with a home that feels just right.</p>
+    </div>
+    <div class="hero-buttons rv rv-d3">
+      <span class="he">
+        <a href="#contact" class="btn-primary">בואו נדבר</a>
+        <a href="#portfolio" class="btn-secondary">צפו בעבודות</a>
+      </span>
+      <span class="en">
+        <a href="#contact" class="btn-primary">Let's Talk</a>
+        <a href="#portfolio" class="btn-secondary">View Portfolio</a>
+      </span>
+    </div>
+  </div>
+  <div class="hero-img rv rv-d2">
+    <img src="img/freelancer1.jpg" alt="Creative workspace with mood boards, color swatches and design materials on wood desk" loading="eager">
+  </div>
+</section>
+
+<!-- ============================================
+     4. PORTFOLIO
+     ============================================ -->
+<section id="portfolio" class="section-pad section-off-white">
+  <div class="container">
+    <div class="he rv">
+      <div class="section-label">תיק עבודות</div>
+      <h2 class="section-title">פרויקטים נבחרים</h2>
+      <p class="section-subtitle">מבחר פרויקטים שעוצבו בהשראת הלקוחות שלי ובאהבה לכל פרט ופרט.</p>
+    </div>
+    <div class="en rv">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">A selection of projects designed with inspiration from my clients and love for every detail.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Penthouse Neve Tzedek -->
+      <div class="portfolio-card rv">
+        <div class="portfolio-card-img" style="background: linear-gradient(135deg, #C4725A 0%, #E8C4B8 50%, #F7F5F3 100%);"></div>
+        <div class="portfolio-card-overlay">
+          <div class="he">
+            <div class="portfolio-tag">מגורים</div>
+            <h3>פנטהאוז נווה צדק</h3>
+            <p>180 מ"ר · עיצוב מלא</p>
+          </div>
+          <div class="en">
+            <div class="portfolio-tag">Residential</div>
+            <h3>Penthouse Neve Tzedek</h3>
+            <p>180 sqm · Full Design</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutique Hotel Jaffa -->
+      <div class="portfolio-card rv rv-d1">
+        <div class="portfolio-card-img" style="background: linear-gradient(135deg, #1A1A1A 0%, #6B6B6B 50%, #C4725A 100%);"></div>
+        <div class="portfolio-card-overlay">
+          <div class="he">
+            <div class="portfolio-tag">מסחרי</div>
+            <h3>מלון בוטיק יפו</h3>
+            <p>12 חדרים · לובי ומסעדה</p>
+          </div>
+          <div class="en">
+            <div class="portfolio-tag">Commercial</div>
+            <h3>Boutique Hotel Jaffa</h3>
+            <p>12 Rooms · Lobby & Restaurant</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Startup Office TLV -->
+      <div class="portfolio-card rv rv-d2">
+        <div class="portfolio-card-img" style="background: linear-gradient(135deg, #F7F5F3 0%, #E5E5E5 50%, #2E2E2E 100%);"></div>
+        <div class="portfolio-card-overlay">
+          <div class="he">
+            <div class="portfolio-tag">מסחרי</div>
+            <h3>משרד סטארטאפ תל אביב</h3>
+            <p>320 מ"ר · חלל עבודה פתוח</p>
+          </div>
+          <div class="en">
+            <div class="portfolio-tag">Commercial</div>
+            <h3>Startup Office TLV</h3>
+            <p>320 sqm · Open Plan Workspace</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     5. ABOUT
+     ============================================ -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-img rv">
+        <img src="img/freelancer2.jpg" alt="Maya Alon working at stylish desk with laptop and design papers" loading="lazy">
+      </div>
+      <div class="about-text">
+        <div class="he rv">
+          <div class="section-label">אודות</div>
+          <h2 class="section-title">מאיה אלון</h2>
+          <div class="divider"></div>
+          <p>אני מעצבת פנים עם יותר מ-10 שנות ניסיון בעיצוב חללי מגורים ומסחר. הסטודיו שלי ממוקם בלב יפו העתיקה, ומשם אני מלווה לקוחות מכל רחבי תל אביב והמרכז.</p>
+          <p>את עבודתי פרסמו במגזינים המובילים בארץ, כולל AT Magazine ו-Design IL. אני מאמינה בעיצוב בר-קיימא שמשלב חומרים טבעיים, פונקציונליות ואסתטיקה נקייה.</p>
+          <p>כל פרויקט שלי מתחיל בהקשבה אמיתית ללקוח ובהבנה עמוקה של האופי, הצרכים והשגרה היומיומית שלו.</p>
+        </div>
+        <div class="en rv">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Maya Alon</h2>
+          <div class="divider"></div>
+          <p>I am an interior designer with over 10 years of experience designing residential and commercial spaces. My studio is located in the heart of Old Jaffa, from where I serve clients across Tel Aviv and central Israel.</p>
+          <p>My work has been featured in leading national magazines, including AT Magazine and Design IL. I believe in sustainable design that blends natural materials, functionality, and clean aesthetics.</p>
+          <p>Every project I take on starts with genuine listening and a deep understanding of the client's character, needs, and daily routine.</p>
+        </div>
+        <div class="about-stats rv rv-d1">
+          <div>
+            <div class="about-stat-num">10+</div>
+            <div class="he about-stat-label">שנות ניסיון</div>
+            <div class="en about-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="about-stat-num">85+</div>
+            <div class="he about-stat-label">פרויקטים</div>
+            <div class="en about-stat-label">Projects</div>
+          </div>
+          <div>
+            <div class="about-stat-num">100%</div>
+            <div class="he about-stat-label">מחויבות</div>
+            <div class="en about-stat-label">Dedication</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     6. SERVICES
+     ============================================ -->
+<section id="services" class="section-pad section-off-white">
+  <div class="container">
+    <div class="he rv">
+      <div class="section-label">שירותים</div>
+      <h2 class="section-title">מה אני מציעה</h2>
+      <p class="section-subtitle">פתרונות עיצוב מותאמים אישית לכל פרויקט ולכל תקציב.</p>
+    </div>
+    <div class="en rv">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">What I Offer</h2>
+      <p class="section-subtitle">Custom design solutions tailored to every project and every budget.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Residential Design -->
+      <div class="service-card rv">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="he">
+          <h3>עיצוב מגורים</h3>
+          <p>עיצוב דירות ובתים פרטיים. תכנון חללים, בחירת חומרים, ריהוט ותאורה. ליווי מלא מהקונספט ועד המפתח.</p>
+        </div>
+        <div class="en">
+          <h3>Residential Design</h3>
+          <p>Designing apartments and private homes. Space planning, material selection, furniture and lighting. Full accompaniment from concept to key.</p>
+        </div>
+      </div>
+
+      <!-- Commercial Spaces -->
+      <div class="service-card rv rv-d1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <div class="he">
+          <h3>חללים מסחריים</h3>
+          <p>עיצוב משרדים, מסעדות, מלונות וחנויות. יצירת חוויית מותג ייחודית שמדברת ללקוחות שלכם.</p>
+        </div>
+        <div class="en">
+          <h3>Commercial Spaces</h3>
+          <p>Designing offices, restaurants, hotels of shops. Creating a unique brand experience that speaks to your clients.</p>
+        </div>
+      </div>
+
+      <!-- Design Consulting -->
+      <div class="service-card rv rv-d2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="he">
+          <h3>ייעוץ עיצובי</h3>
+          <p>פגישת ייעוץ ממוקדת לשדרוג החלל הקיים שלכם. המלצות על צבעים, ריהוט, תאורה ופריסה.</p>
+        </div>
+        <div class="en">
+          <h3>Design Consulting</h3>
+          <p>A focused consultation to upgrade your existing space. Recommendations on colors, furniture, lighting and layout.</p>
+        </div>
+      </div>
+
+      <!-- E-Design -->
+      <div class="service-card rv rv-d3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="he">
+          <h3>E-Design (מרחוק)</h3>
+          <p>שירות עיצוב מקוון לכל מקום בארץ ובעולם. חבילת עיצוב מלאה כולל הדמיות, רשימת מוצרים ותוכנית.</p>
+        </div>
+        <div class="en">
+          <h3>E-Design (Remote)</h3>
+          <p>Online design service for anywhere in Israel and worldwide. Full design package including renders, product lists and plans.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     7. PROCESS
+     ============================================ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="he rv" style="text-align:center; margin-bottom:8px;">
+      <div class="section-label">איך זה עובד</div>
+      <h2 class="section-title">תהליך העבודה</h2>
+      <p class="section-subtitle" style="margin:0 auto 48px;">שלושה שלבים פשוטים מהרעיון ועד לחלל המושלם שלכם.</p>
+    </div>
+    <div class="en rv" style="text-align:center; margin-bottom:8px;">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">The Process</h2>
+      <p class="section-subtitle" style="margin:0 auto 48px;">Three simple steps from idea to your perfect space.</p>
+    </div>
+
+    <div class="process-grid">
+      <!-- Step 1 -->
+      <div class="process-step rv">
+        <div class="process-num">1</div>
+        <div class="he">
+          <h3>פגישת ייעוץ</h3>
+          <p>נפגשים בחלל שלכם, מבינים את הצרכים, הטעם והתקציב. מכירים אחד את השני ובודקים התאמה.</p>
+        </div>
+        <div class="en">
+          <h3>Consultation</h3>
+          <p>We meet in your space, understand your needs, taste and budget. Getting to know each other and checking the fit.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="process-step rv rv-d1">
+        <div class="process-num">2</div>
+        <div class="he">
+          <h3>קונספט ותכנון</h3>
+          <p>מפתחת קונספט עיצובי, בוחרת חומרים וצבעים, יוצרת הדמיות תלת-ממד ותוכניות מפורטות.</p>
+        </div>
+        <div class="en">
+          <h3>Concept & Planning</h3>
+          <p>Developing the design concept, selecting materials and colors, creating 3D renders and detailed plans.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="process-step rv rv-d2">
+        <div class="process-num">3</div>
+        <div class="he">
+          <h3>ביצוע ומסירה</h3>
+          <p>מלווה את הביצוע בשטח, מפקחת על כל פרט ופרט ומוודאת שהתוצאה הסופית מושלמת.</p>
+        </div>
+        <div class="en">
+          <h3>Execution & Delivery</h3>
+          <p>Overseeing execution on site, supervising every detail, and ensuring the final result is perfect.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     8. TESTIMONIALS
+     ============================================ -->
+<section id="testimonials" class="section-pad section-off-white">
+  <div class="container">
+    <div class="he rv" style="text-align:center;">
+      <div class="section-label">מה אומרים עליי</div>
+      <h2 class="section-title">לקוחות ממליצים</h2>
+    </div>
+    <div class="en rv" style="text-align:center;">
+      <div class="section-label">What Clients Say</div>
+      <h2 class="section-title">Client Testimonials</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card rv">
+        <div class="testimonial-quote">"</div>
+        <div class="he">
+          <p class="quote-text">מאיה הפכה את הדירה שלנו למשהו שלא חלמנו עליו. היא הקשיבה לכל בקשה, הבינה בדיוק מה אנחנו צריכים ויצרה חלל שמרגיש כמו בית חלומות. מקצועית, יצירתית ונעימה לעבוד איתה.</p>
+          <div class="testimonial-author">נועה ואיתי שורץ</div>
+          <div class="testimonial-role">דירת 4 חדרים, תל אביב</div>
+        </div>
+        <div class="en">
+          <p class="quote-text">Maya transformed our apartment into something we never dreamed of. She listened to every request, understood exactly what we needed, and created a space that feels like a dream home. Professional, creative, and wonderful to work with.</p>
+          <div class="testimonial-author">Noa & Itai Schwartz</div>
+          <div class="testimonial-role">4-Room Apartment, Tel Aviv</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rv rv-d1">
+        <div class="testimonial-quote">"</div>
+        <div class="he">
+          <p class="quote-text">עבדנו עם מאיה על עיצוב המשרד החדש שלנו והתוצאה מדהימה. היא ידעה לשלב בין אסתטיקה לפונקציונליות, והצוות שלנו מאושר. הלקוחות שמגיעים תמיד משלימים על העיצוב.</p>
+          <div class="testimonial-author">דניאל אברהמי</div>
+          <div class="testimonial-role">מנכ"ל, חברת טכנולוגיה</div>
+        </div>
+        <div class="en">
+          <p class="quote-text">We worked with Maya on designing our new office and the result is stunning. She knew how to blend aesthetics with functionality, and our team is thrilled. Clients who visit always compliment the design.</p>
+          <div class="testimonial-author">Daniel Abrahami</div>
+          <div class="testimonial-role">CEO, Tech Company</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     9. CTA
+     ============================================ -->
+<section id="contact" class="section-pad cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <div class="he rv">
+        <h2>מוכנים להתחיל?</h2>
+        <p>בואו נדבר על הפרויקט הבא שלכם. פגישת ייעוץ ראשונית ללא עלות וללא התחייבות.</p>
+      </div>
+      <div class="en rv">
+        <h2>Ready to Start?</h2>
+        <p>Let's talk about your next project. Initial consultation meeting, free of charge and with no obligation.</p>
+      </div>
+      <div class="cta-buttons rv rv-d1">
+        <a href="https://wa.me/972501234567" class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.554 4.122 1.524 5.857L0 24l6.335-1.652A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.88 0-3.63-.5-5.14-1.37l-.37-.22-3.82.998.978-3.57-.24-.38A9.78 9.78 0 0 1 2.18 12C2.18 6.58 6.58 2.18 12 2.18c2.61 0 5.06 1.02 6.9 2.86a9.72 9.72 0 0 1 2.92 6.96c0 5.42-4.4 9.82-9.82 9.82z"/></svg>
+          <span class="he">שלחו WhatsApp</span>
+          <span class="en">WhatsApp Me</span>
+        </a>
+        <a href="#contact" class="btn-terracotta">
+          <span class="he">בואו נדבר</span>
+          <span class="en">Let's Talk</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     10. FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">STUDIO MAYA</div>
+
+    <div class="footer-links">
+      <span class="he"><a href="#portfolio">תיק עבודות</a></span>
+      <span class="en"><a href="#portfolio">Portfolio</a></span>
+      <span class="he"><a href="#about">אודות</a></span>
+      <span class="en"><a href="#about">About</a></span>
+      <span class="he"><a href="#services">שירותים</a></span>
+      <span class="en"><a href="#services">Services</a></span>
+      <span class="he"><a href="#contact">צור קשר</a></span>
+      <span class="en"><a href="#contact">Contact</a></span>
+    </div>
+
+    <div class="footer-copy">
+      <span class="he">&copy; 2026 Studio Maya. כל הזכויות שמורות. · נבנה על ידי <a href="https://getmizra.com" target="_blank" rel="noopener">Mizra</a></span>
+      <span class="en">&copy; 2026 Studio Maya. All rights reserved. · Built by <a href="https://getmizra.com" target="_blank" rel="noopener">Mizra</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+/* Language toggle */
+function toggleLang() {
+  document.body.classList.toggle('lang-en');
+  var html = document.documentElement;
+  if (document.body.classList.contains('lang-en')) {
+    html.setAttribute('dir', 'ltr');
+    html.setAttribute('lang', 'en');
+  } else {
+    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'he');
+  }
+}
+
+/* Mobile menu toggle */
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+
+/* Scroll reveal with IntersectionObserver */
+(function() {
+  var reveals = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+})();
+
+/* Close mobile menu on Escape */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var mobileNav = document.getElementById('mobileNav');
+    if (mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+    }
+  }
+});
+</script>
+</body>
+</html>

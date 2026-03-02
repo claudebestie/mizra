@@ -1,0 +1,534 @@
+---
+import SEOPage from '../layouts/SEOPage.astro';
+import verticals from '../data/verticals.json';
+import cities from '../data/cities.json';
+import {
+  pickVariant, fillTemplate, getVariant,
+  heroIntrosEN, heroIntrosHE,
+  howItWorksIntrosEN, howItWorksIntrosHE,
+  ctaHeadingsEN, ctaHeadingsHE,
+  localAnglesEN, localAnglesHE,
+  pricingTeasersEN, pricingTeasersHE,
+} from '../utils/copyVariants';
+
+// Determine page type from slug pattern
+type PageType = 'builder' | 'city' | 'examples';
+
+interface PathParams {
+  params: { slug: string };
+  props: {
+    pageType: PageType;
+    vertical: (typeof verticals)[0];
+    city?: (typeof cities)[0];
+  };
+}
+
+export async function getStaticPaths(): Promise<PathParams[]> {
+  const paths: PathParams[] = [];
+
+  for (const vertical of verticals) {
+    // Money pages: /restaurant-website-builder/
+    paths.push({
+      params: { slug: `${vertical.slug}-website-builder` },
+      props: { pageType: 'builder', vertical },
+    });
+
+    // Examples pages: /restaurant-website-examples/
+    paths.push({
+      params: { slug: `${vertical.slug}-website-examples` },
+      props: { pageType: 'examples', vertical },
+    });
+
+    // City pages: /restaurant-website-tel-aviv/
+    for (const city of cities) {
+      paths.push({
+        params: { slug: `${vertical.slug}-website-${city.slug}` },
+        props: { pageType: 'city', vertical, city },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { pageType, vertical, city } = Astro.props;
+const site = 'https://getmizra.com';
+const slug = Astro.params.slug;
+const canonical = `${site}/${slug}/`;
+
+// --- Build page-specific content ---
+const vEN = vertical.name.en;
+const vHE = vertical.name.he;
+const cEN = city?.name?.en || '';
+const cHE = city?.name?.he || '';
+const vars = { vertical: vEN, city: cEN };
+const varsHE = { vertical: vHE, city: cHE };
+
+// Title + description
+let titleEN: string, titleHE: string, descEN: string, descHE: string;
+
+if (pageType === 'builder') {
+  titleEN = `${vEN} Website Builder | Mizra`;
+  titleHE = `בניית אתר ל${vHE} | Mizra`;
+  descEN = `Get a professional ${vEN.toLowerCase()} website built in 48 hours. Online menu, mobile design, Google optimization. Starting at NIS 2,990.`;
+  descHE = `קבלו אתר מקצועי ל${vHE} תוך 48 שעות. תפריט אונליין, עיצוב מובייל, אופטימיזציה לגוגל. החל מ-₪2,990.`;
+} else if (pageType === 'city') {
+  titleEN = `${vEN} Website in ${cEN} | Mizra`;
+  titleHE = `אתר ל${vHE} ב${cHE} | Mizra`;
+  descEN = `Professional ${vEN.toLowerCase()} website for businesses in ${cEN}. Mobile-friendly, SEO-optimized, launched in days. From NIS 2,990.`;
+  descHE = `אתר מקצועי ל${vHE} לעסקים ב${cHE}. מותאם למובייל, מותאם ל-SEO, מושק תוך ימים. מ-₪2,990.`;
+} else {
+  titleEN = `${vEN} Website Examples | Mizra`;
+  titleHE = `דוגמאות אתרי ${vHE} | Mizra`;
+  descEN = `See real examples of ${vEN.toLowerCase()} websites built by Mizra. Professional design, fast loading, optimized for Google.`;
+  descHE = `ראו דוגמאות אמיתיות לאתרי ${vHE} שנבנו על ידי Mizra. עיצוב מקצועי, טעינה מהירה, אופטימיזציה לגוגל.`;
+}
+
+const title = `${titleEN} — ${titleHE}`;
+const description = descEN;
+
+// Breadcrumbs
+interface Crumb { en: string; he: string; href?: string }
+const crumbs: Crumb[] = [
+  { en: 'Home', he: 'בית', href: '/' },
+  ...(vertical.serviceSlug ? [{ en: 'Services', he: 'שירותים', href: `/services/${vertical.serviceSlug}/` }] : []),
+];
+if (pageType === 'builder') {
+  crumbs.push({ en: `${vEN} Website`, he: `אתר ל${vHE}` });
+} else if (pageType === 'city') {
+  crumbs.push({ en: `${vEN} Website`, he: `אתר ל${vHE}`, href: `/${vertical.slug}-website-builder/` });
+  crumbs.push({ en: cEN, he: cHE });
+} else {
+  crumbs.push({ en: `${vEN} Website`, he: `אתר ל${vHE}`, href: `/${vertical.slug}-website-builder/` });
+  crumbs.push({ en: 'Examples', he: 'דוגמאות' });
+}
+
+// JSON-LD
+const breadcrumbLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": crumbs.map((c, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": c.en,
+    ...(c.href ? { "item": `${site}${c.href}` } : {}),
+  })),
+};
+
+const faqLD = vertical.faqs?.length ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": vertical.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q.en,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a.en },
+  })),
+} : null;
+
+const serviceLD = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `${vEN} Website Builder`,
+  "description": descEN,
+  "provider": {
+    "@type": "Organization",
+    "name": "Mizra",
+    "url": site,
+  },
+  "areaServed": city ? { "@type": "City", "name": cEN } : { "@type": "Country", "name": "Israel" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Website Plans",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Starter", "price": "2990", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Pro", "price": "4990", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Premium", "price": "7990", "priceCurrency": "ILS" },
+    ],
+  },
+};
+
+const jsonLd = [breadcrumbLD, serviceLD, ...(faqLD ? [faqLD] : [])];
+
+// Copy variants
+const heroIntroEN = getVariant('hero', heroIntrosEN, vertical.slug, city?.slug, vars);
+const heroIntroHE = getVariant('hero', heroIntrosHE, vertical.slug, city?.slug, varsHE);
+const howItWorksEN = getVariant('how', howItWorksIntrosEN, vertical.slug, city?.slug, vars);
+const howItWorksHE = getVariant('how', howItWorksIntrosHE, vertical.slug, city?.slug, varsHE);
+const ctaEN = getVariant('cta', ctaHeadingsEN, vertical.slug, city?.slug, vars);
+const ctaHE = getVariant('cta', ctaHeadingsHE, vertical.slug, city?.slug, varsHE);
+const pricingEN = getVariant('pricing', pricingTeasersEN, vertical.slug, city?.slug, vars);
+const pricingHE = getVariant('pricing', pricingTeasersHE, vertical.slug, city?.slug, varsHE);
+
+// Internal links
+const cityLinks = cities.map(c => ({
+  href: `/${vertical.slug}-website-${c.slug}/`,
+  en: `${vEN} in ${c.name.en}`,
+  he: `${vHE} ב${c.name.he}`,
+}));
+
+const nearbyCityLinks = city ? cities
+  .filter(c => city.nearbyCitySlugs.includes(c.slug))
+  .slice(0, 6)
+  .map(c => ({
+    href: `/${vertical.slug}-website-${c.slug}/`,
+    en: `${vEN} in ${c.name.en}`,
+    he: `${vHE} ב${c.name.he}`,
+  })) : [];
+
+const blogLinks = (vertical.internalLinksBlogSlugs || []).slice(0, 3).map(s => ({
+  href: `/blog/${s}/`,
+  en: s.replace(/-/g, ' '),
+  he: s.replace(/-/g, ' '),
+}));
+
+// Example page data
+const exampleImages: Record<string, string> = {
+  restaurant: '/examples/restaurant/img/restaurant5.jpg',
+  cafe: '/examples/cafe/img/cafe1.jpg',
+  barbershop: '/examples/barbershop/img/barbershop1.jpg',
+  'beauty-salon': '/examples/beauty-salon/img/salon1.jpg',
+  clinic: '/examples/clinic/img/clinic1.jpg',
+};
+
+// H1
+let h1EN: string, h1HE: string;
+if (pageType === 'builder') {
+  h1EN = `Professional <i>${vEN}</i> Website Builder`;
+  h1HE = `בניית אתר מקצועי ל<i>${vHE}</i>`;
+} else if (pageType === 'city') {
+  h1EN = `<i>${vEN}</i> Website in ${cEN}`;
+  h1HE = `אתר ל<i>${vHE}</i> ב${cHE}`;
+} else {
+  h1EN = `<i>${vEN}</i> Website Examples`;
+  h1HE = `דוגמאות אתרי <i>${vHE}</i>`;
+}
+---
+
+<SEOPage title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+
+<!-- Breadcrumbs -->
+<div class="cx">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="en">
+      {crumbs.map((c, i) => (
+        <>
+          {i > 0 && <span>/</span>}
+          {c.href ? <a href={c.href}>{c.en}</a> : <span>{c.en}</span>}
+        </>
+      ))}
+    </div>
+    <div class="he">
+      {crumbs.map((c, i) => (
+        <>
+          {i > 0 && <span>/</span>}
+          {c.href ? <a href={c.href}>{c.he}</a> : <span>{c.he}</span>}
+        </>
+      ))}
+    </div>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="cx">
+    <div class="en">
+      <p class="sl">{vertical.primaryKeyword.en}</p>
+      <h1 set:html={h1EN} />
+      <p>{heroIntroEN}</p>
+    </div>
+    <div class="he">
+      <p class="sl">{vertical.primaryKeyword.he}</p>
+      <h1 set:html={h1HE} />
+      <p>{heroIntroHE}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="sec rv">
+  <div class="cx">
+    <div class="en">
+      <p class="sl">What you get</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        Everything your <i style="color:var(--or)">{vEN.toLowerCase()}</i> website needs
+      </h2>
+    </div>
+    <div class="he">
+      <p class="sl">מה אתם מקבלים</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        כל מה שאתר ה<i style="color:var(--or)">{vHE}</i> שלכם צריך
+      </h2>
+    </div>
+    <div class="feat-grid">
+      {vertical.features.map(f => (
+        <div class="feat-card rv">
+          <div class="en">
+            <h3>{f.title.en}</h3>
+            <p>{f.desc.en}</p>
+          </div>
+          <div class="he">
+            <h3>{f.title.he}</h3>
+            <p>{f.desc.he}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="sec rv" style="background:var(--bg2)">
+  <div class="cx">
+    <div class="en">
+      <p class="sl">How it works</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        {howItWorksEN}
+      </h2>
+    </div>
+    <div class="he">
+      <p class="sl">איך זה עובד</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        {howItWorksHE}
+      </h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card rv">
+        <div class="step-num">1</div>
+        <div class="en">
+          <h3>Tell us about your business</h3>
+          <p>Share your brand, services and any content you'd like on your website. We handle the rest.</p>
+        </div>
+        <div class="he">
+          <h3>ספרו לנו על העסק שלכם</h3>
+          <p>שתפו את המותג, השירותים וכל תוכן שתרצו באתר. אנחנו מטפלים בשאר.</p>
+        </div>
+      </div>
+      <div class="step-card rv">
+        <div class="step-num">2</div>
+        <div class="en">
+          <h3>We design & build</h3>
+          <p>Our team creates a custom website tailored to your {vEN.toLowerCase()} — mobile-ready and SEO-optimized.</p>
+        </div>
+        <div class="he">
+          <h3>אנחנו מעצבים ובונים</h3>
+          <p>הצוות שלנו יוצר אתר מותאם אישית ל{vHE} שלכם — מוכן למובייל ומותאם ל-SEO.</p>
+        </div>
+      </div>
+      <div class="step-card rv">
+        <div class="step-num">3</div>
+        <div class="en">
+          <h3>Launch & grow</h3>
+          <p>Your website goes live within 48-72 hours. Start attracting customers from Google immediately.</p>
+        </div>
+        <div class="he">
+          <h3>השקה וצמיחה</h3>
+          <p>האתר שלכם עולה לאוויר תוך 48-72 שעות. התחילו למשוך לקוחות מגוגל מיד.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Local Angle (city pages only) -->
+{pageType === 'city' && city && (
+  <section class="sec rv">
+    <div class="cx">
+      <div class="local-section">
+        <div class="en">
+          <h2>{vEN} websites for businesses in {cEN}</h2>
+          <p>{city.shortLocalNote.en}</p>
+          <p style="margin-top:12px">{getVariant('local', localAnglesEN, vertical.slug, city.slug, vars)}</p>
+        </div>
+        <div class="he">
+          <h2>אתרי {vHE} לעסקים ב{cHE}</h2>
+          <p>{city.shortLocalNote.he}</p>
+          <p style="margin-top:12px">{getVariant('local', localAnglesHE, vertical.slug, city.slug, varsHE)}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Examples Module -->
+<section class="sec rv">
+  <div class="cx">
+    <div class="en">
+      <p class="sl">Examples</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        See what a {vEN.toLowerCase()} website looks like
+      </h2>
+    </div>
+    <div class="he">
+      <p class="sl">דוגמאות</p>
+      <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+        ראו איך נראה אתר ל{vHE}
+      </h2>
+    </div>
+    <div class="examples-grid">
+      {vertical.exampleSlug && (
+        <a href={`/examples/${vertical.exampleSlug}/`} class="example-card rv">
+          <div class="ex-preview" style={`background-image:url(${exampleImages[vertical.slug] || ''})`}></div>
+          <div class="ex-body">
+            <div class="en"><h3>{vEN} Example</h3></div>
+            <div class="he"><h3>דוגמת {vHE}</h3></div>
+          </div>
+        </a>
+      )}
+      {pageType !== 'examples' && (
+        <a href={`/${vertical.slug}-website-examples/`} class="example-card rv" style="display:flex;align-items:center;justify-content:center;min-height:180px">
+          <div style="text-align:center;padding:24px">
+            <div class="en"><h3>View all {vEN.toLowerCase()} examples &rarr;</h3></div>
+            <div class="he"><h3>צפו בכל דוגמאות ה{vHE} &larr;</h3></div>
+          </div>
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Teaser -->
+<section class="sec rv">
+  <div class="cx">
+    <div class="pricing-teaser">
+      <div class="en">
+        <p class="sl" style="color:var(--or)">Pricing</p>
+        <h2>Simple, transparent pricing</h2>
+        <p>{pricingEN}</p>
+        <p class="price-highlight">From NIS 2,990</p>
+        <a href="/pricing/" class="btn-p" style="display:inline-block;margin-top:16px;padding:14px 32px;background:var(--or);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">See all plans</a>
+      </div>
+      <div class="he">
+        <p class="sl" style="color:var(--or)">תמחור</p>
+        <h2>תמחור פשוט ושקוף</h2>
+        <p>{pricingHE}</p>
+        <p class="price-highlight">החל מ-₪2,990</p>
+        <a href="/pricing/" class="btn-p" style="display:inline-block;margin-top:16px;padding:14px 32px;background:var(--or);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">צפו בכל התוכניות</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+{vertical.faqs?.length > 0 && (
+  <section class="sec rv">
+    <div class="cx">
+      <div class="en">
+        <p class="sl">FAQ</p>
+        <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+          Frequently asked questions
+        </h2>
+      </div>
+      <div class="he">
+        <p class="sl">שאלות נפוצות</p>
+        <h2 style="font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--navy);margin-bottom:8px">
+          שאלות ותשובות
+        </h2>
+      </div>
+      <div class="faq">
+        {vertical.faqs.map(f => (
+          <div class="faq-item">
+            <div class="faq-q">
+              <div>
+                <div class="en"><h3>{f.q.en}</h3></div>
+                <div class="he"><h3>{f.q.he}</h3></div>
+              </div>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <div class="en"><p>{f.a.en}</p></div>
+              <div class="he"><p>{f.a.he}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- CTA Section -->
+<section class="cta-section rv">
+  <div class="cx">
+    <div class="en">
+      <h2>{ctaEN}</h2>
+      <p>Get a professional website built for your {vEN.toLowerCase()} in 48 hours. No monthly fees.</p>
+      <div class="cta-buttons">
+        <a href="/free-audit/" class="btn-p" style="padding:14px 32px;background:var(--or);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">Get free audit</a>
+        <a href="/pricing/" class="btn-o" style="padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);border-radius:8px;text-decoration:none;font-weight:600">See pricing</a>
+      </div>
+    </div>
+    <div class="he">
+      <h2>{ctaHE}</h2>
+      <p>קבלו אתר מקצועי ל{vHE} שלכם תוך 48 שעות. ללא דמי מנוי.</p>
+      <div class="cta-buttons">
+        <a href="/free-audit/" class="btn-p" style="padding:14px 32px;background:var(--or);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">בדיקה חינמית</a>
+        <a href="/pricing/" class="btn-o" style="padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);border-radius:8px;text-decoration:none;font-weight:600">צפו בתמחור</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Internal Links -->
+<div class="cx">
+  <div class="internal-links">
+    {pageType === 'builder' && (
+      <>
+        <div class="en">
+          <h3>{vEN} websites by city</h3>
+          <div class="link-grid">
+            {cityLinks.map(l => <a href={l.href}>{l.en}</a>)}
+          </div>
+        </div>
+        <div class="he">
+          <h3>אתרי {vHE} לפי עיר</h3>
+          <div class="link-grid">
+            {cityLinks.map(l => <a href={l.href}>{l.he}</a>)}
+          </div>
+        </div>
+      </>
+    )}
+
+    {pageType === 'city' && (
+      <>
+        <div class="en">
+          <h3>Related pages</h3>
+          <div class="link-grid">
+            <a href={`/${vertical.slug}-website-builder/`}>{vEN} Website Builder</a>
+            {vertical.serviceSlug && <a href={`/services/${vertical.serviceSlug}/`}>{vEN} Service</a>}
+            {nearbyCityLinks.map(l => <a href={l.href}>{l.en}</a>)}
+            {blogLinks.map(l => <a href={l.href}>{l.en}</a>)}
+          </div>
+        </div>
+        <div class="he">
+          <h3>עמודים קשורים</h3>
+          <div class="link-grid">
+            <a href={`/${vertical.slug}-website-builder/`}>בניית אתר ל{vHE}</a>
+            {vertical.serviceSlug && <a href={`/services/${vertical.serviceSlug}/`}>שירות {vHE}</a>}
+            {nearbyCityLinks.map(l => <a href={l.href}>{l.he}</a>)}
+            {blogLinks.map(l => <a href={l.href}>{l.he}</a>)}
+          </div>
+        </div>
+      </>
+    )}
+
+    {pageType === 'examples' && (
+      <>
+        <div class="en">
+          <h3>Explore more</h3>
+          <div class="link-grid">
+            <a href={`/${vertical.slug}-website-builder/`}>{vEN} Website Builder</a>
+            {cityLinks.slice(0, 5).map(l => <a href={l.href}>{l.en}</a>)}
+          </div>
+        </div>
+        <div class="he">
+          <h3>גלו עוד</h3>
+          <div class="link-grid">
+            <a href={`/${vertical.slug}-website-builder/`}>בניית אתר ל{vHE}</a>
+            {cityLinks.slice(0, 5).map(l => <a href={l.href}>{l.he}</a>)}
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+</div>
+
+</SEOPage>

@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "restaurant",
+    "name": { "en": "Restaurant", "he": "מסעדה" },
+    "primaryKeyword": { "en": "restaurant website builder", "he": "בניית אתר למסעדה" },
+    "synonyms": { "en": ["eatery", "dining", "bistro"], "he": ["בית אוכל", "מסעדה", "ביסטרו"] },
+    "features": [
+      { "title": { "en": "Online Menu", "he": "תפריט אונליין" }, "desc": { "en": "Display your full menu with photos, prices and categories — updated anytime.", "he": "הציגו את התפריט המלא עם תמונות, מחירים וקטגוריות — עדכון בכל עת." } },
+      { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your site looks perfect on every phone, tablet and desktop screen.", "he": "האתר שלכם נראה מושלם בכל טלפון, טאבלט ומסך מחשב." } },
+      { "title": { "en": "Google Maps Integration", "he": "שילוב Google Maps" }, "desc": { "en": "Customers find you instantly with an embedded interactive map.", "he": "לקוחות מוצאים אתכם מיד עם מפה אינטראקטיבית משובצת." } },
+      { "title": { "en": "Reservation Links", "he": "קישורי הזמנות" }, "desc": { "en": "Connect your booking system so diners reserve a table directly.", "he": "חברו את מערכת ההזמנות כדי שסועדים יזמינו שולחן ישירות." } },
+      { "title": { "en": "WhatsApp Contact", "he": "יצירת קשר בוואטסאפ" }, "desc": { "en": "One-tap WhatsApp button so customers reach you instantly.", "he": "כפתור וואטסאפ בלחיצה אחת כדי שלקוחות יגיעו אליכם מיד." } },
+      { "title": { "en": "Fast Loading Website", "he": "אתר מהיר" }, "desc": { "en": "Optimized for speed — loads in under 2 seconds on any connection.", "he": "מותאם למהירות — נטען תוך פחות מ-2 שניות בכל חיבור." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a restaurant need a website?", "he": "למה מסעדה צריכה אתר?" }, "a": { "en": "A restaurant website helps customers find your menu, opening hours and location quickly on Google.", "he": "אתר למסעדה עוזר ללקוחות למצוא את התפריט, שעות הפתיחה והמיקום שלכם במהירות בגוגל." } },
+      { "q": { "en": "Can I show my menu online?", "he": "אפשר להציג את התפריט אונליין?" }, "a": { "en": "Yes. Your website can include a full online menu that works perfectly on mobile.", "he": "כן. האתר שלכם יכול לכלול תפריט אונליין מלא שעובד מצוין במובייל." } },
+      { "q": { "en": "Will my website appear on Google?", "he": "האתר שלי יופיע בגוגל?" }, "a": { "en": "Yes. All Mizra websites are optimized so your restaurant can appear in Google search results.", "he": "כן. כל אתרי Mizra מותאמים כדי שהמסעדה שלכם תופיע בתוצאות החיפוש של גוגל." } },
+      { "q": { "en": "How long does it take to launch?", "he": "כמה זמן לוקח להשיק?" }, "a": { "en": "Most Mizra websites are launched within a few days after the design is approved.", "he": "רוב אתרי Mizra מושקים תוך מספר ימים לאחר אישור העיצוב." } },
+      { "q": { "en": "Can I update my menu later?", "he": "אפשר לעדכן את התפריט אחר כך?" }, "a": { "en": "Yes. You can request updates anytime after launch.", "he": "כן. אפשר לבקש עדכונים בכל עת לאחר ההשקה." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
+    "exampleSlug": "restaurant",
+    "serviceSlug": "restaurants"
+  },
+  {
+    "slug": "cafe",
+    "name": { "en": "Cafe", "he": "בית קפה" },
+    "primaryKeyword": { "en": "cafe website design", "he": "עיצוב אתר לבית קפה" },
+    "synonyms": { "en": ["coffee shop", "coffeehouse"], "he": ["קפה", "קפיטריה"] },
+    "features": [
+      { "title": { "en": "Menu Display", "he": "תצוגת תפריט" }, "desc": { "en": "Show your drinks, pastries and brunch options in a beautiful layout.", "he": "הציגו את המשקאות, המאפים ואפשרויות הברנץ' בעיצוב יפהפה." } },
+      { "title": { "en": "Mobile-First Design", "he": "עיצוב מובייל ראשון" }, "desc": { "en": "Built for mobile first — your cafe looks stunning on every screen.", "he": "נבנה למובייל קודם — בית הקפה שלכם נראה מדהים בכל מסך." } },
+      { "title": { "en": "Location & Hours", "he": "מיקום ושעות" }, "desc": { "en": "Display your address, hours and directions clearly for walk-ins.", "he": "הציגו כתובת, שעות והכוונה בצורה ברורה למבקרים." } },
+      { "title": { "en": "Instagram Integration", "he": "שילוב אינסטגרם" }, "desc": { "en": "Showcase your latest photos directly from your Instagram feed.", "he": "הציגו את התמונות האחרונות ישירות מהפיד של אינסטגרם." } },
+      { "title": { "en": "Google Maps Visibility", "he": "נראות בגוגל מפות" }, "desc": { "en": "Appear on Google Maps so coffee lovers find you easily.", "he": "הופיעו בגוגל מפות כדי שחובבי קפה ימצאו אתכם בקלות." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Does a cafe really need a website?", "he": "בית קפה באמת צריך אתר?" }, "a": { "en": "Yes. Most customers search online before visiting a new cafe. A website helps you appear in those searches.", "he": "כן. רוב הלקוחות מחפשים אונליין לפני ביקור בבית קפה חדש. אתר עוזר לכם להופיע בחיפושים האלה." } },
+      { "q": { "en": "Can I show my food photos?", "he": "אפשר להציג תמונות אוכל?" }, "a": { "en": "Absolutely. Your website includes a gallery section for your best dishes and drinks.", "he": "בהחלט. האתר שלכם כולל גלריה לתמונות המנות והמשקאות הטובים ביותר." } },
+      { "q": { "en": "How fast is the website?", "he": "כמה מהיר האתר?" }, "a": { "en": "Mizra websites load in under 2 seconds — critical for mobile visitors.", "he": "אתרי Mizra נטענים תוך פחות מ-2 שניות — קריטי למבקרים מהמובייל." } },
+      { "q": { "en": "Do I need to know coding?", "he": "צריך לדעת קוד?" }, "a": { "en": "No. Mizra handles everything — design, development and launch.", "he": "לא. Mizra מטפלת בהכל — עיצוב, פיתוח והשקה." } },
+      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Plans start at NIS 2,990 for a single page website. See our pricing page for details.", "he": "תוכניות מתחילות מ-₪2,990 לאתר דף יחיד. ראו את עמוד התמחור לפרטים." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
+    "exampleSlug": "cafe",
+    "serviceSlug": "cafes"
+  },
+  {
+    "slug": "barbershop",
+    "name": { "en": "Barbershop", "he": "מספרה" },
+    "primaryKeyword": { "en": "barbershop website design", "he": "עיצוב אתר למספרה" },
+    "synonyms": { "en": ["barber", "hair salon for men"], "he": ["ברבר", "ספר"] },
+    "features": [
+      { "title": { "en": "Services List", "he": "רשימת שירותים" }, "desc": { "en": "Display all your cuts, trims and grooming services with prices.", "he": "הציגו את כל התספורות, הגילוח ושירותי הטיפוח עם מחירים." } },
+      { "title": { "en": "Price Menu", "he": "תפריט מחירים" }, "desc": { "en": "Clear pricing helps customers choose before they walk in.", "he": "מחירון ברור עוזר ללקוחות לבחור לפני שהם נכנסים." } },
+      { "title": { "en": "Online Booking Links", "he": "קישורי הזמנה אונליין" }, "desc": { "en": "Connect to your booking app so clients schedule instantly.", "he": "התחברו לאפליקציית ההזמנות כדי שלקוחות יקבעו תור מיד." } },
+      { "title": { "en": "Gallery", "he": "גלריה" }, "desc": { "en": "Showcase your best haircuts and styles to attract new clients.", "he": "הציגו את התספורות והסגנונות הטובים ביותר שלכם למשיכת לקוחות חדשים." } },
+      { "title": { "en": "Google Maps Integration", "he": "שילוב Google Maps" }, "desc": { "en": "Help clients find your shop with an embedded interactive map.", "he": "עזרו ללקוחות למצוא את החנות שלכם עם מפה אינטראקטיבית משובצת." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a barbershop need a website?", "he": "למה מספרה צריכה אתר?" }, "a": { "en": "Most people search for barbershops on Google. A professional website makes you visible and builds trust.", "he": "רוב האנשים מחפשים מספרות בגוגל. אתר מקצועי הופך אתכם לגלויים ובונה אמון." } },
+      { "q": { "en": "Can clients book through the website?", "he": "לקוחות יכולים להזמין דרך האתר?" }, "a": { "en": "Yes. We connect your website to any booking tool you already use.", "he": "כן. אנחנו מחברים את האתר לכל כלי הזמנות שאתם כבר משתמשים בו." } },
+      { "q": { "en": "Will it work on mobile?", "he": "זה עובד במובייל?" }, "a": { "en": "Every Mizra website is built mobile-first and looks great on all devices.", "he": "כל אתר Mizra נבנה מובייל קודם ונראה מעולה בכל המכשירים." } },
+      { "q": { "en": "How much does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 2,990 for a single-page website with all features included.", "he": "מ-₪2,990 לאתר דף יחיד עם כל הפיצ'רים כלולים." } },
+      { "q": { "en": "Can I show my work?", "he": "אפשר להציג את העבודות שלי?" }, "a": { "en": "Yes. Your website includes a gallery section where you can showcase your best styles.", "he": "כן. האתר שלכם כולל גלריה בה תוכלו להציג את הסגנונות הטובים ביותר." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "wix-vs-atar-mutaam", "tauyot-be-atar-iski"],
+    "exampleSlug": "barbershop",
+    "serviceSlug": "barbershops"
+  },
+  {
+    "slug": "beauty-salon",
+    "name": { "en": "Beauty Salon", "he": "סטודיו יופי" },
+    "primaryKeyword": { "en": "beauty salon website design", "he": "עיצוב אתר לסטודיו יופי" },
+    "synonyms": { "en": ["salon", "spa", "beauty studio"], "he": ["מכון יופי", "סלון", "ספא"] },
+    "features": [
+      { "title": { "en": "Services List", "he": "רשימת שירותים" }, "desc": { "en": "Showcase all your treatments — hair, nails, skincare, makeup — with descriptions.", "he": "הציגו את כל הטיפולים — שיער, ציפורניים, טיפוחי עור, איפור — עם תיאורים." } },
+      { "title": { "en": "Online Booking Links", "he": "קישורי הזמנה אונליין" }, "desc": { "en": "Clients book appointments directly from your website.", "he": "לקוחות קובעים תורים ישירות מהאתר שלכם." } },
+      { "title": { "en": "Instagram Gallery", "he": "גלריית אינסטגרם" }, "desc": { "en": "Display your latest work from Instagram to inspire potential clients.", "he": "הציגו את העבודות האחרונות מאינסטגרם כדי לעורר השראה בלקוחות פוטנציאליים." } },
+      { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your salon looks beautiful on every phone and tablet.", "he": "הסלון שלכם נראה יפהפה בכל טלפון וטאבלט." } },
+      { "title": { "en": "Google Visibility", "he": "נראות בגוגל" }, "desc": { "en": "SEO-optimized so clients find you when searching for salons nearby.", "he": "מותאם ל-SEO כדי שלקוחות ימצאו אתכם כשהם מחפשים סלונים בסביבה." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a beauty salon need a website?", "he": "למה סטודיו יופי צריך אתר?" }, "a": { "en": "A website showcases your services and builds trust — clients can see your work before booking.", "he": "אתר מציג את השירותים שלכם ובונה אמון — לקוחות יכולים לראות את העבודות שלכם לפני הזמנה." } },
+      { "q": { "en": "Can I connect my booking system?", "he": "אפשר לחבר את מערכת ההזמנות?" }, "a": { "en": "Yes. We integrate with any booking platform you use.", "he": "כן. אנחנו מתממשקים עם כל פלטפורמת הזמנות שאתם משתמשים בה." } },
+      { "q": { "en": "How long until my site is live?", "he": "כמה זמן עד שהאתר באוויר?" }, "a": { "en": "Most beauty salon websites launch within 48-72 hours after approval.", "he": "רוב אתרי סטודיו יופי מושקים תוך 48-72 שעות לאחר אישור." } },
+      { "q": { "en": "What if I need changes?", "he": "מה אם צריך שינויים?" }, "a": { "en": "You can request changes anytime — we're here to help.", "he": "אפשר לבקש שינויים בכל עת — אנחנו כאן לעזור." } },
+      { "q": { "en": "Is the website SEO-friendly?", "he": "האתר ידידותי ל-SEO?" }, "a": { "en": "Yes. Every Mizra website is optimized for Google search from day one.", "he": "כן. כל אתר Mizra מותאם לחיפוש בגוגל מיום הראשון." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
+    "exampleSlug": "beauty-salon",
+    "serviceSlug": "beauty-salons"
+  },
+  {
+    "slug": "clinic",
+    "name": { "en": "Clinic", "he": "קליניקה" },
+    "primaryKeyword": { "en": "clinic website design", "he": "עיצוב אתר לקליניקה" },
+    "synonyms": { "en": ["medical practice", "dental clinic", "health clinic"], "he": ["מרפאה", "קליניקה רפואית", "מרפאת שיניים"] },
+    "features": [
+      { "title": { "en": "Services Pages", "he": "עמודי שירותים" }, "desc": { "en": "Dedicated pages for each treatment or specialty you offer.", "he": "עמודים ייעודיים לכל טיפול או התמחות שאתם מציעים." } },
+      { "title": { "en": "Doctor Profiles", "he": "פרופילי רופאים" }, "desc": { "en": "Introduce your team with photos, qualifications and specialties.", "he": "הציגו את הצוות שלכם עם תמונות, הכשרות והתמחויות." } },
+      { "title": { "en": "Appointment Booking", "he": "קביעת תורים" }, "desc": { "en": "Patients book appointments directly through your website.", "he": "מטופלים קובעים תורים ישירות דרך האתר שלכם." } },
+      { "title": { "en": "Google Maps Integration", "he": "שילוב Google Maps" }, "desc": { "en": "Patients find your clinic easily with an embedded map.", "he": "מטופלים מוצאים את הקליניקה שלכם בקלות עם מפה משובצת." } },
+      { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your clinic site works perfectly on any device — phone, tablet or desktop.", "he": "אתר הקליניקה שלכם עובד מושלם בכל מכשיר — טלפון, טאבלט או מחשב." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a clinic need a website?", "he": "למה קליניקה צריכה אתר?" }, "a": { "en": "Patients search online for clinics and doctors. A professional website builds trust and helps them find you.", "he": "מטופלים מחפשים קליניקות ורופאים אונליין. אתר מקצועי בונה אמון ועוזר להם למצוא אתכם." } },
+      { "q": { "en": "Can patients book online?", "he": "מטופלים יכולים להזמין אונליין?" }, "a": { "en": "Yes. We integrate booking forms or links to your scheduling system.", "he": "כן. אנחנו משלבים טפסי הזמנה או קישורים למערכת התורים שלכם." } },
+      { "q": { "en": "Is the website HIPAA compliant?", "he": "האתר עומד בתקנות?" }, "a": { "en": "Mizra websites are informational. For sensitive data, we integrate with compliant booking platforms.", "he": "אתרי Mizra הם מידעיים. למידע רגיש, אנחנו מתממשקים עם פלטפורמות תואמות תקנות." } },
+      { "q": { "en": "How quickly can my site launch?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most clinic websites are ready within 48-72 hours after approval.", "he": "רוב אתרי הקליניקות מוכנים תוך 48-72 שעות לאחר אישור." } },
+      { "q": { "en": "Can I list multiple doctors?", "he": "אפשר לרשום מספר רופאים?" }, "a": { "en": "Yes. Your website can feature profiles for every doctor or specialist in your practice.", "he": "כן. האתר שלכם יכול להציג פרופילים לכל רופא או מומחה בפרקטיקה." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
+    "exampleSlug": "clinic",
+    "serviceSlug": "clinics"
+  },
+  {
+    "slug": "coach",
+    "name": { "en": "Coach / Therapist", "he": "מאמן / מטפל" },
+    "primaryKeyword": { "en": "coach website builder", "he": "בניית אתר למאמן" },
+    "synonyms": { "en": ["therapist", "life coach", "counselor"], "he": ["מטפל", "יועץ", "קואצ'ר"] },
+    "features": [
+      { "title": { "en": "Services & Specialties", "he": "שירותים והתמחויות" }, "desc": { "en": "Present your coaching or therapy services with clear descriptions and benefits.", "he": "הציגו את שירותי האימון או הטיפול שלכם עם תיאורים ויתרונות ברורים." } },
+      { "title": { "en": "Online Booking", "he": "הזמנה אונליין" }, "desc": { "en": "Clients book sessions directly through your website — no back-and-forth emails.", "he": "לקוחות קובעים פגישות ישירות דרך האתר — ללא מיילים הלוך ושוב." } },
+      { "title": { "en": "Testimonials Section", "he": "המלצות" }, "desc": { "en": "Build trust with testimonials from past clients displayed beautifully.", "he": "בנו אמון עם המלצות מלקוחות קודמים שמוצגות בצורה יפהפייה." } },
+      { "title": { "en": "About & Credentials", "he": "אודות והסמכות" }, "desc": { "en": "Showcase your qualifications, certifications and professional background.", "he": "הציגו את ההכשרות, ההסמכות והרקע המקצועי שלכם." } },
+      { "title": { "en": "Blog Integration", "he": "שילוב בלוג" }, "desc": { "en": "Share insights and articles to establish yourself as an authority.", "he": "שתפו תובנות ומאמרים כדי לבסס את עצמכם כסמכות מקצועית." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a coach need a website?", "he": "למה מאמן צריך אתר?" }, "a": { "en": "A website establishes credibility and helps potential clients find and trust you before booking.", "he": "אתר מבסס אמינות ועוזר ללקוחות פוטנציאליים למצוא ולסמוך עליכם לפני הזמנה." } },
+      { "q": { "en": "Can clients book sessions online?", "he": "לקוחות יכולים להזמין פגישות אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
+      { "q": { "en": "Can I write blog posts?", "he": "אפשר לכתוב פוסטים בבלוג?" }, "a": { "en": "Yes. Your website can include a blog section where you share expertise and attract organic traffic.", "he": "כן. האתר שלכם יכול לכלול בלוג בו תשתפו מומחיות ותמשכו תנועה אורגנית." } },
+      { "q": { "en": "How much does a coaching website cost?", "he": "כמה עולה אתר למאמן?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
+    "exampleSlug": null,
+    "serviceSlug": null
+  },
+  {
+    "slug": "real-estate",
+    "name": { "en": "Real Estate Agent", "he": "סוכן נדל\"ן" },
+    "primaryKeyword": { "en": "real estate agent website", "he": "אתר לסוכן נדל\"ן" },
+    "synonyms": { "en": ["realtor", "property agent", "real estate agency"], "he": ["מתווך", "סוכנות נדל\"ן"] },
+    "features": [
+      { "title": { "en": "Property Listings", "he": "רשימת נכסים" }, "desc": { "en": "Showcase properties with photos, details and pricing in a clean layout.", "he": "הציגו נכסים עם תמונות, פרטים ומחירים בעיצוב נקי." } },
+      { "title": { "en": "Contact & Inquiry Forms", "he": "טפסי יצירת קשר" }, "desc": { "en": "Capture leads directly from your website with smart contact forms.", "he": "לכדו לידים ישירות מהאתר עם טפסי יצירת קשר חכמים." } },
+      { "title": { "en": "Area Expertise Pages", "he": "עמודי מומחיות אזורית" }, "desc": { "en": "Establish yourself as the local expert with neighborhood guide pages.", "he": "בססו את עצמכם כמומחה מקומי עם עמודי מדריך שכונות." } },
+      { "title": { "en": "Google Maps Integration", "he": "שילוב Google Maps" }, "desc": { "en": "Show property locations and your office on an interactive map.", "he": "הציגו מיקומי נכסים והמשרד שלכם על מפה אינטראקטיבית." } },
+      { "title": { "en": "Mobile-Optimized", "he": "מותאם למובייל" }, "desc": { "en": "Buyers browse properties on their phones — your site works perfectly on mobile.", "he": "קונים מעיינים בנכסים בטלפון — האתר שלכם עובד מושלם במובייל." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a real estate agent need a website?", "he": "למה סוכן נדל\"ן צריך אתר?" }, "a": { "en": "A website showcases your listings, builds credibility and generates leads 24/7.", "he": "אתר מציג את הנכסים שלכם, בונה אמינות ומייצר לידים 24/7." } },
+      { "q": { "en": "Can I list properties on my site?", "he": "אפשר לפרסם נכסים באתר?" }, "a": { "en": "Yes. Your website includes a listings section with photos, details and inquiry forms.", "he": "כן. האתר כולל מדור נכסים עם תמונות, פרטים וטפסי פנייה." } },
+      { "q": { "en": "Will it help me get leads?", "he": "זה יעזור לי לקבל לידים?" }, "a": { "en": "Yes. SEO-optimized pages and contact forms help you capture leads from Google search.", "he": "כן. עמודים מותאמי SEO וטפסי יצירת קשר עוזרים לכם ללכוד לידים מחיפוש גוגל." } },
+      { "q": { "en": "How quickly can my site go live?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most real estate websites are ready within 48-72 hours.", "he": "רוב אתרי הנדל\"ן מוכנים תוך 48-72 שעות." } },
+      { "q": { "en": "Can I update listings myself?", "he": "אפשר לעדכן נכסים בעצמי?" }, "a": { "en": "You can request listing updates anytime after launch.", "he": "אפשר לבקש עדכוני נכסים בכל עת לאחר ההשקה." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
+    "exampleSlug": null,
+    "serviceSlug": null
+  },
+  {
+    "slug": "consultant",
+    "name": { "en": "Consultant / Freelancer", "he": "יועץ / פרילנסר" },
+    "primaryKeyword": { "en": "consultant website builder", "he": "בניית אתר ליועץ" },
+    "synonyms": { "en": ["freelancer", "independent professional", "advisor"], "he": ["עצמאי", "פרילנסר", "יועץ עסקי"] },
+    "features": [
+      { "title": { "en": "Services & Expertise", "he": "שירותים ומומחיות" }, "desc": { "en": "Present your consulting services, methodology and areas of expertise.", "he": "הציגו את שירותי הייעוץ, המתודולוגיה ותחומי המומחיות שלכם." } },
+      { "title": { "en": "Portfolio & Case Studies", "he": "תיק עבודות" }, "desc": { "en": "Showcase past projects and results to build client confidence.", "he": "הציגו פרויקטים קודמים ותוצאות כדי לבנות אמון לקוחות." } },
+      { "title": { "en": "Contact & Lead Capture", "he": "יצירת קשר ולכידת לידים" }, "desc": { "en": "Smart forms that capture leads and route inquiries to your inbox.", "he": "טפסים חכמים שלוכדים לידים ומנתבים פניות לתיבת הדואר שלכם." } },
+      { "title": { "en": "Professional Bio", "he": "ביוגרפיה מקצועית" }, "desc": { "en": "A compelling about page that tells your story and builds trust.", "he": "עמוד אודות משכנע שמספר את הסיפור שלכם ובונה אמון." } },
+      { "title": { "en": "SEO Optimized", "he": "מותאם ל-SEO" }, "desc": { "en": "Rank for your niche keywords so potential clients find you on Google.", "he": "דרגו את מילות המפתח בנישה שלכם כדי שלקוחות פוטנציאליים ימצאו אתכם בגוגל." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a consultant need a website?", "he": "למה יועץ צריך אתר?" }, "a": { "en": "A website is your digital business card. It establishes authority and generates inbound leads.", "he": "אתר הוא כרטיס הביקור הדיגיטלי שלכם. הוא מבסס סמכות ומייצר לידים נכנסים." } },
+      { "q": { "en": "Can I show my past work?", "he": "אפשר להציג עבודות קודמות?" }, "a": { "en": "Yes. Your website includes a portfolio section for case studies and project highlights.", "he": "כן. האתר כולל מדור תיק עבודות לתיאורי מקרה ופרויקטים בולטים." } },
+      { "q": { "en": "Is it good for SEO?", "he": "זה טוב ל-SEO?" }, "a": { "en": "Every Mizra website is SEO-optimized from day one to help you rank for relevant keywords.", "he": "כל אתר Mizra מותאם ל-SEO מיום הראשון כדי לעזור לכם לדרג מילות מפתח רלוונטיות." } },
+      { "q": { "en": "Can I add a blog?", "he": "אפשר להוסיף בלוג?" }, "a": { "en": "Yes. A blog helps establish thought leadership and attracts organic search traffic.", "he": "כן. בלוג עוזר לבסס מנהיגות מחשבתית ומושך תנועת חיפוש אורגנית." } },
+      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 2,990 for a complete consulting website with all features.", "he": "מ-₪2,990 לאתר ייעוץ מלא עם כל הפיצ'רים." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
+    "exampleSlug": null,
+    "serviceSlug": null
+  },
+  {
+    "slug": "startup",
+    "name": { "en": "Startup", "he": "סטארטאפ" },
+    "primaryKeyword": { "en": "startup website builder", "he": "בניית אתר לסטארטאפ" },
+    "synonyms": { "en": ["early-stage startup", "tech startup", "new venture"], "he": ["סטארט-אפ", "חברה צעירה", "מיזם"] },
+    "features": [
+      { "title": { "en": "Landing Page Design", "he": "עיצוב דף נחיתה" }, "desc": { "en": "A compelling landing page that communicates your value proposition clearly.", "he": "דף נחיתה משכנע שמתקשר את הצעת הערך שלכם בבהירות." } },
+      { "title": { "en": "Lead Capture", "he": "לכידת לידים" }, "desc": { "en": "Collect early adopter emails and signups with smart forms.", "he": "אספו מיילים של אימוץ מוקדם והרשמות עם טפסים חכמים." } },
+      { "title": { "en": "Product Showcase", "he": "הצגת מוצר" }, "desc": { "en": "Present your product or service with screenshots, demos and feature lists.", "he": "הציגו את המוצר או השירות שלכם עם צילומי מסך, דמואים ורשימות פיצ'רים." } },
+      { "title": { "en": "Team Section", "he": "מדור צוות" }, "desc": { "en": "Introduce your founding team to build investor and customer trust.", "he": "הציגו את הצוות המייסד כדי לבנות אמון משקיעים ולקוחות." } },
+      { "title": { "en": "Fast & Lightweight", "he": "מהיר וקליל" }, "desc": { "en": "Blazing fast website that loads instantly — no bloated frameworks.", "he": "אתר מהיר שנטען מיד — ללא פריימוורקים כבדים." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does an early-stage startup need a website?", "he": "למה סטארטאפ בשלב מוקדם צריך אתר?" }, "a": { "en": "A website gives your startup credibility, helps attract early users and impresses investors.", "he": "אתר נותן לסטארטאפ שלכם אמינות, עוזר למשוך משתמשים מוקדמים ומרשים משקיעים." } },
+      { "q": { "en": "Can I collect signups?", "he": "אפשר לאסוף הרשמות?" }, "a": { "en": "Yes. Your website includes email capture forms to build your early adopter list.", "he": "כן. האתר כולל טפסי לכידת מיילים לבניית רשימת האימוץ המוקדם שלכם." } },
+      { "q": { "en": "How fast can we launch?", "he": "כמה מהר אפשר להשיק?" }, "a": { "en": "Most startup websites launch within 48 hours. Perfect for your next demo day or pitch.", "he": "רוב אתרי הסטארטאפ מושקים תוך 48 שעות. מושלם ליום הדמו או הפיץ' הבא שלכם." } },
+      { "q": { "en": "Can I update it as we grow?", "he": "אפשר לעדכן ככל שגדלים?" }, "a": { "en": "Yes. Request updates anytime as your product and messaging evolve.", "he": "כן. בקשו עדכונים בכל עת ככל שהמוצר והמסרים שלכם מתפתחים." } },
+      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 2,990 — a fraction of what agencies charge, with faster delivery.", "he": "מ-₪2,990 — חלק קטן ממה שסוכנויות גובות, עם אספקה מהירה יותר." } }
+    ],
+    "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
+    "exampleSlug": null,
+    "serviceSlug": null
+  }
+]

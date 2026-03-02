@@ -75,6 +75,11 @@ function renderFooter() {
   <div class="en"><a href="/services/restaurants/">Restaurants</a> · <a href="/services/cafes/">Cafés</a> · <a href="/services/beauty-salons/">Salons</a> · <a href="/services/barbershops/">Barbers</a> · <a href="/services/clinics/">Clinics</a> · <a href="/services/lawyers/">Lawyers</a> · <a href="/services/contractors/">Contractors</a></div>
   <div class="he"><a href="/services/restaurants/">מסעדות</a> · <a href="/services/cafes/">בתי קפה</a> · <a href="/services/beauty-salons/">מכוני יופי</a> · <a href="/services/barbershops/">מספרות</a> · <a href="/services/clinics/">קליניקות</a> · <a href="/services/lawyers/">עורכי דין</a> · <a href="/services/contractors/">קבלנים</a></div>
 </div>
+<div class="footer-legal" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:.78rem">
+  <a href="/terms/" style="color:var(--txd);text-decoration:none;margin-right:16px">Terms of Service</a>
+  <a href="/privacy/" style="color:var(--txd);text-decoration:none;margin-right:16px">Privacy Policy</a>
+  <a href="/contact/" style="color:var(--txd);text-decoration:none">Contact</a>
+</div>
 <p>&copy; 2026 Mizra. hello@getmizra.com</p>`;
   document.body.appendChild(footer);
 }

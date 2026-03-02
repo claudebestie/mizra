@@ -1,0 +1,147 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  jsonLd?: object[];
+}
+
+const { title, description, canonical, jsonLd = [] } = Astro.props;
+const buildDate = new Date().toISOString().split('T')[0];
+---
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href={canonical}>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Mizra">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+
+<!-- Fonts (same as main site) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Main site stylesheet -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- JSON-LD Structured Data -->
+{jsonLd.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
+
+<style>
+  /* Additional styles for programmatic SEO pages */
+  .breadcrumbs{padding:12px 0;font-size:.82rem;color:var(--txl)}
+  .breadcrumbs a{color:var(--txl);text-decoration:none}
+  .breadcrumbs a:hover{color:var(--or)}
+  .breadcrumbs span{margin:0 6px;opacity:.5}
+
+  .page-hero{padding:64px 0 48px;text-align:center}
+  .page-hero h1{font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15}
+  .page-hero h1 i{font-style:italic;color:var(--or)}
+  .page-hero p{color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7}
+
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:32px}
+  .feat-card{background:var(--white);border:1px solid var(--bd);border-radius:12px;padding:28px 24px;transition:transform .3s,box-shadow .3s}
+  .feat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+  .feat-card h3{font-family:var(--sf);font-size:1.05rem;color:var(--navy);margin-bottom:8px}
+  .feat-card p{color:var(--tx);font-size:.9rem;line-height:1.6;margin:0}
+
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+  .step-card{text-align:center;padding:32px 20px}
+  .step-num{font-family:var(--sf);font-size:3.5rem;font-weight:700;color:var(--navy);opacity:.1;line-height:1}
+  .step-card h3{font-family:var(--sf);font-size:1.05rem;color:var(--navy);margin:12px 0 8px}
+  .step-card p{color:var(--tx);font-size:.88rem;line-height:1.6}
+
+  .local-section{background:var(--bg2);border-radius:14px;padding:40px 36px;margin:24px 0}
+  .local-section h2{font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,1.8rem);color:var(--navy);margin-bottom:16px}
+  .local-section p{color:var(--tx);font-size:.95rem;line-height:1.7}
+
+  .examples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+  .example-card{display:block;background:var(--white);border:1px solid var(--bd);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .3s,box-shadow .3s}
+  .example-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+  .example-card .ex-preview{width:100%;height:180px;background-size:cover;background-position:center}
+  .example-card .ex-body{padding:16px}
+  .example-card h3{font-family:var(--sf);color:var(--navy);font-size:.95rem;margin:0}
+
+  .pricing-teaser{background:var(--navy);color:var(--white);border-radius:14px;padding:48px 36px;text-align:center;margin:24px 0}
+  .pricing-teaser h2{font-family:var(--sf);font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:12px}
+  .pricing-teaser p{color:var(--txd);font-size:1rem;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto}
+  .pricing-teaser .price-highlight{font-size:2.2rem;font-weight:700;color:var(--or)}
+
+  .faq{margin-top:24px}
+  .faq-item{border-bottom:1px solid var(--bd)}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;gap:12px}
+  .faq-q h3{font-family:var(--sn);font-size:.95rem;color:var(--navy);font-weight:600;margin:0}
+  .faq-q .faq-icon{font-size:1.2rem;color:var(--txl);transition:transform .3s;flex-shrink:0}
+  .faq-a{display:none;padding:0 0 20px;color:var(--tx);font-size:.9rem;line-height:1.7}
+  .faq-item.open .faq-a{display:block}
+  .faq-item.open .faq-icon{transform:rotate(45deg)}
+
+  .cta-section{text-align:center;padding:64px 0}
+  .cta-section h2{font-family:var(--sf);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--navy);margin-bottom:16px}
+  .cta-section p{color:var(--tx);font-size:1rem;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+  .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  .internal-links{padding:40px 0;border-top:1px solid var(--bd)}
+  .internal-links h3{font-family:var(--sf);font-size:1rem;color:var(--navy);margin-bottom:16px}
+  .link-grid{display:flex;flex-wrap:wrap;gap:8px}
+  .link-grid a{display:inline-block;padding:8px 16px;background:var(--white);border:1px solid var(--bd);border-radius:8px;color:var(--tx);font-size:.82rem;text-decoration:none;transition:border-color .2s,color .2s}
+  .link-grid a:hover{border-color:var(--or);color:var(--or)}
+
+  .sl{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--or);margin-bottom:8px}
+
+  @media(max-width:768px){
+    .steps-grid{grid-template-columns:1fr}
+    .page-hero{padding:48px 0 32px}
+    .local-section{padding:28px 20px}
+    .pricing-teaser{padding:36px 20px}
+  }
+
+  /* RTL adjustments */
+  body.lh .faq-q{flex-direction:row-reverse}
+  body.lh .breadcrumbs{direction:rtl;text-align:right}
+</style>
+</head>
+<body data-shared>
+
+<slot />
+
+<script src="/shared.js" is:inline></script>
+<script is:inline>
+  // FAQ accordion (same as shared.js initFAQ but scoped here)
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.closest('.faq-item');
+      if (item) item.classList.toggle('open');
+    });
+  });
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
+  }
+</script>
+</body>
+</html>

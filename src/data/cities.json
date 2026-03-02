@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "tel-aviv",
+    "name": { "en": "Tel Aviv", "he": "תל אביב" },
+    "country": "Israel",
+    "population": 474000,
+    "shortLocalNote": {
+      "en": "Tel Aviv has one of the most competitive business scenes in Israel. A strong website helps you stand out and capture both local and tourist traffic.",
+      "he": "תל אביב היא אחת הערים התחרותיות ביותר בישראל. אתר חזק עוזר לכם לבלוט וללכוד תנועה מקומית ותיירותית."
+    },
+    "nearbyCitySlugs": ["herzliya", "rishon-lezion", "petah-tikva", "holon", "bnei-brak", "bat-yam"]
+  },
+  {
+    "slug": "jerusalem",
+    "name": { "en": "Jerusalem", "he": "ירושלים" },
+    "country": "Israel",
+    "population": 970000,
+    "shortLocalNote": {
+      "en": "Jerusalem businesses rely heavily on tourism and local search. A professional website helps you appear on Google and present your services clearly to visitors.",
+      "he": "עסקים בירושלים מסתמכים רבות על תיירות וחיפוש מקומי. אתר מקצועי עוזר לכם להופיע בגוגל ולהציג את השירותים שלכם בבהירות למבקרים."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "petah-tikva", "ashdod"]
+  },
+  {
+    "slug": "haifa",
+    "name": { "en": "Haifa", "he": "חיפה" },
+    "country": "Israel",
+    "population": 285000,
+    "shortLocalNote": {
+      "en": "Haifa has a diverse business scene with many visitors exploring the Carmel area. A website helps you showcase services, bookings and location.",
+      "he": "חיפה מציעה סצנה עסקית מגוונת עם מבקרים רבים באזור הכרמל. אתר עוזר לכם להציג שירותים, הזמנות ומיקום."
+    },
+    "nearbyCitySlugs": ["netanya", "tel-aviv"]
+  },
+  {
+    "slug": "rishon-lezion",
+    "name": { "en": "Rishon LeZion", "he": "ראשון לציון" },
+    "country": "Israel",
+    "population": 255000,
+    "shortLocalNote": {
+      "en": "Rishon LeZion has a growing business scene. Local businesses benefit from a website that displays services, hours and contact information.",
+      "he": "ראשון לציון מציעה סצנה עסקית צומחת. עסקים מקומיים נהנים מאתר שמציג שירותים, שעות ופרטי יצירת קשר."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "holon", "ashdod"]
+  },
+  {
+    "slug": "petah-tikva",
+    "name": { "en": "Petah Tikva", "he": "פתח תקווה" },
+    "country": "Israel",
+    "population": 250000,
+    "shortLocalNote": {
+      "en": "Petah Tikva businesses rely on local search and Google Maps visibility. A simple website helps attract nearby customers searching online.",
+      "he": "עסקים בפתח תקווה מסתמכים על חיפוש מקומי ונראות בגוגל מפות. אתר פשוט עוזר למשוך לקוחות סמוכים שמחפשים אונליין."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "bnei-brak", "rishon-lezion"]
+  },
+  {
+    "slug": "ashdod",
+    "name": { "en": "Ashdod", "he": "אשדוד" },
+    "country": "Israel",
+    "population": 225000,
+    "shortLocalNote": {
+      "en": "Ashdod has many family-oriented businesses and seaside spots. A modern website helps showcase services and attract visitors.",
+      "he": "אשדוד מציעה עסקים רבים מוכווני משפחה ומקומות לחוף הים. אתר מודרני עוזר להציג שירותים ולמשוך מבקרים."
+    },
+    "nearbyCitySlugs": ["rishon-lezion", "beer-sheva", "tel-aviv"]
+  },
+  {
+    "slug": "netanya",
+    "name": { "en": "Netanya", "he": "נתניה" },
+    "country": "Israel",
+    "population": 220000,
+    "shortLocalNote": {
+      "en": "Netanya businesses benefit from tourists and beach traffic. A website helps present services and attract visitors searching online.",
+      "he": "עסקים בנתניה נהנים מתיירים ותנועת חוף. אתר עוזר להציג שירותים ולמשוך מבקרים שמחפשים אונליין."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "haifa"]
+  },
+  {
+    "slug": "beer-sheva",
+    "name": { "en": "Beer Sheva", "he": "באר שבע" },
+    "country": "Israel",
+    "population": 210000,
+    "shortLocalNote": {
+      "en": "Beer Sheva has a large student population. Businesses with a website can capture more searches from students and locals.",
+      "he": "באר שבע מארחת אוכלוסיית סטודנטים גדולה. עסקים עם אתר יכולים ללכוד יותר חיפושים מסטודנטים ומקומיים."
+    },
+    "nearbyCitySlugs": ["ashdod", "tel-aviv"]
+  },
+  {
+    "slug": "bnei-brak",
+    "name": { "en": "Bnei Brak", "he": "בני ברק" },
+    "country": "Israel",
+    "population": 210000,
+    "shortLocalNote": {
+      "en": "Bnei Brak has a dense urban population and strong demand for local services. A clear website helps customers find you quickly.",
+      "he": "בני ברק מציעה אוכלוסייה עירונית צפופה וביקוש חזק לשירותים מקומיים. אתר ברור עוזר ללקוחות למצוא אתכם במהירות."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "petah-tikva", "rishon-lezion"]
+  },
+  {
+    "slug": "holon",
+    "name": { "en": "Holon", "he": "חולון" },
+    "country": "Israel",
+    "population": 195000,
+    "shortLocalNote": {
+      "en": "Holon has many neighborhood businesses. A website helps attract nearby customers searching online for services.",
+      "he": "חולון מציעה עסקי שכונה רבים. אתר עוזר למשוך לקוחות סמוכים שמחפשים שירותים אונליין."
+    },
+    "nearbyCitySlugs": ["tel-aviv", "rishon-lezion"]
+  }
+]

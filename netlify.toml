@@ -1,5 +1,9 @@
 [build]
-  publish = "."
+  command = "npm install && npm run build && npm run seo:check"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # Trailing slash enforcement for all pages
 [[redirects]]
@@ -115,6 +119,17 @@
 [[redirects]]
   from = "/examples/contractor"
   to = "/examples/contractor/"
+  status = 301
+
+# Catch-all trailing slash for programmatic SEO pages
+[[redirects]]
+  from = "/*-website-builder"
+  to = "/:splat-website-builder/"
+  status = 301
+
+[[redirects]]
+  from = "/*-website-examples"
+  to = "/:splat-website-examples/"
   status = 301
 
 # Cache headers

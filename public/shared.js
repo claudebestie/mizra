@@ -21,6 +21,12 @@ function renderNav() {
         <a href="/services/clinics/"><strong>Clinics</strong><small>See example</small></a>
         <a href="/services/lawyers/"><strong>Lawyers</strong><small>See example</small></a>
         <a href="/services/contractors/"><strong>Contractors</strong><small>See example</small></a>
+        <a href="/sports-coach-website-builder/"><strong>Sports Coaches</strong><small>See example</small></a>
+        <a href="/therapist-website-builder/"><strong>Therapists</strong><small>See example</small></a>
+        <a href="/real-estate-website-builder/"><strong>Real Estate</strong><small>See example</small></a>
+        <a href="/freelancer-website-builder/"><strong>Freelancers</strong><small>See example</small></a>
+        <a href="/startup-website-builder/"><strong>Startups</strong><small>See example</small></a>
+        <a href="/pilates-website-builder/"><strong>Pilates Studios</strong><small>See example</small></a>
       </div>
     </div>
     <a href="/#examples">Examples</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
@@ -35,6 +41,12 @@ function renderNav() {
         <a href="/services/clinics/"><strong>קליניקות</strong><small>ראו דוגמה</small></a>
         <a href="/services/lawyers/"><strong>עורכי דין</strong><small>ראו דוגמה</small></a>
         <a href="/services/contractors/"><strong>קבלנים</strong><small>ראו דוגמה</small></a>
+        <a href="/sports-coach-website-builder/"><strong>מאמני ספורט</strong><small>ראו דוגמה</small></a>
+        <a href="/therapist-website-builder/"><strong>מטפלים</strong><small>ראו דוגמה</small></a>
+        <a href="/real-estate-website-builder/"><strong>נדל"ן</strong><small>ראו דוגמה</small></a>
+        <a href="/freelancer-website-builder/"><strong>פרילנסרים</strong><small>ראו דוגמה</small></a>
+        <a href="/startup-website-builder/"><strong>סטארטאפים</strong><small>ראו דוגמה</small></a>
+        <a href="/pilates-website-builder/"><strong>סטודיו פילאטיס</strong><small>ראו דוגמה</small></a>
       </div>
     </div>
     <a href="/#examples">דוגמאות</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a>
@@ -72,8 +84,8 @@ function renderFooter() {
   <div class="he"><p>אתרים מקצועיים לעסקים קטנים. תל אביב.</p></div>
 </div>
 <div class="footer-links">
-  <div class="en"><a href="/services/restaurants/">Restaurants</a> · <a href="/services/cafes/">Cafés</a> · <a href="/services/beauty-salons/">Salons</a> · <a href="/services/barbershops/">Barbers</a> · <a href="/services/clinics/">Clinics</a> · <a href="/services/lawyers/">Lawyers</a> · <a href="/services/contractors/">Contractors</a></div>
-  <div class="he"><a href="/services/restaurants/">מסעדות</a> · <a href="/services/cafes/">בתי קפה</a> · <a href="/services/beauty-salons/">מכוני יופי</a> · <a href="/services/barbershops/">מספרות</a> · <a href="/services/clinics/">קליניקות</a> · <a href="/services/lawyers/">עורכי דין</a> · <a href="/services/contractors/">קבלנים</a></div>
+  <div class="en"><a href="/services/restaurants/">Restaurants</a> · <a href="/services/cafes/">Cafés</a> · <a href="/services/beauty-salons/">Salons</a> · <a href="/services/barbershops/">Barbers</a> · <a href="/services/clinics/">Clinics</a> · <a href="/services/lawyers/">Lawyers</a> · <a href="/services/contractors/">Contractors</a> · <a href="/sports-coach-website-builder/">Coaches</a> · <a href="/therapist-website-builder/">Therapists</a> · <a href="/real-estate-website-builder/">Real Estate</a> · <a href="/freelancer-website-builder/">Freelancers</a> · <a href="/startup-website-builder/">Startups</a> · <a href="/pilates-website-builder/">Pilates</a></div>
+  <div class="he"><a href="/services/restaurants/">מסעדות</a> · <a href="/services/cafes/">בתי קפה</a> · <a href="/services/beauty-salons/">מכוני יופי</a> · <a href="/services/barbershops/">מספרות</a> · <a href="/services/clinics/">קליניקות</a> · <a href="/services/lawyers/">עורכי דין</a> · <a href="/services/contractors/">קבלנים</a> · <a href="/sports-coach-website-builder/">מאמנים</a> · <a href="/therapist-website-builder/">מטפלים</a> · <a href="/real-estate-website-builder/">נדל"ן</a> · <a href="/freelancer-website-builder/">פרילנסרים</a> · <a href="/startup-website-builder/">סטארטאפים</a> · <a href="/pilates-website-builder/">פילאטיס</a></div>
 </div>
 <div class="footer-legal" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:.78rem">
   <a href="/terms/" style="color:var(--txd);text-decoration:none;margin-right:16px">Terms of Service</a>

@@ -116,22 +116,45 @@
     "serviceSlug": "clinics"
   },
   {
-    "slug": "coach",
-    "name": { "en": "Coach / Therapist", "he": "מאמן / מטפל" },
-    "primaryKeyword": { "en": "coach website builder", "he": "בניית אתר למאמן" },
-    "synonyms": { "en": ["therapist", "life coach", "counselor"], "he": ["מטפל", "יועץ", "קואצ'ר"] },
+    "slug": "sports-coach",
+    "name": { "en": "Sports Coach", "he": "מאמן ספורט" },
+    "primaryKeyword": { "en": "sports coach website builder", "he": "בניית אתר למאמן ספורט" },
+    "synonyms": { "en": ["personal trainer", "fitness coach", "athletic coach"], "he": ["מאמן כושר", "מאמן אישי", "מאמן כדורגל"] },
     "features": [
-      { "title": { "en": "Services & Specialties", "he": "שירותים והתמחויות" }, "desc": { "en": "Present your coaching or therapy services with clear descriptions and benefits.", "he": "הציגו את שירותי האימון או הטיפול שלכם עם תיאורים ויתרונות ברורים." } },
-      { "title": { "en": "Online Booking", "he": "הזמנה אונליין" }, "desc": { "en": "Clients book sessions directly through your website — no back-and-forth emails.", "he": "לקוחות קובעים פגישות ישירות דרך האתר — ללא מיילים הלוך ושוב." } },
-      { "title": { "en": "Testimonials Section", "he": "המלצות" }, "desc": { "en": "Build trust with testimonials from past clients displayed beautifully.", "he": "בנו אמון עם המלצות מלקוחות קודמים שמוצגות בצורה יפהפייה." } },
-      { "title": { "en": "About & Credentials", "he": "אודות והסמכות" }, "desc": { "en": "Showcase your qualifications, certifications and professional background.", "he": "הציגו את ההכשרות, ההסמכות והרקע המקצועי שלכם." } },
-      { "title": { "en": "Blog Integration", "he": "שילוב בלוג" }, "desc": { "en": "Share insights and articles to establish yourself as an authority.", "he": "שתפו תובנות ומאמרים כדי לבסס את עצמכם כסמכות מקצועית." } }
+      { "title": { "en": "Training Programs", "he": "תוכניות אימון" }, "desc": { "en": "Present your coaching programs — group classes, 1-on-1 sessions and online plans.", "he": "הציגו את תוכניות האימון — שיעורים קבוצתיים, פגישות אישיות ותוכניות אונליין." } },
+      { "title": { "en": "Online Session Booking", "he": "הזמנת אימונים אונליין" }, "desc": { "en": "Clients book training sessions directly through your website.", "he": "מתאמנים קובעים אימונים ישירות דרך האתר שלכם." } },
+      { "title": { "en": "Client Testimonials", "he": "המלצות מתאמנים" }, "desc": { "en": "Showcase transformations and success stories from your athletes and clients.", "he": "הציגו שינויים וסיפורי הצלחה מהספורטאים והמתאמנים שלכם." } },
+      { "title": { "en": "Credentials & Certifications", "he": "הסמכות ותעודות" }, "desc": { "en": "Display your coaching certifications, experience and specialties.", "he": "הציגו את הסמכות האימון, הניסיון וההתמחויות שלכם." } },
+      { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your site looks perfect on phones — where most athletes browse.", "he": "האתר נראה מושלם בטלפון — שם רוב הספורטאים גולשים." } }
     ],
     "faqs": [
-      { "q": { "en": "Why does a coach need a website?", "he": "למה מאמן צריך אתר?" }, "a": { "en": "A website establishes credibility and helps potential clients find and trust you before booking.", "he": "אתר מבסס אמינות ועוזר ללקוחות פוטנציאליים למצוא ולסמוך עליכם לפני הזמנה." } },
-      { "q": { "en": "Can clients book sessions online?", "he": "לקוחות יכולים להזמין פגישות אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
-      { "q": { "en": "Can I write blog posts?", "he": "אפשר לכתוב פוסטים בבלוג?" }, "a": { "en": "Yes. Your website can include a blog section where you share expertise and attract organic traffic.", "he": "כן. האתר שלכם יכול לכלול בלוג בו תשתפו מומחיות ותמשכו תנועה אורגנית." } },
-      { "q": { "en": "How much does a coaching website cost?", "he": "כמה עולה אתר למאמן?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "Why does a sports coach need a website?", "he": "למה מאמן ספורט צריך אתר?" }, "a": { "en": "A website helps potential clients find you on Google, see your programs and book sessions — all in one place.", "he": "אתר עוזר למתאמנים פוטנציאליים למצוא אתכם בגוגל, לראות את התוכניות ולהזמין אימונים — הכל במקום אחד." } },
+      { "q": { "en": "Can clients book training sessions online?", "he": "מתאמנים יכולים להזמין אימונים אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
+      { "q": { "en": "Can I show client results and transformations?", "he": "אפשר להציג תוצאות ושינויים של מתאמנים?" }, "a": { "en": "Yes. Your website includes a testimonials section to showcase before/after results and success stories.", "he": "כן. האתר כולל מדור המלצות להצגת תוצאות לפני/אחרי וסיפורי הצלחה." } },
+      { "q": { "en": "How much does a sports coach website cost?", "he": "כמה עולה אתר למאמן ספורט?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
+    "exampleSlug": null,
+    "serviceSlug": null
+  },
+  {
+    "slug": "therapist",
+    "name": { "en": "Therapist", "he": "מטפל" },
+    "primaryKeyword": { "en": "therapist website builder", "he": "בניית אתר למטפל" },
+    "synonyms": { "en": ["counselor", "psychologist", "mental health professional"], "he": ["פסיכולוג", "יועץ", "מטפל רגשי"] },
+    "features": [
+      { "title": { "en": "Therapy Specialties", "he": "התמחויות טיפול" }, "desc": { "en": "Present your therapy approach — CBT, couples therapy, trauma, anxiety and more.", "he": "הציגו את גישת הטיפול — CBT, טיפול זוגי, טראומה, חרדה ועוד." } },
+      { "title": { "en": "Online Session Booking", "he": "הזמנת פגישות אונליין" }, "desc": { "en": "Clients book sessions directly through your website — discreetly and easily.", "he": "מטופלים קובעים פגישות ישירות דרך האתר — בצורה דיסקרטית וקלה." } },
+      { "title": { "en": "Warm & Trustworthy Design", "he": "עיצוב חם ואמין" }, "desc": { "en": "A calming, professional design that puts visitors at ease from the first click.", "he": "עיצוב מרגיע ומקצועי שמשרה נינוחות מהקליק הראשון." } },
+      { "title": { "en": "About & Credentials", "he": "אודות והסמכות" }, "desc": { "en": "Showcase your qualifications, certifications and therapeutic approach.", "he": "הציגו את ההכשרות, ההסמכות וגישת הטיפול שלכם." } },
+      { "title": { "en": "Resources & Blog", "he": "משאבים ובלוג" }, "desc": { "en": "Share articles and resources to help visitors and establish your expertise.", "he": "שתפו מאמרים ומשאבים כדי לעזור למבקרים ולבסס את המומחיות שלכם." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a therapist need a website?", "he": "למה מטפל צריך אתר?" }, "a": { "en": "Most people search online before choosing a therapist. A professional website builds trust and helps clients take the first step.", "he": "רוב האנשים מחפשים אונליין לפני בחירת מטפל. אתר מקצועי בונה אמון ועוזר למטופלים לעשות את הצעד הראשון." } },
+      { "q": { "en": "Can clients book sessions online?", "he": "מטופלים יכולים להזמין פגישות אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
+      { "q": { "en": "Is the website design appropriate for therapy?", "he": "העיצוב מתאים לטיפול?" }, "a": { "en": "Yes. We design warm, calming websites that feel professional and welcoming for therapy practices.", "he": "כן. אנחנו מעצבים אתרים חמים ומרגיעים שנראים מקצועיים ומזמינים לפרקטיקות טיפול." } },
+      { "q": { "en": "How much does a therapist website cost?", "he": "כמה עולה אתר למטפל?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
@@ -162,23 +185,23 @@
     "serviceSlug": null
   },
   {
-    "slug": "consultant",
-    "name": { "en": "Consultant / Freelancer", "he": "יועץ / פרילנסר" },
-    "primaryKeyword": { "en": "consultant website builder", "he": "בניית אתר ליועץ" },
-    "synonyms": { "en": ["freelancer", "independent professional", "advisor"], "he": ["עצמאי", "פרילנסר", "יועץ עסקי"] },
+    "slug": "freelancer",
+    "name": { "en": "Freelancer", "he": "פרילנסר" },
+    "primaryKeyword": { "en": "freelancer website builder", "he": "בניית אתר לפרילנסר" },
+    "synonyms": { "en": ["independent professional", "self-employed", "solopreneur"], "he": ["עצמאי", "עובד עצמאי", "פרילנס"] },
     "features": [
-      { "title": { "en": "Services & Expertise", "he": "שירותים ומומחיות" }, "desc": { "en": "Present your consulting services, methodology and areas of expertise.", "he": "הציגו את שירותי הייעוץ, המתודולוגיה ותחומי המומחיות שלכם." } },
-      { "title": { "en": "Portfolio & Case Studies", "he": "תיק עבודות" }, "desc": { "en": "Showcase past projects and results to build client confidence.", "he": "הציגו פרויקטים קודמים ותוצאות כדי לבנות אמון לקוחות." } },
+      { "title": { "en": "Portfolio & Projects", "he": "תיק עבודות ופרויקטים" }, "desc": { "en": "Showcase your best work with project descriptions, images and client results.", "he": "הציגו את העבודות הטובות ביותר עם תיאורי פרויקטים, תמונות ותוצאות לקוחות." } },
+      { "title": { "en": "Services & Pricing", "he": "שירותים ומחירון" }, "desc": { "en": "List your services clearly so clients know exactly what you offer and at what price.", "he": "רשמו את השירותים שלכם בבהירות כדי שלקוחות ידעו בדיוק מה אתם מציעים ובאיזה מחיר." } },
       { "title": { "en": "Contact & Lead Capture", "he": "יצירת קשר ולכידת לידים" }, "desc": { "en": "Smart forms that capture leads and route inquiries to your inbox.", "he": "טפסים חכמים שלוכדים לידים ומנתבים פניות לתיבת הדואר שלכם." } },
-      { "title": { "en": "Professional Bio", "he": "ביוגרפיה מקצועית" }, "desc": { "en": "A compelling about page that tells your story and builds trust.", "he": "עמוד אודות משכנע שמספר את הסיפור שלכם ובונה אמון." } },
+      { "title": { "en": "Professional Bio", "he": "ביוגרפיה מקצועית" }, "desc": { "en": "Tell your story — who you are, your experience and why clients should choose you.", "he": "ספרו את הסיפור שלכם — מי אתם, הניסיון שלכם ולמה לקוחות צריכים לבחור בכם." } },
       { "title": { "en": "SEO Optimized", "he": "מותאם ל-SEO" }, "desc": { "en": "Rank for your niche keywords so potential clients find you on Google.", "he": "דרגו את מילות המפתח בנישה שלכם כדי שלקוחות פוטנציאליים ימצאו אתכם בגוגל." } }
     ],
     "faqs": [
-      { "q": { "en": "Why does a consultant need a website?", "he": "למה יועץ צריך אתר?" }, "a": { "en": "A website is your digital business card. It establishes authority and generates inbound leads.", "he": "אתר הוא כרטיס הביקור הדיגיטלי שלכם. הוא מבסס סמכות ומייצר לידים נכנסים." } },
-      { "q": { "en": "Can I show my past work?", "he": "אפשר להציג עבודות קודמות?" }, "a": { "en": "Yes. Your website includes a portfolio section for case studies and project highlights.", "he": "כן. האתר כולל מדור תיק עבודות לתיאורי מקרה ופרויקטים בולטים." } },
+      { "q": { "en": "Why does a freelancer need a website?", "he": "למה פרילנסר צריך אתר?" }, "a": { "en": "A website is your digital business card. It showcases your work, builds credibility and generates inbound leads.", "he": "אתר הוא כרטיס הביקור הדיגיטלי שלכם. הוא מציג את העבודות שלכם, בונה אמינות ומייצר לידים." } },
+      { "q": { "en": "Can I show my past work?", "he": "אפשר להציג עבודות קודמות?" }, "a": { "en": "Yes. Your website includes a portfolio section for projects, case studies and client results.", "he": "כן. האתר כולל מדור תיק עבודות לפרויקטים, תיאורי מקרה ותוצאות לקוחות." } },
       { "q": { "en": "Is it good for SEO?", "he": "זה טוב ל-SEO?" }, "a": { "en": "Every Mizra website is SEO-optimized from day one to help you rank for relevant keywords.", "he": "כל אתר Mizra מותאם ל-SEO מיום הראשון כדי לעזור לכם לדרג מילות מפתח רלוונטיות." } },
-      { "q": { "en": "Can I add a blog?", "he": "אפשר להוסיף בלוג?" }, "a": { "en": "Yes. A blog helps establish thought leadership and attracts organic search traffic.", "he": "כן. בלוג עוזר לבסס מנהיגות מחשבתית ומושך תנועת חיפוש אורגנית." } },
-      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 2,990 for a complete consulting website with all features.", "he": "מ-₪2,990 לאתר ייעוץ מלא עם כל הפיצ'רים." } }
+      { "q": { "en": "How fast can my site go live?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most freelancer websites launch within 48-72 hours after approval.", "he": "רוב אתרי הפרילנסרים מושקים תוך 48-72 שעות לאחר אישור." } },
+      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 2,990 for a complete freelancer website with all features.", "he": "מ-₪2,990 לאתר פרילנסר מלא עם כל הפיצ'רים." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": null,

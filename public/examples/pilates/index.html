@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Kore | קורה — Pilates & Movement Studio</title>
+<meta name="description" content="קורה - סטודיו בוטיק לפילאטיס ותנועה בנווה צדק, תל אביב. שיעורים בקבוצות קטנות, פילאטיס מזרן, רפורמר ויוגה. Kore - Boutique Pilates & Movement studio in Neve Tzedek, Tel Aviv.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,-apple-system,sans-serif;background:#FAF7F4;color:#2C2319;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+::selection{background:#B89D7E;color:#FAF7F4}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif}
+
+/* ========== LANGUAGE TOGGLE ========== */
+.he{display:block}.en{display:none}
+body.lang-en .he{display:none}body.lang-en .en{display:block}body.lang-en{direction:ltr}
+span.he,a.he{display:inline}span.en,a.en{display:none}
+body.lang-en span.he,body.lang-en a.he{display:none}
+body.lang-en span.en,body.lang-en a.en{display:inline}
+.nav-links .he,.nav-links .en{display:flex;gap:28px;align-items:center}
+.nav-links .en{display:none}
+body.lang-en .nav-links .he{display:none}body.lang-en .nav-links .en{display:flex}
+
+/* ========== DEMO BANNER ========== */
+.demo-banner{background:#FAF7F4;padding:10px 24px;text-align:center;font-size:.8rem;color:#2C2319;border-bottom:1px solid #E8E0D5;position:relative;z-index:200}
+.demo-banner a{color:#B89D7E;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.demo-banner a:hover{color:#2C2319}
+
+/* ========== NAVIGATION ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,247,244,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:all .35s ease}
+.nav.scrolled{border-bottom:1px solid rgba(232,224,213,.6);box-shadow:0 2px 20px rgba(44,35,25,.04)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.15rem;color:#2C2319;letter-spacing:-.2px}
+.nav-logo svg{flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:#2C2319;opacity:.6;transition:opacity .25s;padding:4px 0}
+.nav-links a:hover{opacity:1}
+.lang-toggle{font-size:.8rem;font-weight:600;color:#B89D7E;cursor:pointer;border:1.5px solid rgba(184,157,126,.25);padding:6px 16px;border-radius:8px;background:transparent;transition:all .25s;letter-spacing:.3px}
+.lang-toggle:hover{background:rgba(184,157,126,.08);border-color:rgba(184,157,126,.4)}
+.nav-cta{background:#B89D7E;color:#FAF7F4;font-size:.88rem;font-weight:600;padding:10px 24px;border-radius:12px;border:none;transition:all .25s;white-space:nowrap;letter-spacing:.2px}
+.nav-cta:hover{background:#a88b6c;transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,157,126,.25)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-burger span{display:block;width:22px;height:2px;background:#2C2319;border-radius:2px;transition:all .3s}
+
+/* ========== HERO ========== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#FAF7F4}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1140px;margin:0 auto;padding:120px 48px 80px;align-items:center}
+.hero-text{max-width:520px}
+.hero-label{display:inline-block;font-size:.75rem;font-weight:600;color:#B89D7E;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;background:rgba(184,157,126,.1);padding:8px 20px;border-radius:24px;font-family:'Outfit',sans-serif}
+.hero h1{font-size:3.2rem;font-weight:600;color:#2C2319;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
+.hero p{font-size:1.05rem;color:#2C2319;opacity:.6;line-height:1.85;margin-bottom:36px;font-family:'Outfit',sans-serif}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:#B89D7E;color:#FAF7F4;font-size:.95rem;font-weight:600;padding:15px 36px;border-radius:12px;border:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover{background:#a88b6c;transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,157,126,.25)}
+.btn-secondary{background:transparent;color:#2C2319;font-size:.95rem;font-weight:500;padding:15px 36px;border-radius:12px;border:1.5px solid rgba(44,35,25,.2);transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-secondary:hover{border-color:rgba(44,35,25,.4);background:rgba(44,35,25,.03)}
+.hero-img{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-height:560px}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img::after{content:'';position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(184,157,126,.1)}
+.hero-accent{position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(184,157,126,.08);z-index:-1}
+
+/* ========== SECTIONS ========== */
+.section{padding:100px 48px}
+.section-header{text-align:center;max-width:580px;margin:0 auto 56px}
+.section-label{display:inline-block;font-size:.75rem;font-weight:600;color:#B89D7E;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-family:'Outfit',sans-serif}
+.section-header h2{font-size:2.4rem;font-weight:600;color:#2C2319;letter-spacing:-.3px;margin-bottom:14px;line-height:1.25}
+.section-header p{font-size:1rem;color:#2C2319;opacity:.55;font-weight:400;line-height:1.75;font-family:'Outfit',sans-serif}
+
+/* ========== CLASSES (SPECIALTIES) ========== */
+.classes-section{background:#fff}
+.classes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.class-card{background:#FAF7F4;border:1px solid rgba(232,224,213,.5);border-radius:16px;padding:36px 28px;transition:all .3s ease;text-align:center}
+.class-card:hover{border-color:#E8E0D5;box-shadow:0 8px 32px rgba(44,35,25,.06);transform:translateY(-3px)}
+.class-icon{width:60px;height:60px;border-radius:16px;background:rgba(184,157,126,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.class-icon svg{width:28px;height:28px;stroke:#B89D7E;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.class-card h3{font-size:1.1rem;font-weight:600;color:#2C2319;margin-bottom:10px}
+.class-card p{font-size:.88rem;color:#2C2319;opacity:.55;line-height:1.7;font-family:'Outfit',sans-serif}
+
+/* ========== ABOUT ========== */
+.about-section{background:#FAF7F4}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;align-items:center}
+.about-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img::after{content:'';position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(44,35,25,.06)}
+.about-text{max-width:480px}
+.about-text .section-label{text-align:start}
+.about-text h2{font-size:2.2rem;font-weight:600;color:#2C2319;letter-spacing:-.3px;margin-bottom:20px;line-height:1.3}
+.about-text p{font-size:.95rem;color:#2C2319;opacity:.6;line-height:1.85;margin-bottom:16px;font-family:'Outfit',sans-serif}
+.about-credentials{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.about-credential{display:flex;align-items:center;gap:14px;font-size:.92rem;font-weight:500;color:#2C2319;font-family:'Outfit',sans-serif}
+.about-dot{width:8px;height:8px;border-radius:50%;background:#B89D7E;flex-shrink:0}
+
+/* ========== STUDIO ========== */
+.studio-section{background:#fff}
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;align-items:center}
+.studio-img{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.studio-img img{width:100%;height:100%;object-fit:cover}
+.studio-img::after{content:'';position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(44,35,25,.06)}
+.studio-text{max-width:480px}
+.studio-text .section-label{text-align:start}
+.studio-text h2{font-size:2.2rem;font-weight:600;color:#2C2319;letter-spacing:-.3px;margin-bottom:20px;line-height:1.3}
+.studio-text p{font-size:.95rem;color:#2C2319;opacity:.6;line-height:1.85;margin-bottom:16px;font-family:'Outfit',sans-serif}
+
+/* ========== SCHEDULE ========== */
+.schedule-section{background:#FAF7F4}
+.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto 40px}
+.schedule-card{background:#fff;border:1px solid rgba(232,224,213,.4);border-radius:16px;padding:32px 24px;text-align:center;transition:all .3s ease}
+.schedule-card:hover{box-shadow:0 6px 24px rgba(44,35,25,.06);transform:translateY(-2px)}
+.schedule-card h3{font-size:1.1rem;font-weight:600;color:#2C2319;margin-bottom:14px}
+.schedule-card p{font-size:.88rem;color:#2C2319;opacity:.55;line-height:1.8;font-family:'Outfit',sans-serif}
+.schedule-cta{text-align:center}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-section{background:#fff}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:900px;margin:0 auto}
+.testimonial-card{background:#FAF7F4;border:1px solid rgba(232,224,213,.4);border-radius:16px;padding:36px 28px;transition:all .3s ease}
+.testimonial-card:hover{box-shadow:0 8px 28px rgba(44,35,25,.06);transform:translateY(-2px)}
+.testimonial-quote{font-size:2rem;color:#B89D7E;line-height:1;margin-bottom:16px;font-family:'Cormorant Garamond',Georgia,serif}
+.testimonial-text{font-size:.92rem;color:#2C2319;opacity:.65;line-height:1.85;margin-bottom:20px;font-style:italic;font-family:'Outfit',sans-serif}
+.testimonial-author{font-size:.85rem;font-weight:600;color:#2C2319;opacity:.45;font-family:'Outfit',sans-serif}
+
+/* ========== CTA SECTION ========== */
+.cta-section{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,157,126,.8) 0%,rgba(44,35,25,.75) 100%);z-index:1}
+.cta-content{position:relative;z-index:2;text-align:center;max-width:600px;padding:0 32px}
+.cta-content h2{font-size:2.6rem;font-weight:600;color:#FAF7F4;margin-bottom:16px;letter-spacing:-.3px;line-height:1.25}
+.cta-content p{font-size:1.05rem;color:rgba(250,247,244,.75);margin-bottom:36px;line-height:1.75;font-family:'Outfit',sans-serif}
+.btn-cta-white{background:#FAF7F4;color:#2C2319;font-size:.95rem;font-weight:600;padding:16px 40px;border-radius:12px;border:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+
+/* ========== CONTACT ========== */
+.contact-section{background:#FAF7F4}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;max-width:960px;margin:0 auto}
+.contact-card{background:#fff;border:1px solid rgba(232,224,213,.4);border-radius:16px;padding:32px 24px;text-align:center;transition:all .3s ease}
+.contact-card:hover{box-shadow:0 6px 24px rgba(44,35,25,.06);transform:translateY(-2px)}
+.contact-card-icon{width:52px;height:52px;border-radius:14px;background:rgba(184,157,126,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.contact-card-icon svg{width:24px;height:24px;stroke:#B89D7E;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.contact-card h3{font-size:.95rem;font-weight:700;color:#2C2319;margin-bottom:8px;font-family:'Cormorant Garamond',Georgia,serif}
+.contact-card p{font-size:.88rem;color:#2C2319;opacity:.55;line-height:1.7;font-family:'Outfit',sans-serif}
+.contact-card a{color:#B89D7E;font-weight:600;font-size:.92rem}
+
+/* ========== FOOTER ========== */
+.footer{background:#2C2319;color:#FAF7F4;padding:48px 48px 32px}
+.footer-inner{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:.85rem;color:rgba(250,247,244,.45);font-family:'Outfit',sans-serif}
+.footer-mizra{font-size:.85rem;color:rgba(250,247,244,.45);font-family:'Outfit',sans-serif}
+.footer-mizra a{color:rgba(250,247,244,.65);font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.footer-mizra a:hover{color:#FAF7F4}
+
+/* ========== MOBILE STICKY BAR ========== */
+.mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(250,247,244,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid #E8E0D5;padding:12px 20px;z-index:150}
+.mobile-sticky button{width:100%;background:#B89D7E;color:#FAF7F4;font-size:.95rem;font-weight:600;padding:14px 0;border-radius:12px;border:none;font-family:inherit}
+
+/* ========== SCROLL REVEAL ========== */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.rv.visible{opacity:1;transform:translateY(0)}
+.rv-d1{transition-delay:.1s}
+.rv-d2{transition-delay:.2s}
+.rv-d3{transition-delay:.3s}
+.rv-d4{transition-delay:.4s}
+
+/* ========== MOBILE MENU ========== */
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(250,247,244,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:32px 24px;z-index:99;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:16px 0;font-size:1.1rem;font-weight:500;color:#2C2319;border-bottom:1px solid rgba(232,224,213,.4);transition:opacity .2s}
+.mobile-menu a:hover{opacity:.6}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){
+  .nav{padding:0 24px}
+  .section{padding:80px 24px}
+  .hero-inner{padding:100px 24px 60px;gap:32px}
+  .hero h1{font-size:2.6rem}
+  .classes-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{gap:40px}
+  .studio-grid{gap:40px}
+}
+@media(max-width:900px){
+  .nav{padding:0 20px;height:64px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .mobile-menu{top:64px}
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding:100px 20px 60px}
+  .hero-text{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-img{max-height:400px;aspect-ratio:3/2;margin:0 auto;max-width:480px}
+  .hero-accent{display:none}
+  .classes-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .about-text{max-width:100%}
+  .studio-grid{grid-template-columns:1fr;gap:32px}
+  .studio-text{max-width:100%}
+  .schedule-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .mobile-sticky{display:block}
+  body{padding-bottom:68px}
+  .footer{padding:32px 20px 90px}
+}
+@media(max-width:600px){
+  .nav-logo{font-size:.95rem;gap:6px}
+  .nav-logo svg{width:24px;height:24px}
+  .nav-cta{padding:8px 14px;font-size:.75rem}
+  .hero-inner{padding:88px 16px 48px}
+  .hero h1{font-size:2rem}
+  .hero p{font-size:.95rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  .section{padding:64px 16px}
+  .section-header h2{font-size:1.8rem}
+  .classes-grid{grid-template-columns:1fr}
+  .cta-content h2{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. MIZRA DEMO BANNER ===== -->
+<div class="demo-banner">
+  <span class="he">זהו אתר לדוגמה שנבנה ע"י <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">קבלו אתר לעסק שלכם</a></span>
+  <span class="en">This is a demo site built by <strong>Mizra</strong> · <a href="https://getmizra.com/free-audit/">Get a site for your business</a></span>
+</div>
+
+<!-- ===== 2. NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="30" rx="10" fill="#B89D7E"/>
+      <path d="M8 20c2-4 4-8 7-10s5 2 7-4" stroke="#FAF7F4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      <path d="M8 16c2-3 4-6 7-7s5 3 7-2" stroke="#FAF7F4" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".5"/>
+    </svg>
+    <span class="he">קורה</span>
+    <span class="en">Kore</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <div class="he">
+        <a href="#classes">שיעורים</a>
+        <a href="#about">הסטודיו</a>
+        <a href="#instructors">מדריכות</a>
+        <a href="#schedule">לוח זמנים</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="en">
+        <a href="#classes">Classes</a>
+        <a href="#about">Studio</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <button class="lang-toggle" onclick="toggleLang()">EN</button>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <span class="he">הרשמו לשיעור</span>
+      <span class="en">Book a Class</span>
+    </button>
+    <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#classes" onclick="closeMenu()" class="he">שיעורים</a>
+  <a href="#about" onclick="closeMenu()" class="he">הסטודיו</a>
+  <a href="#instructors" onclick="closeMenu()" class="he">מדריכות</a>
+  <a href="#schedule" onclick="closeMenu()" class="he">לוח זמנים</a>
+  <a href="#contact" onclick="closeMenu()" class="he">צור קשר</a>
+  <a href="#classes" onclick="closeMenu()" class="en">Classes</a>
+  <a href="#about" onclick="closeMenu()" class="en">Studio</a>
+  <a href="#instructors" onclick="closeMenu()" class="en">Instructors</a>
+  <a href="#schedule" onclick="closeMenu()" class="en">Schedule</a>
+  <a href="#contact" onclick="closeMenu()" class="en">Contact</a>
+</div>
+
+<!-- ===== 3. HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text rv">
+      <div class="hero-label">
+        <span class="he">פילאטיס ותנועה</span>
+        <span class="en">Pilates & Movement</span>
+      </div>
+      <h1>
+        <span class="he">תנועה שמחברת<br>גוף ונפש</span>
+        <span class="en">Movement That<br>Connects Body & Mind</span>
+      </h1>
+      <p>
+        <span class="he">סטודיו בוטיק לפילאטיס ותנועה בלב נווה צדק. קבוצות קטנות, תשומת לב אישית, ומדריכות מוסמכות שמלוות אתכם בכל תנועה.</span>
+        <span class="en">A boutique Pilates & movement studio in the heart of Neve Tzedek. Small groups, personal attention, and certified instructors guiding you through every movement.</span>
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="he">הרשמו לשיעור</span>
+          <span class="en">Book a Class</span>
+        </button>
+        <a href="#schedule" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="he">לוח זמנים</span>
+          <span class="en">View Schedule</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-img rv rv-d1">
+      <img src="img/pilates2.jpg" alt="Group Pilates class in a bright studio with natural light" loading="eager">
+      <div class="hero-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. CLASSES ===== -->
+<section class="section classes-section" id="classes">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">השיעורים שלנו</span>
+      <span class="en">Our Classes</span>
+    </div>
+    <h2>
+      <span class="he">תנועה לכל גוף</span>
+      <span class="en">Movement for Every Body</span>
+    </h2>
+    <p>
+      <span class="he">מגוון שיעורים המותאמים לכל רמה, מתחילים ועד מתקדמים</span>
+      <span class="en">A variety of classes suited to every level, from beginners to advanced</span>
+    </p>
+  </div>
+  <div class="classes-grid">
+    <!-- Mat Pilates -->
+    <div class="class-card rv rv-d1">
+      <div class="class-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="18" y2="10"/></svg>
+      </div>
+      <h3>
+        <span class="he">פילאטיס מזרן</span>
+        <span class="en">Mat Pilates</span>
+      </h3>
+      <p>
+        <span class="he">עבודת רצפה קלאסית המתמקדת בליבה, גמישות ויציבה. מתאים לכל הרמות.</span>
+        <span class="en">Classic floor work focusing on core, flexibility and posture. Suitable for all levels.</span>
+      </p>
+    </div>
+    <!-- Reformer Pilates -->
+    <div class="class-card rv rv-d2">
+      <div class="class-icon">
+        <svg viewBox="0 0 24 24"><line x1="4" y1="8" x2="4" y2="18"/><line x1="20" y1="8" x2="20" y2="18"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><path d="M7 8h10"/></svg>
+      </div>
+      <h3>
+        <span class="he">פילאטיס רפורמר</span>
+        <span class="en">Reformer Pilates</span>
+      </h3>
+      <p>
+        <span class="he">אימון על מכשיר לחיזוק, גמישות ושיקום. עבודה מדויקת עם התנגדות קפיצים.</span>
+        <span class="en">Machine-based training for strength, flexibility and rehabilitation. Precise spring resistance work.</span>
+      </p>
+    </div>
+    <!-- Yoga Flow -->
+    <div class="class-card rv rv-d3">
+      <div class="class-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C9.5 6.5 6 8 6 12a6 6 0 0012 0c0-4-3.5-5.5-6-10z"/></svg>
+      </div>
+      <h3>
+        <span class="he">יוגה פלואו</span>
+        <span class="en">Yoga Flow</span>
+      </h3>
+      <p>
+        <span class="he">תנועה מודעת המשלבת נשימה, גמישות ואיזון. זרימה שקטה שמחברת גוף ונפש.</span>
+        <span class="en">Mindful movement combining breath, flexibility and balance. A quiet flow connecting body and mind.</span>
+      </p>
+    </div>
+    <!-- Private Sessions -->
+    <div class="class-card rv rv-d4">
+      <div class="class-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21c0-4.5 3-7 6.5-7s6.5 2.5 6.5 7"/></svg>
+      </div>
+      <h3>
+        <span class="he">שיעורים פרטיים</span>
+        <span class="en">Private Sessions</span>
+      </h3>
+      <p>
+        <span class="he">שיעורים אישיים המותאמים לצרכי הגוף שלכם. ליווי צמוד ותוכנית אימון מותאמת.</span>
+        <span class="en">One-on-one sessions tailored to your body's needs. Close guidance and a personalized training plan.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. ABOUT ===== -->
+<section class="section about-section" id="instructors">
+  <div class="about-grid">
+    <div class="about-img rv">
+      <img src="img/pilates3.jpg" alt="Instructor leading a meditation class in atmospheric studio" loading="lazy">
+    </div>
+    <div class="about-text rv rv-d1">
+      <div class="section-label">
+        <span class="he">על קורה</span>
+        <span class="en">About Kore</span>
+      </div>
+      <h2>
+        <span class="he">מרחב לתנועה מודעת</span>
+        <span class="en">A Space for Mindful Movement</span>
+      </h2>
+      <p>
+        <span class="he">קורה נוסדה על ידי תמר נוי, מדריכת פילאטיס עם למעלה מ-10 שנות ניסיון. הסטודיו שלנו בנווה צדק מציע קבוצות קטנות של עד 12 משתתפים, עם מדריכות מוסמכות Stott Pilates שמלוות אתכם בכל תנועה.</span>
+        <span class="en">Kore was founded by Tamar Noy, a Pilates instructor with over 10 years of experience. Our Neve Tzedek studio offers small groups of up to 12 students, with certified Stott Pilates instructors guiding you through every movement.</span>
+      </p>
+      <p>
+        <span class="he">אנחנו מאמינות שתנועה נכונה יכולה לשנות חיים. כל שיעור מתוכנן בקפידה כדי לחזק את הגוף, לשחרר מתחים ולבנות חוסן לאורך זמן.</span>
+        <span class="en">We believe that mindful movement can transform lives. Every class is carefully designed to strengthen the body, release tension, and build lasting resilience.</span>
+      </p>
+      <div class="about-credentials">
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">סטודיו מוסמך Stott Pilates</span>
+          <span class="en">Stott Pilates certified studio</span>
+        </div>
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">קבוצות קטנות, עד 12 משתתפים</span>
+          <span class="en">Small groups, max 12 students</span>
+        </div>
+        <div class="about-credential">
+          <div class="about-dot"></div>
+          <span class="he">נווה צדק, תל אביב</span>
+          <span class="en">Neve Tzedek, Tel Aviv</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. STUDIO GALLERY ===== -->
+<section class="section studio-section" id="about">
+  <div class="studio-grid">
+    <div class="studio-text rv">
+      <div class="section-label">
+        <span class="he">הסטודיו שלנו</span>
+        <span class="en">Our Studio</span>
+      </div>
+      <h2>
+        <span class="he">מרחב של שקט ותנועה</span>
+        <span class="en">A Space of Calm & Movement</span>
+      </h2>
+      <p>
+        <span class="he">סטודיו שקט ומואר, מעוצב להתמקדות ותנועה. חומרים טבעיים, ציוד פרימיום ואווירה רגועה שמזמינה אתכם להשאיר את העולם בחוץ.</span>
+        <span class="en">A serene, light-filled space designed for focus and movement. Natural materials, premium equipment, and a calm atmosphere that invites you to leave the world outside.</span>
+      </p>
+      <p>
+        <span class="he">המקום שלנו נבנה מתוך אהבה לפרטים — מהמזרנים ועד התאורה, הכל נבחר כדי שתרגישו בנוח מהרגע שאתם נכנסים.</span>
+        <span class="en">Our space was built with a love for detail — from the mats to the lighting, everything was chosen so you feel comfortable from the moment you walk in.</span>
+      </p>
+    </div>
+    <div class="studio-img rv rv-d1">
+      <img src="img/pilates4.jpg" alt="High-end Pilates studio with mats, equipment and monstera plant" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. SCHEDULE ===== -->
+<section class="section schedule-section" id="schedule">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">לוח זמנים</span>
+      <span class="en">Schedule</span>
+    </div>
+    <h2>
+      <span class="he">מערכת השיעורים</span>
+      <span class="en">Class Schedule</span>
+    </h2>
+    <p>
+      <span class="he">שיעורים לאורך כל השבוע, בשעות שמתאימות לכם</span>
+      <span class="en">Classes throughout the week, at times that work for you</span>
+    </p>
+  </div>
+  <div class="schedule-grid">
+    <div class="schedule-card rv rv-d1">
+      <h3>
+        <span class="he">פילאטיס מזרן</span>
+        <span class="en">Mat Pilates</span>
+      </h3>
+      <p>
+        <span class="he">ראשון - חמישי<br>07:00 · 09:00 · 18:00</span>
+        <span class="en">Sun - Thu<br>07:00 · 09:00 · 18:00</span>
+      </p>
+    </div>
+    <div class="schedule-card rv rv-d2">
+      <h3>
+        <span class="he">פילאטיס רפורמר</span>
+        <span class="en">Reformer Pilates</span>
+      </h3>
+      <p>
+        <span class="he">ראשון - חמישי<br>08:00 · 10:00 · 17:00</span>
+        <span class="en">Sun - Thu<br>08:00 · 10:00 · 17:00</span>
+      </p>
+    </div>
+    <div class="schedule-card rv rv-d3">
+      <h3>
+        <span class="he">יוגה פלואו</span>
+        <span class="en">Yoga Flow</span>
+      </h3>
+      <p>
+        <span class="he">שני, רביעי, שישי<br>07:30 · 19:00</span>
+        <span class="en">Mon, Wed, Fri<br>07:30 · 19:00</span>
+      </p>
+    </div>
+  </div>
+  <div class="schedule-cta rv">
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <span class="he">לוח זמנים מלא</span>
+      <span class="en">View Full Schedule</span>
+    </button>
+  </div>
+</section>
+
+<!-- ===== 8. TESTIMONIALS ===== -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">מה אומרים עלינו</span>
+      <span class="en">Testimonials</span>
+    </div>
+    <h2>
+      <span class="he">הקהילה שלנו מספרת</span>
+      <span class="en">What Our Community Says</span>
+    </h2>
+    <p>
+      <span class="he">מילים מלב מי שמתאמנים אצלנו</span>
+      <span class="en">Words from those who practice with us</span>
+    </p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card rv rv-d1">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">
+        <span class="he">קורה הפך לחלק בלתי נפרד מהשגרה שלי. השיעורים הקטנים והמדריכות המדהימות עושים את כל ההבדל. אחרי חצי שנה, כאבי הגב שלי כמעט נעלמו.</span>
+        <span class="en">Kore has become an inseparable part of my routine. The small classes and amazing instructors make all the difference. After six months, my back pain has almost disappeared.</span>
+      </div>
+      <div class="testimonial-author">
+        <span class="he">— ת.כ, בת 38</span>
+        <span class="en">— T.K., age 38</span>
+      </div>
+    </div>
+    <div class="testimonial-card rv rv-d2">
+      <div class="testimonial-quote">"</div>
+      <div class="testimonial-text">
+        <span class="he">חיפשתי סטודיו שירגיש כמו בית — וזה בדיוק מה שמצאתי בקורה. האווירה שקטה, המקום יפהפה, והתנועה משנה את החיים.</span>
+        <span class="en">I was looking for a studio that feels like home — and that's exactly what I found at Kore. The atmosphere is quiet, the space is beautiful, and the movement is life-changing.</span>
+      </div>
+      <div class="testimonial-author">
+        <span class="he">— ר.ד, בת 42</span>
+        <span class="en">— R.D., age 42</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. CTA SECTION ===== -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="img/pilates1.jpg" alt="Woman stretching in warm Pilates studio" loading="lazy">
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content rv">
+    <h2>
+      <span class="he">התחילו את המסע</span>
+      <span class="en">Start Your Practice</span>
+    </h2>
+    <p>
+      <span class="he">השיעור הראשון עלינו. בואו לחוות את קורה ולהרגיש את ההבדל שתנועה נכונה עושה.</span>
+      <span class="en">Your first class is on us. Come experience Kore and feel the difference that mindful movement makes.</span>
+    </p>
+    <button class="btn-cta-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="he">הזמינו שיעור ראשון</span>
+      <span class="en">Book Your First Class</span>
+    </button>
+  </div>
+</section>
+
+<!-- ===== 10. CONTACT ===== -->
+<section class="section contact-section" id="contact">
+  <div class="section-header rv">
+    <div class="section-label">
+      <span class="he">צרו קשר</span>
+      <span class="en">Contact</span>
+    </div>
+    <h2>
+      <span class="he">בואו לבקר</span>
+      <span class="en">Come Visit Us</span>
+    </h2>
+    <p>
+      <span class="he">מוזמנים לפנות בכל שאלה או להירשם לשיעור ניסיון</span>
+      <span class="en">Feel free to reach out with any question or sign up for a trial class</span>
+    </p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card rv rv-d1">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3>
+        <span class="he">כתובת</span>
+        <span class="en">Address</span>
+      </h3>
+      <p>
+        <span class="he">רחוב שבזי 22, נווה צדק<br>תל אביב</span>
+        <span class="en">22 Shabazi St, Neve Tzedek<br>Tel Aviv</span>
+      </p>
+    </div>
+    <div class="contact-card rv rv-d2">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <h3>
+        <span class="he">טלפון</span>
+        <span class="en">Phone</span>
+      </h3>
+      <p><a href="tel:03-5108888">03-510-8888</a></p>
+    </div>
+    <div class="contact-card rv rv-d3">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>
+        <span class="he">שעות פעילות</span>
+        <span class="en">Hours</span>
+      </h3>
+      <p>
+        <span class="he">ראשון - חמישי: 06:30 - 21:00<br>שישי: 07:00 - 14:00<br>שבת: 08:00 - 13:00</span>
+        <span class="en">Sun - Thu: 06:30 - 21:00<br>Fri: 07:00 - 14:00<br>Sat: 08:00 - 13:00</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-copy">
+      <span class="he">&copy; 2026 קורה. כל הזכויות שמורות.</span>
+      <span class="en">&copy; 2026 Kore. All rights reserved.</span>
+    </div>
+    <div class="footer-mizra">
+      <span class="he">נבנה ע"י <a href="https://getmizra.com">Mizra</a></span>
+      <span class="en">Built by <a href="https://getmizra.com">Mizra</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile sticky bar -->
+<div class="mobile-sticky">
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <span class="he">הרשמו לשיעור</span>
+    <span class="en">Book a Class</span>
+  </button>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Language toggle
+function toggleLang(){
+  var body=document.body;
+  var html=document.documentElement;
+  var btn=document.querySelector('.lang-toggle');
+  if(body.classList.contains('lang-en')){
+    body.classList.remove('lang-en');
+    html.setAttribute('dir','rtl');
+    html.setAttribute('lang','he');
+    btn.textContent='EN';
+  }else{
+    body.classList.add('lang-en');
+    html.setAttribute('dir','ltr');
+    html.setAttribute('lang','en');
+    btn.textContent='HE';
+  }
+}
+
+// Mobile menu
+function toggleMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var burger=document.querySelector('.nav-burger');
+  menu.classList.toggle('open');
+  if(menu.classList.contains('open')){
+    burger.children[0].style.transform='rotate(45deg) translate(5px,5px)';
+    burger.children[1].style.opacity='0';
+    burger.children[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  }else{
+    burger.children[0].style.transform='';
+    burger.children[1].style.opacity='';
+    burger.children[2].style.transform='';
+  }
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  var burger=document.querySelector('.nav-burger');
+  burger.children[0].style.transform='';
+  burger.children[1].style.opacity='';
+  burger.children[2].style.transform='';
+}
+
+// Sticky nav with banner offset
+(function(){
+  var nav=document.getElementById('nav');
+  var banner=document.querySelector('.demo-banner');
+  var bannerH=banner?banner.offsetHeight:0;
+
+  function updateNav(){
+    var st=window.scrollY;
+    if(st>bannerH){
+      nav.style.top='0';
+      nav.classList.add('scrolled');
+    }else{
+      nav.style.top=(bannerH-st)+'px';
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  nav.style.top=bannerH+'px';
+  window.addEventListener('scroll',updateNav,{passive:true});
+  window.addEventListener('resize',function(){
+    bannerH=banner?banner.offsetHeight:0;
+    updateNav();
+  });
+})();
+
+// Scroll reveal animations (.rv class with IntersectionObserver)
+(function(){
+  var els=document.querySelectorAll('.rv');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+
+  els.forEach(function(el){
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

@@ -229,5 +229,28 @@
     "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
     "exampleSlug": "startup",
     "serviceSlug": null
+  },
+  {
+    "slug": "pilates",
+    "name": { "en": "Pilates Studio", "he": "סטודיו פילאטיס" },
+    "primaryKeyword": { "en": "pilates studio website", "he": "אתר לסטודיו פילאטיס" },
+    "synonyms": { "en": ["yoga studio", "pilates instructor", "wellness studio"], "he": ["סטודיו יוגה", "מורה לפילאטיס", "סטודיו בריאות"] },
+    "features": [
+      { "title": { "en": "Class Schedule", "he": "לוח שיעורים" }, "desc": { "en": "Display your weekly class schedule — Pilates mat, reformer, yoga and more.", "he": "הציגו את לוח השיעורים השבועי — פילאטיס מזרן, רפורמר, יוגה ועוד." } },
+      { "title": { "en": "Online Booking", "he": "הזמנה אונליין" }, "desc": { "en": "Students book classes directly through your website — no calls needed.", "he": "תלמידים נרשמים לשיעורים ישירות דרך האתר — בלי צורך בטלפונים." } },
+      { "title": { "en": "Instructor Profiles", "he": "פרופילי מדריכים" }, "desc": { "en": "Introduce your instructors with their certifications, experience and teaching style.", "he": "הציגו את המדריכים עם ההסמכות, הניסיון וסגנון ההוראה שלהם." } },
+      { "title": { "en": "Studio Gallery", "he": "גלריית הסטודיו" }, "desc": { "en": "Showcase your space, equipment and class atmosphere with beautiful photos.", "he": "הציגו את המרחב, הציוד ואווירת השיעורים עם תמונות יפהפיות." } },
+      { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your studio looks beautiful on every device — phone, tablet and desktop.", "he": "הסטודיו שלכם נראה יפהפה בכל מכשיר — טלפון, טאבלט ומחשב." } }
+    ],
+    "faqs": [
+      { "q": { "en": "Why does a pilates studio need a website?", "he": "למה סטודיו פילאטיס צריך אתר?" }, "a": { "en": "A website helps new students find your studio on Google, see your class schedule and sign up — all in one place.", "he": "אתר עוזר לתלמידים חדשים למצוא את הסטודיו בגוגל, לראות את לוח השיעורים ולהירשם — הכל במקום אחד." } },
+      { "q": { "en": "Can students book classes online?", "he": "תלמידים יכולים להירשם לשיעורים אונליין?" }, "a": { "en": "Yes. We integrate with Momoyoga, Mindbody or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Momoyoga, Mindbody או כל כלי תזמון שאתם משתמשים בו." } },
+      { "q": { "en": "Can I show my studio space?", "he": "אפשר להציג את הסטודיו?" }, "a": { "en": "Yes. Your website includes a gallery section to showcase your beautiful studio and classes.", "he": "כן. האתר כולל גלריה להצגת הסטודיו היפהפה והשיעורים שלכם." } },
+      { "q": { "en": "How much does a pilates studio website cost?", "he": "כמה עולה אתר לסטודיו פילאטיס?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
+    ],
+    "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
+    "exampleSlug": "pilates",
+    "serviceSlug": null
   }
 ]

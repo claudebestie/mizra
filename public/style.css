@@ -267,7 +267,7 @@ body.lh .al-math{text-align:right}
    ============================================================ */
 
 /* --- MARQUEE (homepage sections) --- */
-.marquee-wrap{overflow:hidden;position:relative;width:100%}
+.marquee-wrap{overflow:hidden;position:relative;width:100%;direction:ltr}
 .marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
 .marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
 .marquee-wrap::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}

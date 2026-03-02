@@ -14,42 +14,42 @@ function renderNav() {
   <div class="en">
     <div class="nd"><span class="nd-label">Services</span>
       <div class="nd-drop">
-        <a href="/services/restaurants/"><strong>Restaurants</strong><small>See example</small></a>
-        <a href="/services/cafes/"><strong>Cafes</strong><small>See example</small></a>
-        <a href="/services/beauty-salons/"><strong>Beauty Salons</strong><small>See example</small></a>
-        <a href="/services/barbershops/"><strong>Barbershops</strong><small>See example</small></a>
-        <a href="/services/clinics/"><strong>Clinics</strong><small>See example</small></a>
-        <a href="/services/lawyers/"><strong>Lawyers</strong><small>See example</small></a>
-        <a href="/services/contractors/"><strong>Contractors</strong><small>See example</small></a>
-        <a href="/sports-coach-website-builder/"><strong>Sports Coaches</strong><small>See example</small></a>
-        <a href="/therapist-website-builder/"><strong>Therapists</strong><small>See example</small></a>
-        <a href="/real-estate-website-builder/"><strong>Real Estate</strong><small>See example</small></a>
-        <a href="/freelancer-website-builder/"><strong>Freelancers</strong><small>See example</small></a>
-        <a href="/startup-website-builder/"><strong>Startups</strong><small>See example</small></a>
-        <a href="/pilates-website-builder/"><strong>Pilates Studios</strong><small>See example</small></a>
+        <a href="/services/restaurants/"><strong>Restaurants</strong></a>
+        <a href="/services/cafes/"><strong>Cafes</strong></a>
+        <a href="/services/beauty-salons/"><strong>Beauty Salons</strong></a>
+        <a href="/services/barbershops/"><strong>Barbershops</strong></a>
+        <a href="/services/clinics/"><strong>Clinics</strong></a>
+        <a href="/services/lawyers/"><strong>Lawyers</strong></a>
+        <a href="/services/contractors/"><strong>Contractors</strong></a>
+        <a href="/sports-coach-website-builder/"><strong>Sports Coaches</strong></a>
+        <a href="/therapist-website-builder/"><strong>Therapists</strong></a>
+        <a href="/real-estate-website-builder/"><strong>Real Estate</strong></a>
+        <a href="/freelancer-website-builder/"><strong>Freelancers</strong></a>
+        <a href="/startup-website-builder/"><strong>Startups</strong></a>
+        <a href="/pilates-website-builder/"><strong>Pilates Studios</strong></a>
       </div>
     </div>
-    <a href="/#examples">Examples</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    <a href="/#examples">Examples</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a>
   </div>
   <div class="he">
     <div class="nd"><span class="nd-label">שירותים</span>
       <div class="nd-drop">
-        <a href="/services/restaurants/"><strong>מסעדות</strong><small>ראו דוגמה</small></a>
-        <a href="/services/cafes/"><strong>בתי קפה</strong><small>ראו דוגמה</small></a>
-        <a href="/services/beauty-salons/"><strong>מכוני יופי</strong><small>ראו דוגמה</small></a>
-        <a href="/services/barbershops/"><strong>מספרות</strong><small>ראו דוגמה</small></a>
-        <a href="/services/clinics/"><strong>קליניקות</strong><small>ראו דוגמה</small></a>
-        <a href="/services/lawyers/"><strong>עורכי דין</strong><small>ראו דוגמה</small></a>
-        <a href="/services/contractors/"><strong>קבלנים</strong><small>ראו דוגמה</small></a>
-        <a href="/sports-coach-website-builder/"><strong>מאמני ספורט</strong><small>ראו דוגמה</small></a>
-        <a href="/therapist-website-builder/"><strong>מטפלים</strong><small>ראו דוגמה</small></a>
-        <a href="/real-estate-website-builder/"><strong>נדל"ן</strong><small>ראו דוגמה</small></a>
-        <a href="/freelancer-website-builder/"><strong>פרילנסרים</strong><small>ראו דוגמה</small></a>
-        <a href="/startup-website-builder/"><strong>סטארטאפים</strong><small>ראו דוגמה</small></a>
-        <a href="/pilates-website-builder/"><strong>סטודיו פילאטיס</strong><small>ראו דוגמה</small></a>
+        <a href="/services/restaurants/"><strong>מסעדות</strong></a>
+        <a href="/services/cafes/"><strong>בתי קפה</strong></a>
+        <a href="/services/beauty-salons/"><strong>מכוני יופי</strong></a>
+        <a href="/services/barbershops/"><strong>מספרות</strong></a>
+        <a href="/services/clinics/"><strong>קליניקות</strong></a>
+        <a href="/services/lawyers/"><strong>עורכי דין</strong></a>
+        <a href="/services/contractors/"><strong>קבלנים</strong></a>
+        <a href="/sports-coach-website-builder/"><strong>מאמני ספורט</strong></a>
+        <a href="/therapist-website-builder/"><strong>מטפלים</strong></a>
+        <a href="/real-estate-website-builder/"><strong>נדל"ן</strong></a>
+        <a href="/freelancer-website-builder/"><strong>פרילנסרים</strong></a>
+        <a href="/startup-website-builder/"><strong>סטארטאפים</strong></a>
+        <a href="/pilates-website-builder/"><strong>סטודיו פילאטיס</strong></a>
       </div>
     </div>
-    <a href="/#examples">דוגמאות</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a>
+    <a href="/#examples">דוגמאות</a><a href="/pricing/">מחירון</a><a href="/blog/">בלוג</a><a href="/contact/">צור קשר</a>
   </div>
 </div>
 <div class="nr">

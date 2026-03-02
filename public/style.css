@@ -230,20 +230,20 @@ body.lh .wa{right:auto;left:24px}
    ============================================================ */
 
 /* --- VERTICALS GRID (homepage) --- */
-.vg{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:48px;max-width:900px;margin-left:auto;margin-right:auto}.vg>.vc{flex:0 1 calc(25% - 14px);min-width:140px}
-.vc{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:28px 18px;text-align:center;text-decoration:none;color:var(--tx);transition:.3s}
+.vg{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:48px;max-width:1000px;margin-left:auto;margin-right:auto}.vg>.vc{flex:0 1 calc(20% - 10px);min-width:105px}
+.vc{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:18px 12px;text-align:center;text-decoration:none;color:var(--tx);transition:.3s}
 .vc:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.06);border-color:var(--or)}
 /* --- EXAMPLES SHOWCASE --- */
-.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.ex-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;background:var(--navy2);border:1px solid var(--bdd);transition:transform .3s,box-shadow .3s}
+.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ex-card{display:block;text-decoration:none;border-radius:10px;overflow:hidden;background:var(--navy2);border:1px solid var(--bdd);transition:transform .3s,box-shadow .3s}
 .ex-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.ex-preview{width:100%;height:220px;background-size:cover;background-position:center;transition:transform .5s}.ex-card:hover .ex-preview{transform:scale(1.05)}
-.ex-card h3{font-family:var(--sf);font-size:1.05rem;color:#fff;padding:16px 20px 2px}
-.ex-card p{font-size:.78rem;color:var(--txd);padding:0 20px 16px}
+.ex-preview{width:100%;height:155px;background-size:cover;background-position:center;transition:transform .5s}.ex-card:hover .ex-preview{transform:scale(1.05)}
+.ex-card h3{font-family:var(--sf);font-size:.82rem;color:#fff;padding:12px 14px 2px}
+.ex-card p{font-size:.65rem;color:var(--txd);padding:0 14px 12px}
 
-.vc h3{font-family:var(--sf);font-size:.95rem;color:var(--navy);margin-bottom:4px}
-.vc p{font-size:.72rem;color:var(--txl)}
-.vc-ex{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:600;color:var(--or);cursor:pointer;transition:color .3s}.vc-ex:hover{color:var(--or2)}
+.vc h3{font-family:var(--sf);font-size:.72rem;color:var(--navy);margin-bottom:3px}
+.vc p{font-size:.58rem;color:var(--txl)}
+.vc-ex{display:inline-block;margin-top:6px;font-size:.55rem;font-weight:600;color:var(--or);cursor:pointer;transition:color .3s}.vc-ex:hover{color:var(--or2)}
 
 /* --- FAQ ACCORDION --- */
 .faq-list,.faq{display:flex;flex-direction:column;gap:10px;max-width:700px}
@@ -351,14 +351,14 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .breadcrumbs{padding:80px 24px 0}
   .page-hero{padding:100px 24px 48px}
   .page-hero h1{font-size:2rem}
-  .vg{gap:16px}
+  .vg{gap:10px}
   .blog-grid{grid-template-columns:1fr 1fr}
   .cta{padding:80px 24px}
   .feat-grid{grid-template-columns:1fr 1fr}
   .test-grid{grid-template-columns:1fr 1fr}
   .faq-list,.faq{max-width:100%}
   .ex-grid{grid-template-columns:repeat(2,1fr)}
-  .vg>.vc{flex:0 1 calc(25% - 14px)}
+  .vg>.vc{flex:0 1 calc(25% - 10px)}
 }
 @media(max-width:640px){
   .hero{padding:100px 20px 48px}

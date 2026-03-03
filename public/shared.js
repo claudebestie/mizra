@@ -1,6 +1,6 @@
 // ============================================================
 // MIZRA - Shared Components (nav, footer, language, mobile menu)
-// Include on every page: <script src="/shared.js"></script>
+// Include on every page: <script src="/shared.js?v=20260303"></script>
 // ============================================================
 
 // --- NAVIGATION ---

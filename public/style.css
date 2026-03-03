@@ -266,33 +266,34 @@ body.lh .al-math{text-align:right}
    EXTENSIONS FOR MULTI-PAGE (verticals, blog, FAQ, etc.)
    ============================================================ */
 
-/* --- MARQUEE (homepage sections) --- */
-.marquee-wrap{overflow:hidden;position:relative;width:100%;direction:ltr}
-.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
-.marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
-.marquee-wrap::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
-section[style*="navy"] .marquee-wrap::before{background:linear-gradient(90deg,var(--navy) 0%,transparent 100%)}
-section[style*="navy"] .marquee-wrap::after{background:linear-gradient(270deg,var(--navy) 0%,transparent 100%)}
-.marquee-track{display:flex;gap:14px;width:max-content;animation:marquee-scroll 40s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-.marquee-reverse{animation-name:marquee-scroll-reverse}
-.marquee-cards{gap:20px;animation-duration:50s}
-@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes marquee-scroll-reverse{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+/* --- VERTICALS GRID --- */
+.vert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:left;max-width:1000px;margin:0 auto}
+body.lh .vert-grid{text-align:right}
+.vert-card{display:block;padding:20px 22px;background:#fff;border:1.5px solid var(--bd);border-radius:14px;text-decoration:none;transition:.3s}
+.vert-card:hover{border-color:var(--or);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.07)}
+.vert-card strong{font-family:var(--sf);font-size:.92rem;color:var(--navy);display:block;margin-bottom:4px}
+.vert-card p{font-size:.76rem;color:var(--txl);line-height:1.4;margin:0}
 
-/* Marquee pills (verticals) */
-.mq-pill{display:inline-flex;align-items:center;padding:14px 28px;background:#fff;border:1.5px solid var(--bd);border-radius:100px;font-family:var(--sn);font-size:.92rem;font-weight:600;color:var(--navy);text-decoration:none;white-space:nowrap;transition:.3s;flex-shrink:0}
-.mq-pill:hover{border-color:var(--or);color:var(--or);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
-
-/* Static examples grid */
-.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:left}
+/* --- EXAMPLES SHOWCASE (browser mockup cards) --- */
+.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
 body.lh .ex-grid{text-align:right}
-.ex-card{display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:var(--navy2);border:1px solid var(--bdd);transition:transform .3s,box-shadow .3s}
-.ex-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
-.ex-card-img{width:100%;height:180px;background-size:cover;background-position:center;transition:transform .5s}
-.ex-card:hover .ex-card-img{transform:scale(1.03)}
-.ex-card h3{font-family:var(--sf);font-size:.95rem;color:#fff;padding:14px 16px 3px}
-.ex-card p{font-size:.75rem;color:var(--txd);padding:0 16px 14px}
+.ex-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;background:#1a2332;border:1px solid rgba(255,255,255,.08);transition:transform .3s,box-shadow .3s}
+.ex-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+/* Browser chrome bar */
+.ex-browser{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0f1923;border-bottom:1px solid rgba(255,255,255,.06)}
+.ex-dots{display:flex;gap:5px}
+.ex-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15)}
+.ex-dots span:first-child{background:#ff5f57}
+.ex-dots span:nth-child(2){background:#ffbd2e}
+.ex-dots span:last-child{background:#28c840}
+.ex-url{font-size:.65rem;color:rgba(255,255,255,.3);font-family:var(--sn);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Screenshot area */
+.ex-card-img{width:100%;height:200px;background-size:cover;background-position:top center;transition:transform .5s}
+.ex-card:hover .ex-card-img{transform:scale(1.04)}
+/* Info bar */
+.ex-info{padding:14px 16px}
+.ex-info h3{font-family:var(--sf);font-size:.92rem;color:#fff;margin-bottom:2px}
+.ex-info p{font-size:.72rem;color:rgba(255,255,255,.45);margin:0}
 
 /* Contact layout */
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:960px;margin:0 auto}
@@ -404,13 +405,13 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .page-hero{padding:100px 24px 48px}
   .page-hero h1{font-size:2rem}
   .contact-layout{grid-template-columns:1fr}
-  .ex-grid{grid-template-columns:repeat(3,1fr)}
+  .vert-grid{grid-template-columns:repeat(3,1fr)}
+  .ex-grid{grid-template-columns:repeat(2,1fr)}
   .blog-grid{grid-template-columns:1fr 1fr}
   .cta{padding:80px 24px}
   .feat-grid{grid-template-columns:1fr 1fr}
   .test-grid{grid-template-columns:1fr 1fr}
   .faq-list,.faq{max-width:100%}
-  .marquee-wrap::before,.marquee-wrap::after{width:40px}
 }
 @media(max-width:640px){
   .hero{padding:100px 20px 48px}
@@ -433,8 +434,8 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .cx{padding:0 16px}
   .feat-grid{grid-template-columns:1fr}
   .test-grid{grid-template-columns:1fr}
-  .marquee-wrap::before,.marquee-wrap::after{width:24px}
-  .mq-pill{padding:12px 22px;font-size:.84rem}
+  .vert-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vert-card{padding:16px 18px}
   .blog-grid{grid-template-columns:1fr}
   .page-hero{padding:90px 16px 36px}
   .page-hero h1{font-size:1.6rem}
@@ -443,5 +444,5 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   footer{padding:32px 16px}
   .breadcrumbs{padding:72px 16px 0;font-size:.75rem}
   .btn{padding:12px 20px;font-size:.85rem;width:auto}
-  .ex-grid{grid-template-columns:repeat(2,1fr);gap:12px}.ex-card-img{height:140px}
+  .ex-grid{grid-template-columns:1fr;gap:16px;max-width:480px;margin:0 auto}.ex-card-img{height:200px}
 }

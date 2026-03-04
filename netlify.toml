@@ -1,6 +1,7 @@
 [build]
   command = "npm install && npm run build && npm run seo:check"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"

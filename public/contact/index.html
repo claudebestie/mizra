@@ -96,16 +96,18 @@ async function sendContact(e){
   e.preventDefault();
   var btn=document.getElementById('contactBtn');
   btn.disabled=true;btn.textContent='Sending...';
+  var name=document.getElementById('c_name').value;
+  var email=document.getElementById('c_email').value;
+  var subject=document.getElementById('c_subject').value||'';
+  var message=document.getElementById('c_message').value;
   try{
     var sb=window.supabase?window.supabase.createClient('https://nhtcblvnmmvspuexjfea.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5odGNibHZubW12c3B1ZXhqZmVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM2MTQ2ODQsImV4cCI6MjA1OTE5MDY4NH0.R3GhJW5hOVXTMV8qdQOH0BQJzDvBiCR7HdpDGSmcoTY'):null;
-    if(sb){
-      await sb.from('contact_messages').insert({
-        name:document.getElementById('c_name').value,
-        email:document.getElementById('c_email').value,
-        subject:document.getElementById('c_subject').value||'',
-        message:document.getElementById('c_message').value
-      });
-    }
+    if(sb){ await sb.from('contact_messages').insert({name,email,subject,message}); }
+    await fetch('/.netlify/functions/contact-notify',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,email,subject,message})
+    });
     var isHe=document.body.classList.contains('lh');
     btn.textContent=isHe?'נשלח בהצלחה!':'Sent!';
     btn.style.background='var(--grn)';

@@ -99,10 +99,9 @@ Inclut :
 - Note moyenne (4.9/5)
 - Liens réseaux sociaux
 
-✅ **Offers Schema** (3 packages)
-- Package BASIC : ₪2,990
-- Package PRO : ₪4,990
-- Package PREMIUM : ₪7,990
+✅ **Offers Schema** (2 offers)
+- Landing Page : ₪1,990 (promo, normally ₪2,990)
+- Custom Website : prix sur mesure
 
 ✅ **FAQ Schema**
 Questions fréquentes avec réponses :

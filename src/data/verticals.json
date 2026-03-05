@@ -40,7 +40,7 @@
       { "q": { "en": "Can I show my food photos?", "he": "אפשר להציג תמונות אוכל?" }, "a": { "en": "Absolutely. Your website includes a gallery section for your best dishes and drinks.", "he": "בהחלט. האתר שלכם כולל גלריה לתמונות המנות והמשקאות הטובים ביותר." } },
       { "q": { "en": "How fast is the website?", "he": "כמה מהיר האתר?" }, "a": { "en": "Mizra websites load in under 2 seconds — critical for mobile visitors.", "he": "אתרי Mizra נטענים תוך פחות מ-2 שניות — קריטי למבקרים מהמובייל." } },
       { "q": { "en": "Do I need to know coding?", "he": "צריך לדעת קוד?" }, "a": { "en": "No. Mizra handles everything — design, development and launch.", "he": "לא. Mizra מטפלת בהכל — עיצוב, פיתוח והשקה." } },
-      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Plans start at NIS 2,990 for a single page website. See our pricing page for details.", "he": "תוכניות מתחילות מ-₪2,990 לאתר דף יחיד. ראו את עמוד התמחור לפרטים." } }
+      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Plans start at NIS 1,990 for a single page website. See our pricing page for details.", "he": "תוכניות מתחילות מ-₪1,990 לאתר דף יחיד. ראו את עמוד התמחור לפרטים." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": "cafe",
@@ -62,7 +62,7 @@
       { "q": { "en": "Why does a barbershop need a website?", "he": "למה מספרה צריכה אתר?" }, "a": { "en": "Most people search for barbershops on Google. A professional website makes you visible and builds trust.", "he": "רוב האנשים מחפשים מספרות בגוגל. אתר מקצועי הופך אתכם לגלויים ובונה אמון." } },
       { "q": { "en": "Can clients book through the website?", "he": "לקוחות יכולים להזמין דרך האתר?" }, "a": { "en": "Yes. We connect your website to any booking tool you already use.", "he": "כן. אנחנו מחברים את האתר לכל כלי הזמנות שאתם כבר משתמשים בו." } },
       { "q": { "en": "Will it work on mobile?", "he": "זה עובד במובייל?" }, "a": { "en": "Every Mizra website is built mobile-first and looks great on all devices.", "he": "כל אתר Mizra נבנה מובייל קודם ונראה מעולה בכל המכשירים." } },
-      { "q": { "en": "How much does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 2,990 for a single-page website with all features included.", "he": "מ-₪2,990 לאתר דף יחיד עם כל הפיצ'רים כלולים." } },
+      { "q": { "en": "How much does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 1,990 for a single-page website with all features included.", "he": "מ-₪1,990 לאתר דף יחיד עם כל הפיצ'רים כלולים." } },
       { "q": { "en": "Can I show my work?", "he": "אפשר להציג את העבודות שלי?" }, "a": { "en": "Yes. Your website includes a gallery section where you can showcase your best styles.", "he": "כן. האתר שלכם כולל גלריה בה תוכלו להציג את הסגנונות הטובים ביותר." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "wix-vs-atar-mutaam", "tauyot-be-atar-iski"],
@@ -131,7 +131,7 @@
       { "q": { "en": "Why does a sports coach need a website?", "he": "למה מאמן ספורט צריך אתר?" }, "a": { "en": "A website helps potential clients find you on Google, see your programs and book sessions — all in one place.", "he": "אתר עוזר למתאמנים פוטנציאליים למצוא אתכם בגוגל, לראות את התוכניות ולהזמין אימונים — הכל במקום אחד." } },
       { "q": { "en": "Can clients book training sessions online?", "he": "מתאמנים יכולים להזמין אימונים אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
       { "q": { "en": "Can I show client results and transformations?", "he": "אפשר להציג תוצאות ושינויים של מתאמנים?" }, "a": { "en": "Yes. Your website includes a testimonials section to showcase before/after results and success stories.", "he": "כן. האתר כולל מדור המלצות להצגת תוצאות לפני/אחרי וסיפורי הצלחה." } },
-      { "q": { "en": "How much does a sports coach website cost?", "he": "כמה עולה אתר למאמן ספורט?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "How much does a sports coach website cost?", "he": "כמה עולה אתר למאמן ספורט?" }, "a": { "en": "Starting at NIS 1,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪1,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
@@ -154,7 +154,7 @@
       { "q": { "en": "Why does a therapist need a website?", "he": "למה מטפל צריך אתר?" }, "a": { "en": "Most people search online before choosing a therapist. A professional website builds trust and helps clients take the first step.", "he": "רוב האנשים מחפשים אונליין לפני בחירת מטפל. אתר מקצועי בונה אמון ועוזר למטופלים לעשות את הצעד הראשון." } },
       { "q": { "en": "Can clients book sessions online?", "he": "מטופלים יכולים להזמין פגישות אונליין?" }, "a": { "en": "Yes. We integrate with Calendly, Google Calendar or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Calendly, Google Calendar או כל כלי תזמון שאתם משתמשים בו." } },
       { "q": { "en": "Is the website design appropriate for therapy?", "he": "העיצוב מתאים לטיפול?" }, "a": { "en": "Yes. We design warm, calming websites that feel professional and welcoming for therapy practices.", "he": "כן. אנחנו מעצבים אתרים חמים ומרגיעים שנראים מקצועיים ומזמינים לפרקטיקות טיפול." } },
-      { "q": { "en": "How much does a therapist website cost?", "he": "כמה עולה אתר למטפל?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "How much does a therapist website cost?", "he": "כמה עולה אתר למטפל?" }, "a": { "en": "Starting at NIS 1,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪1,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
@@ -201,7 +201,7 @@
       { "q": { "en": "Can I show my past work?", "he": "אפשר להציג עבודות קודמות?" }, "a": { "en": "Yes. Your website includes a portfolio section for projects, case studies and client results.", "he": "כן. האתר כולל מדור תיק עבודות לפרויקטים, תיאורי מקרה ותוצאות לקוחות." } },
       { "q": { "en": "Is it good for SEO?", "he": "זה טוב ל-SEO?" }, "a": { "en": "Every Mizra website is SEO-optimized from day one to help you rank for relevant keywords.", "he": "כל אתר Mizra מותאם ל-SEO מיום הראשון כדי לעזור לכם לדרג מילות מפתח רלוונטיות." } },
       { "q": { "en": "How fast can my site go live?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most freelancer websites launch within 48-72 hours after approval.", "he": "רוב אתרי הפרילנסרים מושקים תוך 48-72 שעות לאחר אישור." } },
-      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 2,990 for a complete freelancer website with all features.", "he": "מ-₪2,990 לאתר פרילנסר מלא עם כל הפיצ'רים." } }
+      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 1,990 for a complete freelancer website with all features.", "he": "מ-₪1,990 לאתר פרילנסר מלא עם כל הפיצ'רים." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": "freelancer",
@@ -224,7 +224,7 @@
       { "q": { "en": "Can I collect signups?", "he": "אפשר לאסוף הרשמות?" }, "a": { "en": "Yes. Your website includes email capture forms to build your early adopter list.", "he": "כן. האתר כולל טפסי לכידת מיילים לבניית רשימת האימוץ המוקדם שלכם." } },
       { "q": { "en": "How fast can we launch?", "he": "כמה מהר אפשר להשיק?" }, "a": { "en": "Most startup websites launch within 48 hours. Perfect for your next demo day or pitch.", "he": "רוב אתרי הסטארטאפ מושקים תוך 48 שעות. מושלם ליום הדמו או הפיץ' הבא שלכם." } },
       { "q": { "en": "Can I update it as we grow?", "he": "אפשר לעדכן ככל שגדלים?" }, "a": { "en": "Yes. Request updates anytime as your product and messaging evolve.", "he": "כן. בקשו עדכונים בכל עת ככל שהמוצר והמסרים שלכם מתפתחים." } },
-      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 2,990 — a fraction of what agencies charge, with faster delivery.", "he": "מ-₪2,990 — חלק קטן ממה שסוכנויות גובות, עם אספקה מהירה יותר." } }
+      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 1,990 — a fraction of what agencies charge, with faster delivery.", "he": "מ-₪1,990 — חלק קטן ממה שסוכנויות גובות, עם אספקה מהירה יותר." } }
     ],
     "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
     "exampleSlug": "startup",
@@ -246,7 +246,7 @@
       { "q": { "en": "Why does a pilates studio need a website?", "he": "למה סטודיו פילאטיס צריך אתר?" }, "a": { "en": "A website helps new students find your studio on Google, see your class schedule and sign up — all in one place.", "he": "אתר עוזר לתלמידים חדשים למצוא את הסטודיו בגוגל, לראות את לוח השיעורים ולהירשם — הכל במקום אחד." } },
       { "q": { "en": "Can students book classes online?", "he": "תלמידים יכולים להירשם לשיעורים אונליין?" }, "a": { "en": "Yes. We integrate with Momoyoga, Mindbody or any scheduling tool you use.", "he": "כן. אנחנו מתממשקים עם Momoyoga, Mindbody או כל כלי תזמון שאתם משתמשים בו." } },
       { "q": { "en": "Can I show my studio space?", "he": "אפשר להציג את הסטודיו?" }, "a": { "en": "Yes. Your website includes a gallery section to showcase your beautiful studio and classes.", "he": "כן. האתר כולל גלריה להצגת הסטודיו היפהפה והשיעורים שלכם." } },
-      { "q": { "en": "How much does a pilates studio website cost?", "he": "כמה עולה אתר לסטודיו פילאטיס?" }, "a": { "en": "Starting at NIS 2,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
+      { "q": { "en": "How much does a pilates studio website cost?", "he": "כמה עולה אתר לסטודיו פילאטיס?" }, "a": { "en": "Starting at NIS 1,990. Includes design, development, SEO and mobile optimization.", "he": "מ-₪1,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל." } },
       { "q": { "en": "Do I need technical skills?", "he": "צריך מיומנויות טכניות?" }, "a": { "en": "No. Mizra handles everything from design to launch. You just provide your content.", "he": "לא. Mizra מטפלת בהכל מעיצוב ועד השקה. אתם רק מספקים את התוכן." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],

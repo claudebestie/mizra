@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=20260303">
+<link rel="stylesheet" href="/style.css?v=20260304">
 </head>
 <body class="lh" data-shared>
 
@@ -92,6 +92,10 @@
 </div></section>
 
 <script>
+// Supabase Config (same instance as audit)
+var SB_URL='https://rofkgmwjggvxlgrdnsyt.supabase.co';
+var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
+
 async function sendContact(e){
   e.preventDefault();
   var btn=document.getElementById('contactBtn');
@@ -100,26 +104,41 @@ async function sendContact(e){
   var email=document.getElementById('c_email').value;
   var subject=document.getElementById('c_subject').value||'';
   var message=document.getElementById('c_message').value;
+  var fullMsg=subject?(subject+' — '+message):message;
+  var saved=false;var notified=false;
+
+  // 1. Save to Supabase
   try{
-    var sb=window.supabase?window.supabase.createClient('https://nhtcblvnmmvspuexjfea.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5odGNibHZubW12c3B1ZXhqZmVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM2MTQ2ODQsImV4cCI6MjA1OTE5MDY4NH0.R3GhJW5hOVXTMV8qdQOH0BQJzDvBiCR7HdpDGSmcoTY'):null;
-    if(sb){ await sb.from('contact_messages').insert({name,email,subject,message}); }
-    await fetch('/.netlify/functions/contact-notify',{
+    var r1=await fetch(SB_URL+'/rest/v1/contact_leads',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=representation'},
+      body:JSON.stringify({name:name,email:email,message:fullMsg})
+    });
+    if(r1.ok) saved=true;
+  }catch(err){console.error('Supabase error:',err)}
+
+  // 2. Send email notification via Netlify function
+  try{
+    var r2=await fetch('/.netlify/functions/contact-notify',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,email,subject,message})
+      body:JSON.stringify({name:name,email:email,subject:subject,message:message})
     });
+    if(r2.ok) notified=true;
+  }catch(err){console.error('Notify error:',err)}
+
+  if(saved||notified){
     var isHe=document.body.classList.contains('lh');
     btn.textContent=isHe?'נשלח בהצלחה!':'Sent!';
-    btn.style.background='var(--grn)';
+    btn.style.background='var(--grn)';btn.style.color='#fff';
     e.target.reset();
-    setTimeout(function(){btn.disabled=false;btn.style.background='';btn.innerHTML='<span class="en">Send Message</span><span class="he">שלחו הודעה</span>';},3000);
-  }catch(err){
-    btn.textContent='Error';btn.style.background='#e74c3c';
-    setTimeout(function(){btn.disabled=false;btn.style.background='';btn.innerHTML='<span class="en">Send Message</span><span class="he">שלחו הודעה</span>';},3000);
+  }else{
+    btn.textContent='Error';btn.style.background='#e74c3c';btn.style.color='#fff';
   }
+  setTimeout(function(){btn.disabled=false;btn.style.background='';btn.style.color='';btn.innerHTML='<span class="en">Send Message</span><span class="he">שלחו הודעה</span>';},3000);
+  return false;
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/shared.js?v=20260303"></script>
+<script src="/shared.js?v=20260304"></script>
 </body>
 </html>

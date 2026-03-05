@@ -86,15 +86,15 @@ export const localAnglesHE = [
 
 // --- Pricing teaser variants (EN) ---
 export const pricingTeasersEN = [
-  "Professional {vertical} websites starting at NIS 2,990. One-time payment, no monthly fees.",
-  "Get a complete {vertical} website from NIS 2,990. Includes design, development, SEO and mobile optimization.",
-  "Affordable pricing for your {vertical} website. Plans start at NIS 2,990 with everything included."
+  "Professional {vertical} websites starting at NIS 1,990. One-time payment, no monthly fees.",
+  "Get a complete {vertical} website from NIS 1,990. Includes design, development, SEO and mobile optimization.",
+  "Affordable pricing for your {vertical} website. Plans start at NIS 1,990 with everything included."
 ];
 
 export const pricingTeasersHE = [
-  "אתרים מקצועיים ל{vertical} החל מ-₪2,990. תשלום חד פעמי, ללא דמי מנוי.",
-  "קבלו אתר {vertical} שלם מ-₪2,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל.",
-  "מחירים נגישים לאתר ה{vertical} שלכם. תוכניות מ-₪2,990 עם הכל כלול."
+  "אתרים מקצועיים ל{vertical} החל מ-₪1,990. תשלום חד פעמי, ללא דמי מנוי.",
+  "קבלו אתר {vertical} שלם מ-₪1,990. כולל עיצוב, פיתוח, SEO ואופטימיזציה למובייל.",
+  "מחירים נגישים לאתר ה{vertical} שלכם. תוכניות מ-₪1,990 עם הכל כלול."
 ];
 
 /**

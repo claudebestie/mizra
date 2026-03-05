@@ -23,8 +23,19 @@ body{font-family:var(--sn);background:var(--bg);color:var(--tx);line-height:1.65
 /* --- LANGUAGE --- */
 .he{display:none}body.lh .en{display:none}body.lh .he{display:block}body.lh{direction:rtl}
 
+/* --- PROMO BANNER --- */
+.promo-banner{background:var(--or);color:#fff;text-align:center;padding:10px 48px;font-size:.82rem;font-weight:600;position:relative;z-index:101;letter-spacing:.3px}
+.promo-banner a{color:#fff;text-decoration:underline;margin-left:8px;font-weight:700}
+.promo-banner .promo-tag{display:inline-block;background:rgba(255,255,255,.2);padding:2px 10px;border-radius:100px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:10px}
+body.lh .promo-banner a{margin-left:0;margin-right:8px}
+body.lh .promo-banner .promo-tag{margin-right:0;margin-left:10px}
+
 /* --- NAVIGATION --- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(246,243,238,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+body.has-promo .nav{top:38px}
+body.has-promo .hero{padding-top:158px}
+body.has-promo .breadcrumbs{padding-top:118px}
+body.has-promo .page-hero{padding-top:158px}
 .nav-logo{font-family:var(--sf);font-size:1.45rem;color:var(--navy);text-decoration:none;font-weight:600}.nav-logo span{color:var(--or)}
 .nm{display:flex;gap:30px}.nm>.en,.nm>.he{display:flex;gap:30px;align-items:center}.nm>.he{display:none}body.lh .nm>.en{display:none}body.lh .nm>.he{display:flex;gap:30px;align-items:center}
 .nm a{color:var(--tx);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .3s}.nm a:hover{color:var(--navy)}
@@ -222,8 +233,10 @@ footer p{font-size:.72rem;color:var(--txd2)}footer a{color:var(--or);text-decora
 .wa{position:fixed;bottom:24px;right:24px;width:50px;height:50px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.28);z-index:90;transition:.3s;text-decoration:none}.wa:hover{transform:scale(1.08)}.wa svg{width:22px;height:22px;fill:#fff}
 body.lh .wa{right:auto;left:24px}
 
-/* --- VAT NOTE --- */
-.pnt-vat{font-size:.7rem;color:var(--txl);margin-bottom:2px}
+/* --- PROMO PRICE --- */
+.price-old{font-size:1.2rem;color:var(--txl);text-decoration:line-through;font-family:var(--sf);font-weight:500}
+.promo-label{display:inline-block;background:var(--ord);color:var(--or);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:100px;margin-bottom:8px}
+.pnt-excl{font-size:.7rem;color:var(--txl);margin-bottom:2px}
 
 /* --- AFTER LAUNCH --- */
 .al-grid{display:grid;grid-template-columns:3fr 2fr;gap:24px;max-width:960px;margin:0 auto 32px;text-align:left;align-items:start}
@@ -377,6 +390,11 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
    RESPONSIVE
    ============================================================ */
 @media(max-width:1024px){
+  .promo-banner{padding:8px 20px;font-size:.78rem}
+  body.has-promo .nav{top:36px}
+  body.has-promo .hero{padding-top:146px}
+  body.has-promo .breadcrumbs{padding-top:116px}
+  body.has-promo .page-hero{padding-top:136px}
   .nav{padding:0 20px}
   /* Mobile menu overlay */
   .nm{position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--bg);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:24px;visibility:hidden;opacity:0;transition:opacity .3s,visibility .3s;z-index:105}
@@ -414,6 +432,10 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .faq-list,.faq{max-width:100%}
 }
 @media(max-width:640px){
+  .promo-banner{padding:8px 16px;font-size:.74rem;line-height:1.4}
+  .promo-banner .promo-tag{display:block;margin:0 auto 4px}
+  body.has-promo .nav{top:52px}
+  body.has-promo .hero{padding-top:152px}
   .hero{padding:100px 20px 48px}
   .hero h1{font-size:2rem}
   .hero p{font-size:.95rem}

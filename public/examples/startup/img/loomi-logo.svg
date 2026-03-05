@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0A1E"/>
+      <stop offset="100%" style="stop-color:#1A1035"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED"/>
+      <stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.08"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.5"/>
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0.15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#7C3AED" stroke-width="0.5" fill="none">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="160" y1="0" x2="160" y2="400"/>
+    <line x1="320" y1="0" x2="320" y2="400"/>
+    <line x1="480" y1="0" x2="480" y2="400"/>
+    <line x1="640" y1="0" x2="640" y2="400"/>
+  </g>
+
+  <!-- Ambient glow behind logo -->
+  <ellipse cx="400" cy="175" rx="240" ry="160" fill="url(#glow)"/>
+  <ellipse cx="400" cy="175" rx="140" ry="100" fill="url(#glow)" opacity="0.5"/>
+
+  <!-- Outer decorative ring -->
+  <ellipse cx="400" cy="175" rx="170" ry="130" fill="none" stroke="url(#ring)" stroke-width="1" stroke-dasharray="6 10"/>
+
+  <!-- Logo icon — abstract calendar/clock -->
+  <g transform="translate(400,145)">
+    <!-- Rounded square (calendar shape) -->
+    <rect x="-42" y="-42" width="84" height="84" rx="18" fill="none" stroke="url(#brand)" stroke-width="2.5"/>
+    <!-- Top pegs -->
+    <line x1="-18" y1="-42" x2="-18" y2="-52" stroke="url(#brand)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="18" y1="-42" x2="18" y2="-52" stroke="url(#brand)" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Divider line -->
+    <line x1="-42" y1="-16" x2="42" y2="-16" stroke="url(#brand)" stroke-width="1.5" opacity="0.5"/>
+    <!-- Check mark inside -->
+    <polyline points="-14,8 -4,20 18,-6" fill="none" stroke="url(#brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Brand name "loomi" -->
+  <text x="400" y="262" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" letter-spacing="-1" fill="url(#brand)">loomi</text>
+
+  <!-- Tagline -->
+  <text x="400" y="295" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" letter-spacing="3" fill="#8B7FA8">SMART SCHEDULING</text>
+
+  <!-- Decorative dots -->
+  <g opacity="0.15">
+    <circle cx="80" cy="60" r="3" fill="#7C3AED"/>
+    <circle cx="720" cy="90" r="4" fill="#3B82F6"/>
+    <circle cx="100" cy="340" r="3" fill="#3B82F6"/>
+    <circle cx="700" cy="320" r="5" fill="#7C3AED"/>
+    <circle cx="60" cy="200" r="2" fill="#7C3AED"/>
+    <circle cx="740" cy="210" r="3" fill="#3B82F6"/>
+    <circle cx="200" cy="360" r="2" fill="#7C3AED"/>
+    <circle cx="600" cy="50" r="2" fill="#3B82F6"/>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="350" y="320" width="100" height="2" rx="1" fill="url(#brand)" opacity="0.3"/>
+</svg>

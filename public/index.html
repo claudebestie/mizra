@@ -452,6 +452,11 @@
 <label class="addon-chk"><input type="checkbox" value="video">Video Package (3 videos)<span class="ap">+5,500</span></label>
 <label class="addon-chk"><input type="checkbox" value="gmb">Google Business Optimization<span class="ap">+790</span></label>
 <label class="addon-chk"><input type="checkbox" value="qr">Branded QR Codes (x3)<span class="ap">+390</span></label>
+<label class="addon-chk"><input type="checkbox" value="seo">SEO Optimization (monthly)<span class="ap">+1,500/mo</span></label>
+<label class="addon-chk"><input type="checkbox" value="ads">Google Ads (monthly)<span class="ap">+1,200/mo</span></label>
+<label class="addon-chk"><input type="checkbox" value="email">Email Marketing Setup<span class="ap">+990</span></label>
+<label class="addon-chk"><input type="checkbox" value="content">Content Writing (monthly)<span class="ap">+1,200/mo</span></label>
+<label class="addon-chk"><input type="checkbox" value="logo">Logo Design<span class="ap">+1,200</span></label>
 </div>
 <button class="bsub" onclick="gs(2)">Continue</button>
 </div>
@@ -704,7 +709,7 @@ function gs(n) {
 async function submitOrder() {
   var addons = [];
   document.querySelectorAll('.addon-chk input:checked').forEach(function(cb) { addons.push(cb.value); });
-  var addonPrices = { photo: 1500, video: 5500, gmb: 790, qr: 390 };
+  var addonPrices = { photo: 1500, video: 5500, gmb: 790, qr: 390, seo: 1500, ads: 1200, email: 990, content: 1200, logo: 1200 };
   var addonsTotal = addons.reduce(function(sum, a) { return sum + (addonPrices[a] || 0); }, 0);
   var pkgPrice = parseInt(sPrice.replace(',', ''));
   var totalPrice = pkgPrice + addonsTotal;

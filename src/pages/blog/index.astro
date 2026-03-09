@@ -6,13 +6,20 @@ const allPosts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
-const enPosts = allPosts.filter(p => p.data.lang === 'en');
-const hePosts = allPosts.filter(p => p.data.lang === 'he');
-
 const site = 'https://getmizra.com';
 const canonical = `${site}/blog/`;
 const title = 'Blog | Mizra';
 const description = 'Tips, guides and news for building a professional website. The Mizra blog.';
+
+const langColors: Record<string, string> = {
+  en: '#059669',
+  he: '#d97706',
+};
+
+const langLabels: Record<string, string> = {
+  en: 'EN',
+  he: 'HE',
+};
 
 const breadcrumbLD = {
   "@context": "https://schema.org",
@@ -37,75 +44,47 @@ const breadcrumbLD = {
   <div class="cx">
     <p class="sl">Blog</p>
     <div class="en">
-      <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
-        Articles & <i style="color:var(--or)">guides</i>
-      </h1>
-      <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
-        Practical tips to create, optimize and grow your professional website.
-      </p>
+      <h1>Articles & <i>guides</i></h1>
+      <p>Practical tips to create, optimize and grow your professional website.</p>
     </div>
     <div class="he">
-      <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
-        <i style="color:var(--or)">מאמרים</i> ומדריכים
-      </h1>
-      <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
-        טיפים מעשיים ליצירה, אופטימיזציה וצמיחה של האתר המקצועי שלכם.
-      </p>
+      <h1><i>מאמרים</i> ומדריכים</h1>
+      <p>טיפים מעשיים ליצירה, אופטימיזציה וצמיחה של האתר המקצועי שלכם.</p>
     </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="cx">
-    <!-- English articles -->
-    <div class="en">
-      {enPosts.length === 0 ? (
-        <p style="text-align:center;color:var(--txl);padding:48px 0">No articles yet. Come back soon!</p>
-      ) : (
-        <div class="blog-list-grid">
-          {enPosts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="blog-list-card rv">
-              <div class="blog-list-body">
-                <div class="blog-list-meta">
-                  <time datetime={post.data.date}>
-                    {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                  </time>
-                  {post.data.readingTime && <span>{post.data.readingTime}</span>}
-                </div>
-                <h2>{post.data.title}</h2>
-                <p>{post.data.description}</p>
-                <span class="blog-list-link">Read article &rarr;</span>
+    {allPosts.length === 0 ? (
+      <div class="en"><p style="text-align:center;color:var(--txl);padding:48px 0">No articles yet. Come back soon!</p></div>
+      <div class="he"><p style="text-align:center;color:var(--txl);padding:48px 0">אין מאמרים עדיין. חזרו בקרוב!</p></div>
+    ) : (
+      <div class="blog-list-grid">
+        {allPosts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+            <div class="blog-list-body">
+              <div class="blog-list-meta">
+                <span
+                  class="blog-list-lang"
+                  style={`background:${langColors[post.data.lang] || '#6b7280'}`}
+                >
+                  {langLabels[post.data.lang] || post.data.lang.toUpperCase()}
+                </span>
+                <time datetime={post.data.date}>
+                  {new Date(post.data.date).toLocaleDateString(post.data.lang === 'he' ? 'he-IL' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                {post.data.readingTime && <span>{post.data.readingTime}</span>}
               </div>
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
-
-    <!-- Hebrew articles -->
-    <div class="he">
-      {hePosts.length === 0 ? (
-        <p style="text-align:center;color:var(--txl);padding:48px 0">אין מאמרים עדיין. חזרו בקרוב!</p>
-      ) : (
-        <div class="blog-list-grid">
-          {hePosts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="blog-list-card rv">
-              <div class="blog-list-body">
-                <div class="blog-list-meta">
-                  <time datetime={post.data.date}>
-                    {new Date(post.data.date).toLocaleDateString('he-IL', { year: 'numeric', month: 'short', day: 'numeric' })}
-                  </time>
-                  {post.data.readingTime && <span>{post.data.readingTime}</span>}
-                </div>
-                <h2>{post.data.title}</h2>
-                <p>{post.data.description}</p>
-                <span class="blog-list-link">&larr; קראו את המאמר</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+              <div class="en"><span class="blog-list-link">Read article &rarr;</span></div>
+              <div class="he"><span class="blog-list-link">&larr; קראו את המאמר</span></div>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
   </div>
 </section>
 
@@ -142,6 +121,16 @@ const breadcrumbLD = {
     font-size: .82rem;
     color: var(--txl);
     margin-bottom: 12px;
+  }
+
+  .blog-list-lang {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
   }
 
   .blog-list-card h2 {

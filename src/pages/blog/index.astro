@@ -1,0 +1,161 @@
+---
+import { getCollection } from 'astro:content';
+import SEOPage from '../../layouts/SEOPage.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const site = 'https://getmizra.com';
+const canonical = `${site}/blog/`;
+const title = 'Blog | Mizra';
+const description = 'Conseils, guides et actualités pour créer un site web professionnel. Le blog de Mizra.';
+
+const langColors: Record<string, string> = {
+  fr: '#2563eb',
+  en: '#059669',
+  he: '#d97706',
+};
+
+const langLabels: Record<string, string> = {
+  fr: 'FR',
+  en: 'EN',
+  he: 'HE',
+};
+
+const breadcrumbLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+    { "@type": "ListItem", "position": 2, "name": "Blog" },
+  ],
+};
+---
+
+<SEOPage title={title} description={description} canonical={canonical} jsonLd={[breadcrumbLD]}>
+
+<div class="cx">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span>/</span><span>Blog</span>
+  </nav>
+</div>
+
+<section class="page-hero">
+  <div class="cx">
+    <p class="sl">Blog</p>
+    <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
+      Articles & <i style="color:var(--or)">guides</i>
+    </h1>
+    <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
+      Conseils pratiques pour créer, optimiser et faire grandir votre site web professionnel.
+    </p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="cx">
+    {posts.length === 0 ? (
+      <p style="text-align:center;color:var(--txl);padding:48px 0">Aucun article pour le moment. Revenez bientôt !</p>
+    ) : (
+      <div class="blog-list-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+            <div class="blog-list-body">
+              <div class="blog-list-meta">
+                <span
+                  class="blog-list-lang"
+                  style={`background:${langColors[post.data.lang] || '#6b7280'}`}
+                >
+                  {langLabels[post.data.lang] || post.data.lang.toUpperCase()}
+                </span>
+                <time datetime={post.data.date}>
+                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                {post.data.readingTime && <span>{post.data.readingTime}</span>}
+              </div>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+              <span class="blog-list-link">Lire l'article &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .blog-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .blog-list-card {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--bd);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform .3s, box-shadow .3s;
+    overflow: hidden;
+  }
+
+  .blog-list-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+
+  .blog-list-body {
+    padding: 24px;
+  }
+
+  .blog-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .82rem;
+    color: var(--txl);
+    margin-bottom: 12px;
+  }
+
+  .blog-list-lang {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  .blog-list-card h2 {
+    font-family: var(--sf);
+    font-size: 1.15rem;
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 0 8px;
+  }
+
+  .blog-list-card p {
+    color: var(--tx);
+    font-size: .9rem;
+    line-height: 1.6;
+    margin: 0 0 12px;
+  }
+
+  .blog-list-link {
+    color: var(--or);
+    font-weight: 600;
+    font-size: .88rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-list-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+</SEOPage>

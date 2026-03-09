@@ -794,6 +794,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeM();
 });
+
+// Auto-open order modal if ?start=1
+if (new URLSearchParams(window.location.search).get('start') === '1') {
+  openS();
+  history.replaceState(null, '', window.location.pathname);
+}
 </script>
 </body>
 </html>

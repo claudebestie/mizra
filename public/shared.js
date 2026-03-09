@@ -54,7 +54,7 @@ function renderNav() {
 </div>
 <div class="nr">
   <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
-  <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></a>
+  <a href="#" class="btn btn-p btn-sm" onclick="if(typeof openS==='function'){openS()}else{window.location.href='/index.html?start=1'};return false"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></a>
 </div>`;
   document.body.prepend(nav);
   const toggle = nav.querySelector('.menu-toggle');

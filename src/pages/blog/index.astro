@@ -2,26 +2,17 @@
 import { getCollection } from 'astro:content';
 import SEOPage from '../../layouts/SEOPage.astro';
 
-const posts = (await getCollection('blog')).sort(
+const allPosts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+
+const enPosts = allPosts.filter(p => p.data.lang === 'en');
+const hePosts = allPosts.filter(p => p.data.lang === 'he');
 
 const site = 'https://getmizra.com';
 const canonical = `${site}/blog/`;
 const title = 'Blog | Mizra';
-const description = 'Conseils, guides et actualités pour créer un site web professionnel. Le blog de Mizra.';
-
-const langColors: Record<string, string> = {
-  fr: '#2563eb',
-  en: '#059669',
-  he: '#d97706',
-};
-
-const langLabels: Record<string, string> = {
-  fr: 'FR',
-  en: 'EN',
-  he: 'HE',
-};
+const description = 'Tips, guides and news for building a professional website. The Mizra blog.';
 
 const breadcrumbLD = {
   "@context": "https://schema.org",
@@ -37,51 +28,84 @@ const breadcrumbLD = {
 
 <div class="cx">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>/</span><span>Blog</span>
+    <div class="en"><a href="/">Home</a><span>/</span><span>Blog</span></div>
+    <div class="he"><a href="/">דף הבית</a><span>/</span><span>בלוג</span></div>
   </nav>
 </div>
 
 <section class="page-hero">
   <div class="cx">
     <p class="sl">Blog</p>
-    <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
-      Articles & <i style="color:var(--or)">guides</i>
-    </h1>
-    <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
-      Conseils pratiques pour créer, optimiser et faire grandir votre site web professionnel.
-    </p>
+    <div class="en">
+      <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
+        Articles & <i style="color:var(--or)">guides</i>
+      </h1>
+      <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
+        Practical tips to create, optimize and grow your professional website.
+      </p>
+    </div>
+    <div class="he">
+      <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
+        <i style="color:var(--or)">מאמרים</i> ומדריכים
+      </h1>
+      <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
+        טיפים מעשיים ליצירה, אופטימיזציה וצמיחה של האתר המקצועי שלכם.
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="sec">
   <div class="cx">
-    {posts.length === 0 ? (
-      <p style="text-align:center;color:var(--txl);padding:48px 0">Aucun article pour le moment. Revenez bientôt !</p>
-    ) : (
-      <div class="blog-list-grid">
-        {posts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="blog-list-card rv">
-            <div class="blog-list-body">
-              <div class="blog-list-meta">
-                <span
-                  class="blog-list-lang"
-                  style={`background:${langColors[post.data.lang] || '#6b7280'}`}
-                >
-                  {langLabels[post.data.lang] || post.data.lang.toUpperCase()}
-                </span>
-                <time datetime={post.data.date}>
-                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' })}
-                </time>
-                {post.data.readingTime && <span>{post.data.readingTime}</span>}
+    <!-- English articles -->
+    <div class="en">
+      {enPosts.length === 0 ? (
+        <p style="text-align:center;color:var(--txl);padding:48px 0">No articles yet. Come back soon!</p>
+      ) : (
+        <div class="blog-list-grid">
+          {enPosts.map((post) => (
+            <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+              <div class="blog-list-body">
+                <div class="blog-list-meta">
+                  <time datetime={post.data.date}>
+                    {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                  {post.data.readingTime && <span>{post.data.readingTime}</span>}
+                </div>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <span class="blog-list-link">Read article &rarr;</span>
               </div>
-              <h2>{post.data.title}</h2>
-              <p>{post.data.description}</p>
-              <span class="blog-list-link">Lire l'article &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    )}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Hebrew articles -->
+    <div class="he">
+      {hePosts.length === 0 ? (
+        <p style="text-align:center;color:var(--txl);padding:48px 0">אין מאמרים עדיין. חזרו בקרוב!</p>
+      ) : (
+        <div class="blog-list-grid">
+          {hePosts.map((post) => (
+            <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+              <div class="blog-list-body">
+                <div class="blog-list-meta">
+                  <time datetime={post.data.date}>
+                    {new Date(post.data.date).toLocaleDateString('he-IL', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                  {post.data.readingTime && <span>{post.data.readingTime}</span>}
+                </div>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <span class="blog-list-link">&larr; קראו את המאמר</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   </div>
 </section>
 
@@ -118,16 +142,6 @@ const breadcrumbLD = {
     font-size: .82rem;
     color: var(--txl);
     margin-bottom: 12px;
-  }
-
-  .blog-list-lang {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
   }
 
   .blog-list-card h2 {

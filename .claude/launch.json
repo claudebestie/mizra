@@ -4,8 +4,8 @@
     {
       "name": "mizra-dev",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["astro", "dev", "--port", "8080"],
-      "port": 8080
+      "runtimeArgs": ["astro", "dev", "--port", "4321", "--host", "0.0.0.0"],
+      "port": 4321
     },
     {
       "name": "mizra-preview",

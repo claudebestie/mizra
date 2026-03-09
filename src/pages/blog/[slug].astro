@@ -14,10 +14,12 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, description, date, author, tags, lang, readingTime } = post.data;
 
+const isHe = lang === 'he';
 const site = 'https://getmizra.com';
 const canonical = `${site}/blog/${post.id}/`;
 
-const langLabel: Record<string, string> = { fr: 'FR', en: 'EN', he: 'HE' };
+const dateLocale = isHe ? 'he-IL' : 'en-US';
+const byLabel = isHe ? 'מאת' : 'By';
 
 const articleLD = {
   "@context": "https://schema.org",
@@ -55,21 +57,24 @@ const breadcrumbLD = {
 
 <div class="cx">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span>
+    {isHe ? (
+      <Fragment><a href="/">דף הבית</a><span>/</span><a href="/blog/">בלוג</a><span>/</span><span>{title}</span></Fragment>
+    ) : (
+      <Fragment><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span></Fragment>
+    )}
   </nav>
 </div>
 
-<article class="blog-article">
+<article class={`blog-article${isHe ? ' blog-article-he' : ''}`}>
   <div class="cx">
     <header class="article-header">
       <div class="article-meta">
-        <span class="article-lang-badge">{langLabel[lang] || lang.toUpperCase()}</span>
-        <time datetime={date}>{new Date(date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        <time datetime={date}>{new Date(date).toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}</time>
         {readingTime && <span class="article-reading-time">{readingTime}</span>}
       </div>
       <h1>{title}</h1>
       <p class="article-description">{description}</p>
-      <div class="article-author">Par {author}</div>
+      <div class="article-author">{byLabel} {author}</div>
       {tags.length > 0 && (
         <div class="article-tags">
           {tags.map((tag) => (
@@ -84,13 +89,19 @@ const breadcrumbLD = {
     </div>
 
     <footer class="article-footer">
-      <a href="/blog/" class="article-back">&larr; Retour au blog</a>
+      {isHe ? (
+        <a href="/blog/" class="article-back">חזרה לבלוג &larr;</a>
+      ) : (
+        <a href="/blog/" class="article-back">&larr; Back to blog</a>
+      )}
     </footer>
   </div>
 </article>
 
 <style>
   .blog-article { padding: 0 0 64px; }
+
+  .blog-article-he { direction: rtl; text-align: right; }
 
   .article-header {
     max-width: 720px;
@@ -109,19 +120,8 @@ const breadcrumbLD = {
     margin-bottom: 16px;
   }
 
-  .article-lang-badge {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 4px;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    background: var(--navy);
-    color: #fff;
-  }
-
   .article-reading-time::before {
-    content: '·';
+    content: '\b7';
     margin-right: 0;
     margin-left: 0;
   }
@@ -194,6 +194,12 @@ const breadcrumbLD = {
     padding-left: 24px;
   }
 
+  .blog-article-he .article-content :global(ul),
+  .blog-article-he .article-content :global(ol) {
+    padding-left: 0;
+    padding-right: 24px;
+  }
+
   .article-content :global(li) {
     margin-bottom: 6px;
   }
@@ -206,6 +212,12 @@ const breadcrumbLD = {
     border-radius: 0 8px 8px 0;
     font-style: italic;
     color: var(--txl);
+  }
+
+  .blog-article-he .article-content :global(blockquote) {
+    border-left: none;
+    border-right: 3px solid var(--or);
+    border-radius: 8px 0 0 8px;
   }
 
   .article-content :global(code) {

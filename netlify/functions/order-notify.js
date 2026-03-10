@@ -52,7 +52,7 @@ exports.handler = async (event) => {
             <li><strong>Deposit (50%):</strong> ${data.deposit_amount} NIS</li>
           </ul>
           <p>We'll reach out within 24 hours to get started on your project.</p>
-          <p>If you have any questions, reply to this email or WhatsApp us at +972 54-227-1670.</p>
+          <p>If you have any questions, reply to this email or WhatsApp us at +972 55-964-0902.</p>
           <br><p>— The Mizra Team</p>
         </div>`,
       }),

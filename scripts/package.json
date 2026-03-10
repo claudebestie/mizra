@@ -3,11 +3,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node generate-articles.js"
+    "generate": "node generate-articles.js",
+    "import": "node import-leads-xlsx.js",
+    "import:dry": "node import-leads-xlsx.js --dry-run",
+    "outreach": "node wati-outreach.js",
+    "outreach:dry": "node wati-outreach.js --dry-run",
+    "outreach:restaurants": "node wati-outreach.js --segment restaurants",
+    "outreach:beauty": "node wati-outreach.js --segment beauty_salons",
+    "outreach:barbershops": "node wati-outreach.js --segment barbershops",
+    "wati:templates": "node -e \"import('./wati.js').then(w=>w.getApprovedTemplates().then(t=>console.log(JSON.stringify(t,null,2))))\""
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@supabase/supabase-js": "^2.49.0",
-    "@octokit/rest": "^21.1.0"
+    "@octokit/rest": "^21.1.0",
+    "xlsx": "^0.18.5"
   }
 }

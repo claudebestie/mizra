@@ -56,13 +56,20 @@ const breadcrumbLD = {
 
 <section class="sec">
   <div class="cx">
+    <!-- Language filter tabs -->
+    <div class="blog-tabs">
+      <button class="blog-tab active" data-filter="all"><span class="en">All</span><span class="he">הכל</span></button>
+      <button class="blog-tab" data-filter="en">English</button>
+      <button class="blog-tab" data-filter="he">עברית</button>
+    </div>
+
     {allPosts.length === 0 ? (
       <div class="en"><p style="text-align:center;color:var(--txl);padding:48px 0">No articles yet. Come back soon!</p></div>
       <div class="he"><p style="text-align:center;color:var(--txl);padding:48px 0">אין מאמרים עדיין. חזרו בקרוב!</p></div>
     ) : (
       <div class="blog-list-grid">
         {allPosts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+          <a href={`/blog/${post.id}/`} class="blog-list-card rv" data-lang={post.data.lang}>
             <div class="blog-list-body">
               <div class="blog-list-meta">
                 <span
@@ -154,11 +161,63 @@ const breadcrumbLD = {
     font-size: .88rem;
   }
 
+  .blog-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+
+  .blog-tab {
+    padding: 8px 20px;
+    border: 1px solid var(--bd);
+    border-radius: 100px;
+    background: var(--white);
+    color: var(--tx);
+    font-size: .88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+  }
+
+  .blog-tab:hover {
+    border-color: var(--or);
+    color: var(--or);
+  }
+
+  .blog-tab.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+
+  .blog-list-card.hidden {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .blog-list-grid {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.blog-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.blog-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.blog-list-card').forEach(card => {
+        const el = card as HTMLElement;
+        if (filter === 'all' || el.dataset.lang === filter) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
 
 </SEOPage>

@@ -518,7 +518,9 @@
 
 <div class="chk-accept"><input type="checkbox" id="acceptTerms"><span>I accept the terms and conditions. Payment: 50% before production, 50% upon delivery. Revisions included per package.</span></div>
 
-<div style="display:flex;gap:10px;margin-top:8px"><button class="bp btn-o" onclick="gs(2)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="gs(4)" id="confirmBtn">Confirm + Start Project</button></div>
+<p id="payError" style="display:none;font-size:.82rem;color:#c44;font-weight:600;margin-top:8px"></p>
+
+<div style="display:flex;gap:10px;margin-top:8px"><button class="bp btn-o" onclick="gs(2)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="confirmOrder()" id="confirmBtn">Confirm + Pay</button></div>
 </div>
 
 <!-- S4: Confirmation -->
@@ -724,9 +726,38 @@ function gs(n) {
     document.getElementById('pp50').textContent = half;
   }
 
-  if (n === 4) submitOrder();
-
   document.querySelector('.mo').scrollTop = 0;
+}
+
+// Validate Step 3 + submit
+async function confirmOrder() {
+  var payErr = document.getElementById('payError');
+  payErr.style.display = 'none';
+
+  if (!document.getElementById('pay_name').value.trim()) {
+    payErr.textContent = 'Please enter a payer name.';
+    payErr.style.display = '';
+    return;
+  }
+  if (!document.getElementById('payMethod').value) {
+    payErr.textContent = 'Please select a payment method.';
+    payErr.style.display = '';
+    return;
+  }
+  if (!document.getElementById('acceptTerms').checked) {
+    payErr.textContent = 'Please accept the terms and conditions.';
+    payErr.style.display = '';
+    return;
+  }
+
+  var btn = document.getElementById('confirmBtn');
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+
+  await submitOrder();
+
+  btn.disabled = false;
+  btn.textContent = 'Confirm + Pay';
 }
 
 // =============================================
@@ -819,8 +850,9 @@ async function submitOrder() {
     });
   } catch (err) { console.error('Order notify error:', err); }
 
-  // If credit card -> redirect to PayPlus payment page
+  // If credit card -> redirect to PayPlus payment page (no step 4 until payment)
   if (paymentMethod === 'Credit Card') {
+    document.getElementById('confirmBtn').textContent = 'Redirecting to payment...';
     try {
       var ppRes = await fetch('/.netlify/functions/payplus-create', {
         method: 'POST',
@@ -839,14 +871,19 @@ async function submitOrder() {
         window.location.href = ppData.payment_url;
         return;
       } else {
-        alert('Payment page error: ' + (ppData.error || 'Unknown error') + '. Contact us via WhatsApp.');
+        document.getElementById('payError').textContent = 'Payment error: ' + (ppData.error || 'Unknown error') + '. Try again or contact us.';
+        document.getElementById('payError').style.display = '';
       }
     } catch (err) {
       console.error('PayPlus error:', err);
-      alert('Payment error. Please contact us via WhatsApp.');
+      document.getElementById('payError').textContent = 'Payment service unavailable. Please try again or contact us via WhatsApp.';
+      document.getElementById('payError').style.display = '';
     }
+    return; // Don't show step 4 for CC — only on successful return
   }
 
+  // Non-CC methods -> show confirmation step
+  gs(4);
   console.log('Order submitted:', order.id);
 }
 

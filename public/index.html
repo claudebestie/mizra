@@ -507,11 +507,12 @@
 <div class="fsep">Payment Details</div>
 <div class="f"><label>Payer Name</label><input id="pay_name" required></div>
 <div class="f"><label>Billing Address</label><input id="pay_address"></div>
-<div class="f"><label>Payment Method</label><select id="payMethod"><option value="">Select...</option><option>Bank Transfer (Virement)</option><option>Bit</option><option>PayBox</option><option>Cash</option></select></div>
+<div class="f"><label>Payment Method</label><select id="payMethod"><option value="">Select...</option><option value="Credit Card">💳 Credit Card (PayPlus)</option><option value="Bank Transfer">Bank Transfer (Virement)</option><option value="Bit">Bit</option><option value="PayBox">PayBox</option><option value="Cash">Cash</option></select></div>
 </div>
 
 <p style="font-size:.8rem;color:var(--tx);margin:16px 0 8px">Accepted:</p>
-<div class="pms"><div class="pm">Virement</div><div class="pm">Bit</div><div class="pm">PayBox</div><div class="pm">Cash</div></div>
+<div class="pms"><div class="pm" style="background:var(--or);color:#fff">💳 Credit Card</div><div class="pm">Virement</div><div class="pm">Bit</div><div class="pm">PayBox</div><div class="pm">Cash</div></div>
+<p id="ccNote" style="display:none;font-size:.78rem;color:var(--or);margin-top:8px;font-weight:600">You'll be redirected to a secure PayPlus payment page after confirming.</p>
 
 <a href="https://wetransfer.com" target="_blank" class="wt-link"><div class="wt-icon">WT</div><div class="wt-txt"><strong>Upload your documents via WeTransfer</strong><span>Logo, photos, menu PDF -- send to hello@getmizra.com</span></div></a>
 
@@ -574,6 +575,31 @@ function setL(l){
   if(event && event.target) event.target.classList.add('on');
   try { localStorage.setItem('mizra_lang', l); } catch(e) {}
 }
+
+// PayPlus payment return — show status
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var payment = params.get('payment');
+  if (payment === 'success') {
+    setTimeout(function() {
+      var d = document.createElement('div');
+      d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#22c55e;color:#fff;text-align:center;padding:16px;font-weight:600;z-index:9999;font-size:1rem';
+      d.textContent = 'Payment received! We\'ll start your project within 2 hours.';
+      document.body.prepend(d);
+      setTimeout(function() { d.remove(); }, 8000);
+    }, 300);
+    window.history.replaceState({}, '', '/');
+  } else if (payment === 'failed' || payment === 'cancelled') {
+    setTimeout(function() {
+      var d = document.createElement('div');
+      d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#ef4444;color:#fff;text-align:center;padding:16px;font-weight:600;z-index:9999;font-size:1rem';
+      d.textContent = 'Payment ' + payment + '. Contact us via WhatsApp to try again.';
+      document.body.prepend(d);
+      setTimeout(function() { d.remove(); }, 8000);
+    }, 300);
+    window.history.replaceState({}, '', '/');
+  }
+})();
 
 // Restore language
 try {
@@ -704,7 +730,14 @@ function gs(n) {
 }
 
 // =============================================
-// SUBMIT ORDER -> Supabase
+// PAYMENT METHOD TOGGLE
+// =============================================
+document.getElementById('payMethod').addEventListener('change', function() {
+  document.getElementById('ccNote').style.display = this.value === 'Credit Card' ? '' : 'none';
+});
+
+// =============================================
+// SUBMIT ORDER -> Supabase + PayPlus redirect
 // =============================================
 async function submitOrder() {
   var addons = [];
@@ -713,6 +746,8 @@ async function submitOrder() {
   var addonsTotal = addons.reduce(function(sum, a) { return sum + (addonPrices[a] || 0); }, 0);
   var pkgPrice = parseInt(sPrice.replace(',', ''));
   var totalPrice = pkgPrice + addonsTotal;
+  var paymentMethod = document.getElementById('payMethod').value;
+  var depositAmount = Math.round(totalPrice / 2);
 
   var order = await sb.insert('orders', {
     package: sPlan,
@@ -720,10 +755,10 @@ async function submitOrder() {
     addons: addons,
     addons_total: addonsTotal,
     total_price: totalPrice,
-    payment_method: document.getElementById('payMethod').value,
+    payment_method: paymentMethod,
     payer_name: document.getElementById('pay_name').value,
     billing_address: document.getElementById('pay_address').value,
-    deposit_amount: Math.round(totalPrice / 2),
+    deposit_amount: depositAmount,
     terms_accepted: document.getElementById('acceptTerms').checked,
     status: 'new',
     payment_status: 'pending'
@@ -772,8 +807,8 @@ async function submitOrder() {
         package_price: pkgPrice,
         addons: addons.join(', '),
         total_price: totalPrice,
-        deposit_amount: Math.round(totalPrice / 2),
-        payment_method: document.getElementById('payMethod').value,
+        deposit_amount: depositAmount,
+        payment_method: paymentMethod,
         payer_name: document.getElementById('pay_name').value,
         restaurant_name: document.getElementById('ob_name').value,
         restaurant_type: document.getElementById('ob_type').value,
@@ -783,6 +818,34 @@ async function submitOrder() {
       })
     });
   } catch (err) { console.error('Order notify error:', err); }
+
+  // If credit card -> redirect to PayPlus payment page
+  if (paymentMethod === 'Credit Card') {
+    try {
+      var ppRes = await fetch('/.netlify/functions/payplus-create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: depositAmount,
+          order_id: String(order.id),
+          package_name: sPlan,
+          payer_name: document.getElementById('pay_name').value,
+          email: document.getElementById('ob_email').value,
+          phone: document.getElementById('ob_phone').value
+        })
+      });
+      var ppData = await ppRes.json();
+      if (ppData.payment_url) {
+        window.location.href = ppData.payment_url;
+        return;
+      } else {
+        alert('Payment page error: ' + (ppData.error || 'Unknown error') + '. Contact us via WhatsApp.');
+      }
+    } catch (err) {
+      console.error('PayPlus error:', err);
+      alert('Payment error. Please contact us via WhatsApp.');
+    }
+  }
 
   console.log('Order submitted:', order.id);
 }

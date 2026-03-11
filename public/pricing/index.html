@@ -112,7 +112,7 @@
 <li><span class="fc">+</span>ועוד...</li>
 </div>
 </ul>
-<a href="/contact/" class="bp btn-o"><span class="en">Contact Us</span><span class="he">צרו קשר</span></a>
+<a href="#customForm" class="bp btn-o"><span class="en">Get a Quote</span><span class="he">קבלו הצעת מחיר</span></a>
 </div>
 
 </div>
@@ -192,7 +192,60 @@
 <p style="margin-top:20px;font-size:.85rem;color:var(--txl)">פרויקטים מותאמים טיפוסיים: 3,500 - 8,000 ש"ח בהתאם להיקף. אתרים רב-לשוניים, מערכות הזמנות, מסחר אלקטרוני ואינטגרציות מורכבות זמינים.</p>
 </div>
 </div>
-<div style="text-align:center"><a href="/contact/" class="btn btn-p"><span class="en">Contact Us for a Quote</span><span class="he">צרו קשר להצעת מחיר</span></a></div>
+<div id="customForm" class="rv" style="background:var(--white);border:1px solid var(--bd);border-radius:16px;padding:40px;margin-top:8px">
+<div class="en"><h3 style="font-family:var(--sf);color:var(--navy);margin-bottom:4px">Tell us about your project</h3><p style="color:var(--or);font-size:.78rem;font-weight:600;margin-bottom:24px">Free quote within 24 hours. No commitment.</p></div>
+<div class="he"><h3 style="font-family:var(--sf);color:var(--navy);margin-bottom:4px">ספרו לנו על הפרויקט</h3><p style="color:var(--or);font-size:.78rem;font-weight:600;margin-bottom:24px">הצעת מחיר חינם תוך 24 שעות. ללא התחייבות.</p></div>
+
+<form id="customRequestForm" onsubmit="return submitCustom(event)">
+<div class="fl">
+<div class="fr">
+<div class="f"><div class="en"><label>Your Name *</label></div><div class="he"><label>שם מלא *</label></div><input id="cr_name" required></div>
+<div class="f"><div class="en"><label>Email *</label></div><div class="he"><label>אימייל *</label></div><input id="cr_email" type="email" required></div>
+</div>
+<div class="f"><div class="en"><label>Phone</label></div><div class="he"><label>טלפון</label></div><input id="cr_phone" type="tel" placeholder="+972 ..."></div>
+
+<div class="fsep"></div>
+<div class="en"><p style="font-weight:600;color:var(--navy);font-size:.88rem;margin:0 0 12px">What do you need? (select all that apply)</p></div>
+<div class="he"><p style="font-weight:600;color:var(--navy);font-size:.88rem;margin:0 0 12px">מה אתם צריכים? (סמנו את כל מה שרלוונטי)</p></div>
+
+<div id="serviceChecks" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px">
+<label class="addon-chk"><input type="checkbox" value="multi_page"><span class="en">Multi-page website</span><span class="he">אתר מרובה עמודים</span></label>
+<label class="addon-chk"><input type="checkbox" value="ecommerce"><span class="en">E-commerce / Online store</span><span class="he">חנות אונליין</span></label>
+<label class="addon-chk"><input type="checkbox" value="booking"><span class="en">Booking / Appointments</span><span class="he">מערכת הזמנת תורים</span></label>
+<label class="addon-chk"><input type="checkbox" value="portfolio"><span class="en">Portfolio / Gallery</span><span class="he">תיק עבודות / גלריה</span></label>
+<label class="addon-chk"><input type="checkbox" value="blog"><span class="en">Blog / Content</span><span class="he">בלוג / תוכן</span></label>
+<label class="addon-chk"><input type="checkbox" value="multilingual"><span class="en">Multilingual (HE/EN/+)</span><span class="he">רב-לשוני (עב/אנ/+)</span></label>
+<label class="addon-chk"><input type="checkbox" value="integrations"><span class="en">CRM / Payments / API</span><span class="he">CRM / תשלומים / API</span></label>
+<label class="addon-chk"><input type="checkbox" value="mobile_landing"><span class="en">App landing page</span><span class="he">דף נחיתה לאפליקציה</span></label>
+<label class="addon-chk"><input type="checkbox" value="redesign"><span class="en">Website redesign</span><span class="he">עיצוב מחדש של אתר</span></label>
+<label class="addon-chk"><input type="checkbox" value="dashboard"><span class="en">Dashboard / Admin panel</span><span class="he">דשבורד / פאנל ניהול</span></label>
+<label class="addon-chk"><input type="checkbox" value="seo"><span class="en">Advanced SEO</span><span class="he">SEO מתקדם</span></label>
+<label class="addon-chk"><input type="checkbox" value="other"><span class="en">Other</span><span class="he">אחר</span></label>
+</div>
+
+<div class="f">
+<div class="en"><label>Budget range</label></div><div class="he"><label>טווח תקציב</label></div>
+<select id="cr_budget">
+<option value=""><span class="en">Select...</span></option>
+<option value="3000-5000">3,000 – 5,000 NIS</option>
+<option value="5000-8000">5,000 – 8,000 NIS</option>
+<option value="8000-15000">8,000 – 15,000 NIS</option>
+<option value="15000+">15,000+ NIS</option>
+<option value="not_sure">Not sure yet / לא בטוח</option>
+</select>
+</div>
+
+<div class="f">
+<div class="en"><label>Describe your project *</label></div><div class="he"><label>תארו את הפרויקט *</label></div>
+<textarea id="cr_description" required style="min-height:120px" placeholder="What does your business do? What features do you need? Any design preferences or inspiration sites?"></textarea>
+</div>
+</div>
+
+<button type="submit" class="btn btn-p" id="customBtn" style="width:100%;margin-top:16px;padding:16px"><span class="en">Send Request</span><span class="he">שלחו בקשה</span></button>
+<p id="customMsg" style="display:none;text-align:center;margin-top:12px;font-size:.88rem"></p>
+</form>
+</div>
+
 </div>
 </section>
 
@@ -342,6 +395,64 @@
 <div class="he"><h2>מוכנים להתחיל? <i>בואו נבנה.</i></h2><p>בחרו חבילה והאתר שלכם באוויר תוך 48 שעות.</p><div class="ctbs"><a href="/#pricing" class="btn btn-p">בואו נתחיל</a><a href="/free-audit/" class="btn btn-o">בדיקה חינמית</a></div></div>
 </section>
 
+<script>
+var SB_URL='https://rofkgmwjggvxlgrdnsyt.supabase.co';
+var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
+
+async function submitCustom(e){
+  e.preventDefault();
+  var btn=document.getElementById('customBtn');
+  var msg=document.getElementById('customMsg');
+  btn.disabled=true;btn.textContent='Sending...';msg.style.display='none';
+
+  var services=[];
+  document.querySelectorAll('#serviceChecks input:checked').forEach(function(cb){services.push(cb.value)});
+
+  var data={
+    name:document.getElementById('cr_name').value,
+    email:document.getElementById('cr_email').value,
+    phone:document.getElementById('cr_phone').value||'',
+    services:services,
+    budget_range:document.getElementById('cr_budget').value||'',
+    description:document.getElementById('cr_description').value,
+    status:'new'
+  };
+  var saved=false,notified=false;
+
+  try{
+    var r1=await fetch(SB_URL+'/rest/v1/custom_requests',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=representation'},
+      body:JSON.stringify(data)
+    });
+    if(r1.ok) saved=true;
+  }catch(err){console.error('Supabase error:',err)}
+
+  try{
+    var r2=await fetch('/.netlify/functions/custom-request-notify',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    if(r2.ok) notified=true;
+  }catch(err){console.error('Notify error:',err)}
+
+  if(saved||notified){
+    var isHe=document.body.classList.contains('lh');
+    btn.style.background='var(--grn)';btn.style.color='#fff';
+    btn.textContent=isHe?'נשלח בהצלחה!':'Sent successfully!';
+    msg.textContent=isHe?'נחזור אליכם תוך 24 שעות עם הצעת מחיר.':'We\'ll get back to you within 24 hours with a quote.';
+    msg.style.color='var(--grn)';msg.style.display='';
+    e.target.reset();
+  }else{
+    btn.style.background='#e74c3c';btn.style.color='#fff';
+    btn.textContent='Error';
+    msg.textContent='Something went wrong. Please try again or contact us directly.';
+    msg.style.color='#e74c3c';msg.style.display='';
+  }
+  setTimeout(function(){btn.disabled=false;btn.style.background='';btn.style.color='';btn.innerHTML='<span class="en">Send Request</span><span class="he">שלחו בקשה</span>';},4000);
+  return false;
+}
+</script>
 <script src="/shared.js?v=20260304"></script>
 </body>
 </html>

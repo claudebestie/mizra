@@ -16,6 +16,16 @@ exports.handler = async (event) => {
   }
 
   try {
+    // Validate env vars
+    if (!process.env.PAYPLUS_API_KEY || !process.env.PAYPLUS_SECRET_KEY || !process.env.PAYPLUS_PAYMENT_PAGE_UID) {
+      console.error("PayPlus: missing env vars — PAYPLUS_API_KEY, PAYPLUS_SECRET_KEY, or PAYPLUS_PAYMENT_PAGE_UID");
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: "Payment gateway not configured. Please contact us via WhatsApp." }),
+      };
+    }
+
     const data = JSON.parse(event.body);
     const amount = data.amount; // deposit amount in NIS (50%)
     const orderId = data.order_id;

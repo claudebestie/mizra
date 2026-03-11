@@ -9,6 +9,12 @@
 [functions]
   included_files = ["dist/examples/**"]
 
+# Order success page trailing slash
+[[redirects]]
+  from = "/order-success"
+  to = "/order-success/"
+  status = 301
+
 # Demo mockup — dynamic rendering via Netlify Function
 [[redirects]]
   from = "/demo/:id"

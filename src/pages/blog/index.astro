@@ -9,7 +9,7 @@ const posts = (await getCollection('blog')).sort(
 const site = 'https://getmizra.com';
 const canonical = `${site}/blog/`;
 const title = 'Blog | Mizra';
-const description = 'Conseils, guides et actualités pour créer un site web professionnel. Le blog de Mizra.';
+const description = 'Tips, guides and news for building a professional website. The Mizra blog.';
 
 const langColors: Record<string, string> = {
   fr: '#2563eb',
@@ -37,7 +37,8 @@ const breadcrumbLD = {
 
 <div class="cx">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>/</span><span>Blog</span>
+    <div class="en"><a href="/">Home</a><span>/</span><span>Blog</span></div>
+    <div class="he"><a href="/">&#1512;&#1488;&#1513;&#1497;</a><span>/</span><span>&#1489;&#1500;&#1493;&#1490;</span></div>
   </nav>
 </div>
 
@@ -45,10 +46,12 @@ const breadcrumbLD = {
   <div class="cx">
     <p class="sl">Blog</p>
     <h1 style="font-family:var(--sf);font-size:clamp(2rem,4.5vw,3.2rem);color:var(--navy);margin:16px 0;line-height:1.15">
-      Articles & <i style="color:var(--or)">guides</i>
+      <span class="en">Articles & <i style="color:var(--or)">guides</i></span>
+      <span class="he">&#1502;&#1488;&#1502;&#1512;&#1497;&#1501; &#1493;<i style="color:var(--or)">&#1502;&#1491;&#1512;&#1497;&#1499;&#1497;&#1501;</i></span>
     </h1>
     <p style="color:var(--tx);font-size:1.05rem;max-width:640px;margin:0 auto;line-height:1.7">
-      Conseils pratiques pour créer, optimiser et faire grandir votre site web professionnel.
+      <span class="en">Practical tips for creating, optimizing and growing your professional website.</span>
+      <span class="he">&#1496;&#1497;&#1508;&#1497;&#1501; &#1502;&#1506;&#1513;&#1497;&#1497;&#1501; &#1500;&#1497;&#1510;&#1497;&#1512;&#1492;, &#1488;&#1493;&#1508;&#1496;&#1497;&#1502;&#1497;&#1494;&#1510;&#1497;&#1492; &#1493;&#1510;&#1502;&#1497;&#1495;&#1514; &#1492;&#1488;&#1514;&#1512; &#1492;&#1502;&#1511;&#1510;&#1493;&#1506;&#1497; &#1513;&#1500;&#1499;&#1501;.</span>
     </p>
   </div>
 </section>
@@ -56,11 +59,14 @@ const breadcrumbLD = {
 <section class="sec">
   <div class="cx">
     {posts.length === 0 ? (
-      <p style="text-align:center;color:var(--txl);padding:48px 0">Aucun article pour le moment. Revenez bientôt !</p>
+      <p style="text-align:center;color:var(--txl);padding:48px 0">
+        <span class="en">No articles yet. Check back soon!</span>
+        <span class="he">&#1488;&#1497;&#1503; &#1502;&#1488;&#1502;&#1512;&#1497;&#1501; &#1506;&#1491;&#1497;&#1497;&#1503;. &#1495;&#1494;&#1512;&#1493; &#1489;&#1511;&#1512;&#1493;&#1489;!</span>
+      </p>
     ) : (
       <div class="blog-list-grid">
         {posts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="blog-list-card rv">
+          <a href={`/blog/${post.id}/`} class="blog-list-card rv" data-lang={post.data.lang}>
             <div class="blog-list-body">
               <div class="blog-list-meta">
                 <span
@@ -70,13 +76,18 @@ const breadcrumbLD = {
                   {langLabels[post.data.lang] || post.data.lang.toUpperCase()}
                 </span>
                 <time datetime={post.data.date}>
-                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {new Date(post.data.date).toLocaleDateString(
+                    post.data.lang === 'he' ? 'he-IL' : 'en-US',
+                    { year: 'numeric', month: 'short', day: 'numeric' }
+                  )}
                 </time>
                 {post.data.readingTime && <span>{post.data.readingTime}</span>}
               </div>
               <h2>{post.data.title}</h2>
               <p>{post.data.description}</p>
-              <span class="blog-list-link">Lire l'article &rarr;</span>
+              <span class="blog-list-link">
+                {post.data.lang === 'he' ? '\u05E7\u05E8\u05D0\u05D5 \u05E2\u05D5\u05D3 \u2190' : 'Read more \u2192'}
+              </span>
             </div>
           </a>
         ))}
@@ -84,6 +95,31 @@ const breadcrumbLD = {
     )}
   </div>
 </section>
+
+<script is:inline>
+// Filter blog cards by current language
+function filterBlogByLang() {
+  const isHe = document.body.classList.contains('lh');
+  const activeLang = isHe ? 'he' : 'en';
+  document.querySelectorAll('.blog-list-card[data-lang]').forEach(function(card) {
+    var cardLang = card.getAttribute('data-lang');
+    // Show cards matching active language, hide others (fr articles always hidden unless lang is fr)
+    card.style.display = (cardLang === activeLang) ? '' : 'none';
+  });
+}
+
+// Run on load
+document.addEventListener('DOMContentLoaded', function() {
+  filterBlogByLang();
+
+  // Re-filter when language changes — override setL
+  var origSetL = window.setL;
+  window.setL = function(l) {
+    if (origSetL) origSetL(l);
+    setTimeout(filterBlogByLang, 50);
+  };
+});
+</script>
 
 <style>
   .blog-list-grid {

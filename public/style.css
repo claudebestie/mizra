@@ -468,3 +468,65 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .btn{padding:12px 20px;font-size:.85rem;width:auto}
   .ex-grid{grid-template-columns:1fr;gap:16px;max-width:480px;margin:0 auto}.ex-card-img{height:200px}
 }
+
+/* ============================================================
+   ORDER FORM + PAYMENT + MOBILE CTA
+   ============================================================ */
+
+/* --- MOBILE STICKY CTA BAR --- */
+.mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:95;background:var(--or);padding:14px 20px;text-align:center;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
+.mobile-cta-bar a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;font-family:var(--sn);display:block}
+@media(max-width:768px){
+  .mobile-cta-bar{display:block}
+  .wa{bottom:74px!important}
+}
+
+/* --- ORDER FORM SECTION --- */
+.order-sec{background:var(--navy);padding:64px 0}
+.order-sec .st{color:#fff}.order-sec .sd{color:var(--txd)}
+.order-sec .sl{color:var(--or)}
+.order-sec .af{background:var(--navy2);border:1px solid var(--bddh);border-radius:14px;padding:36px}
+.order-sec .af h3{color:#fff}.order-sec .af .sub{color:var(--txd)}
+.order-sec .f label{color:var(--txd2)}.order-sec .f input,.order-sec .f select,.order-sec .f textarea{background:var(--navy3);border-color:var(--bdd);color:#fff}
+.order-sec .f input::placeholder,.order-sec .f textarea::placeholder{color:var(--txd)}
+.order-sec .fn{color:var(--txd)}
+
+/* --- PAYMENT OPTIONS --- */
+.pay-options{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.pay-opt{border:1.5px solid var(--bdd);border-radius:10px;padding:16px 18px;cursor:pointer;transition:border-color .25s,background .25s;display:flex;align-items:center;gap:14px}
+.pay-opt:hover{border-color:rgba(212,100,58,.4)}
+.pay-opt.sel{border-color:var(--or);background:rgba(212,100,58,.08)}
+.pay-opt input[type=radio]{accent-color:var(--or);width:18px;height:18px;flex-shrink:0}
+.pay-opt-label{flex:1}
+.pay-opt-title{color:#fff;font-weight:600;font-size:.92rem}
+.pay-opt-sub{color:var(--txd);font-size:.78rem;margin-top:2px}
+.order-sec .pay-opt{border-color:var(--bdd)}.order-sec .pay-opt.sel{border-color:var(--or);background:rgba(212,100,58,.08)}
+
+/* --- INVOICE TOGGLE --- */
+.invoice-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;margin:16px 0;color:var(--txd);font-size:.88rem}
+.invoice-toggle input[type=checkbox]{accent-color:var(--or);width:18px;height:18px}
+.invoice-fields{display:none;margin-top:12px;animation:fadeIn .3s ease}
+.invoice-fields.show{display:block}
+
+/* --- FORM VALIDATION --- */
+.f.err input,.f.err select,.f.err textarea{border-color:#c44!important}
+.f .errmsg{color:#c44;font-size:.72rem;margin-top:4px;display:none}
+.f.err .errmsg{display:block}
+
+/* --- ORDER SUMMARY --- */
+.order-summary{background:var(--navy3);border:1px solid var(--bdd);border-radius:10px;padding:20px;margin:20px 0}
+.order-summary-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.88rem;color:var(--txd)}
+.order-summary-row.total{border-top:1px solid var(--bdd);padding-top:12px;margin-top:6px;color:#fff;font-weight:700;font-size:1rem}
+
+/* --- INSTALLMENT NOTE --- */
+.installment-note{font-size:.82rem;color:var(--txl);margin-top:24px;text-align:center}
+
+/* --- CUSTOM PROJECT SECTION --- */
+.custom-sec .af{background:var(--white);border:1px solid var(--bd)}
+.custom-sec .af textarea{min-height:120px;resize:vertical}
+
+/* --- SUCCESS PAGE --- */
+.success-icon{font-size:3.5rem;margin-bottom:16px}
+.success-box{background:var(--white);border:1px solid var(--bd);border-radius:14px;padding:40px;text-align:center;max-width:580px;margin:0 auto}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}

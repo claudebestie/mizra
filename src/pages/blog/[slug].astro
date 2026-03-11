@@ -55,21 +55,25 @@ const breadcrumbLD = {
 
 <div class="cx">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span>
+    {lang === 'he' ? (
+      <Fragment><a href="/">&#1512;&#1488;&#1513;&#1497;</a><span>/</span><a href="/blog/">&#1489;&#1500;&#1493;&#1490;</a><span>/</span><span>{title}</span></Fragment>
+    ) : (
+      <Fragment><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span></Fragment>
+    )}
   </nav>
 </div>
 
-<article class="blog-article">
+<article class="blog-article" dir={lang === 'he' ? 'rtl' : 'ltr'}>
   <div class="cx">
     <header class="article-header">
       <div class="article-meta">
         <span class="article-lang-badge">{langLabel[lang] || lang.toUpperCase()}</span>
-        <time datetime={date}>{new Date(date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        <time datetime={date}>{new Date(date).toLocaleDateString(lang === 'he' ? 'he-IL' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
         {readingTime && <span class="article-reading-time">{readingTime}</span>}
       </div>
       <h1>{title}</h1>
       <p class="article-description">{description}</p>
-      <div class="article-author">Par {author}</div>
+      <div class="article-author">{lang === 'he' ? '\u05DE\u05D0\u05EA' : 'By'} {author}</div>
       {tags.length > 0 && (
         <div class="article-tags">
           {tags.map((tag) => (
@@ -84,7 +88,7 @@ const breadcrumbLD = {
     </div>
 
     <footer class="article-footer">
-      <a href="/blog/" class="article-back">&larr; Retour au blog</a>
+      <a href="/blog/" class="article-back">{lang === 'he' ? '\u05D7\u05D6\u05E8\u05D4 \u05DC\u05D1\u05DC\u05D5\u05D2 \u2192' : '\u2190 Back to blog'}</a>
     </footer>
   </div>
 </article>

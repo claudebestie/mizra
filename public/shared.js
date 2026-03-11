@@ -54,7 +54,7 @@ function renderNav() {
 </div>
 <div class="nr">
   <div class="ls"><button onclick="setL('en')">EN</button><button class="on" onclick="setL('he')">HE</button></div>
-  <a href="/free-audit/" class="btn btn-p btn-sm"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></a>
+  <a href="/pricing/#order-form" class="btn btn-p btn-sm"><span class="en">Get Started</span><span class="he">בואו נתחיל</span></a>
 </div>`;
   document.body.prepend(nav);
   const toggle = nav.querySelector('.menu-toggle');
@@ -162,7 +162,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 50);
     }
   } catch(e) {}
+  renderMobileCTA();
   initScrollReveal();
   initFAQ();
   initSmoothScroll();
 });
+
+// --- MOBILE STICKY CTA ---
+function renderMobileCTA() {
+  // Don't show on pricing page (already has the form)
+  if (window.location.pathname.startsWith('/pricing')) return;
+  if (window.location.pathname.startsWith('/order-success')) return;
+  const bar = document.createElement('div');
+  bar.className = 'mobile-cta-bar';
+  bar.innerHTML = '<a href="/pricing/#order-form"><span class="en">Get Started \u2014 \u20AA1,990 \u2192</span><span class="he">\u05D4\u05EA\u05D7\u05D9\u05DC\u05D5 \u05E2\u05DB\u05E9\u05D9\u05D5 \u2014 \u20AA1,990 \u2192</span></a>';
+  document.body.appendChild(bar);
+}

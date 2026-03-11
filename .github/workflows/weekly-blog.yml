@@ -38,8 +38,8 @@ jobs:
       - name: Generate articles
         working-directory: scripts
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          ANTHROPIC_API_KEY: ${{ secrets.API_CLAUDE }}
+          SUPABASE_URL: ${{ secrets.API_SUPABASE }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
           GITHUB_OWNER: ${{ github.repository_owner }}

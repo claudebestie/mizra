@@ -6,6 +6,15 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[functions]
+  included_files = ["dist/examples/**"]
+
+# Demo mockup — dynamic rendering via Netlify Function
+[[redirects]]
+  from = "/demo/:id"
+  to = "/.netlify/functions/demo?id=:id"
+  status = 200
+
 # Trailing slash enforcement for all pages
 [[redirects]]
   from = "/services/restaurants"

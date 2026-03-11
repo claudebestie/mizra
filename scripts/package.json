@@ -11,6 +11,12 @@
     "outreach:restaurants": "node wati-outreach.js --segment restaurants",
     "outreach:beauty": "node wati-outreach.js --segment beauty_salons",
     "outreach:barbershops": "node wati-outreach.js --segment barbershops",
+    "check-sites": "node check-sites.js",
+    "check-sites:dry": "node check-sites.js --dry-run",
+    "mockup-outreach": "node mockup-outreach.js",
+    "mockup-outreach:dry": "node mockup-outreach.js --dry-run",
+    "followup": "node followup-email.js",
+    "followup:dry": "node followup-email.js --dry-run",
     "wati:templates": "node -e \"import('./wati.js').then(w=>w.getApprovedTemplates().then(t=>console.log(JSON.stringify(t,null,2))))\""
   },
   "dependencies": {

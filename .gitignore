@@ -16,3 +16,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# CSV data (too large for git, import via script)
+scripts/data/*.csv

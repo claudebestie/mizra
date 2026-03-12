@@ -3,11 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node generate-articles.js"
+    "generate": "node generate-articles.js",
+    "import-leads": "node import-leads.js",
+    "outreach": "node daily-outreach.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@supabase/supabase-js": "^2.49.0",
-    "@octokit/rest": "^21.1.0"
+    "@octokit/rest": "^21.1.0",
+    "csv-parse": "^5.5.0"
   }
 }

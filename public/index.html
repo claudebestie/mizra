@@ -523,6 +523,38 @@
 <div style="display:flex;gap:10px;margin-top:8px"><button class="bp btn-o" onclick="gs(2)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="confirmOrder()" id="confirmBtn">Confirm + Pay</button></div>
 </div>
 
+<!-- S-Custom: Need something bigger? -->
+<div class="ms" id="sCustom" style="display:none">
+<h2>Need something bigger?</h2><p class="msb">Tell us what you have in mind. Free quote within 24 hours.</p>
+<div class="fl">
+<div class="fr"><div class="f"><label>Your Name *</label><input id="cq_name" required></div><div class="f"><label>Email *</label><input id="cq_email" type="email" required></div></div>
+<div class="f"><label>Phone</label><input id="cq_phone" type="tel" placeholder="+972 ..."></div>
+
+<div class="fsep">What do you need?</div>
+<div id="cqChecks" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+<label class="addon-chk"><input type="checkbox" value="multi_page">Multi-page website</label>
+<label class="addon-chk"><input type="checkbox" value="ecommerce">E-commerce / Online store</label>
+<label class="addon-chk"><input type="checkbox" value="booking">Booking / Appointments</label>
+<label class="addon-chk"><input type="checkbox" value="portfolio">Portfolio / Gallery</label>
+<label class="addon-chk"><input type="checkbox" value="blog">Blog / Content</label>
+<label class="addon-chk"><input type="checkbox" value="multilingual">Multilingual (HE/EN/+)</label>
+<label class="addon-chk"><input type="checkbox" value="integrations">CRM / Payments / API</label>
+<label class="addon-chk"><input type="checkbox" value="mobile_landing">App landing page</label>
+<label class="addon-chk"><input type="checkbox" value="redesign">Website redesign</label>
+<label class="addon-chk"><input type="checkbox" value="dashboard">Dashboard / Admin panel</label>
+<label class="addon-chk"><input type="checkbox" value="seo">Advanced SEO</label>
+<label class="addon-chk"><input type="checkbox" value="other">Other</label>
+</div>
+
+<div class="f"><label>Budget range</label><select id="cq_budget"><option value="">Select...</option><option value="3000-5000">3,000 – 5,000 NIS</option><option value="5000-8000">5,000 – 8,000 NIS</option><option value="8000-15000">8,000 – 15,000 NIS</option><option value="15000+">15,000+ NIS</option><option value="not_sure">Not sure yet</option></select></div>
+
+<div class="f"><label>Describe your project *</label><textarea id="cq_desc" required style="min-height:100px" placeholder="What does your business do? What features do you need? Any inspiration sites?"></textarea></div>
+</div>
+
+<p id="cqMsg" style="display:none;text-align:center;margin-top:8px;font-size:.88rem"></p>
+<div style="display:flex;gap:10px;margin-top:12px"><button class="bp btn-o" onclick="gs(1)" style="flex:1">Back</button><button class="bsub" style="flex:2" onclick="submitCQ()" id="cqBtn">Send Request</button></div>
+</div>
+
 <!-- S4: Confirmation -->
 <div class="ms" id="s4" style="display:none">
 <div class="cfb"><h3>You're all set.</h3><p>We received your brief and payment details. Production starts now.</p></div>
@@ -715,6 +747,15 @@ function sp(el, plan, price) {
 }
 
 function gs(n) {
+  // If Custom selected and going to step 2, show custom form instead
+  if (n === 2 && sPlan === 'Custom') {
+    document.querySelectorAll('.ms').forEach(s => s.style.display = 'none');
+    document.getElementById('sCustom').style.display = '';
+    for (let i = 1; i <= 4; i++) document.getElementById('d' + i).classList.toggle('ac', i <= 2);
+    document.querySelector('.mo').scrollTop = 0;
+    return;
+  }
+
   document.querySelectorAll('.ms').forEach(s => s.style.display = 'none');
   document.getElementById('s' + n).style.display = '';
   for (let i = 1; i <= 4; i++) document.getElementById('d' + i).classList.toggle('ac', i <= n);
@@ -885,6 +926,61 @@ async function submitOrder() {
   // Non-CC methods -> show confirmation step
   gs(4);
   console.log('Order submitted:', order.id);
+}
+
+// Custom Quote submit from modal
+async function submitCQ() {
+  var btn = document.getElementById('cqBtn');
+  var msg = document.getElementById('cqMsg');
+  var name = document.getElementById('cq_name').value.trim();
+  var email = document.getElementById('cq_email').value.trim();
+  var desc = document.getElementById('cq_desc').value.trim();
+  if (!name || !email || !desc) { msg.textContent = 'Please fill in name, email and project description.'; msg.style.color = '#c44'; msg.style.display = ''; return; }
+
+  btn.disabled = true; btn.textContent = 'Sending...'; msg.style.display = 'none';
+
+  var services = [];
+  document.querySelectorAll('#cqChecks input:checked').forEach(function(cb) { services.push(cb.value); });
+
+  var data = {
+    name: name, email: email,
+    phone: document.getElementById('cq_phone').value || '',
+    services: services,
+    budget_range: document.getElementById('cq_budget').value || '',
+    description: desc, status: 'new'
+  };
+
+  var ok = false;
+  try {
+    var r1 = await fetch(SUPABASE_URL + '/rest/v1/custom_requests', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Prefer': 'return=representation' },
+      body: JSON.stringify(data)
+    });
+    if (r1.ok) ok = true;
+  } catch (err) { console.error('Supabase error:', err); }
+
+  try {
+    await fetch('/.netlify/functions/custom-request-notify', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    ok = true;
+  } catch (err) { console.error('Notify error:', err); }
+
+  if (ok) {
+    btn.style.background = 'var(--grn)'; btn.style.color = '#fff';
+    btn.textContent = '✓ Sent!';
+    msg.textContent = "We'll get back to you within 24 hours with a quote.";
+    msg.style.color = 'var(--grn)'; msg.style.display = '';
+    setTimeout(function() { closeM(); }, 3000);
+  } else {
+    btn.style.background = '#e74c3c'; btn.style.color = '#fff';
+    btn.textContent = 'Error';
+    msg.textContent = 'Something went wrong. Please try again or WhatsApp us.';
+    msg.style.color = '#e74c3c'; msg.style.display = '';
+  }
+  setTimeout(function() { btn.disabled = false; btn.style.background = ''; btn.style.color = ''; btn.textContent = 'Send Request'; }, 4000);
 }
 
 // Smooth scroll

@@ -30,26 +30,34 @@ function buildMockupUrl(lead) {
 }
 
 // ── WATI WhatsApp API ───────────────────────────────────────
+// Sends one template message per lead using Wati single-message endpoint.
+// This lets us pass a unique header image URL (Cloudinary mockup with business name).
 async function sendWhatsApp(lead, mockupUrl) {
   if (!WATI_API_URL || !WATI_API_TOKEN) throw new Error('Wati not configured');
 
-  // Phone should already be in 972XXXXXXXXX format from import
   const phone = lead.phone;
   if (!phone) throw new Error('No phone');
+
+  // Wati single-message endpoint — supports dynamic media header per message
+  const endpoint = `${WATI_API_URL}/api/v1/sendTemplateMessage?whatsappNumber=${phone}`;
 
   const body = {
     template_name: WATI_TEMPLATE_NAME,
     broadcast_name: `outreach_${new Date().toISOString().split('T')[0]}`,
-    receivers: [{
-      whatsappNumber: phone,
-      customParams: [
-        { name: 'business_name', value: lead.name || '' },
-        { name: 'category', value: lead.category || 'business' },
-      ],
-    }],
+    parameters: [
+      { name: '1', value: lead.name || '' },
+    ],
   };
 
-  const res = await fetch(`${WATI_API_URL}/api/v1/sendTemplateMessages`, {
+  // Add dynamic header image if available (Cloudinary personalized mockup)
+  if (mockupUrl) {
+    body.header_media = {
+      type: 'image',
+      url: mockupUrl,
+    };
+  }
+
+  const res = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

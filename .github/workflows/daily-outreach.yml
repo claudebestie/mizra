@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r growth/requirements.txt
 
-      - name: Run outreach
+      - name: Run outreach (new contacts)
         working-directory: growth
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -31,3 +31,15 @@ jobs:
           MAX_EMAIL_PER_DAY: '200'
           DELAY_SECONDS: '3'
         run: python mizra_growth_v2.py
+
+      - name: Run follow-ups (R1 email J+5, R2 WA J+12)
+        working-directory: growth
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          WATI_TOKEN: ${{ secrets.WATI_TOKEN }}
+          WATI_BASE_URL: ${{ secrets.WATI_BASE_URL }}
+          MAX_EMAIL_PER_DAY: '200'
+          DELAY_SECONDS: '3'
+        run: python mizra_growth_v2.py --followups

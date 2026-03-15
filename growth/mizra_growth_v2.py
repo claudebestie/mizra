@@ -343,10 +343,51 @@ def build_email_html(lead: dict) -> tuple:
 
     return html, subject
 
-def send_email(lead: dict) -> bool:
+def build_followup1_email(lead: dict) -> tuple:
+    """Follow-up 1 (J+5): short reminder email."""
+    sector = lead.get("sector", "general")
+    color, accent = SECTOR_COLORS.get(sector, ("#181818", "#4f8ef7"))
+    name = lead["name"]
+    preview_url = lead.get("preview_url", "")
+
+    html = f'''<div dir="rtl" style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
+  <div style="background:{color};padding:28px 40px">
+    <div style="color:{accent};font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px">Mizra · תזכורת</div>
+    <div style="color:#fff;font-size:20px;font-weight:800">ראיתם את המוקאפ שיצרנו עבורכם?</div>
+  </div>
+  <div style="padding:28px 40px;background:#fafafa;border:1px solid #eee">
+    <p style="font-size:15px;line-height:1.8;margin-bottom:16px">
+      שלום,<br/>לפני כמה ימים שלחנו לכם <strong>אתר לדוגמה</strong> שיצרנו עבור <strong>{name}</strong>. רצינו לוודא שהגיע אליכם.
+    </p>
+    <a href="{preview_url}" style="display:inline-block;background:{color};color:#fff;padding:13px 26px;font-weight:700;font-size:14px;text-decoration:none;margin-bottom:16px">
+      👁 צפייה במוקאפ שלכם
+    </a>
+    <p style="font-size:14px;line-height:1.8;color:#555;margin-top:16px">
+      אם אתם מעוניינים — פשוט השיבו למייל הזה או שלחו הודעה ב-WhatsApp ל-<strong>054-227-1670</strong>.<br/>
+      נשמח לדבר ולענות על כל שאלה 🙂
+    </p>
+  </div>
+  <div style="padding:20px 40px;background:{color};text-align:center">
+    <p style="color:rgba(255,255,255,.4);font-size:11px">
+      מרגו | Mizra · hello@getmizra.com · +972 54 227 1670
+    </p>
+  </div>
+</div>'''
+    subject = f'ראיתם את האתר שיצרנו עבור {name}? 👀'
+    return html, subject
+
+WATI_FOLLOWUP_TEMPLATE = "followup_reminder_mizra"  # Template to create in Wati
+
+def send_email(lead: dict, followup: int = 0) -> bool:
     if not lead.get("email"): return False
     sector = lead.get("sector", "general")
-    html, subject = build_email_html(lead)
+
+    if followup == 1:
+        html, subject = build_followup1_email(lead)
+        tags = ["mizra-followup1", sector]
+    else:
+        html, subject = build_email_html(lead)
+        tags = ["mizra-outreach", sector]
 
     r = requests.post(
         "https://api.brevo.com/v3/smtp/email",
@@ -355,26 +396,28 @@ def send_email(lead: dict) -> bool:
             "to": [{"email": lead["email"], "name": lead["name"]}],
             "subject": subject,
             "htmlContent": html,
-            "tags": ["mizra-outreach", sector],
+            "tags": tags,
         },
         headers={"api-key": BREVO_API_KEY, "Content-Type": "application/json"},
         timeout=15
     )
     ok = r.status_code in (200, 201)
-    if ok: print(f"  📧 {lead['email']}")
+    if ok: print(f"  📧{'(R1)' if followup==1 else ''} {lead['email']}")
     else: print(f"  ❌ Email {r.status_code}: {r.text[:80]}")
     return ok
 
 # ─── WHATSAPP ─────────────────────────────────────────────────────────────────
-def send_whatsapp(lead: dict) -> bool:
+def send_whatsapp(lead: dict, followup: int = 0) -> bool:
     if not lead.get("phone"): return False
 
-    # Template: website_mockup_outreach_mizra avec {{name}} = nom du business
+    template = WATI_FOLLOWUP_TEMPLATE if followup else WATI_TEMPLATE_NAME
+    broadcast = f"mizra_{'fu' + str(followup) + '_' if followup else ''}{date.today().strftime('%Y%m%d')}"
+
     r = requests.post(
         f"{WATI_BASE_URL}/api/v1/sendTemplateMessages",
         json={
-            "template_name": WATI_TEMPLATE_NAME,
-            "broadcast_name": f"mizra_{date.today().strftime('%Y%m%d')}",
+            "template_name": template,
+            "broadcast_name": broadcast,
             "receivers": [{
                 "whatsappNumber": lead["phone"],
                 "customParams": [
@@ -386,7 +429,8 @@ def send_whatsapp(lead: dict) -> bool:
         timeout=15
     )
     ok = r.status_code in (200, 201)
-    if ok: print(f"  📱 {lead['phone']} ({lead['name']})")
+    tag = f"(R{followup})" if followup else ""
+    if ok: print(f"  📱{tag} {lead['phone']} ({lead['name']})")
     else: print(f"  ❌ WA {r.status_code}: {r.text[:80]}")
     return ok
 
@@ -518,12 +562,148 @@ def run(dry_run=False, wa_only=False, email_only=False, limit=None):
     if errors:
         print(f"   ⚠️  {len(errors)} erreurs")
 
+# ─── FOLLOW-UPS ──────────────────────────────────────────────────────────────
+def run_followups(dry_run=False, limit=None):
+    """
+    Relance 1 (J+5): email reminder to leads contacted 5+ days ago who have email
+    Relance 2 (J+12): WA reminder to leads contacted 12+ days ago who have phone
+    Skip leads who responded.
+    """
+    print(f"\n{'='*50}")
+    print(f"🔄 Mizra Follow-ups — {date.today()}")
+    print(f"{'='*50}")
+
+    weekday = date.today().weekday()
+    if weekday in (4, 5) and not dry_run:
+        print("⛔ Vendredi/Samedi — pas d'envoi (Shabbat).")
+        return
+
+    now = datetime.utcnow()
+    j5 = (now - __import__('datetime').timedelta(days=5)).isoformat()
+    j12 = (now - __import__('datetime').timedelta(days=12)).isoformat()
+    now_iso = now.isoformat()
+
+    # ── Relance 1: Email J+5 ──
+    # Leads contacted 5+ days ago, contact_count=1 (only initial contact), have email, not responded
+    params_r1 = (
+        "outreach_status=neq.responded&outreach_status=neq.converted&outreach_status=neq.pending"
+        f"&contacted_at=lt.{j5}&contact_count=eq.1&email=neq.null"
+        "&order=contacted_at.asc"
+        f"&limit={limit or 200}"
+    )
+    r1_leads = sb_get("leads", params_r1)
+    # Filter: only leads with actual email (neq.null doesn't catch empty strings)
+    r1_leads = [l for l in r1_leads if l.get("email")]
+    print(f"\n📧 Relance 1 (J+5): {len(r1_leads)} leads éligibles")
+
+    r1_sent = r1_failed = 0
+    r1_errors = []
+    for lead in r1_leads:
+        lead["sector"] = get_lead_sector(lead)
+        lead["preview_url"] = build_preview_url(lead)
+        name = lead.get("name", "?")
+        print(f"  → R1 {name} [{lead['sector']}]")
+
+        if dry_run:
+            print(f"    [DRY] email: {lead.get('email')}")
+            continue
+
+        try:
+            if send_email(lead, followup=1):
+                r1_sent += 1
+                sb_patch("leads", lead["id"], {
+                    "contact_count": 2,
+                    "last_contacted_at": now_iso,
+                    "followup1_at": now_iso,
+                    "updated_at": now_iso,
+                })
+            else:
+                r1_failed += 1
+        except Exception as e:
+            r1_failed += 1
+            r1_errors.append({"lead_id": lead["id"], "channel": "email_followup1", "error": str(e)[:200]})
+            print(f"    ❌ R1 exception: {e}")
+        time.sleep(DELAY)
+
+    # ── Relance 2: WhatsApp J+12 ──
+    # Leads contacted 12+ days ago, contact_count=2 (had initial + R1), have phone, not responded
+    params_r2 = (
+        "outreach_status=neq.responded&outreach_status=neq.converted&outreach_status=neq.pending"
+        f"&contacted_at=lt.{j12}&contact_count=eq.2&phone=neq.null"
+        "&order=contacted_at.asc"
+        f"&limit={limit or 100}"
+    )
+    r2_leads = sb_get("leads", params_r2)
+    r2_leads = [l for l in r2_leads if l.get("phone")]
+
+    # Respect warm-up limit for WA
+    wa_max = get_warmup_limit()
+    counter = load_counter()
+    wa_left = wa_max - counter["wa"]
+    r2_leads = r2_leads[:max(0, wa_left)]
+
+    print(f"\n📱 Relance 2 (J+12): {len(r2_leads)} leads éligibles (WA quota: {wa_left} restants)")
+
+    r2_sent = r2_failed = 0
+    r2_errors = []
+    for lead in r2_leads:
+        lead["sector"] = get_lead_sector(lead)
+        lead["preview_url"] = build_preview_url(lead)
+        name = lead.get("name", "?")
+        print(f"  → R2 {name} [{lead['sector']}]")
+
+        if dry_run:
+            print(f"    [DRY] phone: {lead.get('phone')}")
+            continue
+
+        try:
+            if send_whatsapp(lead, followup=2):
+                r2_sent += 1
+                counter["wa"] += 1
+                sb_patch("leads", lead["id"], {
+                    "contact_count": 3,
+                    "last_contacted_at": now_iso,
+                    "followup2_at": now_iso,
+                    "updated_at": now_iso,
+                })
+            else:
+                r2_failed += 1
+        except Exception as e:
+            r2_failed += 1
+            r2_errors.append({"lead_id": lead["id"], "channel": "wa_followup2", "error": str(e)[:200]})
+            print(f"    ❌ R2 exception: {e}")
+        time.sleep(DELAY)
+
+    if not dry_run:
+        save_counter(counter)
+        all_errors = r1_errors + r2_errors
+        sb_post("outreach_logs", {
+            "run_at": now_iso,
+            "run_type": "followups",
+            "whatsapp_sent": r2_sent,
+            "whatsapp_failed": r2_failed,
+            "email_sent": r1_sent,
+            "email_failed": r1_failed,
+            "errors": all_errors if all_errors else None,
+        })
+
+    print(f"\n{'='*40}")
+    print(f"✅ Follow-ups terminés:")
+    print(f"   📧 R1 email: {r1_sent} envoyés / {r1_failed} échoués")
+    print(f"   📱 R2 WA: {r2_sent} envoyés / {r2_failed} échoués")
+
+
 if __name__ == "__main__":
     import sys
     args = sys.argv[1:]
 
     if "--import" in args:
         import_all_csvs()
+    elif "--followups" in args:
+        run_followups(
+            dry_run="--dry" in args,
+            limit=int(next((a.split("=")[1] for a in args if a.startswith("--limit=")), 0)) or None
+        )
     else:
         run(
             dry_run="--dry" in args,

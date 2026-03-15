@@ -122,6 +122,12 @@
   to = "/examples/contractor/"
   status = 301
 
+# Preview pages — dynamic mockup sites for outreach
+[[redirects]]
+  from = "/preview/*"
+  to = "/.netlify/functions/preview"
+  status = 200
+
 # Catch-all trailing slash for programmatic SEO pages
 [[redirects]]
   from = "/*-website-builder"

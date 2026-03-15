@@ -1,0 +1,464 @@
+#!/usr/bin/env python3
+"""
+Mizra Growth v2
+- Import des 3 CSV Lobstr → Supabase
+- Envoi WATI template: website_mockup_outreach_mizra (1 variable: {{name}})
+- Envoi Email Brevo avec preview URL
+- Warm-up WhatsApp automatique
+"""
+
+import os, re, csv, json, time, unicodedata
+from typing import Optional
+from datetime import date, datetime
+from pathlib import Path
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
+BREVO_API_KEY = os.getenv("BREVO_API_KEY")
+WATI_TOKEN = os.getenv("WATI_TOKEN")
+WATI_BASE_URL = os.getenv("WATI_BASE_URL")  # https://live-server-10107237.wati.io
+PREVIEW_BASE = "https://getmizra.com/preview"
+AUDIT_URL = "https://getmizra.com/free-audit"
+COUNTER_FILE = Path("./daily_counter.json")
+
+# Template WATI confirmé depuis la capture d'écran
+# Template name: website_mockup_outreach_mizra
+# Variables: {{name}} seulement
+WATI_TEMPLATE_NAME = "website_mockup_outreach_mizra"
+
+WARMUP = {1: 10, 2: 20, 3: 40, 4: 80, 5: 120, 6: 200}
+MAX_EMAIL = int(os.getenv("MAX_EMAIL_PER_DAY", 200))
+DELAY = float(os.getenv("DELAY_SECONDS", 3))
+
+SECTOR_MAP = {
+    "utility contractor": "contractor", "contractor": "contractor",
+    "tile contractor": "contractor", "renovation": "contractor",
+    "pilates studio": "therapist", "pilates": "therapist", "yoga": "therapist",
+    "physical therapy clinic": "clinic", "clinic": "clinic", "dentist": "clinic",
+    "fertility clinic": "clinic", "neuropsychologist": "therapist",
+    "permanent make-up clinic": "beauty", "hair salons": "beauty",
+    "beauty clinics": "beauty", "spa": "beauty",
+    "barbershop": "barbershop", "barber shop": "barbershop",
+    "psychologist": "therapist", "therapist": "therapist",
+    "real estate agents": "general", "interior designers": "general",
+    "photographers": "general", "restaurant": "restaurant",
+    "lawyer": "lawyer", "attorney": "lawyer", "coach": "coach",
+}
+
+SECTOR_NAMES_HE = {
+    "contractor": "קבלן שיפוצים", "clinic": "קליניקה",
+    "therapist": "מטפל", "restaurant": "מסעדה",
+    "general": "עסק מקומי", "beauty": "סלון יופי",
+    "barbershop": "ברברשופ", "lawyer": 'עו"ד', "coach": "קואצ׳",
+}
+
+SECTOR_COLORS = {
+    "beauty": ("#1a1a2e", "#c9a96e"), "barbershop": ("#0f1923", "#d4a853"),
+    "clinic": ("#0d2137", "#2a9d8f"), "therapist": ("#1e1e2e", "#9b72cf"),
+    "lawyer": ("#141414", "#b8960c"), "coach": ("#0a0a0a", "#ff6b35"),
+    "contractor": ("#1c1c1c", "#e07b39"), "restaurant": ("#1a0a00", "#e85d04"),
+    "general": ("#181818", "#4f8ef7"),
+}
+
+# ─── UTILS ───────────────────────────────────────────────────────────────────
+def slugify(text: str) -> str:
+    t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
+    t = re.sub(r'[^\w\s-]', '', t.lower().strip())
+    t = re.sub(r'[\s_]+', '-', t)
+    return re.sub(r'-+', '-', t).strip('-')[:40]
+
+def detect_sector(cat: str) -> str:
+    c = (cat or '').lower()
+    for k, v in SECTOR_MAP.items():
+        if k in c: return v
+    return "general"
+
+def normalize_phone(phone: str) -> Optional[str]:
+    if not phone: return None
+    d = re.sub(r'[^\d]', '', phone)
+    if d.startswith('972') and len(d) >= 11: return d
+    if d.startswith('0') and len(d) == 10: return '972' + d[1:]
+    if len(d) == 9: return '972' + d
+    return None
+
+def sb_headers():
+    return {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+    }
+
+def sb_get(table, params=""):
+    r = requests.get(f"{SUPABASE_URL}/rest/v1/{table}?{params}", headers=sb_headers(), timeout=10)
+    return r.json()
+
+def sb_post(table, data):
+    r = requests.post(f"{SUPABASE_URL}/rest/v1/{table}", json=data, headers=sb_headers(), timeout=10)
+    return r.status_code
+
+def sb_patch(table, row_id, data):
+    h = {**sb_headers(), "Prefer": "return=minimal"}
+    r = requests.patch(f"{SUPABASE_URL}/rest/v1/{table}?id=eq.{row_id}", json=data, headers=h, timeout=10)
+    return r.status_code
+
+# Mapping category_slug (from Node.js import) → sector
+SLUG_TO_SECTOR = {
+    "restaurant": "restaurant", "beauty-salon": "beauty",
+    "barbershop": "barbershop", "clinic": "clinic",
+    "therapist": "therapist", "pilates": "therapist",
+    "real-estate": "general", "contractor": "contractor",
+    "freelancer": "general", "lawyer": "lawyer",
+    "sports-coach": "coach",
+}
+
+def get_lead_sector(lead):
+    """Get sector from lead, using category_slug as fallback."""
+    sector = lead.get("sector")
+    if sector and sector != "general":
+        return sector
+    cat_slug = lead.get("category_slug")
+    if cat_slug and cat_slug in SLUG_TO_SECTOR:
+        return SLUG_TO_SECTOR[cat_slug]
+    return sector or "general"
+
+def build_preview_url(lead):
+    """Build preview URL from lead name and sector."""
+    from urllib.parse import quote
+    name = lead.get("name", "business")
+    sector = get_lead_sector(lead)
+    # Try ASCII slug first; for Hebrew names, URL-encode the original
+    slug = slugify(name)
+    if not slug:
+        slug = quote(name.strip()[:60], safe='')
+    return f"{PREVIEW_BASE}/{slug}--{sector}"
+
+# ─── COUNTER ─────────────────────────────────────────────────────────────────
+def load_counter():
+    today = str(date.today())
+    if COUNTER_FILE.exists():
+        d = json.loads(COUNTER_FILE.read_text())
+        if d.get("date") == today: return d
+    return {"date": today, "wa": 0, "email": 0}
+
+def save_counter(c): COUNTER_FILE.write_text(json.dumps(c))
+
+def get_warmup_limit():
+    start = date(2026, 3, 15)  # Date de démarrage warm-up
+    days = (date.today() - start).days
+    week = min((days // 7) + 1, 6)
+    limit = WARMUP[week]
+    print(f"🔥 Warm-up semaine {week} → max {limit} WhatsApp/jour")
+    return limit
+
+# ─── IMPORT CSV ───────────────────────────────────────────────────────────────
+def import_all_csvs():
+    files = [
+        ("/mnt/user-data/uploads/lobstr_liste_3.csv", "liste_3"),
+        ("/mnt/user-data/uploads/lobstr_liste_1.csv", "liste_1"),
+        ("/mnt/user-data/uploads/lobstr_liste_2.csv", "liste_2"),
+    ]
+
+    # Charger phones/emails existants pour dédup
+    existing = sb_get("leads", "select=phone,email")
+    seen_phones = {r['phone'] for r in existing if r.get('phone')}
+    seen_emails = {r['email'] for r in existing if r.get('email')}
+    print(f"Déjà en base: {len(existing)} leads")
+
+    imported = 0
+    skipped = 0
+
+    for fpath, source in files:
+        if not Path(fpath).exists():
+            print(f"⚠️ Fichier non trouvé: {fpath}")
+            continue
+
+        print(f"\n📥 Import {source}...")
+        batch = []
+
+        with open(fpath, encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                name = row.get('NAME','').strip()
+                if not name: continue
+
+                phone = normalize_phone(row.get('PHONE',''))
+                email = (row.get('EMAIL','') or '').strip().lower() or None
+                cat = row.get('INPUT CATEGORY','').strip() or row.get('CATEGORY','').strip()
+
+                # Dédup
+                if phone and phone in seen_phones: skipped += 1; continue
+                if email and email in seen_emails: skipped += 1; continue
+                if phone: seen_phones.add(phone)
+                if email: seen_emails.add(email)
+
+                sector = detect_sector(cat)
+                slug = slugify(name)
+                preview_url = f"{PREVIEW_BASE}/{slug}--{sector}" if slug else f"{PREVIEW_BASE}/business--{sector}"
+
+                batch.append({
+                    "name": name,
+                    "phone": phone,
+                    "email": email,
+                    "category": cat,
+                    "sector": sector,
+                    "city": row.get('CITY','').strip() or None,
+                    "website": row.get('WEBSITE','').strip() or None,
+                    "preview_url": preview_url,
+                    "source": source,
+                    "status": "pending",
+                    "created_at": datetime.utcnow().isoformat(),
+                })
+
+                # Insert par batches de 100
+                if len(batch) >= 100:
+                    code = sb_post("leads", batch)
+                    imported += len(batch)
+                    batch = []
+                    print(f"  ✓ {imported} importés...")
+
+        if batch:
+            sb_post("leads", batch)
+            imported += len(batch)
+
+        print(f"  ✅ {source}: terminé")
+
+    print(f"\n{'='*40}")
+    print(f"✅ Import terminé: {imported} importés, {skipped} doublons ignorés")
+
+# ─── EMAIL ────────────────────────────────────────────────────────────────────
+EMAIL_HTML = """
+<div dir="rtl" style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
+  <div style="background:{color};padding:36px 40px 28px">
+    <div style="color:{accent};font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px">Mizra · getmizra.com</div>
+    <div style="color:#fff;font-size:22px;font-weight:800;line-height:1.25">
+      בנינו לכם אתר לדוגמה 👋<br/>
+      <span style="opacity:.7;font-size:16px;font-weight:400">{name}</span>
+    </div>
+  </div>
+  <div style="padding:32px 40px;background:#fafafa;border:1px solid #eee">
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px">
+      שלום,<br/>בדקנו את הנוכחות שלכם ברשת — ויצרנו עבורכם <strong>אתר לדוגמה</strong> בחינם וללא התחייבות.
+    </p>
+    <div style="border:2px solid {accent};padding:24px;margin:20px 0;background:#fff">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{accent};margin-bottom:10px">מוקאפ אתר מקצועי עבור {name}</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:16px;color:{color}">ראו איך תיראו ברשת ←</div>
+      <a href="{preview_url}" style="display:inline-block;background:{color};color:#fff;padding:13px 26px;font-weight:700;font-size:14px;text-decoration:none">
+        👁 צפייה במוקאפ החינמי
+      </a>
+    </div>
+    <p style="font-size:14px;line-height:1.8;color:#555">
+      ✅ אתר מקצועי מוכן תוך <strong>48 שעות</strong><br/>
+      📍 מופיעים בגוגל כשמחפשים {category_he} באזורכם<br/>
+      💰 רק <strong>₪1,990</strong> — כולל עיצוב, SEO וחיבור WhatsApp
+    </p>
+  </div>
+  <div style="padding:28px 40px;background:{color};text-align:center">
+    <a href="{audit_url}" style="display:inline-block;background:{accent};color:{color};padding:14px 36px;font-weight:800;font-size:15px;text-decoration:none">
+      קבלו אודיט חינמי ←
+    </a>
+    <p style="color:rgba(255,255,255,.4);font-size:11px;margin-top:16px">
+      מרגו | Mizra · hello@getmizra.com · +972 54 227 1670
+    </p>
+  </div>
+</div>
+"""
+
+def send_email(lead: dict) -> bool:
+    if not lead.get("email"): return False
+    sector = lead.get("sector", "general")
+    color, accent = SECTOR_COLORS.get(sector, ("#181818", "#4f8ef7"))
+    cat_he = SECTOR_NAMES_HE.get(sector, "עסק")
+
+    html = EMAIL_HTML.format(
+        name=lead["name"], color=color, accent=accent,
+        category_he=cat_he, preview_url=lead["preview_url"],
+        audit_url=AUDIT_URL,
+    )
+
+    r = requests.post(
+        "https://api.brevo.com/v3/smtp/email",
+        json={
+            "sender": {"email": "hello@getmizra.com", "name": "מרגו | Mizra"},
+            "to": [{"email": lead["email"], "name": lead["name"]}],
+            "subject": f"בנינו לכם אתר לדוגמה 👁 — {lead['name']}",
+            "htmlContent": html,
+            "tags": ["mizra-outreach", sector],
+        },
+        headers={"api-key": BREVO_API_KEY, "Content-Type": "application/json"},
+        timeout=15
+    )
+    ok = r.status_code in (200, 201)
+    if ok: print(f"  📧 {lead['email']}")
+    else: print(f"  ❌ Email {r.status_code}: {r.text[:80]}")
+    return ok
+
+# ─── WHATSAPP ─────────────────────────────────────────────────────────────────
+def send_whatsapp(lead: dict) -> bool:
+    if not lead.get("phone"): return False
+
+    # Template: website_mockup_outreach_mizra avec {{name}} = nom du business
+    r = requests.post(
+        f"{WATI_BASE_URL}/api/v1/sendTemplateMessages",
+        json={
+            "template_name": WATI_TEMPLATE_NAME,
+            "broadcast_name": f"mizra_{date.today().strftime('%Y%m%d')}",
+            "receivers": [{
+                "whatsappNumber": lead["phone"],
+                "customParams": [
+                    {"name": "name", "value": lead["name"]}
+                ]
+            }]
+        },
+        headers={"Authorization": f"Bearer {WATI_TOKEN}", "Content-Type": "application/json"},
+        timeout=15
+    )
+    ok = r.status_code in (200, 201)
+    if ok: print(f"  📱 {lead['phone']} ({lead['name']})")
+    else: print(f"  ❌ WA {r.status_code}: {r.text[:80]}")
+    return ok
+
+# ─── RUN ─────────────────────────────────────────────────────────────────────
+def run(dry_run=False, wa_only=False, email_only=False, limit=None):
+    print(f"\n{'='*50}")
+    print(f"🚀 Mizra Growth — {date.today()}")
+    print(f"{'='*50}")
+
+    # Only run Sunday (6) to Thursday (3) — Israeli work week
+    weekday = date.today().weekday()  # Monday=0, Sunday=6
+    if weekday in (4, 5) and not dry_run:  # Friday=4, Saturday=5
+        print("⛔ Vendredi/Samedi — pas d'envoi (Shabbat). À dimanche!")
+        return
+
+    counter = load_counter()
+    wa_max = get_warmup_limit()
+    email_max = MAX_EMAIL
+
+    wa_left = wa_max - counter["wa"]
+    email_left = email_max - counter["email"]
+
+    print(f"📊 Quotas: WA {counter['wa']}/{wa_max} (reste {wa_left}) | Email {counter['email']}/{email_max} (reste {email_left})")
+
+    if wa_left <= 0 and email_left <= 0:
+        print("⛔ Quotas atteints pour aujourd'hui.")
+        return
+
+    # Fetch leads pending — use outreach_status which was set by Node.js import
+    needed = max(wa_left, email_left) + 50
+    if limit: needed = min(needed, limit)
+
+    params = f"outreach_status=eq.pending&order=priority.desc,created_at.asc&limit={needed}"
+    leads = sb_get("leads", params)
+    print(f"📋 {len(leads)} leads pending récupérés")
+
+    wa_done = email_done = wa_failed = email_failed = 0
+    errors = []
+
+    for lead in leads:
+        if wa_done >= wa_left and email_done >= email_left: break
+
+        # Resolve sector and preview URL dynamically
+        lead["sector"] = get_lead_sector(lead)
+        lead["preview_url"] = build_preview_url(lead)
+
+        name = lead.get('name', '?')
+        print(f"\n→ {name} [{lead['sector']}] {lead.get('city','')} ")
+
+        if dry_run:
+            print(f"   [DRY] preview: {lead['preview_url']}")
+            print(f"   [DRY] phone: {lead.get('phone')} | email: {lead.get('email')}")
+            continue
+
+        channels = []
+        now = datetime.utcnow().isoformat()
+
+        # WhatsApp
+        if not email_only and lead.get("phone") and wa_done < wa_left:
+            try:
+                if send_whatsapp(lead):
+                    wa_done += 1; counter["wa"] += 1; channels.append("whatsapp")
+                else:
+                    wa_failed += 1
+            except Exception as e:
+                wa_failed += 1
+                errors.append({"lead_id": lead["id"], "channel": "whatsapp", "error": str(e)[:200]})
+                print(f"  ❌ WA exception: {e}")
+            time.sleep(DELAY)
+
+        # Email
+        if not wa_only and lead.get("email") and email_done < email_left:
+            try:
+                if send_email(lead):
+                    email_done += 1; counter["email"] += 1; channels.append("email")
+                else:
+                    email_failed += 1
+            except Exception as e:
+                email_failed += 1
+                errors.append({"lead_id": lead["id"], "channel": "email", "error": str(e)[:200]})
+                print(f"  ❌ Email exception: {e}")
+            time.sleep(DELAY)
+
+        if channels:
+            # Determine outreach_status for CRM compatibility
+            has_wa = "whatsapp" in channels
+            has_em = "email" in channels
+            if has_wa and has_em:
+                outreach_status = "sent_both"
+            elif has_wa:
+                outreach_status = "sent_whatsapp"
+            else:
+                outreach_status = "sent_email"
+
+            update_data = {
+                "status": "contacted",
+                "outreach_status": outreach_status,
+                "channel": "+".join(channels),
+                "contacted_at": now,
+                "last_contacted_at": now,
+                "updated_at": now,
+                "preview_url": lead["preview_url"],
+                "sector": lead["sector"],
+                "contact_count": (lead.get("contact_count") or 0) + 1,
+            }
+            if has_wa:
+                update_data["whatsapp_sent_at"] = now
+            if has_em:
+                update_data["email_sent_at"] = now
+
+            sb_patch("leads", lead["id"], update_data)
+            save_counter(counter)
+
+    # Log the run to outreach_logs
+    if not dry_run:
+        sb_post("outreach_logs", {
+            "run_at": datetime.utcnow().isoformat(),
+            "whatsapp_sent": wa_done,
+            "whatsapp_failed": wa_failed,
+            "email_sent": email_done,
+            "email_failed": email_failed,
+            "errors": errors if errors else None,
+        })
+
+    print(f"\n{'='*40}")
+    print(f"✅ Session terminée:")
+    print(f"   📧 Email: {email_done} envoyés / {email_failed} échoués")
+    print(f"   📱 WhatsApp: {wa_done} envoyés / {wa_failed} échoués")
+    if errors:
+        print(f"   ⚠️  {len(errors)} erreurs")
+
+if __name__ == "__main__":
+    import sys
+    args = sys.argv[1:]
+
+    if "--import" in args:
+        import_all_csvs()
+    else:
+        run(
+            dry_run="--dry" in args,
+            wa_only="--wa-only" in args,
+            email_only="--email-only" in args,
+            limit=int(next((a.split("=")[1] for a in args if a.startswith("--limit=")), 0)) or None
+        )

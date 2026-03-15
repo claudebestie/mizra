@@ -1,73 +1,33 @@
-name: Mizra Outreach — Daily Send
+name: Daily Outreach
 
 on:
-  # Every day at 8:30 AM Israel time (UTC+3 = 5:30 UTC)
   schedule:
-    - cron: "30 5 * * *"
-
-  # Manual trigger from GitHub UI
-  workflow_dispatch:
-    inputs:
-      whatsapp_count:
-        description: "WhatsApp messages to send"
-        required: false
-        default: "50"
-        type: string
-      email_count:
-        description: "Emails to send"
-        required: false
-        default: "50"
-        type: string
-      dry_run:
-        description: "Dry run (no actual sends)"
-        required: false
-        default: "false"
-        type: string
+    # 9:00 AM Israel time (IST = UTC+2, IDT = UTC+3)
+    # Using UTC+2 (winter) = 07:00 UTC
+    - cron: '0 7 * * 0-4'  # Sunday(0) to Thursday(4) at 07:00 UTC
+  workflow_dispatch: {}  # Allow manual trigger from GitHub UI
 
 jobs:
-  daily-outreach:
-    name: Send daily outreach (WhatsApp + Email)
+  outreach:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: scripts/package.json
+          python-version: '3.11'
 
       - name: Install dependencies
-        working-directory: scripts
-        run: npm ci
+        run: pip install -r growth/requirements.txt
 
-      - name: Run daily outreach
-        working-directory: scripts
+      - name: Run outreach
+        working-directory: growth
         env:
-          SUPABASE_URL: ${{ secrets.API_SUPABASE }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-          WATI_API_URL: ${{ secrets.WATI_API_URL }}
-          WATI_API_TOKEN: ${{ secrets.WATI_API_TOKEN }}
-          WATI_TEMPLATE_NAME: ${{ secrets.WATI_TEMPLATE_NAME }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
-          BREVO_SENDER_NAME: ${{ secrets.BREVO_SENDER_NAME }}
-          CLOUDINARY_BASE_URL: ${{ secrets.CLOUDINARY_BASE_URL }}
-          WHATSAPP_COUNT: ${{ github.event.inputs.whatsapp_count || '50' }}
-          EMAIL_COUNT: ${{ github.event.inputs.email_count || '50' }}
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
-        run: node daily-outreach.js
-
-      - name: Summary
-        if: always()
-        run: |
-          echo "### Daily Outreach Run" >> $GITHUB_STEP_SUMMARY
-          echo "- Date: $(date '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
-          echo "- WhatsApp target: ${{ github.event.inputs.whatsapp_count || '50' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Email target: ${{ github.event.inputs.email_count || '50' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Dry run: ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          WATI_TOKEN: ${{ secrets.WATI_TOKEN }}
+          WATI_BASE_URL: ${{ secrets.WATI_BASE_URL }}
+          MAX_EMAIL_PER_DAY: '200'
+          DELAY_SECONDS: '3'
+        run: python mizra_growth_v2.py

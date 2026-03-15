@@ -230,61 +230,130 @@ def import_all_csvs():
     print(f"✅ Import terminé: {imported} importés, {skipped} doublons ignorés")
 
 # ─── EMAIL ────────────────────────────────────────────────────────────────────
-EMAIL_HTML = """
-<div dir="rtl" style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
+# ── Sector-specific hooks for email body ──
+SECTOR_HOOKS = {
+    "restaurant": {
+        "pain": "לקוחות מחפשים את התפריט שלכם בגוגל — ולא מוצאים",
+        "benefit": "תפריט אונליין, הזמנת מקום, וקישור ישיר ל-WhatsApp",
+        "cta_line": "תנו ללקוחות שלכם להזמין מקום ישירות מהאתר",
+    },
+    "beauty": {
+        "pain": "לקוחות חדשים מחפשים סלון יופי באזור — ולא מוצאים אתכם",
+        "benefit": "מחירון, גלריית עבודות, והזמנת תור אונליין",
+        "cta_line": "תנו ללקוחות לקבוע תור ישירות מהאתר",
+    },
+    "barbershop": {
+        "pain": "אנשים מחפשים ברברשופ בגוגל — ולא מוצאים אתכם",
+        "benefit": "גלריית תספורות, מחירון, וקביעת תור אונליין",
+        "cta_line": "תנו ללקוחות לקבוע תור ישירות",
+    },
+    "clinic": {
+        "pain": "מטופלים מחפשים קליניקה באזור — ולא מגיעים אליכם",
+        "benefit": "שירותים רפואיים, צוות, וקביעת תור אונליין",
+        "cta_line": "תנו למטופלים חדשים למצוא אתכם בגוגל",
+    },
+    "therapist": {
+        "pain": "לקוחות פוטנציאליים מחפשים מטפל/ת בגוגל — ולא מוצאים אתכם",
+        "benefit": "גישת טיפול, הכשרה מקצועית, וקביעת פגישה",
+        "cta_line": "תנו ללקוחות חדשים להכיר את הגישה שלכם",
+    },
+    "lawyer": {
+        "pain": "אנשים מחפשים עורך דין באזור — ולא מגיעים אליכם",
+        "benefit": "תחומי עיסוק, ניסיון, וייעוץ ראשוני",
+        "cta_line": "תנו ללקוחות פוטנציאליים לפנות אליכם ישירות",
+    },
+    "coach": {
+        "pain": "אנשים מחפשים קואצ׳ר בגוגל — ולא מוצאים אתכם",
+        "benefit": "תוכניות, המלצות, ופגישת היכרות",
+        "cta_line": "תנו ללקוחות חדשים לגלות אתכם",
+    },
+    "contractor": {
+        "pain": "אנשים מחפשים קבלן שיפוצים בגוגל — ולא מוצאים אתכם",
+        "benefit": "פרויקטים קודמים, שירותים, והצעת מחיר",
+        "cta_line": "תנו ללקוחות חדשים לראות את העבודות שלכם",
+    },
+    "general": {
+        "pain": "לקוחות מחפשים את השירות שלכם בגוגל — ולא מוצאים",
+        "benefit": "שירותים, אודות, ויצירת קשר ישירה",
+        "cta_line": "תנו ללקוחות חדשים למצוא אתכם ברשת",
+    },
+}
+
+def build_email_html(lead: dict) -> tuple:
+    """Build personalized email HTML and subject. Returns (html, subject)."""
+    sector = lead.get("sector", "general")
+    color, accent = SECTOR_COLORS.get(sector, ("#181818", "#4f8ef7"))
+    cat_he = SECTOR_NAMES_HE.get(sector, "עסק")
+    hooks = SECTOR_HOOKS.get(sector, SECTOR_HOOKS["general"])
+    name = lead["name"]
+    city = (lead.get("city") or "").strip()
+    website = (lead.get("website") or "").strip()
+    preview_url = lead.get("preview_url", "")
+
+    # Personalized intro based on what we know
+    if website and city:
+        intro = f'שלום,<br/>בדקנו את <strong>{website}</strong> — האתר הנוכחי שלכם ב{city}. יצרנו עבורכם <strong>גרסה משודרגת</strong> בחינם, כדי שתראו איך אתר מקצועי יכול להיראות.'
+        subject = f'{name} — בדקנו את האתר שלכם ויצרנו גרסה משודרגת 👁'
+    elif website:
+        intro = f'שלום,<br/>בדקנו את <strong>{website}</strong> ויצרנו עבורכם <strong>גרסה משודרגת</strong> בחינם — ללא התחייבות.'
+        subject = f'{name} — בדקנו את האתר שלכם 👁'
+    elif city:
+        intro = f'שלום,<br/>חיפשנו {cat_he} ב{city} בגוגל — ו<strong>{name}</strong> לא מופיע. יצרנו עבורכם <strong>אתר לדוגמה</strong> בחינם כדי שתראו איך זה יכול להיראות.'
+        subject = f'חיפשנו {cat_he} ב{city} — ויצרנו לכם אתר לדוגמה 👁'
+    else:
+        intro = f'שלום,<br/>בדקנו את הנוכחות של <strong>{name}</strong> ברשת — ויצרנו עבורכם <strong>אתר לדוגמה</strong> בחינם וללא התחייבות.'
+        subject = f'בנינו לכם אתר לדוגמה 👁 — {name}'
+
+    # City mention in SEO line
+    seo_line = f'מופיעים בגוגל כשמחפשים {cat_he} ב{city}' if city else f'מופיעים בגוגל כשמחפשים {cat_he} באזורכם'
+
+    html = f'''<div dir="rtl" style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
   <div style="background:{color};padding:36px 40px 28px">
     <div style="color:{accent};font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px">Mizra · getmizra.com</div>
     <div style="color:#fff;font-size:22px;font-weight:800;line-height:1.25">
-      בנינו לכם אתר לדוגמה 👋<br/>
-      <span style="opacity:.7;font-size:16px;font-weight:400">{name}</span>
+      {hooks["pain"]}<br/>
+      <span style="opacity:.7;font-size:16px;font-weight:400">{name}{f" · {city}" if city else ""}</span>
     </div>
   </div>
   <div style="padding:32px 40px;background:#fafafa;border:1px solid #eee">
-    <p style="font-size:15px;line-height:1.8;margin-bottom:20px">
-      שלום,<br/>בדקנו את הנוכחות שלכם ברשת — ויצרנו עבורכם <strong>אתר לדוגמה</strong> בחינם וללא התחייבות.
-    </p>
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px">{intro}</p>
     <div style="border:2px solid {accent};padding:24px;margin:20px 0;background:#fff">
-      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{accent};margin-bottom:10px">מוקאפ אתר מקצועי עבור {name}</div>
-      <div style="font-size:17px;font-weight:800;margin-bottom:16px;color:{color}">ראו איך תיראו ברשת ←</div>
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:{accent};margin-bottom:10px">{"גרסה משודרגת" if website else "מוקאפ אתר מקצועי"} עבור {name}</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:16px;color:{color}">ראו איך {"האתר החדש שלכם" if website else "תיראו ברשת"} ←</div>
       <a href="{preview_url}" style="display:inline-block;background:{color};color:#fff;padding:13px 26px;font-weight:700;font-size:14px;text-decoration:none">
-        👁 צפייה במוקאפ החינמי
+        👁 {"צפייה בגרסה המשודרגת" if website else "צפייה במוקאפ החינמי"}
       </a>
     </div>
     <p style="font-size:14px;line-height:1.8;color:#555">
-      ✅ אתר מקצועי מוכן תוך <strong>48 שעות</strong><br/>
-      📍 מופיעים בגוגל כשמחפשים {category_he} באזורכם<br/>
-      💰 רק <strong>₪1,990</strong> — כולל עיצוב, SEO וחיבור WhatsApp
+      ✅ {hooks["benefit"]}<br/>
+      📍 {seo_line}<br/>
+      💰 רק <strong>₪1,990</strong> — כולל עיצוב, SEO וחיבור WhatsApp<br/>
+      🚀 {hooks["cta_line"]}
     </p>
   </div>
   <div style="padding:28px 40px;background:{color};text-align:center">
-    <a href="{audit_url}" style="display:inline-block;background:{accent};color:{color};padding:14px 36px;font-weight:800;font-size:15px;text-decoration:none">
+    <a href="{AUDIT_URL}" style="display:inline-block;background:{accent};color:{color};padding:14px 36px;font-weight:800;font-size:15px;text-decoration:none">
       קבלו אודיט חינמי ←
     </a>
     <p style="color:rgba(255,255,255,.4);font-size:11px;margin-top:16px">
       מרגו | Mizra · hello@getmizra.com · +972 54 227 1670
     </p>
   </div>
-</div>
-"""
+</div>'''
+
+    return html, subject
 
 def send_email(lead: dict) -> bool:
     if not lead.get("email"): return False
     sector = lead.get("sector", "general")
-    color, accent = SECTOR_COLORS.get(sector, ("#181818", "#4f8ef7"))
-    cat_he = SECTOR_NAMES_HE.get(sector, "עסק")
-
-    html = EMAIL_HTML.format(
-        name=lead["name"], color=color, accent=accent,
-        category_he=cat_he, preview_url=lead["preview_url"],
-        audit_url=AUDIT_URL,
-    )
+    html, subject = build_email_html(lead)
 
     r = requests.post(
         "https://api.brevo.com/v3/smtp/email",
         json={
             "sender": {"email": "hello@getmizra.com", "name": "מרגו | Mizra"},
             "to": [{"email": lead["email"], "name": lead["name"]}],
-            "subject": f"בנינו לכם אתר לדוגמה 👁 — {lead['name']}",
+            "subject": subject,
             "htmlContent": html,
             "tags": ["mizra-outreach", sector],
         },

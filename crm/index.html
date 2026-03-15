@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mizra Growth — Dashboard</title>
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .slide-in { animation: slideIn .2s ease-out; }
+    @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<div id="app">
+  <!-- Header -->
+  <header class="bg-[#0D2137] text-white px-6 py-4 flex items-center justify-between">
+    <div>
+      <h1 class="text-xl font-bold">Mizra Growth Engine</h1>
+      <p class="text-sm text-gray-300">Outreach Dashboard</p>
+    </div>
+    <button onclick="fetchAll()" class="text-xs bg-white/10 px-3 py-1.5 rounded hover:bg-white/20">Rafraichir</button>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <!-- Stats -->
+    <div id="stats-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-6"></div>
+
+    <!-- Warmup + Sectors -->
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-white rounded-lg border p-4" id="warmup-panel"></div>
+      <div class="bg-white rounded-lg border p-4" id="sector-panel"></div>
+    </div>
+
+    <!-- Recent Runs -->
+    <div class="bg-white rounded-lg border p-4 mb-6" id="logs-panel" style="display:none"></div>
+
+    <!-- Filters -->
+    <div class="bg-white rounded-lg border p-4 mb-4 flex flex-wrap gap-3 items-center">
+      <select id="f-list" class="text-sm border rounded px-2 py-1.5" onchange="applyFilters()">
+        <option value="">Toutes les listes</option>
+        <option value="list_3">Liste 3 (Priorite)</option>
+        <option value="list_2">Liste 2 (Restos)</option>
+        <option value="list_1">Liste 1 (Salons)</option>
+      </select>
+      <select id="f-status" class="text-sm border rounded px-2 py-1.5" onchange="applyFilters()"></select>
+      <select id="f-sector" class="text-sm border rounded px-2 py-1.5" onchange="applyFilters()"></select>
+      <input id="f-search" type="text" placeholder="Rechercher par nom..." class="text-sm border rounded px-3 py-1.5 flex-1 min-w-[200px]" oninput="clearTimeout(window._st);window._st=setTimeout(applyFilters,400)">
+      <span id="result-count" class="text-xs text-gray-500"></span>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-lg border overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b">
+              <th class="text-left px-3 py-2 font-medium text-gray-600">Nom</th>
+              <th class="text-left px-3 py-2 font-medium text-gray-600 hidden md:table-cell">Secteur</th>
+              <th class="text-left px-3 py-2 font-medium text-gray-600 hidden md:table-cell">Ville</th>
+              <th class="text-left px-3 py-2 font-medium text-gray-600">Contact</th>
+              <th class="text-left px-3 py-2 font-medium text-gray-600">Statut</th>
+              <th class="text-left px-3 py-2 font-medium text-gray-600 hidden lg:table-cell">Preview</th>
+            </tr>
+          </thead>
+          <tbody id="leads-body">
+            <tr><td colspan="6" class="text-center py-8 text-gray-400">Chargement...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="pagination" class="flex items-center justify-between px-4 py-3 border-t bg-gray-50" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Slide-in -->
+<div id="detail-overlay" class="fixed inset-0 z-50 flex" style="display:none">
+  <div class="flex-1 bg-black/30" onclick="closeDetail()"></div>
+  <div id="detail-panel" class="w-full max-w-md bg-white shadow-xl overflow-y-auto slide-in"></div>
+</div>
+
+<script>
+// ── Config ──
+const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTkzMDYxOCwiZXhwIjoyMDg3NTA2NjE4fQ.DMZaq1qCVT7Gl0zIbwDxAe-goY5RLxc1rfwghyE_Ujg';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const PAGE_SIZE = 50;
+
+const STATUS_COLORS = {
+  pending:'bg-slate-100 text-slate-600', contacted:'bg-indigo-100 text-indigo-700',
+  sent_whatsapp:'bg-green-100 text-green-700', sent_email:'bg-blue-100 text-blue-700',
+  sent_both:'bg-purple-100 text-purple-700', responded:'bg-orange-100 text-orange-700',
+  converted:'bg-emerald-200 text-emerald-800', unsubscribed:'bg-red-100 text-red-600',
+  failed:'bg-red-200 text-red-700', no_contact:'bg-gray-100 text-gray-500',
+};
+const STATUS_LABELS = {
+  pending:'En attente', contacted:'Contacté', sent_whatsapp:'WA envoyé',
+  sent_email:'Email envoyé', sent_both:'WA + Email', responded:'Répondu',
+  converted:'Converti', unsubscribed:'Désinscrit', failed:'Échoué', no_contact:'Pas de contact',
+};
+const SECTOR_LABELS = {
+  restaurant:'Restaurant', beauty:'Salon beauté', barbershop:'Barbershop',
+  clinic:'Clinique', therapist:'Thérapeute', lawyer:'Avocat',
+  coach:'Coach', contractor:'Entrepreneur', general:'Général',
+};
+const SECTOR_COLORS = {
+  restaurant:'#e85d04', beauty:'#c9a96e', barbershop:'#d4a853',
+  clinic:'#2a9d8f', therapist:'#9b72cf', lawyer:'#b8960c',
+  coach:'#ff6b35', contractor:'#e07b39', general:'#4f8ef7',
+};
+const STAT_CARDS = [
+  {key:'total', label:'Total leads', color:'bg-slate-800'},
+  {key:'pending', label:'En attente', color:'bg-blue-600'},
+  {key:'contacted', label:'Contactés', color:'bg-indigo-600'},
+  {key:'wa_today', label:'WA auj.', color:'bg-green-600'},
+  {key:'em_today', label:'Email auj.', color:'bg-sky-600'},
+  {key:'wa_week', label:'WA semaine', color:'bg-green-700'},
+  {key:'responded', label:'Répondu', color:'bg-orange-500'},
+  {key:'converted', label:'Converti', color:'bg-emerald-600'},
+];
+const WARMUP = {1:10,2:20,3:40,4:80,5:120,6:200};
+const WARMUP_START = new Date('2026-03-15');
+
+let state = { page:0, stats:{}, leads:[], total:0, sectorStats:[], logs:[] };
+
+// ── Init filters ──
+function initFilters() {
+  const fs = document.getElementById('f-status');
+  fs.innerHTML = '<option value="">Tous les statuts</option>' +
+    Object.entries(STATUS_LABELS).map(([k,v]) => `<option value="${k}">${v}</option>`).join('');
+  const fc = document.getElementById('f-sector');
+  fc.innerHTML = '<option value="">Tous les secteurs</option>' +
+    Object.entries(SECTOR_LABELS).map(([k,v]) => `<option value="${k}">${v}</option>`).join('');
+}
+
+// ── Fetch all ──
+async function fetchAll() {
+  await Promise.all([fetchStats(), fetchSectors(), fetchLogs(), fetchLeads()]);
+}
+
+async function fetchStats() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayISO = today.toISOString();
+  const weekAgo = new Date(today.getTime() - 7*86400000).toISOString();
+
+  const [tot, pend, cont, waT, emT, waW, emW, resp, conv] = await Promise.all([
+    sb.from('leads').select('*',{count:'exact',head:true}),
+    sb.from('leads').select('*',{count:'exact',head:true}).eq('outreach_status','pending'),
+    sb.from('leads').select('*',{count:'exact',head:true}).in('outreach_status',['sent_whatsapp','sent_email','sent_both','contacted']),
+    sb.from('leads').select('*',{count:'exact',head:true}).gte('whatsapp_sent_at',todayISO),
+    sb.from('leads').select('*',{count:'exact',head:true}).gte('email_sent_at',todayISO),
+    sb.from('leads').select('*',{count:'exact',head:true}).gte('whatsapp_sent_at',weekAgo),
+    sb.from('leads').select('*',{count:'exact',head:true}).gte('email_sent_at',weekAgo),
+    sb.from('leads').select('*',{count:'exact',head:true}).eq('outreach_status','responded'),
+    sb.from('leads').select('*',{count:'exact',head:true}).eq('outreach_status','converted'),
+  ]);
+
+  state.stats = {
+    total:tot.count||0, pending:pend.count||0, contacted:cont.count||0,
+    wa_today:waT.count||0, em_today:emT.count||0, wa_week:waW.count||0,
+    em_week:emW.count||0, responded:resp.count||0, converted:conv.count||0,
+  };
+  renderStats();
+  renderWarmup();
+}
+
+async function fetchSectors() {
+  const sectors = Object.keys(SECTOR_LABELS);
+  const results = await Promise.all(sectors.map(async s => {
+    const {count:total} = await sb.from('leads').select('*',{count:'exact',head:true}).eq('sector',s);
+    const {count:contacted} = await sb.from('leads').select('*',{count:'exact',head:true}).eq('sector',s).in('outreach_status',['sent_whatsapp','sent_email','sent_both','contacted']);
+    return {sector:s, total:total||0, contacted:contacted||0};
+  }));
+  state.sectorStats = results.filter(r=>r.total>0).sort((a,b)=>b.total-a.total);
+  renderSectors();
+}
+
+async function fetchLogs() {
+  const {data} = await sb.from('outreach_logs').select('*').order('run_at',{ascending:false}).limit(10);
+  state.logs = data||[];
+  renderLogs();
+}
+
+async function fetchLeads() {
+  const f = getFilters();
+  let q = sb.from('leads').select('*',{count:'exact'})
+    .order('priority',{ascending:false}).order('created_at',{ascending:true})
+    .range(state.page*PAGE_SIZE, (state.page+1)*PAGE_SIZE-1);
+  if (f.list) q = q.eq('list_source', f.list);
+  if (f.status) q = q.eq('outreach_status', f.status);
+  if (f.sector) q = q.eq('sector', f.sector);
+  if (f.search) q = q.ilike('name', `%${f.search}%`);
+  const {data,count} = await q;
+  state.leads = data||[];
+  state.total = count||0;
+  renderLeads();
+  renderPagination();
+}
+
+function getFilters() {
+  return {
+    list: document.getElementById('f-list').value,
+    status: document.getElementById('f-status').value,
+    sector: document.getElementById('f-sector').value,
+    search: document.getElementById('f-search').value.trim(),
+  };
+}
+
+function applyFilters() { state.page=0; fetchLeads(); }
+
+// ── Render ──
+function renderStats() {
+  document.getElementById('stats-grid').innerHTML = STAT_CARDS.map(c =>
+    `<div class="${c.color} text-white rounded-lg p-3 text-center">
+      <div class="text-2xl font-bold">${(state.stats[c.key]||0).toLocaleString()}</div>
+      <div class="text-xs opacity-80">${c.label}</div>
+    </div>`
+  ).join('');
+}
+
+function renderWarmup() {
+  const days = Math.floor((Date.now() - WARMUP_START.getTime()) / 86400000);
+  const week = Math.min(Math.floor(days/7)+1, 6);
+  const limit = WARMUP[week];
+  const pct = Math.min(((state.stats.wa_today||0)/limit)*100, 100);
+
+  document.getElementById('warmup-panel').innerHTML = `
+    <h3 class="text-sm font-bold text-gray-700 mb-3">WhatsApp Warm-up
+      <span class="ml-2 text-xs font-normal text-gray-400">Semaine ${week} / Jour ${days+1}</span>
+    </h3>
+    <div class="flex items-center gap-3 mb-2">
+      <div class="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
+        <div class="h-full bg-green-500 rounded-full" style="width:${pct}%"></div>
+      </div>
+      <span class="text-sm font-bold text-gray-700">${state.stats.wa_today||0}/${limit}</span>
+    </div>
+    <div class="flex gap-2 mt-3">
+      ${Object.entries(WARMUP).map(([w,l])=>`
+        <div class="text-center px-2 py-1 rounded text-xs ${parseInt(w)===week?'bg-green-100 text-green-800 font-bold ring-1 ring-green-300':'bg-gray-50 text-gray-400'}">
+          <div>S${w}</div><div>${l}</div>
+        </div>`).join('')}
+    </div>
+    <div class="mt-3 text-xs text-gray-400">
+      Email: ${state.stats.em_today||0}/200 aujourd'hui | ${state.stats.em_week||0} cette semaine
+    </div>`;
+}
+
+function renderSectors() {
+  document.getElementById('sector-panel').innerHTML = `
+    <h3 class="text-sm font-bold text-gray-700 mb-3">Par secteur</h3>
+    <div class="space-y-2">
+      ${state.sectorStats.map(({sector,total,contacted})=>`
+        <div class="flex items-center gap-2">
+          <div class="w-20 text-xs text-gray-600 truncate">${SECTOR_LABELS[sector]||sector}</div>
+          <div class="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full rounded-full" style="width:${total?((contacted/total)*100):0}%;background:${SECTOR_COLORS[sector]||'#999'}"></div>
+          </div>
+          <div class="text-xs text-gray-500 w-16 text-right">${contacted}/${total}</div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderLogs() {
+  const el = document.getElementById('logs-panel');
+  if (!state.logs.length) { el.style.display='none'; return; }
+  el.style.display='block';
+  el.innerHTML = `
+    <h3 class="text-sm font-bold text-gray-700 mb-2">Derniers envois</h3>
+    <div class="flex gap-3 overflow-x-auto pb-1">
+      ${state.logs.map(l=>`
+        <div class="min-w-[150px] bg-gray-50 rounded-lg p-3 text-xs border">
+          <div class="font-bold text-gray-600 mb-1">${new Date(l.run_at).toLocaleDateString('fr')} ${new Date(l.run_at).toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'})}</div>
+          <div class="flex gap-3">
+            <span class="text-green-600 font-medium">WA: ${l.whatsapp_sent}</span>
+            ${l.whatsapp_failed>0?`<span class="text-red-400">(${l.whatsapp_failed})</span>`:''}
+            <span class="text-blue-600 font-medium">Em: ${l.email_sent}</span>
+            ${l.email_failed>0?`<span class="text-red-400">(${l.email_failed})</span>`:''}
+          </div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderLeads() {
+  document.getElementById('result-count').textContent = `${state.total} résultats`;
+  const body = document.getElementById('leads-body');
+  if (!state.leads.length) {
+    body.innerHTML = '<tr><td colspan="6" class="text-center py-8 text-gray-400">Aucun lead trouvé</td></tr>';
+    return;
+  }
+  body.innerHTML = state.leads.map(l => `
+    <tr class="border-b hover:bg-gray-50 cursor-pointer" onclick='openDetail(${JSON.stringify(l).replace(/'/g,"&#39;")})'>
+      <td class="px-3 py-2 font-medium text-gray-800 max-w-[200px] truncate">${esc(l.name)}</td>
+      <td class="px-3 py-2 hidden md:table-cell">
+        ${l.sector && l.sector!=='general'
+          ? `<span class="inline-block px-2 py-0.5 rounded text-xs font-medium text-white" style="background:${SECTOR_COLORS[l.sector]||'#999'}">${SECTOR_LABELS[l.sector]||l.sector}</span>`
+          : '<span class="text-xs text-gray-400">Général</span>'}
+      </td>
+      <td class="px-3 py-2 text-gray-500 hidden md:table-cell text-xs">${esc(l.city||'—')}</td>
+      <td class="px-3 py-2 text-xs">
+        ${l.phone?'<span class="text-green-600 mr-1">📱</span>':''}
+        ${l.email?'<span class="text-blue-600">📧</span>':''}
+      </td>
+      <td class="px-3 py-2">
+        <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium ${STATUS_COLORS[l.outreach_status]||'bg-gray-100'}">
+          ${STATUS_LABELS[l.outreach_status]||l.outreach_status||'—'}
+        </span>
+      </td>
+      <td class="px-3 py-2 hidden lg:table-cell">
+        ${l.preview_url?`<a href="${l.preview_url}" target="_blank" onclick="event.stopPropagation()" class="text-xs text-blue-500 hover:underline">Voir</a>`:'<span class="text-xs text-gray-300">—</span>'}
+      </td>
+    </tr>`).join('');
+}
+
+function renderPagination() {
+  const el = document.getElementById('pagination');
+  const totalPages = Math.ceil(state.total/PAGE_SIZE);
+  if (totalPages<=1) { el.style.display='none'; return; }
+  el.style.display='flex';
+  el.innerHTML = `
+    <button class="text-sm px-3 py-1 border rounded ${state.page===0?'opacity-30':''}" onclick="goPage(-1)" ${state.page===0?'disabled':''}>Précédent</button>
+    <span class="text-xs text-gray-500">Page ${state.page+1} / ${totalPages}</span>
+    <button class="text-sm px-3 py-1 border rounded ${state.page>=totalPages-1?'opacity-30':''}" onclick="goPage(1)" ${state.page>=totalPages-1?'disabled':''}>Suivant</button>`;
+}
+
+function goPage(dir) { state.page += dir; fetchLeads(); }
+
+// ── Detail ──
+function openDetail(lead) {
+  const d = document.getElementById('detail-panel');
+  const historyHtml = (lead.whatsapp_sent_at || lead.email_sent_at) ? `
+    <div class="bg-gray-50 rounded-lg p-3">
+      <div class="text-xs font-bold text-gray-500 mb-2">Historique</div>
+      ${lead.whatsapp_sent_at ? `<div class="text-xs text-gray-600 flex items-center gap-2 mb-1"><span class="text-green-500">📱</span> WhatsApp envoyé le ${new Date(lead.whatsapp_sent_at).toLocaleString('fr')}</div>` : ''}
+      ${lead.email_sent_at ? `<div class="text-xs text-gray-600 flex items-center gap-2 mb-1"><span class="text-blue-500">📧</span> Email envoyé le ${new Date(lead.email_sent_at).toLocaleString('fr')}</div>` : ''}
+    </div>` : '';
+
+  d.innerHTML = `
+    <div class="bg-[#0D2137] text-white p-4 flex items-center justify-between">
+      <div>
+        <h2 class="font-bold truncate">${esc(lead.name)}</h2>
+        ${lead.sector ? `<span class="inline-block mt-1 px-2 py-0.5 rounded text-xs" style="background:${SECTOR_COLORS[lead.sector]||'#999'}">${SECTOR_LABELS[lead.sector]||lead.sector}</span>` : ''}
+      </div>
+      <button class="text-2xl leading-none" onclick="closeDetail()">&times;</button>
+    </div>
+    <div class="p-4 space-y-4">
+      <div class="grid grid-cols-2 gap-3 text-sm">
+        ${detailField('Catégorie', lead.category)}
+        ${detailField('Ville', lead.city)}
+        ${detailField('Téléphone', lead.phone, lead.phone?`https://wa.me/${lead.phone}`:null)}
+        ${detailField('Email', lead.email)}
+        ${detailField('Site', lead.website, lead.website)}
+        ${detailField('Instagram', lead.instagram, lead.instagram)}
+        ${detailField('Liste', lead.list_source)}
+        ${detailField('Contacté', lead.contact_count ? lead.contact_count+'x' : 'Non')}
+      </div>
+      ${historyHtml}
+      ${lead.preview_url ? `
+        <a href="${lead.preview_url}" target="_blank" class="block bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 rounded-lg p-3 hover:border-indigo-300">
+          <div class="text-xs font-bold text-indigo-600 mb-1">Page preview</div>
+          <div class="text-xs text-indigo-400 truncate">${lead.preview_url}</div>
+        </a>` : ''}
+      <div>
+        <label class="text-xs font-bold text-gray-600 block mb-1">Changer statut</label>
+        <select class="w-full border rounded px-3 py-2 text-sm" onchange="updateStatus('${lead.id}',this.value)">
+          ${Object.entries(STATUS_LABELS).map(([k,v])=>`<option value="${k}" ${k===lead.outreach_status?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </div>
+      <div class="flex gap-2 pt-2">
+        ${lead.phone?`<a href="https://wa.me/${lead.phone}" target="_blank" class="flex-1 bg-green-500 text-white text-center py-2 rounded text-sm font-bold">WhatsApp</a>`:''}
+        ${lead.email?`<a href="mailto:${lead.email}" class="flex-1 bg-blue-500 text-white text-center py-2 rounded text-sm font-bold">Email</a>`:''}
+        ${lead.website?`<a href="${lead.website}" target="_blank" class="flex-1 bg-gray-600 text-white text-center py-2 rounded text-sm font-bold">Site</a>`:''}
+      </div>
+    </div>`;
+  document.getElementById('detail-overlay').style.display = 'flex';
+}
+
+function closeDetail() { document.getElementById('detail-overlay').style.display = 'none'; }
+
+function detailField(label, value, link) {
+  if (!value) return `<div><div class="text-xs text-gray-400">${label}</div><div class="text-sm text-gray-300">—</div></div>`;
+  if (link) return `<div><div class="text-xs text-gray-400">${label}</div><a href="${link}" target="_blank" class="text-sm text-blue-600 hover:underline truncate block">${esc(value)}</a></div>`;
+  return `<div><div class="text-xs text-gray-400">${label}</div><div class="text-sm text-gray-800 truncate">${esc(value)}</div></div>`;
+}
+
+async function updateStatus(id, newStatus) {
+  await sb.from('leads').update({outreach_status:newStatus}).eq('id',id);
+  fetchLeads(); fetchStats();
+}
+
+function esc(s) { if (!s) return ''; const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+// ── Boot ──
+initFilters();
+fetchAll();
+</script>
+</body>
+</html>

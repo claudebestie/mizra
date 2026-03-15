@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build && npm run seo:check"
+  command = "npm install && npm run build && npm run seo:check && cp -r crm dist/crm"
   publish = "dist"
   functions = "netlify/functions"
 

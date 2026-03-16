@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build && npm run seo:check && cp -r crm dist/crm"
+  command = "npm install && npm run build && npm run seo:check && cp -r crm dist/crm && sed -i \"s|__SUPABASE_URL__|$SUPABASE_URL|g\" dist/crm/index.html && sed -i \"s|__SUPABASE_KEY__|$SUPABASE_KEY|g\" dist/crm/index.html"
   publish = "dist"
   functions = "netlify/functions"
 

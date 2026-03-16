@@ -7,5 +7,4 @@ Sitemap: https://getmizra.com/sitemap.xml
 
 # Block admin/API routes if any
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin/

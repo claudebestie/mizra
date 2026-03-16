@@ -84,8 +84,10 @@ if (pageType === 'builder') {
   descHE = `ראו דוגמאות אמיתיות לאתרי ${vHE} שנבנו על ידי Mizra. עיצוב מקצועי, טעינה מהירה, אופטימיזציה לגוגל.`;
 }
 
-const title = `${titleEN} — ${titleHE}`;
-const description = descEN;
+// Hebrew-first title for Israeli market (83% of traffic)
+// Keep under 55 chars for mobile SERP display
+const title = titleHE;
+const description = descHE;
 
 // Breadcrumbs
 interface Crumb { en: string; he: string; href?: string }
@@ -180,6 +182,31 @@ const blogLinks = (vertical.internalLinksBlogSlugs || []).slice(0, 3).map(s => (
   en: s.replace(/-/g, ' '),
   he: s.replace(/-/g, ' '),
 }));
+
+// Related verticals for cross-linking
+const relatedMap: Record<string, string[]> = {
+  'therapist': ['clinic', 'sports-coach', 'pilates'],
+  'clinic': ['therapist', 'beauty-salon', 'pilates'],
+  'sports-coach': ['pilates', 'therapist', 'freelancer'],
+  'pilates': ['sports-coach', 'therapist', 'beauty-salon'],
+  'restaurant': ['cafe', 'barbershop', 'beauty-salon'],
+  'cafe': ['restaurant', 'beauty-salon', 'barbershop'],
+  'barbershop': ['beauty-salon', 'cafe', 'restaurant'],
+  'beauty-salon': ['barbershop', 'clinic', 'pilates'],
+  'real-estate': ['lawyer', 'freelancer', 'startup'],
+  'lawyer': ['real-estate', 'freelancer', 'startup'],
+  'freelancer': ['startup', 'lawyer', 'real-estate'],
+  'startup': ['freelancer', 'real-estate', 'lawyer'],
+  'contractor': ['real-estate', 'freelancer', 'restaurant'],
+};
+const relatedVerticals = (relatedMap[vertical.slug] || [])
+  .map(slug => verticals.find(v => v.slug === slug))
+  .filter(Boolean)
+  .map(v => ({
+    href: `/${v!.slug}-website-builder/`,
+    en: `${v!.name.en} Website`,
+    he: `אתר ל${v!.name.he}`,
+  }));
 
 // Example page data
 const exampleImages: Record<string, string> = {
@@ -365,9 +392,9 @@ if (pageType === 'builder') {
       </h2>
     </div>
     <div class="examples-grid">
-      {vertical.exampleSlug && (
+      {vertical.exampleSlug && exampleImages[vertical.slug] && (
         <a href={`/examples/${vertical.exampleSlug}/`} class="example-card rv">
-          <div class="ex-preview" style={`background-image:url(${exampleImages[vertical.slug] || ''})`}></div>
+          <img class="ex-preview" src={exampleImages[vertical.slug]} alt={`דוגמה לאתר ${vHE} — ${vEN} website example by Mizra`} loading="lazy" width="400" height="180" style="object-fit:cover;width:100%;height:180px" />
           <div class="ex-body">
             <div class="en"><h3>{vEN} Example</h3></div>
             <div class="he"><h3>דוגמת {vHE}</h3></div>
@@ -473,13 +500,25 @@ if (pageType === 'builder') {
     {pageType === 'builder' && (
       <>
         <div class="en">
-          <h3>{vEN} websites by city</h3>
+          <h3>Related services</h3>
+          <div class="link-grid">
+            {vertical.exampleSlug && <a href={`/examples/${vertical.exampleSlug}/`}>{vEN} Example</a>}
+            {relatedVerticals.map(l => <a href={l.href}>{l.en}</a>)}
+            {blogLinks.map(l => <a href={l.href}>{l.en}</a>)}
+          </div>
+          <h3 style="margin-top:24px">{vEN} websites by city</h3>
           <div class="link-grid">
             {cityLinks.map(l => <a href={l.href}>{l.en}</a>)}
           </div>
         </div>
         <div class="he">
-          <h3>אתרי {vHE} לפי עיר</h3>
+          <h3>שירותים קשורים</h3>
+          <div class="link-grid">
+            {vertical.exampleSlug && <a href={`/examples/${vertical.exampleSlug}/`}>דוגמת {vHE}</a>}
+            {relatedVerticals.map(l => <a href={l.href}>{l.he}</a>)}
+            {blogLinks.map(l => <a href={l.href}>{l.he}</a>)}
+          </div>
+          <h3 style="margin-top:24px">אתרי {vHE} לפי עיר</h3>
           <div class="link-grid">
             {cityLinks.map(l => <a href={l.href}>{l.he}</a>)}
           </div>

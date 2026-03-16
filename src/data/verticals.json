@@ -136,7 +136,7 @@
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
     "exampleSlug": "sports-coach",
-    "serviceSlug": null
+    "serviceSlug": "sports-coaches"
   },
   {
     "slug": "therapist",
@@ -159,7 +159,7 @@
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
     "exampleSlug": "therapist",
-    "serviceSlug": null
+    "serviceSlug": "therapists"
   },
   {
     "slug": "real-estate",
@@ -182,7 +182,7 @@
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
     "exampleSlug": "real-estate",
-    "serviceSlug": null
+    "serviceSlug": "real-estate"
   },
   {
     "slug": "freelancer",
@@ -205,7 +205,7 @@
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": "freelancer",
-    "serviceSlug": null
+    "serviceSlug": "freelancers"
   },
   {
     "slug": "startup",
@@ -228,7 +228,7 @@
     ],
     "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
     "exampleSlug": "startup",
-    "serviceSlug": null
+    "serviceSlug": "startups"
   },
   {
     "slug": "pilates",
@@ -251,6 +251,6 @@
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
     "exampleSlug": "pilates",
-    "serviceSlug": null
+    "serviceSlug": "pilates"
   }
 ]

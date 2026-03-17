@@ -82,6 +82,30 @@ CREATE POLICY "Service role full access automation_logs"
   USING (auth.role() = 'service_role');
 
 -- ============================================================
+-- AFFILIATE TRACKING — Add referral columns to orders table
+-- Run this in Supabase SQL Editor if columns don't exist yet
+-- ============================================================
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS referral_code TEXT;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS referral_commission INTEGER DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS paid_at TIMESTAMPTZ;
+
+CREATE INDEX IF NOT EXISTS idx_orders_referral_code ON orders(referral_code);
+
+-- View for affiliate commissions
+CREATE OR REPLACE VIEW affiliate_commissions AS
+SELECT
+  referral_code,
+  COUNT(*) AS total_orders,
+  COUNT(*) FILTER (WHERE payment_status = 'paid') AS paid_orders,
+  SUM(total_price) AS total_revenue,
+  SUM(referral_commission) AS total_commission,
+  SUM(referral_commission) FILTER (WHERE payment_status = 'paid') AS paid_commission,
+  SUM(referral_commission) FILTER (WHERE payment_status != 'paid') AS pending_commission
+FROM orders
+WHERE referral_code IS NOT NULL AND referral_code != ''
+GROUP BY referral_code;
+
+-- ============================================================
 -- DONNÉES DE TEST (optionnel, à commenter en prod)
 -- ============================================================
 -- INSERT INTO blog_posts (slug, title, keyword, lang, series, status, published_at, word_count)

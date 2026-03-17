@@ -30,6 +30,13 @@ exports.handler = async (event) => {
           <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#666">Téléphone</td><td style="padding:6px 0">${data.phone || "—"}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#666">Adresse</td><td style="padding:6px 0">${data.full_address || "—"}</td></tr>
         </table>
+        ${data.referral_code ? `
+        <hr style="margin:20px 0;border:none;border-top:1px solid #eee">
+        <h3 style="color:#d4643a">🤝 Affiliation</h3>
+        <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
+          <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#666">Référent</td><td style="padding:6px 0;font-weight:bold;color:#d4643a">${data.referral_code}</td></tr>
+          <tr><td style="padding:6px 16px 6px 0;font-weight:bold;color:#666">Commission (20%)</td><td style="padding:6px 0;font-weight:bold">${data.referral_commission} NIS</td></tr>
+        </table>` : ''}
       `,
     }),
   });

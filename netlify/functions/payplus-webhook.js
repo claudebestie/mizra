@@ -54,6 +54,7 @@ exports.handler = async (event) => {
               payment_method: "Credit Card (PayPlus)",
               payplus_transaction_uid: transactionData.uid || transactionData.transaction_uid || "",
               payplus_number: transactionData.number || "",
+              paid_at: isApproved ? new Date().toISOString() : null,
             }),
           }
         );

@@ -4,16 +4,18 @@
  * Returns a PayPlus payment page URL to redirect the client to.
  */
 exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") return { statusCode: 405 };
-
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
   };
 
+  // Handle CORS preflight BEFORE method check
   if (event.httpMethod === "OPTIONS") {
-    return { statusCode: 200, headers };
+    return { statusCode: 204, headers };
   }
+
+  if (event.httpMethod !== "POST") return { statusCode: 405, headers };
 
   try {
     // Validate env vars
@@ -57,6 +59,8 @@ exports.handler = async (event) => {
       ],
     };
 
+    console.log("PayPlus: creating payment link for order", orderId, "amount", amount);
+
     const res = await fetch(
       "https://restapi.payplus.co.il/api/v1.0/PaymentPages/generateLink",
       {
@@ -72,16 +76,27 @@ exports.handler = async (event) => {
       }
     );
 
-    const result = await res.json();
+    const resultText = await res.text();
+    let result;
+    try {
+      result = JSON.parse(resultText);
+    } catch (parseErr) {
+      console.error("PayPlus: non-JSON response:", resultText.slice(0, 500));
+      return {
+        statusCode: 502,
+        headers,
+        body: JSON.stringify({ error: "Invalid response from payment gateway" }),
+      };
+    }
 
     if (!res.ok || !result.data?.payment_page_link) {
-      console.error("PayPlus error:", JSON.stringify(result));
+      console.error("PayPlus error (HTTP " + res.status + "):", JSON.stringify(result));
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({
           error: "Payment page generation failed",
-          details: result.results?.description || "Unknown error",
+          details: result.results?.description || result.message || "Unknown error",
         }),
       };
     }

@@ -141,8 +141,27 @@ function initSmoothScroll() {
   });
 }
 
+// --- AFFILIATE TRACKING ---
+function initAffiliate() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) {
+    // Store referral code in cookie for 30 days
+    var expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = 'mizra_ref=' + encodeURIComponent(ref) + ';expires=' + expires + ';path=/;SameSite=Lax';
+    try { localStorage.setItem('mizra_ref', ref); } catch(e) {}
+  }
+}
+function getAffiliate() {
+  // Try cookie first, then localStorage
+  var match = document.cookie.match(/mizra_ref=([^;]+)/);
+  if (match) return decodeURIComponent(match[1]);
+  try { return localStorage.getItem('mizra_ref') || ''; } catch(e) { return ''; }
+}
+
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', function() {
+  initAffiliate();
   if (document.querySelector('[data-shared]')) {
     renderNav();
     renderFooter();

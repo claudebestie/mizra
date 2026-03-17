@@ -460,6 +460,9 @@
 </div>
 <p style="font-weight:600;color:var(--navy);font-size:.85rem;margin-bottom:8px">Optional add-ons:</p>
 <div class="addon-checks">
+<label class="addon-chk"><input type="checkbox" value="booking">Appointment Booking System<span class="ap">+990</span></label>
+<label class="addon-chk"><input type="checkbox" value="maintenance">Maintenance (monthly)<span class="ap">+200/mo</span></label>
+<label class="addon-chk"><input type="checkbox" value="ecommerce">Online Store<span class="ap">+2,500</span></label>
 <label class="addon-chk"><input type="checkbox" value="photo">Pro Photography (30 photos)<span class="ap">+1,500</span></label>
 <label class="addon-chk"><input type="checkbox" value="video">Video Package (3 videos)<span class="ap">+5,500</span></label>
 <label class="addon-chk"><input type="checkbox" value="gmb">Google Business Optimization<span class="ap">+790</span></label>
@@ -586,6 +589,24 @@
 </div></div>
 
 <script>
+// =============================================
+// AFFILIATE TRACKING
+// =============================================
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) {
+    var expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = 'mizra_ref=' + encodeURIComponent(ref) + ';expires=' + expires + ';path=/;SameSite=Lax';
+    try { localStorage.setItem('mizra_ref', ref); } catch(e) {}
+  }
+})();
+function getAffiliate() {
+  var match = document.cookie.match(/mizra_ref=([^;]+)/);
+  if (match) return decodeURIComponent(match[1]);
+  try { return localStorage.getItem('mizra_ref') || ''; } catch(e) { return ''; }
+}
+
 // =============================================
 // SUPABASE CONFIG
 // =============================================
@@ -826,12 +847,16 @@ document.getElementById('payMethod').addEventListener('change', function() {
 async function submitOrder() {
   var addons = [];
   document.querySelectorAll('.addon-chk input:checked').forEach(function(cb) { addons.push(cb.value); });
-  var addonPrices = { photo: 1500, video: 5500, gmb: 790, qr: 390, seo: 1500, ads: 1200, email: 990, content: 1200, logo: 1200 };
+  var addonPrices = { booking: 990, maintenance: 200, ecommerce: 2500, photo: 1500, video: 5500, gmb: 790, qr: 390, seo: 1500, ads: 1200, email: 990, content: 1200, logo: 1200 };
   var addonsTotal = addons.reduce(function(sum, a) { return sum + (addonPrices[a] || 0); }, 0);
   var pkgPrice = parseInt(sPrice.replace(',', ''));
   var totalPrice = pkgPrice + addonsTotal;
   var paymentMethod = document.getElementById('payMethod').value;
   var depositAmount = Math.round(totalPrice / 2);
+
+  // Affiliate tracking
+  var referralCode = typeof getAffiliate === 'function' ? getAffiliate() : '';
+  var referralCommission = referralCode ? Math.round(totalPrice * 0.20) : 0;
 
   var order = await sb.insert('orders', {
     package: sPlan,
@@ -845,7 +870,9 @@ async function submitOrder() {
     deposit_amount: depositAmount,
     terms_accepted: document.getElementById('acceptTerms').checked,
     status: 'new',
-    payment_status: 'pending'
+    payment_status: 'pending',
+    referral_code: referralCode || null,
+    referral_commission: referralCommission || null
   });
 
   if (!order) {
@@ -898,7 +925,9 @@ async function submitOrder() {
         restaurant_type: document.getElementById('ob_type').value,
         email: document.getElementById('ob_email').value,
         phone: document.getElementById('ob_phone').value,
-        full_address: document.getElementById('ob_address').value
+        full_address: document.getElementById('ob_address').value,
+        referral_code: referralCode || '',
+        referral_commission: referralCommission || 0
       })
     });
   } catch (err) { console.error('Order notify error:', err); }

@@ -53,8 +53,8 @@ const buildDate = new Date().toISOString().split('T')[0];
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ))}
 
-<style>
-  /* Additional styles for programmatic SEO pages */
+<style is:global>
+  /* Additional styles for programmatic SEO pages — must be global to apply to slotted content */
   .breadcrumbs{padding:12px 0;font-size:.82rem;color:var(--txl)}
   .breadcrumbs a{color:var(--txl);text-decoration:none}
   .breadcrumbs a:hover{color:var(--or)}
@@ -127,7 +127,12 @@ const buildDate = new Date().toISOString().split('T')[0];
   body.lh .breadcrumbs{direction:rtl;text-align:right}
 </style>
 </head>
-<body data-shared>
+<body class="lh has-promo" data-shared>
+
+<div class="promo-banner">
+<div class="en"><span class="promo-tag">Limited</span>First 50 websites at <strong>1,990 NIS</strong> instead of 2,990 NIS<a href="/#pricing">Grab the offer</a></div>
+<div class="he"><span class="promo-tag">מוגבל</span>50 האתרים הראשונים ב-<strong>1,990 ש"ח</strong> במקום 2,990 ש"ח<a href="/#pricing">לתפוס את ההצעה</a></div>
+</div>
 
 <slot />
 

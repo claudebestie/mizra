@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizra — Affiliate Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;background:#f6f3ee;color:#5a5750;line-height:1.6}
+.header{background:#0c1829;padding:24px 32px;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-family:'Playfair Display',Georgia,serif;color:#fff;font-size:1.3rem;font-weight:600}
+.header h1 span{color:#d4643a}
+.header .ref-code{background:rgba(212,100,58,.15);color:#d4643a;padding:6px 16px;border-radius:100px;font-size:.82rem;font-weight:600}
+.container{max-width:1000px;margin:0 auto;padding:32px 24px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.stat{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:24px;text-align:center}
+.stat .value{font-family:'Playfair Display',Georgia,serif;font-size:2rem;color:#0c1829;font-weight:600}
+.stat .label{font-size:.78rem;color:#8a857c;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.stat.highlight{border-color:rgba(212,100,58,.3);background:rgba(212,100,58,.04)}
+.stat.highlight .value{color:#d4643a}
+.section-title{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;color:#0c1829;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;overflow:hidden}
+th{background:#f6f3ee;padding:12px 16px;text-align:left;font-size:.78rem;color:#8a857c;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+td{padding:12px 16px;border-top:1px solid rgba(0,0,0,.05);font-size:.88rem}
+.badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:600}
+.badge-paid{background:rgba(61,139,94,.1);color:#3d8b5e}
+.badge-pending{background:rgba(212,100,58,.1);color:#d4643a}
+.badge-failed{background:rgba(204,68,68,.1);color:#c44}
+.links-section{margin-top:40px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:28px}
+.link-box{display:flex;align-items:center;gap:12px;margin-top:12px}
+.link-box input{flex:1;padding:10px 14px;border:1px solid rgba(0,0,0,.1);border-radius:8px;font-size:.88rem;background:#f6f3ee}
+.link-box button{padding:10px 20px;background:#d4643a;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem}
+.link-box button:hover{background:#c4543a}
+.empty{text-align:center;padding:40px;color:#8a857c}
+.login-form{max-width:400px;margin:80px auto;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:40px;text-align:center}
+.login-form h2{font-family:'Playfair Display',Georgia,serif;color:#0c1829;margin-bottom:8px}
+.login-form p{font-size:.88rem;color:#8a857c;margin-bottom:24px}
+.login-form input{width:100%;padding:12px 16px;border:1px solid rgba(0,0,0,.1);border-radius:8px;font-size:.95rem;margin-bottom:12px}
+.login-form button{width:100%;padding:14px;background:#d4643a;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:.95rem}
+.login-form button:hover{background:#c4543a}
+.error{color:#c44;font-size:.82rem;margin-top:8px}
+@media(max-width:768px){.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stats{grid-template-columns:1fr}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="loginView" class="login-form">
+  <h2>Affiliate Dashboard</h2>
+  <p>Enter your referral code to view your commissions.</p>
+  <input type="text" id="refInput" placeholder="Your referral code (e.g. bethsabee)">
+  <button onclick="login()">View Dashboard</button>
+  <p id="loginError" class="error" style="display:none"></p>
+</div>
+
+<div id="dashboard" style="display:none">
+<div class="header">
+  <h1>mizra<span>.</span> affiliates</h1>
+  <span class="ref-code" id="refBadge"></span>
+</div>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat"><div class="value" id="totalOrders">0</div><div class="label">Total Orders</div></div>
+    <div class="stat"><div class="value" id="paidOrders">0</div><div class="label">Paid Orders</div></div>
+    <div class="stat highlight"><div class="value" id="totalCommission">0</div><div class="label">Total Commission (NIS)</div></div>
+    <div class="stat"><div class="value" id="pendingCommission">0</div><div class="label">Pending (NIS)</div></div>
+  </div>
+
+  <h3 class="section-title">Your Orders</h3>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Client</th><th>Package</th><th>Total</th><th>Commission (20%)</th><th>Status</th></tr>
+    </thead>
+    <tbody id="ordersBody">
+      <tr><td colspan="6" class="empty">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="links-section">
+    <h3 class="section-title">Your Affiliate Links</h3>
+    <p style="font-size:.88rem;color:#8a857c;margin-bottom:12px">Share these links. Any sale from your link earns you 20% commission on the total order.</p>
+    <div class="link-box">
+      <input type="text" id="mainLink" readonly>
+      <button onclick="copyLink('mainLink')">Copy</button>
+    </div>
+    <div class="link-box" style="margin-top:8px">
+      <input type="text" id="pricingLink" readonly>
+      <button onclick="copyLink('pricingLink')">Copy</button>
+    </div>
+    <div class="link-box" style="margin-top:8px">
+      <input type="text" id="auditLink" readonly>
+      <button onclick="copyLink('auditLink')">Copy</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+var SB_URL = '__SUPABASE_URL__';
+var SB_KEY = '__SUPABASE_KEY__';
+var currentRef = '';
+
+function login() {
+  var ref = document.getElementById('refInput').value.trim().toLowerCase();
+  if (!ref) {
+    document.getElementById('loginError').textContent = 'Please enter a referral code.';
+    document.getElementById('loginError').style.display = '';
+    return;
+  }
+  currentRef = ref;
+  document.getElementById('loginView').style.display = 'none';
+  document.getElementById('dashboard').style.display = '';
+  document.getElementById('refBadge').textContent = 'ref=' + ref;
+
+  // Set links
+  document.getElementById('mainLink').value = 'https://getmizra.com/?ref=' + ref;
+  document.getElementById('pricingLink').value = 'https://getmizra.com/pricing/?ref=' + ref;
+  document.getElementById('auditLink').value = 'https://getmizra.com/free-audit/?ref=' + ref;
+
+  loadData(ref);
+}
+
+async function loadData(ref) {
+  try {
+    var res = await fetch(SB_URL + '/rest/v1/orders?referral_code=eq.' + encodeURIComponent(ref) + '&order=created_at.desc', {
+      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+    });
+    var orders = await res.json();
+
+    if (!Array.isArray(orders) || orders.length === 0) {
+      document.getElementById('ordersBody').innerHTML = '<tr><td colspan="6" class="empty">No orders yet. Share your link to start earning!</td></tr>';
+      return;
+    }
+
+    var totalOrders = orders.length;
+    var paidOrders = orders.filter(function(o) { return o.payment_status === 'paid'; }).length;
+    var totalCommission = orders.reduce(function(s, o) { return s + (o.referral_commission || 0); }, 0);
+    var pendingCommission = orders.filter(function(o) { return o.payment_status !== 'paid'; })
+      .reduce(function(s, o) { return s + (o.referral_commission || 0); }, 0);
+
+    document.getElementById('totalOrders').textContent = totalOrders;
+    document.getElementById('paidOrders').textContent = paidOrders;
+    document.getElementById('totalCommission').textContent = totalCommission.toLocaleString();
+    document.getElementById('pendingCommission').textContent = pendingCommission.toLocaleString();
+
+    var html = '';
+    orders.forEach(function(o) {
+      var date = o.created_at ? new Date(o.created_at).toLocaleDateString('en-GB') : '—';
+      var status = o.payment_status || 'pending';
+      var badgeClass = status === 'paid' ? 'badge-paid' : (status === 'failed' ? 'badge-failed' : 'badge-pending');
+      html += '<tr>' +
+        '<td>' + date + '</td>' +
+        '<td>' + (o.payer_name || '—') + '</td>' +
+        '<td>' + (o.package || '—') + '</td>' +
+        '<td>' + (o.total_price || 0).toLocaleString() + ' NIS</td>' +
+        '<td style="font-weight:600;color:#d4643a">' + (o.referral_commission || 0).toLocaleString() + ' NIS</td>' +
+        '<td><span class="badge ' + badgeClass + '">' + status + '</span></td>' +
+        '</tr>';
+    });
+    document.getElementById('ordersBody').innerHTML = html;
+  } catch (err) {
+    console.error('Error loading data:', err);
+    document.getElementById('ordersBody').innerHTML = '<tr><td colspan="6" class="empty">Error loading data. Please try again.</td></tr>';
+  }
+}
+
+function copyLink(id) {
+  var input = document.getElementById(id);
+  input.select();
+  document.execCommand('copy');
+  var btn = input.nextElementSibling;
+  btn.textContent = 'Copied!';
+  setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+}
+
+// Auto-login if ref= in URL
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) {
+    document.getElementById('refInput').value = ref;
+    login();
+  }
+})();
+</script>
+</body>
+</html>

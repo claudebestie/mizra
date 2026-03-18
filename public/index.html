@@ -920,17 +920,24 @@ async function submitOrder() {
           phone: document.getElementById('ob_phone').value
         })
       });
-      var ppData = await ppRes.json();
+      var ppText = await ppRes.text();
+      var ppData;
+      try { ppData = JSON.parse(ppText); } catch (e) {
+        console.error('PayPlus: non-JSON response (HTTP ' + ppRes.status + '):', ppText.slice(0, 200));
+        document.getElementById('payError').textContent = 'Payment error (HTTP ' + ppRes.status + '). Please try again or contact us via WhatsApp.';
+        document.getElementById('payError').style.display = '';
+        return;
+      }
       if (ppData.payment_url) {
         window.location.href = ppData.payment_url;
         return;
       } else {
-        document.getElementById('payError').textContent = 'Payment error: ' + (ppData.error || 'Unknown error') + '. Try again or contact us.';
+        document.getElementById('payError').textContent = 'Payment error: ' + (ppData.error || ppData.details || 'Unknown error') + '. Try again or contact us.';
         document.getElementById('payError').style.display = '';
       }
     } catch (err) {
-      console.error('PayPlus error:', err);
-      document.getElementById('payError').textContent = 'Payment service unavailable. Please try again or contact us via WhatsApp.';
+      console.error('PayPlus fetch error:', err);
+      document.getElementById('payError').textContent = 'Payment service unavailable (' + err.message + '). Please try again or disable your ad blocker.';
       document.getElementById('payError').style.display = '';
     }
     return; // Don't show step 4 for CC — only on successful return

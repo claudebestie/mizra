@@ -25,53 +25,78 @@ export default function sitemapIntegration(): AstroIntegration {
 
         // Find all HTML files in dist
         const htmlFiles = findHtmlFiles(distDir);
-        const urls: { loc: string; priority: string; changefreq: string }[] = [];
+        const urls: { loc: string; priority: string; changefreq: string; lastmod: string }[] = [];
 
         for (const file of htmlFiles) {
           const rel = relative(distDir, file).replace(/index\.html$/, '').replace(/\\/g, '/');
           const path = '/' + rel;
 
-          // Determine priority based on path
+          // Skip CRM and admin pages from sitemap
+          if (path.startsWith('/crm/') || path.startsWith('/api/') || path.startsWith('/admin/')) {
+            continue;
+          }
+
+          // Determine priority and changefreq based on path
           let priority = '0.5';
           let changefreq = 'monthly';
 
           if (path === '/') {
             priority = '1.0';
+            changefreq = 'daily';
+          } else if (path.startsWith('/pricing/')) {
+            priority = '0.9';
+            changefreq = 'weekly';
+          } else if (path.startsWith('/free-audit/')) {
+            priority = '0.9';
             changefreq = 'weekly';
           } else if (path.includes('-website-builder/')) {
             priority = '0.8';
+            changefreq = 'weekly';
           } else if (path.startsWith('/services/')) {
             priority = '0.8';
-          } else if (path.startsWith('/pricing/')) {
-            priority = '0.9';
-          } else if (path.startsWith('/free-audit/')) {
-            priority = '0.9';
+            changefreq = 'weekly';
+          } else if (path === '/blog/') {
+            priority = '0.8';
+            changefreq = 'daily';
+          } else if (path.startsWith('/blog/') && path !== '/blog/') {
+            priority = '0.7';
+            changefreq = 'weekly';
           } else if (path.includes('-website-examples/')) {
             priority = '0.7';
+            changefreq = 'monthly';
           } else if (path.includes('-website-')) {
             priority = '0.7';
+            changefreq = 'monthly';
           } else if (path.startsWith('/examples/')) {
             priority = '0.7';
-          } else if (path.startsWith('/blog/')) {
+            changefreq = 'monthly';
+          } else if (path.startsWith('/contact/')) {
             priority = '0.6';
+            changefreq = 'monthly';
+          } else if (path.startsWith('/portfolio/')) {
+            priority = '0.6';
+            changefreq = 'monthly';
           }
 
-          urls.push({ loc: `${site}${path}`, priority, changefreq });
+          urls.push({ loc: `${site}${path}`, priority, changefreq, lastmod: today });
         }
 
-        // Sort: homepage first, then by priority descending
+        // Sort: homepage first, then by priority descending, then alphabetically
         urls.sort((a, b) => {
           if (a.loc === `${site}/`) return -1;
           if (b.loc === `${site}/`) return 1;
-          return parseFloat(b.priority) - parseFloat(a.priority);
+          const pDiff = parseFloat(b.priority) - parseFloat(a.priority);
+          if (pDiff !== 0) return pDiff;
+          return a.loc.localeCompare(b.loc);
         });
 
         // Generate sitemap XML
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls.map(u => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${u.lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`).join('\n')}
@@ -80,10 +105,22 @@ ${urls.map(u => `  <url>
         writeFileSync(join(distDir, 'sitemap.xml'), xml);
         console.log(`[sitemap] Generated sitemap.xml with ${urls.length} URLs`);
 
-        // Generate robots.txt
-        const robots = `User-agent: *
+        // Generate robots.txt with comprehensive directives
+        const robots = `# robots.txt for getmizra.com
+User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /crm/
+Disallow: /admin/
 
+# Googlebot-specific
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /crm/
+Disallow: /admin/
+
+# Sitemap
 Sitemap: ${site}/sitemap.xml
 `;
         writeFileSync(join(distDir, 'robots.txt'), robots);

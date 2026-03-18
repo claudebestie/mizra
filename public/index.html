@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1a2e">
 
 <!-- Primary Meta Tags -->
 <title>Mizra | בניית אתרים לעסקים תוך 48 שעות</title>
 <meta name="description" content="Mizra בונה אתרים מקצועיים לעסקים קטנים בישראל תוך 48 שעות. אתר למסעדה, אתר לבית קפה, אתר למספרה, אתר לקליניקה, אתר לעורך דין, אתר לקבלן. מחיר החל מ-₪1,990. עיצוב מותאם + SEO + מובייל.">
-<meta name="keywords" content="בניית אתרים, אתרים לעסקים קטנים, עיצוב אתרים, אתר למסעדה, אתר למספרה, אתר לעורך דין, אתר לקליניקה, בניית אתרים בישראל, Mizra">
+<meta name="keywords" content="בניית אתרים, אתרים לעסקים קטנים, עיצוב אתרים, אתר למסעדה, אתר למספרה, אתר לעורך דין, אתר לקליניקה, בניית אתרים בישראל, website builder Israel, Mizra">
 <meta name="author" content="Mizra">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<!-- Geo Meta Tags for Local SEO -->
+<meta name="geo.region" content="IL-TA">
+<meta name="geo.placename" content="Tel Aviv">
+<meta name="geo.position" content="32.0853;34.7818">
+<meta name="ICBM" content="32.0853, 34.7818">
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<!-- Canonical -->
+<!-- Canonical + Hreflang -->
 <link rel="canonical" href="https://getmizra.com/">
+<link rel="alternate" hreflang="he" href="https://getmizra.com/">
+<link rel="alternate" hreflang="en" href="https://getmizra.com/">
+<link rel="alternate" hreflang="x-default" href="https://getmizra.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -75,8 +85,38 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Mizra",
+  "alternateName":"מזרא",
+  "url":"https://getmizra.com",
+  "inLanguage":["he","en"],
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":{"@type":"EntryPoint","urlTemplate":"https://getmizra.com/?q={search_term_string}"},
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SiteNavigationElement",
+  "name":["Services","Examples","Pricing","Blog","Contact"],
+  "url":[
+    "https://getmizra.com/services/restaurants/",
+    "https://getmizra.com/#examples",
+    "https://getmizra.com/pricing/",
+    "https://getmizra.com/blog/",
+    "https://getmizra.com/contact/"
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css?v=20260304">
 <script defer data-website-id="dfid_Bm5iRggzwWA1zrT8mLjWN" data-domain="getmizra.com" src="https://datafa.st/js/script.js"></script>
@@ -139,6 +179,7 @@
 </div>
 </nav>
 
+<main>
 <!-- HERO -->
 <section class="hero">
 <div class="en">
@@ -154,10 +195,10 @@
 <div class="ha"><a href="#" class="btn btn-p" onclick="openS();return false">בואו נתחיל</a><a href="#audit" class="btn btn-o">בדיקה חינמית קודם</a></div>
 </div>
 <div class="hm">
-<div class="mt"><h3>48h</h3><div class="en"><p>Delivery</p></div><div class="he"><p>אספקה</p></div></div>
-<div class="mt"><h3>1,990</h3><div class="en"><p>NIS / Promo</p></div><div class="he"><p>ש"ח / מבצע</p></div></div>
-<div class="mt"><h3>0</h3><div class="en"><p>No Hidden Fees</p></div><div class="he"><p>ללא עלויות נסתרות</p></div></div>
-<div class="mt"><h3>100%</h3><div class="en"><p>Yours Forever</p></div><div class="he"><p>שלך לתמיד</p></div></div>
+<div class="mt"><span class="h3" aria-label="48 hour delivery">48h</span><div class="en"><p>Delivery</p></div><div class="he"><p>אספקה</p></div></div>
+<div class="mt"><span class="h3" aria-label="Starting at 1990 NIS">1,990</span><div class="en"><p>NIS / Promo</p></div><div class="he"><p>ש"ח / מבצע</p></div></div>
+<div class="mt"><span class="h3" aria-label="No hidden fees">0</span><div class="en"><p>No Hidden Fees</p></div><div class="he"><p>ללא עלויות נסתרות</p></div></div>
+<div class="mt"><span class="h3" aria-label="100% yours forever">100%</span><div class="en"><p>Yours Forever</p></div><div class="he"><p>שלך לתמיד</p></div></div>
 </div>
 </section>
 
@@ -425,6 +466,7 @@
 <div class="en"><h2>Stop losing customers. <i>Start today.</i></h2><p>30 seconds to start. 48 hours to launch.</p><div class="ctbs"><a href="#" class="btn btn-p" onclick="openS();return false">Get Started</a><a href="#audit" class="btn btn-o">Free Audit First</a></div></div>
 <div class="he"><h2>הפסיקו להפסיד לקוחות. <i>התחילו היום.</i></h2><p>30 שניות להתחיל. 48 שעות לעלות לאוויר.</p><div class="ctbs"><a href="#" class="btn btn-p" onclick="openS();return false">בואו נתחיל</a><a href="#audit" class="btn btn-o">בדיקה חינמית</a></div></div>
 </section>
+</main>
 
 <footer>
 <div>

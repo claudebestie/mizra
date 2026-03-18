@@ -4,15 +4,18 @@
  * Returns a PayPlus payment page URL to redirect the client to.
  */
 exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") return { statusCode: 405 };
-
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
   };
 
   if (event.httpMethod === "OPTIONS") {
-    return { statusCode: 200, headers };
+    return { statusCode: 204, headers };
+  }
+
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, headers };
   }
 
   try {

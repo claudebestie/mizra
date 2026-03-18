@@ -1,10 +1,16 @@
 # robots.txt for getmizra.com
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /crm/
+Disallow: /admin/
+
+# Googlebot-specific
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /crm/
+Disallow: /admin/
 
 # Sitemap
 Sitemap: https://getmizra.com/sitemap.xml
-
-# Block admin/API routes if any
-Disallow: /api/
-Disallow: /admin/

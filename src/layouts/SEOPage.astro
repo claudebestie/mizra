@@ -15,12 +15,22 @@ const buildDate = new Date().toISOString().split('T')[0];
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1a2e">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <title>{title}</title>
 <meta name="description" content={description}>
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href={canonical}>
+
+<!-- Hreflang for bilingual content -->
+<link rel="alternate" hreflang="he" href={canonical}>
+<link rel="alternate" hreflang="en" href={canonical}>
+<link rel="alternate" hreflang="x-default" href={canonical}>
+
+<!-- Geo Meta Tags for Local SEO -->
+<meta name="geo.region" content="IL-TA">
+<meta name="geo.placename" content="Tel Aviv">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -47,6 +57,9 @@ const buildDate = new Date().toISOString().split('T')[0];
 
 <!-- Main site stylesheet -->
 <link rel="stylesheet" href="/style.css?v=20260304">
+
+<!-- Analytics -->
+<script defer data-website-id="dfid_Bm5iRggzwWA1zrT8mLjWN" data-domain="getmizra.com" src="https://datafa.st/js/script.js"></script>
 
 <!-- JSON-LD Structured Data -->
 {jsonLd.map((schema) => (

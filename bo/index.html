@@ -76,6 +76,7 @@ a{color:inherit;text-decoration:none}
 .search-input{padding:5px 12px;border:1px solid var(--border);border-radius:100px;font-size:11px;outline:none;min-width:180px;background:var(--surface);color:var(--text);font-family:inherit;transition:border-color .15s}
 .search-input:focus{border-color:var(--accent)}
 .search-input::placeholder{color:var(--text4)}
+input::placeholder,textarea::placeholder{color:var(--text3)}
 
 .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
 table{width:100%;border-collapse:collapse}
@@ -109,9 +110,9 @@ tr.unread td:first-child::before{content:'';position:absolute;left:4px;top:50%;t
 .modal-close:hover{background:var(--red-bg);border-color:var(--red);color:var(--red)}
 .modal-body{padding:20px 24px;display:flex;flex-direction:column;gap:18px;flex:1}
 .modal-section{display:flex;flex-direction:column;gap:10px}
-.modal-section-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text4);padding-bottom:8px;border-bottom:1px solid var(--border)}
+.modal-section-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);padding-bottom:8px;border-bottom:1px solid var(--border)}
 .field-row-m{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.field-m label{font-size:10px;color:var(--text3);margin-bottom:2px;display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+.field-m label{font-size:10px;color:var(--text2);margin-bottom:2px;display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:500}
 .field-m span{font-size:12px;color:var(--text);word-break:break-word}
 .field-m input,.field-m select,.field-m textarea{width:100%;border:1px solid var(--border);border-radius:var(--r);padding:7px 10px;font-size:12px;font-family:inherit;outline:none;transition:border .15s;background:var(--bg2);color:var(--text)}
 .field-m input:focus,.field-m select:focus,.field-m textarea:focus{border-color:var(--accent)}
@@ -137,8 +138,8 @@ tr.unread td:first-child::before{content:'';position:absolute;left:4px;top:50%;t
 .export-btn:hover{border-color:var(--border2);color:var(--text)}
 
 .fact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:20px;display:flex;flex-direction:column;gap:14px}
-.fact-section-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text4);padding-bottom:10px;border-bottom:1px solid var(--border)}
-.fi-field label{font-size:10px;color:var(--text3);margin-bottom:3px;display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+.fact-section-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);padding-bottom:10px;border-bottom:1px solid var(--border)}
+.fi-field label{font-size:10px;color:var(--text2);margin-bottom:3px;display:block;text-transform:uppercase;letter-spacing:.06em;font-weight:500}
 .fi-field input,.fi-field select,.fi-field textarea{width:100%;border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-size:12px;font-family:inherit;outline:none;transition:border .15s;background:var(--bg2);color:var(--text)}
 .fi-field input:focus,.fi-field select:focus,.fi-field textarea:focus{border-color:var(--accent)}
 .fi-field textarea{resize:vertical;min-height:60px}
@@ -310,8 +311,8 @@ function gMO(){const src=document.getElementById('fi-source').value;return{isIL:
 function fiLog(m,ok=true){const e=document.getElementById('fi-log');if(!m){e.style.display='none';return;}e.style.display='block';e.style.background=ok?'var(--green-bg)':'var(--red-bg)';e.style.color=ok?'var(--green)':'var(--red)';e.style.border=`1px solid ${ok?'var(--green-b)':'var(--red-b)'}`;e.textContent=m;}
 
 async function createAndInject(){const f=gMO();if(!f.name){fiLog('Nom manquant',false);return;}if(!f.email){fiLog('Email manquant',false);return;}if(!f.pkg){fiLog('Description manquante',false);return;}if(!f.total){fiLog('Montant manquant',false);return;}const id=crypto.randomUUID(),now=new Date().toISOString();
-const op=f.isIL?{id,payer_name:f.name,payer_email:f.email,package:f.pkg,package_price:f.total,total_price:f.total,payment_method:f.paymethod,payment_status:f.paystatus,status:'new',seen:false,done:false,created_at:now,manual:true,...(f.phone&&{phone:f.phone}),notes:f.notes||''}:{id,nom:f.name,email:f.email,secteur:f.company||'N/A',entreprise:f.company||f.name,description:f.pkg,base_price:f.total,total_price:f.total,options:null,options_total:0,status:'new',seen:false,done:false,source:'manual',created_at:now,manual:true,...(f.phone&&{tel:f.phone}),internal_notes:f.notes||''};
-const ob=f.isIL?{order_id:id,restaurant_name:f.company||f.name,email:f.email,phone:f.phone||null,done:false,seen:false,internal_notes:f.notes||''}:{id:crypto.randomUUID(),order_id:id,nom:f.name,email:f.email,entreprise:f.company||f.name,secteur:f.company||'N/A',status:'pending',done:false,seen:false,internal_notes:f.notes||'',source:'manual',created_at:now,...(f.phone&&{tel:f.phone})};
+const op=f.isIL?{id,payer_name:f.name,payer_email:f.email,package:f.pkg,package_price:f.total,total_price:f.total,payment_method:f.paymethod,payment_status:f.paystatus,status:'new',seen:false,done:false,notes:f.notes||''}:{id,nom:f.name,email:f.email,secteur:f.company||'N/A',entreprise:f.company||f.name,description:f.pkg,base_price:f.total,total_price:f.total,options:null,options_total:0,status:'new',seen:false,done:false,source:'manual',...(f.phone&&{tel:f.phone}),internal_notes:f.notes||''};
+const ob=f.isIL?{order_id:id,restaurant_name:f.company||f.name,email:f.email,done:false,seen:false,internal_notes:f.notes||''}:{order_id:id,nom:f.name,email:f.email,entreprise:f.company||f.name,secteur:f.company||'N/A',status:'pending',done:false,seen:false,internal_notes:f.notes||'',source:'manual',...(f.phone&&{tel:f.phone})};
 const ot=f.isIL?'orders':'lancio_orders',obt=f.isIL?'onboarding':'lancio_onboarding';
 try{const r1=await fetch(`${SB}/rest/v1/${ot}`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(op)});const r2=await fetch(`${SB}/rest/v1/${obt}`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(ob)});if(!r1.ok||!r2.ok)throw new Error((await r1.text())||(await r2.text())||'Erreur');fiLog(`Cree pour ${f.name} -- ${f.isIL?'\u20AA':'\u20AC'}${f.total.toLocaleString('fr-FR')}`);await loadAll();}catch(e){fiLog('Erreur : '+e.message,false);}}
 

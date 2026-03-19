@@ -119,6 +119,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css?v=20260304">
+<script id="datafast-queue">
+  window.datafast = window.datafast || function() {
+    window.datafast.q = window.datafast.q || [];
+    window.datafast.q.push(arguments);
+  };
+</script>
 <script defer data-website-id="dfid_Bm5iRggzwWA1zrT8mLjWN" data-domain="getmizra.com" src="https://datafa.st/js/script.js"></script>
 </head>
 <body class="lh has-promo">
@@ -691,6 +697,7 @@ function setL(l){
   var params = new URLSearchParams(window.location.search);
   var payment = params.get('payment');
   if (payment === 'success') {
+    window.datafast?.('payment_success');
     setTimeout(function() {
       var d = document.createElement('div');
       d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#22c55e;color:#fff;text-align:center;padding:16px;font-weight:600;z-index:9999;font-size:1rem';
@@ -790,6 +797,7 @@ async function sendA(e, lang) {
     btn.textContent = lang === 'he' ? 'נשלח! נחזור תוך 24 שעות' : 'Sent! We\'ll be in touch within 24h';
     btn.style.background = 'var(--grn)'; btn.style.color = '#fff';
     e.target.reset();
+    window.datafast?.('audit_request', { lang: lang });
   } else {
     btn.textContent = lang === 'he' ? 'שגיאה - נסו שוב' : 'Error - try again';
     btn.style.background = '#c44'; btn.style.color = '#fff';
@@ -811,6 +819,7 @@ function openS() {
   gs(1);
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
+  window.datafast?.('open_order_modal');
 }
 function closeM() {
   document.getElementById('modal').classList.remove('open');
@@ -1000,6 +1009,7 @@ async function submitOrder() {
         return;
       }
       if (ppData.payment_url) {
+        window.datafast?.('order_submitted', { package: sPlan, total: String(totalPrice), method: 'Credit Card' });
         window.location.href = ppData.payment_url;
         return;
       } else {
@@ -1017,6 +1027,7 @@ async function submitOrder() {
   // Non-CC methods -> show confirmation step
   gs(4);
   console.log('Order submitted:', order.id);
+  window.datafast?.('order_submitted', { package: sPlan, total: String(totalPrice), method: paymentMethod });
 }
 
 // Custom Quote submit from modal
@@ -1064,6 +1075,7 @@ async function submitCQ() {
     btn.textContent = '✓ Sent!';
     msg.textContent = "We'll get back to you within 24 hours with a quote.";
     msg.style.color = 'var(--grn)'; msg.style.display = '';
+    window.datafast?.('custom_quote_request', { email: email });
     setTimeout(function() { closeM(); }, 3000);
   } else {
     btn.style.background = '#e74c3c'; btn.style.color = '#fff';

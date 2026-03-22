@@ -67,21 +67,27 @@ const varsHE = { vertical: vHE, city: cHE };
 // Title + description
 let titleEN: string, titleHE: string, descEN: string, descHE: string;
 
+// Use first 2 features from vertical for dynamic descriptions
+const feat1HE = vertical.features[0]?.title.he || '';
+const feat2HE = vertical.features[1]?.title.he || '';
+const feat1EN = vertical.features[0]?.title.en || '';
+const feat2EN = vertical.features[1]?.title.en || '';
+
 if (pageType === 'builder') {
-  titleEN = `${vEN} Website Builder | Mizra`;
-  titleHE = `בניית אתר ל${vHE} | Mizra`;
-  descEN = `Get a professional ${vEN.toLowerCase()} website built in 48 hours. Online menu, mobile design, Google optimization. Starting at NIS 1,990.`;
-  descHE = `קבלו אתר מקצועי ל${vHE} תוך 48 שעות. תפריט אונליין, עיצוב מובייל, אופטימיזציה לגוגל. החל מ-₪1,990.`;
+  titleEN = `Professional ${vEN} Website | Mizra`;
+  titleHE = `בניית אתר מקצועי ל${vHE} | Mizra`;
+  descEN = `Get a professional ${vEN.toLowerCase()} website in 48 hours — ${feat1EN.toLowerCase()}, ${feat2EN.toLowerCase()}, mobile-ready and SEO-optimized. From NIS 1,990.`;
+  descHE = `אתר מקצועי ל${vHE} תוך 48 שעות — ${feat1HE}, ${feat2HE}, מובייל מושלם ו-SEO מובנה. החל מ-₪1,990.`;
 } else if (pageType === 'city') {
   titleEN = `${vEN} Website in ${cEN} | Mizra`;
-  titleHE = `אתר ל${vHE} ב${cHE} | Mizra`;
-  descEN = `Professional ${vEN.toLowerCase()} website for businesses in ${cEN}. Mobile-friendly, SEO-optimized, launched in days. From NIS 1,990.`;
-  descHE = `אתר מקצועי ל${vHE} לעסקים ב${cHE}. מותאם למובייל, מותאם ל-SEO, מושק תוך ימים. מ-₪1,990.`;
+  titleHE = `אתר ל${vHE} ב${cHE} — בניית אתרים | Mizra`;
+  descEN = `Professional ${vEN.toLowerCase()} website for your business in ${cEN}. Launched in 48 hours with ${feat1EN.toLowerCase()} and local SEO. From NIS 1,990.`;
+  descHE = `אתר מקצועי ל${vHE} ב${cHE} תוך 48 שעות — ${feat1HE}, ${feat2HE} ו-SEO מקומי שמביא לקוחות. החל מ-₪1,990.`;
 } else {
   titleEN = `${vEN} Website Examples | Mizra`;
-  titleHE = `דוגמאות אתרי ${vHE} | Mizra`;
-  descEN = `See real examples of ${vEN.toLowerCase()} websites built by Mizra. Professional design, fast loading, optimized for Google.`;
-  descHE = `ראו דוגמאות אמיתיות לאתרי ${vHE} שנבנו על ידי Mizra. עיצוב מקצועי, טעינה מהירה, אופטימיזציה לגוגל.`;
+  titleHE = `דוגמאות לאתרי ${vHE} מקצועיים | Mizra`;
+  descEN = `Browse real ${vEN.toLowerCase()} websites built by Mizra. See the design, features and get inspired for your own site.`;
+  descHE = `ראו דוגמאות לאתרי ${vHE} שנבנו על ידי Mizra — עיצוב מקצועי, טעינה מהירה ופיצ'רים מותאמים. השראה לאתר שלכם.`;
 }
 
 // Hebrew-first title for Israeli market (83% of traffic)

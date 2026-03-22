@@ -3,7 +3,7 @@
     "slug": "restaurant",
     "name": { "en": "Restaurant", "he": "מסעדה" },
     "primaryKeyword": { "en": "restaurant website builder", "he": "בניית אתר למסעדה" },
-    "synonyms": { "en": ["eatery", "dining", "bistro"], "he": ["בית אוכל", "מסעדה", "ביסטרו"] },
+    "synonyms": { "en": ["eatery", "dining", "bistro", "restaurant website"], "he": ["בית אוכל", "מסעדה", "ביסטרו", "אתר תדמית למסעדה"] },
     "features": [
       { "title": { "en": "Online Menu", "he": "תפריט אונליין" }, "desc": { "en": "Display your full menu with photos, prices and categories — updated anytime.", "he": "הציגו את התפריט המלא עם תמונות, מחירים וקטגוריות — עדכון בכל עת." } },
       { "title": { "en": "Mobile-Friendly Design", "he": "עיצוב מותאם למובייל" }, "desc": { "en": "Your site looks perfect on every phone, tablet and desktop screen.", "he": "האתר שלכם נראה מושלם בכל טלפון, טאבלט ומסך מחשב." } },
@@ -17,7 +17,8 @@
       { "q": { "en": "Can I show my menu online?", "he": "אפשר להציג את התפריט אונליין?" }, "a": { "en": "Yes. Your website can include a full online menu that works perfectly on mobile.", "he": "כן. האתר שלכם יכול לכלול תפריט אונליין מלא שעובד מצוין במובייל." } },
       { "q": { "en": "Will my website appear on Google?", "he": "האתר שלי יופיע בגוגל?" }, "a": { "en": "Yes. All Mizra websites are optimized so your restaurant can appear in Google search results.", "he": "כן. כל אתרי Mizra מותאמים כדי שהמסעדה שלכם תופיע בתוצאות החיפוש של גוגל." } },
       { "q": { "en": "How long does it take to launch?", "he": "כמה זמן לוקח להשיק?" }, "a": { "en": "Most Mizra websites are launched within a few days after the design is approved.", "he": "רוב אתרי Mizra מושקים תוך מספר ימים לאחר אישור העיצוב." } },
-      { "q": { "en": "Can I update my menu later?", "he": "אפשר לעדכן את התפריט אחר כך?" }, "a": { "en": "Yes. You can request updates anytime after launch.", "he": "כן. אפשר לבקש עדכונים בכל עת לאחר ההשקה." } }
+      { "q": { "en": "Can I update my menu later?", "he": "אפשר לעדכן את התפריט אחר כך?" }, "a": { "en": "Yes. You can request updates anytime after launch.", "he": "כן. אפשר לבקש עדכונים בכל עת לאחר ההשקה." } },
+      { "q": { "en": "How much does a restaurant website cost?", "he": "כמה עולה בניית אתר למסעדה?" }, "a": { "en": "Starting at NIS 1,990 for a professional restaurant website with online menu, Google Maps, mobile design and SEO.", "he": "מחיר בניית אתר למסעדה מתחיל מ-₪1,990. כולל תפריט אונליין, Google Maps, עיצוב מובייל ואופטימיזציה לגוגל. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
     "exampleSlug": "restaurant",
@@ -26,8 +27,8 @@
   {
     "slug": "cafe",
     "name": { "en": "Cafe", "he": "בית קפה" },
-    "primaryKeyword": { "en": "cafe website design", "he": "עיצוב אתר לבית קפה" },
-    "synonyms": { "en": ["coffee shop", "coffeehouse"], "he": ["קפה", "קפיטריה"] },
+    "primaryKeyword": { "en": "cafe website design", "he": "בניית אתר לבית קפה" },
+    "synonyms": { "en": ["coffee shop", "coffeehouse", "cafe website"], "he": ["קפה", "קפיטריה", "אתר תדמית לבית קפה"] },
     "features": [
       { "title": { "en": "Menu Display", "he": "תצוגת תפריט" }, "desc": { "en": "Show your drinks, pastries and brunch options in a beautiful layout.", "he": "הציגו את המשקאות, המאפים ואפשרויות הברנץ' בעיצוב יפהפה." } },
       { "title": { "en": "Mobile-First Design", "he": "עיצוב מובייל ראשון" }, "desc": { "en": "Built for mobile first — your cafe looks stunning on every screen.", "he": "נבנה למובייל קודם — בית הקפה שלכם נראה מדהים בכל מסך." } },
@@ -40,7 +41,7 @@
       { "q": { "en": "Can I show my food photos?", "he": "אפשר להציג תמונות אוכל?" }, "a": { "en": "Absolutely. Your website includes a gallery section for your best dishes and drinks.", "he": "בהחלט. האתר שלכם כולל גלריה לתמונות המנות והמשקאות הטובים ביותר." } },
       { "q": { "en": "How fast is the website?", "he": "כמה מהיר האתר?" }, "a": { "en": "Mizra websites load in under 2 seconds — critical for mobile visitors.", "he": "אתרי Mizra נטענים תוך פחות מ-2 שניות — קריטי למבקרים מהמובייל." } },
       { "q": { "en": "Do I need to know coding?", "he": "צריך לדעת קוד?" }, "a": { "en": "No. Mizra handles everything — design, development and launch.", "he": "לא. Mizra מטפלת בהכל — עיצוב, פיתוח והשקה." } },
-      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Plans start at NIS 1,990 for a single page website. See our pricing page for details.", "he": "תוכניות מתחילות מ-₪1,990 לאתר דף יחיד. ראו את עמוד התמחור לפרטים." } }
+      { "q": { "en": "How much does a cafe website cost?", "he": "כמה עולה בניית אתר לבית קפה?" }, "a": { "en": "Starting at NIS 1,990 for a professional cafe website with menu display, location, Instagram and mobile design.", "he": "מחיר בניית אתר לבית קפה מתחיל מ-₪1,990. כולל תצוגת תפריט, מיקום, שילוב אינסטגרם ועיצוב מובייל. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": "cafe",
@@ -49,8 +50,8 @@
   {
     "slug": "barbershop",
     "name": { "en": "Barbershop", "he": "מספרה" },
-    "primaryKeyword": { "en": "barbershop website design", "he": "עיצוב אתר למספרה" },
-    "synonyms": { "en": ["barber", "hair salon for men"], "he": ["ברבר", "ספר"] },
+    "primaryKeyword": { "en": "barbershop website design", "he": "בניית אתר למספרה" },
+    "synonyms": { "en": ["barber", "hair salon for men", "barbershop website"], "he": ["ברבר", "ספר", "אתר תדמית למספרה"] },
     "features": [
       { "title": { "en": "Services List", "he": "רשימת שירותים" }, "desc": { "en": "Display all your cuts, trims and grooming services with prices.", "he": "הציגו את כל התספורות, הגילוח ושירותי הטיפוח עם מחירים." } },
       { "title": { "en": "Price Menu", "he": "תפריט מחירים" }, "desc": { "en": "Clear pricing helps customers choose before they walk in.", "he": "מחירון ברור עוזר ללקוחות לבחור לפני שהם נכנסים." } },
@@ -62,7 +63,7 @@
       { "q": { "en": "Why does a barbershop need a website?", "he": "למה מספרה צריכה אתר?" }, "a": { "en": "Most people search for barbershops on Google. A professional website makes you visible and builds trust.", "he": "רוב האנשים מחפשים מספרות בגוגל. אתר מקצועי הופך אתכם לגלויים ובונה אמון." } },
       { "q": { "en": "Can clients book through the website?", "he": "לקוחות יכולים להזמין דרך האתר?" }, "a": { "en": "Yes. We connect your website to any booking tool you already use.", "he": "כן. אנחנו מחברים את האתר לכל כלי הזמנות שאתם כבר משתמשים בו." } },
       { "q": { "en": "Will it work on mobile?", "he": "זה עובד במובייל?" }, "a": { "en": "Every Mizra website is built mobile-first and looks great on all devices.", "he": "כל אתר Mizra נבנה מובייל קודם ונראה מעולה בכל המכשירים." } },
-      { "q": { "en": "How much does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 1,990 for a single-page website with all features included.", "he": "מ-₪1,990 לאתר דף יחיד עם כל הפיצ'רים כלולים." } },
+      { "q": { "en": "How much does a barbershop website cost?", "he": "כמה עולה בניית אתר למספרה?" }, "a": { "en": "Starting at NIS 1,990 for a professional barbershop website with services list, gallery, booking and mobile design.", "he": "מחיר בניית אתר למספרה מתחיל מ-₪1,990. כולל רשימת שירותים, גלריה, הזמנה אונליין ועיצוב מובייל. תשלום חד פעמי." } },
       { "q": { "en": "Can I show my work?", "he": "אפשר להציג את העבודות שלי?" }, "a": { "en": "Yes. Your website includes a gallery section where you can showcase your best styles.", "he": "כן. האתר שלכם כולל גלריה בה תוכלו להציג את הסגנונות הטובים ביותר." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "wix-vs-atar-mutaam", "tauyot-be-atar-iski"],
@@ -72,8 +73,8 @@
   {
     "slug": "beauty-salon",
     "name": { "en": "Beauty Salon", "he": "סטודיו יופי" },
-    "primaryKeyword": { "en": "beauty salon website design", "he": "עיצוב אתר לסטודיו יופי" },
-    "synonyms": { "en": ["salon", "spa", "beauty studio"], "he": ["מכון יופי", "סלון", "ספא"] },
+    "primaryKeyword": { "en": "beauty salon website design", "he": "בניית אתר לסטודיו יופי" },
+    "synonyms": { "en": ["salon", "spa", "beauty studio", "beauty salon website"], "he": ["מכון יופי", "סלון", "ספא", "אתר לקוסמטיקאית"] },
     "features": [
       { "title": { "en": "Services List", "he": "רשימת שירותים" }, "desc": { "en": "Showcase all your treatments — hair, nails, skincare, makeup — with descriptions.", "he": "הציגו את כל הטיפולים — שיער, ציפורניים, טיפוחי עור, איפור — עם תיאורים." } },
       { "title": { "en": "Online Booking Links", "he": "קישורי הזמנה אונליין" }, "desc": { "en": "Clients book appointments directly from your website.", "he": "לקוחות קובעים תורים ישירות מהאתר שלכם." } },
@@ -86,7 +87,8 @@
       { "q": { "en": "Can I connect my booking system?", "he": "אפשר לחבר את מערכת ההזמנות?" }, "a": { "en": "Yes. We integrate with any booking platform you use.", "he": "כן. אנחנו מתממשקים עם כל פלטפורמת הזמנות שאתם משתמשים בה." } },
       { "q": { "en": "How long until my site is live?", "he": "כמה זמן עד שהאתר באוויר?" }, "a": { "en": "Most beauty salon websites launch within 48-72 hours after approval.", "he": "רוב אתרי סטודיו יופי מושקים תוך 48-72 שעות לאחר אישור." } },
       { "q": { "en": "What if I need changes?", "he": "מה אם צריך שינויים?" }, "a": { "en": "You can request changes anytime — we're here to help.", "he": "אפשר לבקש שינויים בכל עת — אנחנו כאן לעזור." } },
-      { "q": { "en": "Is the website SEO-friendly?", "he": "האתר ידידותי ל-SEO?" }, "a": { "en": "Yes. Every Mizra website is optimized for Google search from day one.", "he": "כן. כל אתר Mizra מותאם לחיפוש בגוגל מיום הראשון." } }
+      { "q": { "en": "Is the website SEO-friendly?", "he": "האתר ידידותי ל-SEO?" }, "a": { "en": "Yes. Every Mizra website is optimized for Google search from day one.", "he": "כן. כל אתר Mizra מותאם לחיפוש בגוגל מיום הראשון." } },
+      { "q": { "en": "How much does a beauty salon website cost?", "he": "כמה עולה בניית אתר לסטודיו יופי?" }, "a": { "en": "Starting at NIS 1,990 for a professional beauty salon website with services, booking, gallery and mobile design.", "he": "מחיר בניית אתר לסטודיו יופי מתחיל מ-₪1,990. כולל רשימת טיפולים, הזמנה אונליין, גלריה ועיצוב מובייל. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
     "exampleSlug": "beauty-salon",
@@ -95,8 +97,8 @@
   {
     "slug": "clinic",
     "name": { "en": "Clinic", "he": "קליניקה" },
-    "primaryKeyword": { "en": "clinic website design", "he": "עיצוב אתר לקליניקה" },
-    "synonyms": { "en": ["medical practice", "dental clinic", "health clinic"], "he": ["מרפאה", "קליניקה רפואית", "מרפאת שיניים"] },
+    "primaryKeyword": { "en": "clinic website design", "he": "בניית אתר לקליניקה" },
+    "synonyms": { "en": ["medical practice", "dental clinic", "health clinic", "clinic website"], "he": ["מרפאה", "קליניקה רפואית", "מרפאת שיניים", "אתר תדמית לקליניקה"] },
     "features": [
       { "title": { "en": "Services Pages", "he": "עמודי שירותים" }, "desc": { "en": "Dedicated pages for each treatment or specialty you offer.", "he": "עמודים ייעודיים לכל טיפול או התמחות שאתם מציעים." } },
       { "title": { "en": "Doctor Profiles", "he": "פרופילי רופאים" }, "desc": { "en": "Introduce your team with photos, qualifications and specialties.", "he": "הציגו את הצוות שלכם עם תמונות, הכשרות והתמחויות." } },
@@ -109,7 +111,8 @@
       { "q": { "en": "Can patients book online?", "he": "מטופלים יכולים להזמין אונליין?" }, "a": { "en": "Yes. We integrate booking forms or links to your scheduling system.", "he": "כן. אנחנו משלבים טפסי הזמנה או קישורים למערכת התורים שלכם." } },
       { "q": { "en": "Is the website HIPAA compliant?", "he": "האתר עומד בתקנות?" }, "a": { "en": "Mizra websites are informational. For sensitive data, we integrate with compliant booking platforms.", "he": "אתרי Mizra הם מידעיים. למידע רגיש, אנחנו מתממשקים עם פלטפורמות תואמות תקנות." } },
       { "q": { "en": "How quickly can my site launch?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most clinic websites are ready within 48-72 hours after approval.", "he": "רוב אתרי הקליניקות מוכנים תוך 48-72 שעות לאחר אישור." } },
-      { "q": { "en": "Can I list multiple doctors?", "he": "אפשר לרשום מספר רופאים?" }, "a": { "en": "Yes. Your website can feature profiles for every doctor or specialist in your practice.", "he": "כן. האתר שלכם יכול להציג פרופילים לכל רופא או מומחה בפרקטיקה." } }
+      { "q": { "en": "Can I list multiple doctors?", "he": "אפשר לרשום מספר רופאים?" }, "a": { "en": "Yes. Your website can feature profiles for every doctor or specialist in your practice.", "he": "כן. האתר שלכם יכול להציג פרופילים לכל רופא או מומחה בפרקטיקה." } },
+      { "q": { "en": "How much does a clinic website cost?", "he": "כמה עולה בניית אתר לקליניקה?" }, "a": { "en": "Starting at NIS 1,990 for a professional clinic website with doctor profiles, appointment booking and mobile design.", "he": "מחיר בניית אתר לקליניקה מתחיל מ-₪1,990. כולל פרופילי רופאים, קביעת תורים ועיצוב מובייל. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "ai-biniyat-atarim"],
     "exampleSlug": "clinic",
@@ -119,7 +122,7 @@
     "slug": "sports-coach",
     "name": { "en": "Sports Coach", "he": "מאמן ספורט" },
     "primaryKeyword": { "en": "sports coach website builder", "he": "בניית אתר למאמן ספורט" },
-    "synonyms": { "en": ["personal trainer", "fitness coach", "athletic coach"], "he": ["מאמן כושר", "מאמן אישי", "מאמן כדורגל"] },
+    "synonyms": { "en": ["personal trainer", "fitness coach", "athletic coach", "coach website"], "he": ["מאמן כושר", "מאמן אישי", "מאמן כדורגל", "אתר תדמית למאמן"] },
     "features": [
       { "title": { "en": "Training Programs", "he": "תוכניות אימון" }, "desc": { "en": "Present your coaching programs — group classes, 1-on-1 sessions and online plans.", "he": "הציגו את תוכניות האימון — שיעורים קבוצתיים, פגישות אישיות ותוכניות אונליין." } },
       { "title": { "en": "Online Session Booking", "he": "הזמנת אימונים אונליין" }, "desc": { "en": "Clients book training sessions directly through your website.", "he": "מתאמנים קובעים אימונים ישירות דרך האתר שלכם." } },
@@ -142,7 +145,7 @@
     "slug": "therapist",
     "name": { "en": "Therapist", "he": "מטפל" },
     "primaryKeyword": { "en": "therapist website builder", "he": "בניית אתר למטפל" },
-    "synonyms": { "en": ["counselor", "psychologist", "mental health professional"], "he": ["פסיכולוג", "יועץ", "מטפל רגשי"] },
+    "synonyms": { "en": ["counselor", "psychologist", "mental health professional", "therapist website"], "he": ["פסיכולוג", "יועץ", "מטפל רגשי", "אתר תדמית למטפל"] },
     "features": [
       { "title": { "en": "Therapy Specialties", "he": "התמחויות טיפול" }, "desc": { "en": "Present your therapy approach — CBT, couples therapy, trauma, anxiety and more.", "he": "הציגו את גישת הטיפול — CBT, טיפול זוגי, טראומה, חרדה ועוד." } },
       { "title": { "en": "Online Session Booking", "he": "הזמנת פגישות אונליין" }, "desc": { "en": "Clients book sessions directly through your website — discreetly and easily.", "he": "מטופלים קובעים פגישות ישירות דרך האתר — בצורה דיסקרטית וקלה." } },
@@ -164,8 +167,8 @@
   {
     "slug": "real-estate",
     "name": { "en": "Real Estate Agent", "he": "סוכן נדל\"ן" },
-    "primaryKeyword": { "en": "real estate agent website", "he": "אתר לסוכן נדל\"ן" },
-    "synonyms": { "en": ["realtor", "property agent", "real estate agency"], "he": ["מתווך", "סוכנות נדל\"ן"] },
+    "primaryKeyword": { "en": "real estate agent website", "he": "בניית אתר לסוכן נדל\"ן" },
+    "synonyms": { "en": ["realtor", "property agent", "real estate agency", "real estate website"], "he": ["מתווך", "סוכנות נדל\"ן", "אתר תדמית לנדל\"ן"] },
     "features": [
       { "title": { "en": "Property Listings", "he": "רשימת נכסים" }, "desc": { "en": "Showcase properties with photos, details and pricing in a clean layout.", "he": "הציגו נכסים עם תמונות, פרטים ומחירים בעיצוב נקי." } },
       { "title": { "en": "Contact & Inquiry Forms", "he": "טפסי יצירת קשר" }, "desc": { "en": "Capture leads directly from your website with smart contact forms.", "he": "לכדו לידים ישירות מהאתר עם טפסי יצירת קשר חכמים." } },
@@ -178,7 +181,8 @@
       { "q": { "en": "Can I list properties on my site?", "he": "אפשר לפרסם נכסים באתר?" }, "a": { "en": "Yes. Your website includes a listings section with photos, details and inquiry forms.", "he": "כן. האתר כולל מדור נכסים עם תמונות, פרטים וטפסי פנייה." } },
       { "q": { "en": "Will it help me get leads?", "he": "זה יעזור לי לקבל לידים?" }, "a": { "en": "Yes. SEO-optimized pages and contact forms help you capture leads from Google search.", "he": "כן. עמודים מותאמי SEO וטפסי יצירת קשר עוזרים לכם ללכוד לידים מחיפוש גוגל." } },
       { "q": { "en": "How quickly can my site go live?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most real estate websites are ready within 48-72 hours.", "he": "רוב אתרי הנדל\"ן מוכנים תוך 48-72 שעות." } },
-      { "q": { "en": "Can I update listings myself?", "he": "אפשר לעדכן נכסים בעצמי?" }, "a": { "en": "You can request listing updates anytime after launch.", "he": "אפשר לבקש עדכוני נכסים בכל עת לאחר ההשקה." } }
+      { "q": { "en": "Can I update listings myself?", "he": "אפשר לעדכן נכסים בעצמי?" }, "a": { "en": "You can request listing updates anytime after launch.", "he": "אפשר לבקש עדכוני נכסים בכל עת לאחר ההשקה." } },
+      { "q": { "en": "How much does a real estate website cost?", "he": "כמה עולה בניית אתר לסוכן נדל\"ן?" }, "a": { "en": "Starting at NIS 1,990 for a professional real estate website with property listings, contact forms and Google Maps.", "he": "מחיר בניית אתר לסוכן נדל\"ן מתחיל מ-₪1,990. כולל רשימת נכסים, טפסי יצירת קשר ו-Google Maps. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "wix-vs-atar-mutaam"],
     "exampleSlug": "real-estate",
@@ -188,7 +192,7 @@
     "slug": "freelancer",
     "name": { "en": "Freelancer", "he": "פרילנסר" },
     "primaryKeyword": { "en": "freelancer website builder", "he": "בניית אתר לפרילנסר" },
-    "synonyms": { "en": ["independent professional", "self-employed", "solopreneur"], "he": ["עצמאי", "עובד עצמאי", "פרילנס"] },
+    "synonyms": { "en": ["independent professional", "self-employed", "solopreneur", "freelancer website"], "he": ["עצמאי", "עובד עצמאי", "פרילנס", "אתר תדמית לעצמאי"] },
     "features": [
       { "title": { "en": "Portfolio & Projects", "he": "תיק עבודות ופרויקטים" }, "desc": { "en": "Showcase your best work with project descriptions, images and client results.", "he": "הציגו את העבודות הטובות ביותר עם תיאורי פרויקטים, תמונות ותוצאות לקוחות." } },
       { "title": { "en": "Services & Pricing", "he": "שירותים ומחירון" }, "desc": { "en": "List your services clearly so clients know exactly what you offer and at what price.", "he": "רשמו את השירותים שלכם בבהירות כדי שלקוחות ידעו בדיוק מה אתם מציעים ובאיזה מחיר." } },
@@ -201,7 +205,7 @@
       { "q": { "en": "Can I show my past work?", "he": "אפשר להציג עבודות קודמות?" }, "a": { "en": "Yes. Your website includes a portfolio section for projects, case studies and client results.", "he": "כן. האתר כולל מדור תיק עבודות לפרויקטים, תיאורי מקרה ותוצאות לקוחות." } },
       { "q": { "en": "Is it good for SEO?", "he": "זה טוב ל-SEO?" }, "a": { "en": "Every Mizra website is SEO-optimized from day one to help you rank for relevant keywords.", "he": "כל אתר Mizra מותאם ל-SEO מיום הראשון כדי לעזור לכם לדרג מילות מפתח רלוונטיות." } },
       { "q": { "en": "How fast can my site go live?", "he": "כמה מהר האתר יכול לצאת לאוויר?" }, "a": { "en": "Most freelancer websites launch within 48-72 hours after approval.", "he": "רוב אתרי הפרילנסרים מושקים תוך 48-72 שעות לאחר אישור." } },
-      { "q": { "en": "What's the pricing?", "he": "מה המחיר?" }, "a": { "en": "Starting at NIS 1,990 for a complete freelancer website with all features.", "he": "מ-₪1,990 לאתר פרילנסר מלא עם כל הפיצ'רים." } }
+      { "q": { "en": "How much does a freelancer website cost?", "he": "כמה עולה בניית אתר לפרילנסר?" }, "a": { "en": "Starting at NIS 1,990 for a complete freelancer website with portfolio, services, SEO and mobile design.", "he": "מחיר בניית אתר לפרילנסר מתחיל מ-₪1,990. כולל תיק עבודות, שירותים, SEO ועיצוב מובייל. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar", "tauyot-be-atar-iski"],
     "exampleSlug": "freelancer",
@@ -211,7 +215,7 @@
     "slug": "startup",
     "name": { "en": "Startup", "he": "סטארטאפ" },
     "primaryKeyword": { "en": "startup website builder", "he": "בניית אתר לסטארטאפ" },
-    "synonyms": { "en": ["early-stage startup", "tech startup", "new venture"], "he": ["סטארט-אפ", "חברה צעירה", "מיזם"] },
+    "synonyms": { "en": ["early-stage startup", "tech startup", "new venture", "startup landing page"], "he": ["סטארט-אפ", "חברה צעירה", "מיזם", "דף נחיתה לסטארטאפ"] },
     "features": [
       { "title": { "en": "Landing Page Design", "he": "עיצוב דף נחיתה" }, "desc": { "en": "A compelling landing page that communicates your value proposition clearly.", "he": "דף נחיתה משכנע שמתקשר את הצעת הערך שלכם בבהירות." } },
       { "title": { "en": "Lead Capture", "he": "לכידת לידים" }, "desc": { "en": "Collect early adopter emails and signups with smart forms.", "he": "אספו מיילים של אימוץ מוקדם והרשמות עם טפסים חכמים." } },
@@ -224,7 +228,7 @@
       { "q": { "en": "Can I collect signups?", "he": "אפשר לאסוף הרשמות?" }, "a": { "en": "Yes. Your website includes email capture forms to build your early adopter list.", "he": "כן. האתר כולל טפסי לכידת מיילים לבניית רשימת האימוץ המוקדם שלכם." } },
       { "q": { "en": "How fast can we launch?", "he": "כמה מהר אפשר להשיק?" }, "a": { "en": "Most startup websites launch within 48 hours. Perfect for your next demo day or pitch.", "he": "רוב אתרי הסטארטאפ מושקים תוך 48 שעות. מושלם ליום הדמו או הפיץ' הבא שלכם." } },
       { "q": { "en": "Can I update it as we grow?", "he": "אפשר לעדכן ככל שגדלים?" }, "a": { "en": "Yes. Request updates anytime as your product and messaging evolve.", "he": "כן. בקשו עדכונים בכל עת ככל שהמוצר והמסרים שלכם מתפתחים." } },
-      { "q": { "en": "What does it cost?", "he": "כמה זה עולה?" }, "a": { "en": "Starting at NIS 1,990 — a fraction of what agencies charge, with faster delivery.", "he": "מ-₪1,990 — חלק קטן ממה שסוכנויות גובות, עם אספקה מהירה יותר." } }
+      { "q": { "en": "How much does a startup website cost?", "he": "כמה עולה בניית אתר לסטארטאפ?" }, "a": { "en": "Starting at NIS 1,990 — a fraction of what agencies charge. Includes landing page, lead capture, mobile design and SEO.", "he": "מחיר בניית אתר לסטארטאפ מתחיל מ-₪1,990. כולל דף נחיתה, לכידת לידים, עיצוב מובייל ו-SEO. תשלום חד פעמי." } }
     ],
     "internalLinksBlogSlugs": ["ai-biniyat-atarim", "lama-kol-esek-tsarikh-atar", "kama-ole-livnot-atar"],
     "exampleSlug": "startup",
@@ -233,8 +237,8 @@
   {
     "slug": "pilates",
     "name": { "en": "Pilates Studio", "he": "סטודיו פילאטיס" },
-    "primaryKeyword": { "en": "pilates studio website", "he": "אתר לסטודיו פילאטיס" },
-    "synonyms": { "en": ["yoga studio", "pilates instructor", "wellness studio"], "he": ["סטודיו יוגה", "מורה לפילאטיס", "סטודיו בריאות"] },
+    "primaryKeyword": { "en": "pilates studio website", "he": "בניית אתר לסטודיו פילאטיס" },
+    "synonyms": { "en": ["yoga studio", "pilates instructor", "wellness studio", "pilates website"], "he": ["סטודיו יוגה", "מורה לפילאטיס", "סטודיו בריאות", "אתר תדמית לסטודיו"] },
     "features": [
       { "title": { "en": "Class Schedule", "he": "לוח שיעורים" }, "desc": { "en": "Display your weekly class schedule — Pilates mat, reformer, yoga and more.", "he": "הציגו את לוח השיעורים השבועי — פילאטיס מזרן, רפורמר, יוגה ועוד." } },
       { "title": { "en": "Online Booking", "he": "הזמנה אונליין" }, "desc": { "en": "Students book classes directly through your website — no calls needed.", "he": "תלמידים נרשמים לשיעורים ישירות דרך האתר — בלי צורך בטלפונים." } },

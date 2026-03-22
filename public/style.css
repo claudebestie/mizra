@@ -153,7 +153,7 @@ body.lh .pft{text-align:right}
 .bp{display:block;width:100%;padding:12px;text-align:center;border-radius:8px;font-size:.88rem;font-weight:700;text-decoration:none;transition:.3s;font-family:var(--sn);border:none;cursor:pointer}
 
 /* --- ADDONS --- */
-.ads{background:var(--bg2)}.adg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ads{background:var(--bg2)}.adg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .adc{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:24px 20px;transition:.3s}.adc:hover{box-shadow:0 6px 20px rgba(0,0,0,.05)}
 .adc h4{font-family:var(--sf);font-size:.98rem;color:var(--navy);margin-bottom:6px}
 .adc p{font-size:.78rem;line-height:1.6;margin-bottom:10px}

@@ -31,9 +31,9 @@ body.lh .promo-banner a{margin-left:0;margin-right:8px}
 body.lh .promo-banner .promo-tag{margin-right:0;margin-left:10px}
 
 /* --- NAVIGATION --- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(246,243,238,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-body.has-promo .nav{top:38px}
-body.has-promo .hero{padding-top:158px}
+.nav{position:relative;z-index:100;padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--bd)}
+body.has-promo .nav{top:auto}
+body.has-promo .hero{padding-top:80px}
 body.has-promo .breadcrumbs{padding-top:118px}
 body.has-promo .page-hero{padding-top:158px}
 .nav-logo{font-family:var(--sf);font-size:1.45rem;color:var(--navy);text-decoration:none;font-weight:600}.nav-logo span{color:var(--or)}
@@ -67,7 +67,7 @@ body.lh .nd:hover .nd-drop{transform:translateX(50%) translateY(0)}
 .btn-sm{padding:10px 18px;font-size:.82rem}
 
 /* --- HERO --- */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 80px}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 48px 80px}
 .htag{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:var(--ord);border:1px solid rgba(212,100,58,.12);border-radius:100px;color:var(--or);font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:28px}
 .htag::before{content:'';width:5px;height:5px;background:var(--or);border-radius:50%;animation:bl 2s infinite}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
@@ -391,8 +391,8 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
    ============================================================ */
 @media(max-width:1024px){
   .promo-banner{padding:8px 20px;font-size:.78rem}
-  body.has-promo .nav{top:36px}
-  body.has-promo .hero{padding-top:146px}
+  body.has-promo .nav{top:auto}
+  body.has-promo .hero{padding-top:60px}
   body.has-promo .breadcrumbs{padding-top:116px}
   body.has-promo .page-hero{padding-top:136px}
   .nav{padding:0 20px}
@@ -409,7 +409,7 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .nm.open~.nr .btn{display:inline-flex}
   .nr .btn{display:none}
   /* Layout */
-  .hero{padding:110px 24px 60px}
+  .hero{padding:60px 24px 60px}
   .hero h1{font-size:2.8rem}
   .cx{padding:0 24px}
   .sec{padding:64px 0}
@@ -434,9 +434,9 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
 @media(max-width:640px){
   .promo-banner{padding:8px 16px;font-size:.74rem;line-height:1.4}
   .promo-banner .promo-tag{display:block;margin:0 auto 4px}
-  body.has-promo .nav{top:52px}
-  body.has-promo .hero{padding-top:152px}
-  .hero{padding:100px 20px 48px}
+  body.has-promo .nav{top:auto}
+  body.has-promo .hero{padding-top:48px}
+  .hero{padding:48px 20px 48px}
   .hero h1{font-size:2rem}
   .hero p{font-size:.95rem}
   .hm{flex-direction:column;gap:16px}

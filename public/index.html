@@ -699,14 +699,8 @@ function setL(l){
   var payment = params.get('payment');
   if (payment === 'success') {
     window.datafast?.('payment_success');
-    setTimeout(function() {
-      var d = document.createElement('div');
-      d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#22c55e;color:#fff;text-align:center;padding:16px;font-weight:600;z-index:9999;font-size:1rem';
-      d.textContent = 'Payment received! We\'ll start your project within 2 hours.';
-      document.body.prepend(d);
-      setTimeout(function() { d.remove(); }, 8000);
-    }, 300);
-    window.history.replaceState({}, '', '/');
+    window.location.href = '/thank-you/?type=payment';
+    return;
   } else if (payment === 'failed' || payment === 'cancelled') {
     setTimeout(function() {
       var d = document.createElement('div');
@@ -795,10 +789,9 @@ async function sendA(e, lang) {
   } catch (err) { console.error('Notify error:', err); }
 
   if (result) {
-    btn.textContent = lang === 'he' ? 'נשלח! המוקאפ מוכן תוך 48 שעות' : 'Sent! Your mockup will be ready within 48h';
-    btn.style.background = 'var(--grn)'; btn.style.color = '#fff';
-    e.target.reset();
     window.datafast?.('mockup_request', { lang: lang });
+    window.location.href = '/thank-you/?type=audit&name=' + encodeURIComponent(data.contact_name);
+    return false;
   } else {
     btn.textContent = lang === 'he' ? 'שגיאה - נסו שוב' : 'Error - try again';
     btn.style.background = '#c44'; btn.style.color = '#fff';
@@ -1011,6 +1004,7 @@ async function submitOrder() {
       }
       if (ppData.payment_url) {
         window.datafast?.('order_submitted', { package: sPlan, total: String(totalPrice), method: 'Credit Card' });
+        try { localStorage.setItem('mizra_order', JSON.stringify({ package: sPlan, total: String(totalPrice) })); } catch(e) {}
         window.location.href = ppData.payment_url;
         return;
       } else {
@@ -1025,10 +1019,9 @@ async function submitOrder() {
     return; // Don't show step 4 for CC — only on successful return
   }
 
-  // Non-CC methods -> show confirmation step
-  gs(4);
-  console.log('Order submitted:', order.id);
+  // Non-CC methods -> redirect to thank you page
   window.datafast?.('order_submitted', { package: sPlan, total: String(totalPrice), method: paymentMethod });
+  window.location.href = '/thank-you/?type=order&package=' + encodeURIComponent(sPlan) + '&total=' + encodeURIComponent(String(totalPrice)) + '&method=' + encodeURIComponent(paymentMethod);
 }
 
 // Custom Quote submit from modal

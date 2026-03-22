@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1a2e">
+<meta name="geo.region" content="IL-TA">
+<meta name="geo.placename" content="Tel Aviv">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Thank You | Mizra</title>
+<meta name="description" content="Thank you for choosing Mizra. We'll be in touch very soon.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://getmizra.com/thank-you/">
+<meta property="og:title" content="Thank You | Mizra">
+<meta property="og:url" content="https://getmizra.com/thank-you/">
+<meta property="og:image" content="https://getmizra.com/og-default.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=20260304">
+<script id="datafast-queue">
+  window.datafast = window.datafast || function() {
+    window.datafast.q = window.datafast.q || [];
+    window.datafast.q.push(arguments);
+  };
+</script>
+<script defer data-website-id="dfid_Bm5iRggzwWA1zrT8mLjWN" data-domain="getmizra.com" src="https://datafa.st/js/script.js"></script>
+<style>
+.ty-wrap{min-height:80vh;display:flex;align-items:center;justify-content:center;padding:80px 24px 60px}
+.ty-card{max-width:560px;width:100%;text-align:center}
+.ty-icon{font-size:3.5rem;margin-bottom:20px}
+.ty-title{font-family:var(--sf);font-size:2rem;color:var(--navy);margin-bottom:12px;font-weight:700}
+.ty-sub{font-size:1.05rem;color:var(--tx);margin-bottom:32px;line-height:1.7}
+.ty-recap{background:var(--bg2);border-radius:12px;padding:24px;margin-bottom:32px;text-align:start}
+.ty-recap-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bg3);font-size:.92rem}
+.ty-recap-row:last-child{border-bottom:none}
+.ty-recap-label{color:var(--txl);font-weight:500}
+.ty-recap-value{color:var(--navy);font-weight:600}
+.ty-contact{background:var(--ord);border:1px solid rgba(212,100,58,.12);border-radius:12px;padding:20px;margin-bottom:32px}
+.ty-contact p{margin:0;font-size:.92rem;color:var(--tx)}
+.ty-contact a{color:var(--or);font-weight:600;text-decoration:none}
+.ty-contact a:hover{text-decoration:underline}
+.ty-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--or);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.92rem;transition:.3s}
+.ty-btn:hover{background:var(--or2);transform:translateY(-1px)}
+</style>
+</head>
+<body class="lh" data-shared>
+
+<div class="ty-wrap">
+  <div class="ty-card">
+    <div class="ty-icon">&#10003;</div>
+    <h1 class="ty-title">
+      <span class="he">!תודה רבה</span>
+      <span class="en">Thank you!</span>
+    </h1>
+
+    <!-- Order / Payment message -->
+    <div id="msg-order" style="display:none">
+      <p class="ty-sub">
+        <span class="he">קיבלנו את ההזמנה שלך. הצוות שלנו מתחיל לעבוד על הפרויקט שלך ונחזור אליך בהקדם.</span>
+        <span class="en">We received your order. Our team is getting started on your project and we'll be in touch very soon.</span>
+      </p>
+      <div id="recap" class="ty-recap" style="display:none"></div>
+    </div>
+
+    <!-- Audit / Free mockup message -->
+    <div id="msg-audit" style="display:none">
+      <p class="ty-sub">
+        <span class="he">קיבלנו את הבקשה שלך לבדיקה חינמית. נחזור אליך תוך 24 שעות עם הניתוח שלנו.</span>
+        <span class="en">We received your free mockup request. We'll get back to you within 24 hours with our analysis.</span>
+      </p>
+    </div>
+
+    <!-- Fallback message -->
+    <div id="msg-default" style="display:none">
+      <p class="ty-sub">
+        <span class="he">תודה על הפנייה. נחזור אליך בהקדם האפשרי.</span>
+        <span class="en">Thanks for reaching out. We'll get back to you as soon as possible.</span>
+      </p>
+    </div>
+
+    <div class="ty-contact">
+      <p>
+        <span class="he">שאלות? כתבו לנו:</span>
+        <span class="en">Questions? Reach us at:</span>
+        <br><a href="mailto:hello@getmizra.com">hello@getmizra.com</a>
+      </p>
+    </div>
+
+    <a href="/" class="ty-btn">
+      <span class="he">חזרה לדף הבית</span>
+      <span class="en">Back to Homepage</span>
+    </a>
+  </div>
+</div>
+
+<script src="/shared.js?v=20260304"></script>
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var type = params.get('type') || 'default';
+
+  // Show the right message block
+  var el = document.getElementById('msg-' + type) || document.getElementById('msg-' + (type === 'payment' ? 'order' : 'default'));
+  if (type === 'payment') el = document.getElementById('msg-order');
+  if (el) el.style.display = '';
+  if (!el) document.getElementById('msg-default').style.display = '';
+
+  // Build recap for order / payment
+  if (type === 'order' || type === 'payment') {
+    var pkg, total, method;
+
+    if (type === 'payment') {
+      // Read from localStorage (saved before PayPlus redirect)
+      try {
+        var stored = JSON.parse(localStorage.getItem('mizra_order') || '{}');
+        pkg = stored.package;
+        total = stored.total;
+        method = 'Credit Card';
+        localStorage.removeItem('mizra_order');
+      } catch(e) {}
+    } else {
+      pkg = params.get('package');
+      total = params.get('total');
+      method = params.get('method');
+    }
+
+    if (pkg || total) {
+      var recap = document.getElementById('recap');
+      var rows = '';
+      if (pkg) rows += '<div class="ty-recap-row"><span class="ty-recap-label"><span class="he">חבילה</span><span class="en">Package</span></span><span class="ty-recap-value">' + pkg + '</span></div>';
+      if (total) rows += '<div class="ty-recap-row"><span class="ty-recap-label"><span class="he">סה"כ</span><span class="en">Total</span></span><span class="ty-recap-value">' + Number(total).toLocaleString() + ' &#8362;</span></div>';
+      if (method) rows += '<div class="ty-recap-row"><span class="ty-recap-label"><span class="he">אמצעי תשלום</span><span class="en">Payment</span></span><span class="ty-recap-value">' + method + '</span></div>';
+      recap.innerHTML = rows;
+      recap.style.display = '';
+    }
+  }
+
+  // Datafast tracking
+  window.datafast?.('thank_you_view', { type: type });
+})();
+</script>
+</body>
+</html>

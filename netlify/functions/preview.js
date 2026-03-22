@@ -425,7 +425,7 @@ a{text-decoration:none;color:inherit}
   <h3>רוצים אתר כזה? אנחנו בונים אותו בשבילכם</h3>
   <p>אתר מקצועי, מהיר ומותאם למובייל — מוכן תוך 48 שעות. החל מ-₪1,990 בלבד.</p>
   <a href="https://getmizra.com/free-audit/?utm_source=preview&utm_medium=mockup&utm_campaign=${sectorKey}" class="mizra-badge">
-    קבלו בדיקה חינמית לעסק &larr;
+    קבלו מוקאפ חינמי לעסק &larr;
   </a>
 </div>
 

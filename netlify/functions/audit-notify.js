@@ -9,11 +9,11 @@ exports.handler = async (event) => {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
     body: JSON.stringify({
-      from: "Mizra Audit <hello@getmizra.com>",
+      from: "Mizra Mockup <hello@getmizra.com>",
       to: ["hello@getmizra.com"],
-      subject: `🔍 Nouvelle demande d'audit — ${restaurant_name} (${contact_name})`,
+      subject: `🎨 Nouvelle demande de mockup — ${restaurant_name} (${contact_name})`,
       html: `
-        <h2>Nouvelle demande d'audit gratuit</h2>
+        <h2>Nouvelle demande de mockup gratuit</h2>
         <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
           <tr><td style="padding:8px 16px 8px 0;font-weight:bold;color:#666">Nom</td><td style="padding:8px 0">${contact_name}</td></tr>
           <tr><td style="padding:8px 16px 8px 0;font-weight:bold;color:#666">Business</td><td style="padding:8px 0">${restaurant_name}</td></tr>
@@ -29,22 +29,21 @@ exports.handler = async (event) => {
 
   // 2. Confirmation email to the user
   const subjectLine = isHe
-    ? "קיבלנו את הבקשה שלך לבדיקה חינמית ✓"
-    : "We received your free audit request ✓";
+    ? "קיבלנו את הבקשה שלך למוקאפ חינמי ✓"
+    : "We received your free mockup request ✓";
 
   const htmlBody = isHe
     ? `<div style="font-family:sans-serif;direction:rtl;text-align:right">
         <p>שלום ${contact_name},</p>
-        <p>תודה שביקשת בדיקה דיגיטלית חינמית עבור <strong>${restaurant_name}</strong>!</p>
-        <p>הצוות שלנו כבר עובד על הניתוח שלך. תקבל/י את הדו"ח המותאם תוך <strong>24 שעות</strong> ישירות למייל.</p>
-        <p>הנה מה שנבדוק:</p>
+        <p>תודה שביקשת מוקאפ חינמי לאתר <strong>${restaurant_name}</strong>!</p>
+        <p>הצוות שלנו כבר עובד על העיצוב שלך. תקבל/י את המוקאפ המותאם תוך <strong>48 שעות</strong> ישירות למייל.</p>
+        <p>איך זה עובד:</p>
         <ul style="line-height:2">
-          <li>📍 ניתוח Google Business</li>
-          <li>🔍 בדיקת SEO ונראות בחיפוש</li>
-          <li>📊 השוואת מתחרים</li>
-          <li>📱 סקירת רשתות חברתיות</li>
-          <li>💰 הערכת השפעה על הכנסות</li>
-          <li>🎯 תוכנית פעולה מותאמת</li>
+          <li>🎨 אנחנו מעצבים מוקאפ מותאם לעסק שלך</li>
+          <li>📩 שולחים אותו למייל תוך 48 שעות</li>
+          <li>💳 אהבת? משלמים ומקבלים אתר מוכן</li>
+          <li>🔄 סבב תיקונים אחד כלול</li>
+          <li>🚀 האתר שלך באוויר תוך 48 שעות מהתשלום</li>
         </ul>
         <p>אם יש לך שאלות בינתיים, אפשר לענות ישירות על המייל הזה.</p>
         <br>
@@ -52,16 +51,15 @@ exports.handler = async (event) => {
       </div>`
     : `<div style="font-family:sans-serif">
         <p>Hi ${contact_name},</p>
-        <p>Thanks for requesting a free digital audit for <strong>${restaurant_name}</strong>!</p>
-        <p>Our team is already working on your analysis. You'll receive your personalized report within <strong>24 hours</strong> directly to your email.</p>
-        <p>Here's what we'll review:</p>
+        <p>Thanks for requesting a free website mockup for <strong>${restaurant_name}</strong>!</p>
+        <p>Our team is already working on your design. You'll receive your custom mockup within <strong>48 hours</strong> directly to your email.</p>
+        <p>Here's how it works:</p>
         <ul style="line-height:2">
-          <li>📍 Google Business Profile analysis</li>
-          <li>🔍 SEO & search visibility check</li>
-          <li>📊 Competitor benchmarking</li>
-          <li>📱 Social media presence review</li>
-          <li>💰 Revenue impact estimation</li>
-          <li>🎯 Personalized action plan</li>
+          <li>🎨 We design a custom mockup for your business</li>
+          <li>📩 We send it to your email within 48 hours</li>
+          <li>💳 Love it? Pay and get your site live</li>
+          <li>🔄 One revision round included</li>
+          <li>🚀 Your site goes live within 48 hours of payment</li>
         </ul>
         <p>If you have any questions in the meantime, just reply to this email.</p>
         <br>

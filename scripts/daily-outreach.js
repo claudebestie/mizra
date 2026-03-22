@@ -109,7 +109,7 @@ function buildEmailHTML(lead, mockupUrl) {
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr><td align="center" style="padding:8px;">
       <a href="${ctaUrl}" style="display:inline-block;background:#0D2137;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:bold;">
-        בדיקה חינמית לעסק שלי
+        מוקאפ חינמי לעסק שלי
       </a>
     </td></tr>
     <tr><td align="center" style="padding:8px;">

@@ -690,6 +690,7 @@ function setL(l){
   document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
   if(event && event.target) event.target.classList.add('on');
   try { localStorage.setItem('mizra_lang', l); } catch(e) {}
+  window.datafast?.('lang_switch', { lang: l });
 }
 
 // PayPlus payment return — show status
@@ -1104,6 +1105,21 @@ if (new URLSearchParams(window.location.search).get('start') === '1') {
   openS();
   history.replaceState(null, '', window.location.pathname);
 }
+
+// Track active language on page load
+var activeLang = document.documentElement.lang || 'he';
+window.datafast?.('page_lang', { lang: activeLang });
+
+// Track example clicks
+document.querySelectorAll('a.ex-card[href*="/examples/"]').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var href = card.getAttribute('href') || '';
+    var match = href.match(/\/examples\/([^/]+)/);
+    if (match) {
+      window.datafast?.('example_click', { example: match[1] });
+    }
+  });
+});
 </script>
 </body>
 </html>

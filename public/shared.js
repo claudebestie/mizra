@@ -115,6 +115,7 @@ function setL(l) {
   document.querySelectorAll('.ls button').forEach(b => b.classList.remove('on'));
   if (event && event.target) event.target.classList.add('on');
   try { localStorage.setItem('mizra_lang', l); } catch(e) {}
+  window.datafast?.('lang_switch', { lang: l });
 }
 
 // --- SCROLL REVEAL ---
@@ -160,6 +161,19 @@ function getAffiliate() {
   try { return localStorage.getItem('mizra_ref') || ''; } catch(e) { return ''; }
 }
 
+// --- EXAMPLE CLICK TRACKING ---
+function initExampleTracking() {
+  document.querySelectorAll('a.ex-card[href*="/examples/"]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var href = card.getAttribute('href') || '';
+      var match = href.match(/\/examples\/([^/]+)/);
+      if (match) {
+        window.datafast?.('example_click', { example: match[1] });
+      }
+    });
+  });
+}
+
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', function() {
   initAffiliate();
@@ -182,7 +196,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 50);
     }
   } catch(e) {}
+  // Track active language on page load
+  var activeLang = document.documentElement.lang || 'he';
+  window.datafast?.('page_lang', { lang: activeLang });
   initScrollReveal();
   initFAQ();
   initSmoothScroll();
+  initExampleTracking();
 });

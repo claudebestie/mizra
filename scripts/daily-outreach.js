@@ -76,7 +76,7 @@ async function sendWhatsApp(lead, mockupUrl) {
 // ── BREVO Email API ─────────────────────────────────────────
 function buildEmailHTML(lead, mockupUrl) {
   const businessName = lead.name || '';
-  const ctaUrl = 'https://getmizra.com/free-audit/?utm_source=outreach&utm_medium=email';
+  const ctaUrl = 'https://getmizra.com/free-mockup/?utm_source=outreach&utm_medium=email';
   const whatsappUrl = 'https://wa.me/972542271670?text=' + encodeURIComponent(`היי, קיבלתי מייל על ${businessName}`);
   const unsubUrl = `https://getmizra.com/.netlify/functions/unsubscribe?id=${lead.id}`;
   const mockupHtml = mockupUrl

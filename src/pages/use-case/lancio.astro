@@ -1,0 +1,243 @@
+---
+import SEOPage from '../../layouts/SEOPage.astro';
+
+const site = 'https://getmizra.com';
+const canonical = `${site}/use-case/lancio/`;
+
+const articleLD = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Case Study: Lancio.fr — How Mizra Built a Custom Back-Office for a French Web Agency",
+  "description": "How Lancio.fr industrialized its lead pipeline with a custom back-office built by Mizra in 48 hours: CRM, quotes, invoicing, and KPI dashboard.",
+  "datePublished": "2026-03-23",
+  "author": { "@type": "Organization", "name": "Mizra", "url": site },
+  "publisher": { "@type": "Organization", "name": "Mizra", "url": site },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+};
+
+const breadcrumbLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+    { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": `${site}/use-case/lancio/` },
+    { "@type": "ListItem", "position": 3, "name": "Lancio.fr" },
+  ],
+};
+---
+
+<SEOPage
+  title="Case Study: Lancio.fr — Custom Back-Office by Mizra"
+  description="How Lancio.fr industrialized its lead pipeline with a custom back-office built by Mizra in 48h: CRM, quotes, invoicing, and KPI dashboard."
+  canonical={canonical}
+  jsonLd={[articleLD, breadcrumbLD]}
+>
+
+<div class="cx">
+  <nav class="breadcrumbs" aria-label="Breadcrumb" style="direction:ltr;text-align:left;">
+    <a href="/">Home</a><span>/</span><a href="/use-case/lancio/">Use Cases</a><span>/</span><span>Lancio.fr</span>
+  </nav>
+</div>
+
+<article class="uc" style="direction:ltr;text-align:left;">
+<div class="cx">
+
+  <!-- HERO -->
+  <header class="uc-hero">
+    <span class="uc-tag">Case Study · Web Agency · France</span>
+    <h1>How <i>Lancio.fr</i> industrialized its acquisition with a custom back-office</h1>
+    <p class="uc-sub">From manual prospection to an automated pipeline: Lancio.fr now manages its leads, quotes and invoices from a single interface built by Mizra.</p>
+  </header>
+
+  <!-- METRICS -->
+  <div class="uc-metrics rv">
+    <div class="uc-metric">
+      <div class="uc-metric-val">48h</div>
+      <div class="uc-metric-lbl">Delivery time</div>
+    </div>
+    <div class="uc-metric">
+      <div class="uc-metric-val">3×</div>
+      <div class="uc-metric-lbl">Leads processed / week</div>
+    </div>
+    <div class="uc-metric">
+      <div class="uc-metric-val">100%</div>
+      <div class="uc-metric-lbl">Digitalized back-office</div>
+    </div>
+  </div>
+
+  <!-- CONTENT GRID -->
+  <div class="uc-grid">
+    <div class="uc-main">
+
+      <!-- CONTEXTE -->
+      <section class="uc-section rv">
+        <div class="sl">Context</div>
+        <h2>An agency scaling up — without the infrastructure</h2>
+        <p>Lancio.fr is a French web agency specializing in website creation for small businesses and freelancers. With offers priced between €650 and €1,500, their prospect volume is high — but their internal organization hadn't kept up.</p>
+        <p>Before working with Mizra, the Lancio team managed quotes in Excel, follow-ups manually by email, and had zero real-time visibility on their commercial pipeline.</p>
+      </section>
+
+      <!-- CHALLENGE / SOLUTION -->
+      <section class="uc-section rv">
+        <div class="sl">Challenge</div>
+        <h2>Too many leads, not enough tools</h2>
+        <div class="uc-twocol">
+          <div class="uc-block uc-block-before">
+            <div class="uc-block-title">Before Mizra</div>
+            <ul>
+              <li>Lead tracking on spreadsheets</li>
+              <li>Quotes created manually</li>
+              <li>No centralized invoicing</li>
+              <li>Follow-ups forgotten or late</li>
+              <li>Zero visibility on conversion rate</li>
+            </ul>
+          </div>
+          <div class="uc-block uc-block-after">
+            <div class="uc-block-title">After Mizra</div>
+            <ul>
+              <li>Lightweight CRM built into the back-office</li>
+              <li>One-click quote generation</li>
+              <li>Numbered, exportable invoicing</li>
+              <li>Live performance dashboard</li>
+              <li>Everything centralized, accessible anywhere</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- BO HIGHLIGHT -->
+      <section class="uc-section rv">
+        <div class="sl">Solution</div>
+        <h2>A back-office designed for agencies that prospect</h2>
+        <p>Mizra delivered in 48 hours a complete back-office, connected to Supabase, with an admin interface designed for non-technical sales teams.</p>
+
+        <div class="uc-bo">
+          <h3>Lancio back-office modules</h3>
+          <div class="uc-bo-grid">
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">📥</span>
+              <div>
+                <strong>CSV Lead Import</strong>
+                <p>Bulk import from Lobstr or any scraping source</p>
+              </div>
+            </div>
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">🗂️</span>
+              <div>
+                <strong>Visual Pipeline</strong>
+                <p>Statuses: New, Contacted, Quote Sent, Signed, Lost</p>
+              </div>
+            </div>
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">📄</span>
+              <div>
+                <strong>Quote Generation</strong>
+                <p>Numbered quotes, auto-generated PDFs, email delivery</p>
+              </div>
+            </div>
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">💳</span>
+              <div>
+                <strong>Invoice Tracking</strong>
+                <p>Invoices linked to quotes, CSV export, payment status</p>
+              </div>
+            </div>
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">📊</span>
+              <div>
+                <strong>KPI Dashboard</strong>
+                <p>Monthly revenue, conversion rate, leads by source</p>
+              </div>
+            </div>
+            <div class="uc-bo-item">
+              <span class="uc-bo-icon">🔐</span>
+              <div>
+                <strong>Secure Access</strong>
+                <p>Admin login, multi-user, securely hosted data</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <blockquote class="uc-quote rv">
+        <p>"We had the offer, we had the clients — we were missing the infrastructure. Mizra delivered in 48h what we'd been putting off for months."</p>
+        <cite>— Lancio.fr Team · Web Agency, France</cite>
+      </blockquote>
+
+      <!-- RESULTS -->
+      <section class="uc-section rv">
+        <div class="sl">Results</div>
+        <h2>A pipeline finally under control</h2>
+        <div class="uc-results">
+          <div class="uc-result">
+            <div class="uc-result-num">3×</div>
+            <p>More leads processed per week thanks to automated CSV import</p>
+          </div>
+          <div class="uc-result">
+            <div class="uc-result-num">€0</div>
+            <p>SaaS subscription saved — everything is proprietary, no recurring fees</p>
+          </div>
+          <div class="uc-result">
+            <div class="uc-result-num">48h</div>
+            <p>Delivery time for the complete back-office, operational from day 2</p>
+          </div>
+          <div class="uc-result">
+            <div class="uc-result-num">100%</div>
+            <p>Quotes and invoices generated from the BO — spreadsheets are gone</p>
+          </div>
+        </div>
+      </section>
+
+      <p class="uc-footer-note">
+        Case study in partnership with <a href="https://lancio.fr" target="_blank" rel="noopener">Lancio.fr</a> — French web agency specialized in small businesses & freelancers.
+      </p>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="uc-sidebar">
+      <div class="uc-card">
+        <h4>Client Profile</h4>
+        <div class="uc-row"><span>Client</span><span>Lancio.fr</span></div>
+        <div class="uc-row"><span>Sector</span><span>Web Agency</span></div>
+        <div class="uc-row"><span>Country</span><span>France 🇫🇷</span></div>
+        <div class="uc-row"><span>Delivery</span><span>48 hours</span></div>
+        <div class="uc-row"><span>Type</span><span>Back-office + CRM</span></div>
+      </div>
+
+      <div class="uc-card">
+        <h4>Tech Stack</h4>
+        <div class="uc-tags">
+          <span class="uc-tag-item">Supabase</span>
+          <span class="uc-tag-item">Next.js</span>
+          <span class="uc-tag-item">Vercel</span>
+          <span class="uc-tag-item">Brevo</span>
+          <span class="uc-tag-item">CSV Import</span>
+          <span class="uc-tag-item">PDF Auto</span>
+        </div>
+      </div>
+
+      <div class="uc-card">
+        <h4>Modules Delivered</h4>
+        <div class="uc-row"><span>CRM Leads</span><span>✓</span></div>
+        <div class="uc-row"><span>Quotes</span><span>✓</span></div>
+        <div class="uc-row"><span>Invoicing</span><span>✓</span></div>
+        <div class="uc-row"><span>Dashboard</span><span>✓</span></div>
+        <div class="uc-row"><span>CSV Export</span><span>✓</span></div>
+        <div class="uc-row"><span>Admin Auth</span><span>✓</span></div>
+      </div>
+
+      <div class="uc-backlink">
+        <div class="uc-backlink-label">Our Partner</div>
+        <p>Lancio.fr is a French web agency that delivers professional websites for freelancers starting at €650.</p>
+        <a href="https://lancio.fr" target="_blank" rel="noopener" class="btn btn-p btn-sm">Visit Lancio.fr →</a>
+      </div>
+    </aside>
+  </div>
+
+</div>
+</article>
+
+</SEOPage>

@@ -1,11 +1,10 @@
 name: Daily Outreach
 
 on:
-  schedule:
-    # 9:00 AM Israel time (IST = UTC+2, IDT = UTC+3)
-    # Using UTC+2 (winter) = 07:00 UTC
-    - cron: '0 7 * * 0-4'  # Sunday(0) to Thursday(4) at 07:00 UTC
-  workflow_dispatch: {}  # Allow manual trigger from GitHub UI
+  # DISABLED — All outreach stopped as requested
+  # schedule:
+  #   - cron: '0 7 * * 0-4'
+  workflow_dispatch: {}  # Allow manual trigger from GitHub UI only
 
 jobs:
   outreach:

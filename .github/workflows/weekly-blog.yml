@@ -1,9 +1,9 @@
 name: Mizra Blog — Weekly Generation
 
 on:
-  # Every Monday at 7:00 AM Israel time (UTC+3 = 4:00 UTC)
-  schedule:
-    - cron: "0 4 * * 1"
+  # DISABLED — All automation stopped as requested
+  # schedule:
+  #   - cron: "0 4 * * 1"
 
   # Manual trigger from GitHub UI
   workflow_dispatch:

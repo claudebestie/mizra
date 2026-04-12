@@ -1,14 +1,15 @@
 name: Daily Outreach
 
 on:
-  # DISABLED — All outreach stopped as requested
+  # FULLY DISABLED — All outreach stopped. No trigger possible.
   # schedule:
   #   - cron: '0 7 * * 0-4'
-  workflow_dispatch: {}  # Allow manual trigger from GitHub UI only
+  # workflow_dispatch: {}
 
 jobs:
   outreach:
     runs-on: ubuntu-latest
+    if: false
     steps:
       - uses: actions/checkout@v4
 

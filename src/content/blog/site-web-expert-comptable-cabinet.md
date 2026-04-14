@@ -179,4 +179,4 @@ Pour un cabinet local, Google Ads sur des mots-clés comme "expert-comptable [vi
 
 Nous créons des sites internet pour experts-comptables qui attirent des prospects qualifiés, présentent vos missions clairement, et se positionnent en SEO local — à partir de 490 €, livrés en 48 heures.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

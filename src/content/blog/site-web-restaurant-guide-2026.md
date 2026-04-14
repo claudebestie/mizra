@@ -163,4 +163,4 @@ Le menu : à chaque changement. Les photos : une ou deux fois par an. Les horair
 
 Nous créons des sites internet pour restaurants avec menu en ligne, réservation intégrée, et SEO local — à partir de 490 €, livrés en 48 heures. Vos plats méritent un site qui donne envie.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

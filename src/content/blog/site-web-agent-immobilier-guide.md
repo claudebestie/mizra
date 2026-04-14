@@ -158,4 +158,4 @@ Oui, surtout pour capter les vendeurs. Les recherches comme "estimation appartem
 
 Nous créons des sites internet pour agents immobiliers avec pages de biens, formulaire d'estimation, et SEO local — à partir de 490 €, livrés en 48 heures. Votre expertise du terrain mérite une présence en ligne qui la reflète.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

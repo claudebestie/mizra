@@ -162,4 +162,4 @@ Quand il ne vous représente plus (changement d'activité, de positionnement), q
 
 Chez Lancio, nous proposons des sites internet professionnels à partir de 490 €, livrés en 48 heures. Design sur-mesure, responsive mobile, optimisé SEO, et sans abonnement mensuel caché. Le site vous appartient.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

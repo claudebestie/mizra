@@ -148,4 +148,4 @@ Absolument. C'est même recommandé. Un outil comme Calendly ou un formulaire de
 
 Nous créons des sites internet pour avocats et cabinets juridiques, conformes aux règles déontologiques, optimisés pour le SEO local, et livrés en 48 heures — à partir de 490 €. Votre expertise mérite une vitrine à la hauteur.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

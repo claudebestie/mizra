@@ -147,4 +147,4 @@ Un site professionnel de 5-7 pages coûte entre 500 € et 2 000 €. Évitez le
 
 Nous créons des sites internet pour médecins libéraux conformes aux recommandations de l'Ordre, optimisés pour le référencement local, et livrés en 48 heures — à partir de 490 €. Votre cabinet mérite une présence en ligne à la hauteur de votre expertise.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

@@ -15,11 +15,12 @@ const { Content } = await render(post);
 const { title, description, date, author, tags, lang, readingTime } = post.data;
 
 const isHe = lang === 'he';
+const isFr = lang === 'fr';
 const site = 'https://getmizra.com';
 const canonical = `${site}/blog/${post.id}/`;
 
-const dateLocale = isHe ? 'he-IL' : 'en-US';
-const byLabel = isHe ? 'מאת' : 'By';
+const dateLocale = isHe ? 'he-IL' : isFr ? 'fr-FR' : 'en-US';
+const byLabel = isHe ? 'מאת' : isFr ? 'Par' : 'By';
 
 const articleLD = {
   "@context": "https://schema.org",
@@ -59,6 +60,8 @@ const breadcrumbLD = {
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     {isHe ? (
       <Fragment><a href="/">דף הבית</a><span>/</span><a href="/blog/">בלוג</a><span>/</span><span>{title}</span></Fragment>
+    ) : isFr ? (
+      <Fragment><a href="/">Accueil</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span></Fragment>
     ) : (
       <Fragment><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{title}</span></Fragment>
     )}
@@ -91,6 +94,8 @@ const breadcrumbLD = {
     <footer class="article-footer">
       {isHe ? (
         <a href="/blog/" class="article-back">חזרה לבלוג &larr;</a>
+      ) : isFr ? (
+        <a href="/blog/" class="article-back">&larr; Retour au blog</a>
       ) : (
         <a href="/blog/" class="article-back">&larr; Back to blog</a>
       )}

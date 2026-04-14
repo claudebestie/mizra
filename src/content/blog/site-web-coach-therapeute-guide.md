@@ -171,4 +171,4 @@ Si vous proposez des séances en visio, mentionnez-le clairement. Beaucoup de cl
 
 Nous créons des sites internet pour coaches et thérapeutes qui inspirent confiance, intègrent la prise de rendez-vous en ligne, et attirent des clients via le SEO — à partir de 490 €, livrés en 48 heures.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

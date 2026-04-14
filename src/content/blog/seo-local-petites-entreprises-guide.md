@@ -171,4 +171,4 @@ Moins directement. Le SEO local est conçu pour les entreprises qui servent une 
 
 Un site web optimisé pour le SEO local est la fondation de votre visibilité en ligne. Chez Lancio, nous créons des sites professionnels avec optimisation locale intégrée — à partir de 490 €, livrés en 48 heures.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

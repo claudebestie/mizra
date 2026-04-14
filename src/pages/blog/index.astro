@@ -14,11 +14,13 @@ const description = 'מאמרים ומדריכים מעשיים לבניית א�
 const langColors: Record<string, string> = {
   en: '#059669',
   he: '#d97706',
+  fr: '#3b82f6',
 };
 
 const langLabels: Record<string, string> = {
   en: 'EN',
   he: 'HE',
+  fr: 'FR',
 };
 
 const breadcrumbLD = {
@@ -61,6 +63,7 @@ const breadcrumbLD = {
       <button class="blog-tab active" data-filter="all"><span class="en">All</span><span class="he">הכל</span></button>
       <button class="blog-tab" data-filter="en">English</button>
       <button class="blog-tab" data-filter="he">עברית</button>
+      <button class="blog-tab" data-filter="fr">Français</button>
     </div>
 
     {allPosts.length === 0 ? (
@@ -79,7 +82,7 @@ const breadcrumbLD = {
                   {langLabels[post.data.lang] || post.data.lang.toUpperCase()}
                 </span>
                 <time datetime={post.data.date}>
-                  {new Date(post.data.date).toLocaleDateString(post.data.lang === 'he' ? 'he-IL' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {new Date(post.data.date).toLocaleDateString(post.data.lang === 'he' ? 'he-IL' : post.data.lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </time>
                 {post.data.readingTime && <span>{post.data.readingTime}</span>}
               </div>

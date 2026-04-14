@@ -155,4 +155,4 @@ La fiche Google attire l'attention, mais votre site web convertit. La fiche mont
 
 Un site web professionnel optimisé pour le SEO local, lié à votre fiche Google Business Profile, est la combinaison gagnante pour attirer des clients dans votre zone. Chez Lancio, nous créons des sites professionnels à partir de 490 €, livrés en 48 heures.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

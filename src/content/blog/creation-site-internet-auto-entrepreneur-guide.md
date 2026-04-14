@@ -157,4 +157,4 @@ En le faisant vous-même : 2 à 6 semaines. Avec un freelance : 2 à 4 semaines.
 
 Chez Lancio, nous créons des sites internet professionnels pour auto-entrepreneurs à partir de 490 €, livrés en 48 heures. Design sur-mesure, optimisé mobile et SEO, avec toutes les mentions légales incluses. Votre activité mérite un site qui vous représente.
 
-[Voir nos tarifs →](/tarifs/)
+[Voir nos tarifs →](/pricing/)

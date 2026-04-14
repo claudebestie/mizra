@@ -1,7 +1,7 @@
 ---
 title: "Should Wedding Planners Show Package Prices on Their Website? Pros and Cons"
 description: "Discover whether displaying prices on your wedding planner website helps or hurts your business. Learn the pros, cons, and best practices for pricing transparency in Israel's wedding industry."
-date: 2026-03-23
+date: "2026-03-23"
 author: "Mizra Team"
 tags: ["wedding planner website", "pricing strategy", "website design", "small business", "Israel"]
 keyword: "wedding planner website pricing"

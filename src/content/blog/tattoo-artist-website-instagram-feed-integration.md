@@ -1,8 +1,7 @@
-```yaml
 ---
 title: "How Tattoo Artists Can Use Instagram Feed Integration on Their Website"
 description: "Learn how tattoo artists in Israel can boost their online presence by integrating Instagram feeds into their websites. Practical tips for showcasing work and attracting clients."
-date: 2026-04-06
+date: "2026-04-06"
 author: "Mizra Team"
 tags: ["Instagram integration", "tattoo artist website", "social media", "portfolio", "web design"]
 keyword: "tattoo artist website Instagram integration"
@@ -147,4 +146,3 @@ Tattoo artist website Instagram integration represents more than just a technica
 The key to success lies in choosing quality integration tools, developing strategic content approaches, and ensuring technical implementation that maintains both image quality and website performance. When done correctly, your integrated Instagram feed becomes a powerful business asset that works continuously to showcase your skills and attract new clients.
 
 Ready to create a professional website that perfectly showcases your tattoo artistry? [See our plans →](/pricing/)
-```

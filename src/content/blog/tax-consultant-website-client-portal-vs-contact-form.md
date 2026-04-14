@@ -1,8 +1,7 @@
-```yaml
 ---
 title: "Tax Consultant Website: Client Portal vs Simple Contact Form - Which Converts Better in Israel?"
 description: "Discover whether your tax consultant website needs a full client portal or if a simple contact form drives more clients. Real data from Israeli tax professionals."
-date: 2026-03-30
+date: "2026-03-30"
 author: "Mizra Team"
 tags: ["tax consultant website", "client portal", "website design", "israeli business", "professional services"]
 keyword: "tax consultant website client portal"
@@ -194,4 +193,3 @@ For practices with under 100 clients, start with optimized contact forms that ca
 Remember that your tax consultant website client portal decision should align with your business model, client expectations, and growth trajectory. Don't let technology drive strategy—let strategy drive technology choices.
 
 Ready to build a tax consultant website that converts visitors into clients? [See our plans →](/pricing/)
-```

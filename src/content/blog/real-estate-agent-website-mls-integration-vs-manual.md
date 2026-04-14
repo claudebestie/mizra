@@ -1,8 +1,7 @@
-```yaml
 ---
 title: "Real Estate Agent Website: MLS Integration vs. Manual Property Listings"
 description: "Discover the pros and cons of MLS integration vs manual listings for your real estate agent website. Learn which approach works best for Israeli agents and how to maximize your online presence."
-date: 2026-04-06
+date: "2026-04-06"
 author: "Mizra Team"
 tags: ["real estate websites", "MLS integration", "property listings", "Israeli real estate", "web development"]
 keyword: "real estate agent website MLS integration"
@@ -186,4 +185,3 @@ The Israeli market's unique characteristics—bilingual requirements, local plat
 Success comes from matching your system choice to your business reality, not following trends or competitor strategies. Whether you choose automated efficiency or manual control, focus on delivering accurate, compelling property information that serves your clients' needs.
 
 Ready to build a professional real estate website that grows your business? [See our plans →](/pricing/)
-```

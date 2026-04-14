@@ -1,7 +1,7 @@
 ---
 title: "Dog Trainer Website: Video Testimonials vs Written Reviews - Which Builds More Trust?"
 description: "Discover why video testimonials outperform written reviews for dog trainer websites. Learn how to showcase client success stories and build trust online in Israel's competitive pet industry."
-date: 2026-03-30
+date: "2026-03-30"
 author: "Mizra Team"
 tags: ["dog trainer website", "video testimonials", "client reviews", "pet business marketing", "website design"]
 keyword: "dog trainer website video testimonials"

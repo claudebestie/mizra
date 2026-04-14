@@ -1,7 +1,7 @@
 ---
 title: "Should Veterinarians Display Emergency Call Fees on Their Website?"
 description: "Learn why transparent veterinarian emergency fees on your website build trust with pet owners and improve your practice's credibility in Israel's competitive market."
-date: 2026-03-30
+date: "2026-03-30"
 author: "Mizra Team"
 tags: ["veterinary websites", "pricing transparency", "emergency services", "small business", "Israel"]
 keyword: "veterinarian emergency fees website"

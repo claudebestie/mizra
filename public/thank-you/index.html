@@ -147,6 +147,28 @@
 
   // Datafast tracking
   window.datafast?.('thank_you_view', { type: type });
+
+  // Google Ads conversion — fire only on real conversions
+  if (typeof gtag === 'function') {
+    if (type === 'order' || type === 'payment') {
+      var txId = params.get('order_id') || ('mz_' + Date.now());
+      var amount = Number(total) || 0;
+      gtag('event', 'purchase', {
+        transaction_id: txId,
+        value: amount,
+        currency: 'ILS',
+        items: pkg ? [{ item_name: pkg, price: amount, quantity: 1 }] : []
+      });
+      gtag('event', 'conversion', {
+        send_to: 'AW-18034099114',
+        value: amount,
+        currency: 'ILS',
+        transaction_id: txId
+      });
+    } else if (type === 'audit') {
+      gtag('event', 'generate_lead', { currency: 'ILS', value: 500 });
+    }
+  }
 })();
 </script>
 </body>

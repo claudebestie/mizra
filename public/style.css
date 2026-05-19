@@ -576,3 +576,25 @@ body.lh .article blockquote{border-left:none;border-right:3px solid var(--or);bo
   .uc-sidebar{position:static}
   .uc-hero h1{font-size:1.6rem}
 }
+
+/* --- GLOBAL 80% ZOOM + COMPACT CARDS --- */
+body{zoom:.8}
+@supports not (zoom:1){
+  body{transform:scale(.8);transform-origin:top center;width:125%;margin-left:-12.5%}
+}
+
+.al-card{padding:22px 20px}
+.al-card h3{font-size:1.05rem}
+.feat-card{padding:20px 18px}
+.feat-card .feat-icon{font-size:1.4rem;margin-bottom:8px}
+.feat-card h3{font-size:.95rem}
+.feat-card p{font-size:.78rem}
+.test-card{padding:20px 18px}
+.test-card p{font-size:.82rem;margin-bottom:10px}
+.blog-card .bc-body,.blog-card .blog-body{padding:18px}
+.blog-card img,.blog-card .blog-img{height:160px}
+.blog-card .blog-img{font-size:2.4rem}
+.blog-card h3{font-size:1rem}
+.vert-card{padding:16px 18px}
+.ex-card-img{height:160px}
+.ex-info{padding:12px 14px}
